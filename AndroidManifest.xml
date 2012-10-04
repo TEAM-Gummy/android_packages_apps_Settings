@@ -1684,6 +1684,7 @@
         <!-- Gummy activities End -->
 
         <activity android:name=".ApnEditor" />
+        <activity android:name=".util.ShowBuildProp" />
 
         <activity android:name=".gummy.AutoBrightnessSetup"
                 android:excludeFromRecents="true"

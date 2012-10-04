@@ -153,6 +153,11 @@
             android:summary="@string/header_summary_init_d" />
 
         <PreferenceScreen
+            android:key="buildprop_modder"
+            android:fragment="com.android.settings.gummy.PropModder"
+            android:title="@string/propmodder_title" />
+
+        <PreferenceScreen
             android:id="@+id/appops_settings"
             android:key="app_ops"
             android:title="@string/app_ops_settings"
