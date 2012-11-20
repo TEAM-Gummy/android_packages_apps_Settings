@@ -645,4 +645,6 @@ f anonymous statistics. -->
     <string name="preview_country_code_title">Country Code</string>
     <string name="preview_device_id_title">Device ID</string>
 
+    <!-- Themes settings  -->
+    <string name="themes_settings_title">Themes</string>
 </resources>
