@@ -41,7 +41,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-       android:key="lockscreen_widgets_group"
+       android:key="lockscreen_widgets_catagory"
        android:title="@string/lockscreen_widgets_category">
 
          <CheckBoxPreference
@@ -53,6 +53,12 @@
             android:key="lockscreen_camera_widget"
             android:title="@string/lockscreen_camera_widget_title"
             android:summary="@string/lockscreen_camera_widget_summary" />
+
+         <CheckBoxPreference
+            android:key="lockscreen_maximize_widgets"
+            android:persistent="false"
+            android:title="@string/lockscreen_maximize_widgets_title"
+            android:summary="@string/lockscreen_maximize_widgets_summary" />
 
     </PreferenceCategory>
 

@@ -36,10 +36,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
     private static final String PREF_LOCKSCREEN_BATTERY = "lockscreen_battery";
     private static final String PREF_LOCKSCREEN_TEXT_COLOR = "lockscreen_text_color";
     private static final String KEY_ADVANCED_CATAGORY = "advanced_catagory";
+    private static final String KEY_WIDGET_OPTIONS = "lockscreen_widgets_catagory";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String HOME_UNLOCK_PREF = "home_unlock";
     private static final String KEY_LOCKSCREEN_CAMERA_WIDGET = "lockscreen_camera_widget";
     private static final String KEY_LOCKSCREEN_ALL_WIDGETS = "lockscreen_all_widgets";
+    private static final String KEY_LOCKSCREEN_MAXIMIZE_WIDGETS = "lockscreen_maximize_widgets";
 
     private PreferenceScreen mLockscreenButtons;
     private PreferenceCategory mAdvancedCatagory;
@@ -51,6 +53,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
     private CheckBoxPreference mAllWidgets;
     private CheckBoxPreference mCameraWidget;
     private CheckBoxPreference mHomeUnlock;
+    private CheckBoxPreference mMaximizeWidgets;
 
     Context mContext;
 
@@ -63,6 +66,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.lockscreen_interface_settings);
+        Preference mPref;
 
         mLockscreenAutoRotate = (CheckBoxPreference)findPreference(PREF_LOCKSCREEN_AUTO_ROTATE);
         mLockscreenAutoRotate.setChecked(Settings.System.getBoolean(getActivity()
@@ -100,6 +104,18 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
         mAllWidgets = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_ALL_WIDGETS);
         mAllWidgets.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.KG_ALL_WIDGETS, 1) == 1);
+
+        mMaximizeWidgets = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MAXIMIZE_WIDGETS);
+        if (!Utils.isPhone(getActivity())) {
+            PreferenceCategory widgetCategory = (PreferenceCategory) findPreference(KEY_WIDGET_OPTIONS);
+            mPref = (Preference) findPreference(KEY_LOCKSCREEN_MAXIMIZE_WIDGETS);
+            if (mPref != null)
+                widgetCategory.removePreference(mMaximizeWidgets);
+            mMaximizeWidgets = null;
+        } else {
+            mMaximizeWidgets.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
+        }
     }
 
     @Override
@@ -136,6 +152,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
         } else if (preference == mAllWidgets) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.KG_ALL_WIDGETS, mAllWidgets.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mMaximizeWidgets) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, mMaximizeWidgets.isChecked() ? 1 : 0);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
