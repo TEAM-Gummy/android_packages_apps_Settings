@@ -20,6 +20,7 @@
     <string name="header_category_interface">Gummy Settings</string>
     <string name="gummy_interface_title">Gummy Interface</string>
     <string name="advanced_catagory_title">Advanced</string>
+    <string name="general_catagory_title">General</string>
 
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
@@ -181,5 +182,15 @@
     <string name="power_notifications_vibrate_title">Vibrate</string>
     <string name="power_notifications_ringtone_title">Notification sound</string>
     <string name="power_notifications_ringtone_silent">Silent</string>
+
+    <!-- CRT Animation -->
+    <string name="display_category_animation_options_title">Animation options</string>
+    <string name="system_power_crt_screen_off_title">CRT Screen Off</string>
+    <string name="system_power_crt_screen_off_summary">Screen will animate an Electron Beam when turned off</string>
+    <string name="system_power_crt_mode_title">CRT animation mode</string>
+    <string name="system_power_crt_mode_dialog_title">Show CRT animation</string>
+    <string name="system_power_crt_mode_horizontal">Portrait horizontal</string>
+    <string name="system_power_crt_mode_vertical">Portrait vertical</string>
+    <string name="system_power_crt_mode_both">Orientation dependent</string>
 
 </resources>
