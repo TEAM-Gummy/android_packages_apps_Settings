@@ -363,4 +363,7 @@
     <string name="system_power_crt_mode_vertical">Portrait vertical</string>
     <string name="system_power_crt_mode_both">Orientation dependent</string>
 
+    <!-- TRDS Settings -->
+    <string name="trds_settings_title">Dark Gummy</string>
+
 </resources>
