@@ -175,4 +175,11 @@
     <string name="use_custom_app_summary">Use custom application instead of the recent applications dialog</string>
     <string name="group_applications">Applications</string>
 
+    <!-- Power connect / disconnect notifications -->
+    <string name="power_notifications_category_title">Power sounds</string>
+    <string name="power_notifications_enable_title">Enable</string>
+    <string name="power_notifications_vibrate_title">Vibrate</string>
+    <string name="power_notifications_ringtone_title">Notification sound</string>
+    <string name="power_notifications_ringtone_silent">Silent</string>
+
 </resources>
