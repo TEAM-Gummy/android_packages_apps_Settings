@@ -1,8 +1,13 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
+<<<<<<< HEAD
 LOCAL_JAVA_LIBRARIES := bouncycastle conscrypt telephony-common
 LOCAL_STATIC_JAVA_LIBRARIES := android-support-v4 android-support-v13 jsr305
+=======
+LOCAL_JAVA_LIBRARIES := bouncycastle conscrypt telephony-common telephony-msim
+LOCAL_STATIC_JAVA_LIBRARIES := android-support-v4 android-support-v13 jsr305 libGoogleAnalyticsV2
+>>>>>>> eb304e5... Multisim: Add support for MSIM
 
 LOCAL_MODULE_TAGS := optional
 
