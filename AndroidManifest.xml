@@ -69,6 +69,8 @@
     <uses-permission android:name="android.permission.REBOOT" />
     <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <permission
         android:name="android.permission.REQUEST_SUPERUSER"
@@ -169,6 +171,36 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <!-- QuietHours SmsCall Service -->
+
+        <service android:name=".service.SmsCallService"/>
+        <service android:name=".service.AlarmService"/>
+
+        <receiver
+            android:name=".gummy.service.AlarmReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"></action>
+                <action android:name="android.intent.action.TIME_CHANGED"></action>
+                <action android:name="android.intent.action.DATE_CHANGED"></action>
+                <action android:name="com.android.settings.gummy.service.SCHEDULE_SERVICE_COMMAND"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".gummy.service.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".gummy.service.BypassAlarm"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:taskAffinity="com.android.settings.gummy.service.BypassAlarm"
+            android:theme="@android:style/Theme.Holo.Dialog" />
 
         <!-- Wireless Controls -->
 
@@ -1863,7 +1895,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.QuietHours" />
+                android:value="com.android.settings.gummy.QuietHours" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/sound_settings" />
         </activity>
