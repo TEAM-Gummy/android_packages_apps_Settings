@@ -61,7 +61,8 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
     private static final String KEY_POWER_CRT_SCREEN_OFF = "system_power_crt_screen_off";
     private static final String KEY_TAP_TO_WAKE = "double_tap_wake_gesture";
     private static final String DOUBLE_TAP_OPTIONS = "double_tap_options";
-    private static final String KEY_PEEK = "notification_peek";
+    private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
+    private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
 
     // Request code for power notification ringtone picker
     private static final int REQUEST_CODE_POWER_NOTIFICATIONS_RINGTONE = 1;
@@ -76,6 +77,8 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
     private CheckBoxPreference mCrtOff;
     private CheckBoxPreference mTapToWake;
     private PreferenceCategory mDoubleTapOptions;
+    private ListPreference mListViewAnimation;
+    private ListPreference mListViewInterpolator;
 
     private boolean mIsCrtOffChecked = false;
 
@@ -140,6 +143,22 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
         mCrtMode.setValueIndex(crtMode);
         mCrtMode.setSummary(mCrtMode.getEntries()[crtMode]);
         mCrtMode.setOnPreferenceChangeListener(this);
+
+        mListViewAnimation = (ListPreference) prefSet.findPreference(KEY_LISTVIEW_ANIMATION);
+        int listviewanimation = Settings.System.getInt(getContentResolver(),
+                Settings.System.LISTVIEW_ANIMATION, 0);
+        mListViewAnimation.setValue(String.valueOf(listviewanimation));
+        mListViewAnimation.setSummary(mListViewAnimation.getEntry());
+        mListViewAnimation.setOnPreferenceChangeListener(this);
+
+        mListViewInterpolator = (ListPreference) prefSet.findPreference(KEY_LISTVIEW_INTERPOLATOR);
+        int listviewinterpolator = Settings.System.getInt(getContentResolver(),
+                Settings.System.LISTVIEW_INTERPOLATOR, 0);
+        mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
+        mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
+        mListViewInterpolator.setOnPreferenceChangeListener(this);
+        mListViewInterpolator.setEnabled(listviewanimation > 0);
+
     }
 
     @Override
@@ -191,6 +210,21 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
                     Settings.System.SYSTEM_POWER_CRT_MODE, crtMode);
             mCrtMode.setSummary(mCrtMode.getEntries()[index]);
             return true;
+        } else if (preference == mListViewAnimation) {
+            int value = Integer.parseInt((String) objValue);
+            int index = mListViewAnimation.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LISTVIEW_ANIMATION,
+                    value);
+            mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
+            mListViewInterpolator.setEnabled(value > 0);
+        } else if (preference == mListViewInterpolator) {
+            int value = Integer.parseInt((String) objValue);
+            int index = mListViewInterpolator.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LISTVIEW_INTERPOLATOR,
+                    value);
+            mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
         }
         return true;
     }
