@@ -32,6 +32,7 @@ import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
@@ -57,6 +58,7 @@ public class WirelessSettings extends SettingsPreferenceFragment {
     private static final String KEY_MANAGE_MOBILE_PLAN = "manage_mobile_plan";
     private static final String KEY_TOGGLE_NSD = "toggle_nsd"; //network service discovery
     private static final String KEY_CELL_BROADCAST_SETTINGS = "cell_broadcast_settings";
+    private static final String KEY_NFC_POLLING_MODE = "nfc_polling_mode";
 
     public static final String EXIT_ECM_RESULT = "exit_ecm_result";
     public static final int REQUEST_CODE_EXIT_ECM = 1;
@@ -66,6 +68,13 @@ public class WirelessSettings extends SettingsPreferenceFragment {
     private NfcEnabler mNfcEnabler;
     private NfcAdapter mNfcAdapter;
     private NsdEnabler mNsdEnabler;
+    private ListPreference mNfcPollingMode;
+
+    private ConnectivityManager mCm;
+    private TelephonyManager mTm;
+
+    private static final int MANAGE_MOBILE_PLAN_DIALOG_ID = 1;
+    private static final String SAVED_MANAGE_MOBILE_PLAN_MSG = "mManageMobilePlanMessage";
 
     private ConnectivityManager mCm;
     private TelephonyManager mTm;
@@ -201,8 +210,14 @@ public class WirelessSettings extends SettingsPreferenceFragment {
         PreferenceScreen androidBeam = (PreferenceScreen) findPreference(KEY_ANDROID_BEAM_SETTINGS);
         CheckBoxPreference nsd = (CheckBoxPreference) findPreference(KEY_TOGGLE_NSD);
 
+        mNfcPollingMode = (ListPreference) findPreference(KEY_NFC_POLLING_MODE);
+        mNfcPollingMode.setOnPreferenceChangeListener(this);
+        mNfcPollingMode.setValue(String.valueOf(Settings.System.getInt(activity.getContentResolver(), 
+                Settings.System.NFC_POLLING_MODE, 3)));
+        updateNfcPolling();
+
         mAirplaneModeEnabler = new AirplaneModeEnabler(activity, mAirplaneModePreference);
-        mNfcEnabler = new NfcEnabler(activity, nfc, androidBeam);
+        mNfcEnabler = new NfcEnabler(activity, nfc, androidBeam, mNfcPollingMode);
 
         // Remove NSD checkbox by default
         getPreferenceScreen().removePreference(nsd);
@@ -248,6 +263,7 @@ public class WirelessSettings extends SettingsPreferenceFragment {
         mNfcAdapter = NfcAdapter.getDefaultAdapter(activity);
         if (mNfcAdapter == null) {
             getPreferenceScreen().removePreference(nfc);
+            getPreferenceScreen().removePreference(mNfcPollingMode);
             getPreferenceScreen().removePreference(androidBeam);
             mNfcEnabler = null;
         }
@@ -295,6 +311,25 @@ public class WirelessSettings extends SettingsPreferenceFragment {
             Preference ps = findPreference(KEY_CELL_BROADCAST_SETTINGS);
             if (ps != null) root.removePreference(ps);
         }
+    }
+
+    private void updateNfcPolling() {
+        int resId;
+        String value = Settings.System.getString(getContentResolver(),
+                Settings.System.NFC_POLLING_MODE);
+        String[] pollingArray = getResources().getStringArray(R.array.nfc_polling_mode_values);
+
+        if (pollingArray[0].equals(value)) {
+            resId = R.string.nfc_polling_mode_screen_off;
+            mNfcPollingMode.setValueIndex(0);
+        } else if (pollingArray[1].equals(value)) {
+            resId = R.string.nfc_polling_mode_screen_locked;
+            mNfcPollingMode.setValueIndex(1);
+        } else {
+            resId = R.string.nfc_polling_mode_screen_unlocked;
+            mNfcPollingMode.setValueIndex(2);
+        }
+        mNfcPollingMode.setSummary(getResources().getString(resId));
     }
 
     @Override
