@@ -35,7 +35,6 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -45,8 +44,9 @@ import com.android.internal.telephony.TelephonyProperties;
 import com.android.settings.nfc.NfcEnabler;
 import com.android.settings.NsdEnabler;
 
-public class WirelessSettings extends SettingsPreferenceFragment  implements
-        Preference.OnPreferenceChangeListener {
+public class WirelessSettings extends SettingsPreferenceFragment
+    implements Preference.OnPreferenceChangeListener {
+
     private static final String TAG = "WirelessSettings";
 
     private static final String KEY_TOGGLE_AIRPLANE = "toggle_airplane";
@@ -98,6 +98,18 @@ public class WirelessSettings extends SettingsPreferenceFragment  implements
         }
         // Let the intents be launched by the Preference manager
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mNfcPollingMode) {
+            int newVal = Integer.parseInt((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NFC_POLLING_MODE, newVal);
+            updateNfcPolling();
+            return true;
+        }
+        return false;
     }
 
     private String mManageMobilePlanMessage;
