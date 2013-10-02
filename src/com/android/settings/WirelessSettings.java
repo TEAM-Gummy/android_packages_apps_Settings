@@ -45,7 +45,7 @@ import com.android.internal.telephony.TelephonyProperties;
 import com.android.settings.nfc.NfcEnabler;
 import com.android.settings.NsdEnabler;
 
-public class CarrierLabel extends SettingsPreferenceFragment  implements
+public class WirelessSettings extends SettingsPreferenceFragment  implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "WirelessSettings";
 
