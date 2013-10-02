@@ -35,6 +35,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -44,7 +45,8 @@ import com.android.internal.telephony.TelephonyProperties;
 import com.android.settings.nfc.NfcEnabler;
 import com.android.settings.NsdEnabler;
 
-public class WirelessSettings extends SettingsPreferenceFragment {
+public class CarrierLabel extends SettingsPreferenceFragment  implements
+        Preference.OnPreferenceChangeListener {
     private static final String TAG = "WirelessSettings";
 
     private static final String KEY_TOGGLE_AIRPLANE = "toggle_airplane";
@@ -69,12 +71,6 @@ public class WirelessSettings extends SettingsPreferenceFragment {
     private NfcAdapter mNfcAdapter;
     private NsdEnabler mNsdEnabler;
     private ListPreference mNfcPollingMode;
-
-    private ConnectivityManager mCm;
-    private TelephonyManager mTm;
-
-    private static final int MANAGE_MOBILE_PLAN_DIALOG_ID = 1;
-    private static final String SAVED_MANAGE_MOBILE_PLAN_MSG = "mManageMobilePlanMessage";
 
     private ConnectivityManager mCm;
     private TelephonyManager mTm;
