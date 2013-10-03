@@ -38,9 +38,12 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import com.android.internal.view.RotationPolicy;
+
 import com.android.settings.gummy.DisplayRotation;
+import com.android.settings.util.Helpers;
 
 import java.util.ArrayList;
 
@@ -52,6 +55,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final int FALLBACK_SCREEN_TIMEOUT_VALUE = 30000;
 
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
+    private static final String KEY_LCD_DENSITY = "lcd_density";
     private static final String KEY_FONT_SIZE = "font_size";
     private static final String KEY_LIGHT_OPTIONS = "category_light_options";
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
@@ -70,6 +74,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String ROTATION_ANGLE_DELIM = ", ";
     private static final String ROTATION_ANGLE_DELIM_FINAL = " & ";
 
+    private ListPreference mLcdDensityPreference;
     private WarnedListPreference mFontSizePref;
     private PreferenceCategory mLightOptions;
     private PreferenceScreen mNotificationPulse;
@@ -131,6 +136,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         disableUnusableTimeouts(mScreenTimeoutPreference);
         updateTimeoutPreferenceDescription(currentTimeout);
         updateDisplayRotationPreferenceDescription();
+
+        mLcdDensityPreference = (ListPreference) findPreference(KEY_LCD_DENSITY);
+        int currentDensity = DisplayMetrics.DENSITY_CURRENT;
+        mLcdDensityPreference.setValue(String.valueOf(currentDensity));
+        mLcdDensityPreference.setOnPreferenceChangeListener(this);
+        updateLcdDensityPreferenceDescription(currentDensity);
 
         mFontSizePref = (WarnedListPreference) findPreference(KEY_FONT_SIZE);
         mFontSizePref.setOnPreferenceChangeListener(this);
@@ -231,6 +242,19 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 summary = preference.getContext().getString(R.string.screen_timeout_summary,
                         entries[best]);
             }
+        }
+        preference.setSummary(summary);
+    }
+
+    private void updateLcdDensityPreferenceDescription(int currentDensity) {
+        ListPreference preference = mLcdDensityPreference;
+        String summary;
+        if (currentDensity < 10 || currentDensity >= 1000) {
+            // Unsupported value
+            summary = "";
+        }
+        else {
+            summary = Integer.toString(currentDensity) + " DPI";
         }
         preference.setSummary(summary);
     }
@@ -362,6 +386,16 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
+    public void writeLcdDensityPreference(int value) {
+        try {
+            Helpers.setSystemProp("persist.lcd_density", Integer.toString(value));
+            Helpers.restartJava();
+        }
+        catch (Exception e) {
+            Log.w(TAG, "Unable to save LCD density");
+        }
+    }
+
     public void writeFontSizePreference(Object objValue) {
         try {
             mCurConfig.fontScale = Float.parseFloat(objValue.toString());
@@ -405,6 +439,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             } catch (NumberFormatException e) {
                 Log.e(TAG, "could not persist screen timeout setting", e);
             }
+        }
+        if (KEY_LCD_DENSITY.equals(key)) {
+            int value = Integer.parseInt((String) objValue);
+            writeLcdDensityPreference(value);
+            updateLcdDensityPreferenceDescription(value);
         }
         if (KEY_FONT_SIZE.equals(key)) {
             writeFontSizePreference(objValue);
