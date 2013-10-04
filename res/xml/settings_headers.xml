@@ -62,6 +62,17 @@
     <header android:id="@+id/interface_section"
         android:title="@string/header_category_interface" />
 
+    <!-- Lock Clock -->
+    <header
+        android:id="@+id/lock_clock"
+        android:title="@string/lock_clock_title"
+        android:icon="@drawable/ic_clock_preferences">
+        <intent 
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.cyanogenmod.lockclock"
+            android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+    </header>
+
     <!-- App Ops -->
     <header
         android:fragment="com.android.settings.applications.AppOpsSummary"
