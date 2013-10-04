@@ -69,6 +69,17 @@
         android:fragment="com.android.settings.gummy.StatusBar"
         android:title="@string/status_bar_title" />
 
+    <!-- Lock Clock -->
+    <header
+        android:id="@+id/lock_clock"
+        android:title="@string/lock_clock_title"
+        android:icon="@drawable/ic_clock_preferences">
+        <intent 
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.cyanogenmod.lockclock"
+            android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+    </header>
+
     <!-- Themes -->
     <header
         android:id="@+id/themes_settings"
