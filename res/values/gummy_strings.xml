@@ -15,6 +15,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- PERSONALIZATION Settings  -->
+    <!-- Settings main menu category heading. Interface (Launcher, Themes, System). [CHAR LIMIT=40] -->
+    <string name="header_category_interface">Gummy Settings</string>
+
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
 
