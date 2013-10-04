@@ -73,6 +73,13 @@
             android:targetClass="com.tmobile.themechooser.ThemeChooser" />
     </header>
 
+    <!-- App Ops -->
+    <header
+        android:fragment="com.android.settings.applications.AppOpsSummary"
+        android:icon="@drawable/ic_app_ops"
+        android:title="@string/app_ops_settings"
+        android:id="@+id/appops_settings" />
+
     <!-- Superuser -->
     <header
         android:id="@+id/superuser"

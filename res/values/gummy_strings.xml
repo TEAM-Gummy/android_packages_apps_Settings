@@ -21,6 +21,7 @@
     
     <!-- Themes settings  -->
     <string name="themes_settings_title">Themes</string>
+
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
 
