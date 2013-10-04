@@ -62,6 +62,13 @@
     <header android:id="@+id/interface_section"
         android:title="@string/header_category_interface" />
 
+    <!-- Statusbar -->
+    <header
+        android:id="@+id/statusbar_settings"
+	android:icon="@drawable/ic_settings_statusbar"
+        android:fragment="com.android.settings.gummy.StatusBar"
+        android:title="@string/status_bar_title" />
+
     <!-- Themes -->
     <header
         android:id="@+id/themes_settings"

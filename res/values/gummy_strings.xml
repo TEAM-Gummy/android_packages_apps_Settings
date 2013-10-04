@@ -32,4 +32,64 @@
     <!-- About phone screen, build date of ROM -->
     <string name="build_date">Build date</string>
     <string name="build_date_default">2012-01-01-0000</string>
+
+    <!-- Status bar  -->
+    <string name="status_bar_title">Status bar</string>
+    <string name="status_bar_clock_title">Clock</string>
+    <string name="status_bar_general_title">General</string>
+    <string name="status_bar_show_clock_title">Show clock</string>
+    <string name="status_bar_am_pm_title">AM/PM style</string>
+    <string name="status_bar_am_pm_info">24-hour clock is enabled</string>
+    <string name="status_bar_battery_title">Battery status style</string>
+    <string name="status_bar_toggle_brightness">Brightness control</string>
+    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across status bar</string>
+    <string name="status_bar_toggle_info">Automatic brightness is enabled</string>
+    <string name="status_bar_signal_text_title">Signal status style</string>
+    <string name="status_bar_style_icon">Icon</string>
+    <string name="status_bar_style_hidden">Hidden</string>
+    <string name="status_bar_signal_text_show_text">Text</string>
+    <string name="status_bar_battery_status_percentage">Percentage</string>
+    <string name="status_bar_battery_status_circle">Circle</string>
+    <string name="status_bar_battery_status_circle_percentage">Circle with percentage</string>
+
+    <!-- Clock Options -->
+    <string name="clock">Clock</string>
+    <string name="header_summary_clock">Clock location, AM/PM style, date</string>
+    <string name="header_summary_clock_tablet">Show/hide clock, AM/PM style</string>
+    <string name="title_statusbar_clock">Statusbar Clock</string>
+    <string name="clock_title_enable">Clock style</string>
+    <string name="title_clock_ampm_entries">AM/PM style</string>
+    <string name="enable_clock_weekday">Day of the week</string>
+    <string name="enable_clock_weekday_summary">Abbreviated day of the week before the time</string>
+
+    <!-- Statusbar | Battery -->
+    <string name="battery_icon">Battery icon style</string>
+    <string name="battery_not_title">Battery icon in notifications</string>
+    <string name="battery_not_summary">Battery icon will show up where the clear all button shows up</string>
+    <string name="battery_bar">Battery bar location</string>
+    <string name="battery_bar_color">Battery bar color</string>
+    <string name="battery_bar_cat">Battery bar options</string>
+    <string name="battery_bar_style_title">Battery bar style</string>
+    <string name="battery_bar_thickness_title">Battery bar thickness</string>
+    <string name="battery_bar_animate_title">Charging animation</string>
+    <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string>
+    <string name="battery_text_color">Battery Text Colors</string>
+    <string name="allow_color_changes">Allow Custom Text Colors</string>
+    <string name="battery_text_charge">Battery Charging Color</string>
+    <string name="battery_text_normal">Battery Color (Above 15%)</string>
+    <string name="battery_text_low">Battery Color (Below 15%)</string>
+
+    <!-- Status bar notification count -->
+    <string name="status_bar_notif_count_title">Show notification count</string>
+    <string name="status_bar_notif_count_summary">Display number of pending notifications</string>
+
+    <!-- Color picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on Color to apply</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#FF000000</string>
+    <string name="set">Set</string>
+    <string name="ics_color">Holo</string>
 </resources>
