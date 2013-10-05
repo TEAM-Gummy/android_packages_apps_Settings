@@ -1560,6 +1560,7 @@
         <!-- Gummy activities Start -->
         <activity android:name=".gummy.GummyInterface" />
         <activity android:name=".gummy.StatusBar" />
+        <activity android:name=".gummy.StatusBarStyle" />
 
         <!-- Gummy activities End -->
 

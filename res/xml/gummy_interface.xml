@@ -23,10 +23,15 @@
         android:key="status_bar_general"
         android:title="@string/status_bar_general_catagory">
 
-    <PreferenceScreen
-        android:key="statusbar_settings"
-        android:fragment="com.android.settings.gummy.StatusBar"
-        android:title="@string/status_bar_title" />
+        <PreferenceScreen
+            android:key="statusbar_settings"
+            android:fragment="com.android.settings.gummy.StatusBar"
+            android:title="@string/status_bar_title" />
+
+        <PreferenceScreen
+            android:key="status_bar_background_style"
+            android:fragment="com.android.settings.gummy.StatusBarStyle"
+            android:title="@string/status_bar_background_style" />
 
     </PreferenceCategory>
 
