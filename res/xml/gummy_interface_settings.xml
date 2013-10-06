@@ -41,12 +41,6 @@
                     android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
         </PreferenceScreen>
 
-        <PreferenceScreen
-            android:id="@+id/appops_settings"
-            android:key="app_ops"
-            android:title="@string/app_ops_settings"
-            android:fragment="com.android.settings.applications.AppOpsSummary" />
-
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -90,6 +84,23 @@
             android:entries="@array/entries_system_power_crt_mode"
             android:entryValues="@array/values_system_power_crt_mode"
             android:dependency="system_power_crt_screen_off" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="system_catagory"
+        android:title="@string/system_catagory_title">
+
+        <PreferenceScreen
+            android:key="@+id/performance_settings"
+            android:fragment="com.android.settings.gummy.PerformanceSettings"
+            android:title="@string/performance_settings_title" />
+
+        <PreferenceScreen
+            android:id="@+id/appops_settings"
+            android:key="app_ops"
+            android:title="@string/app_ops_settings"
+            android:fragment="com.android.settings.applications.AppOpsSummary" />
 
     </PreferenceCategory>
 
