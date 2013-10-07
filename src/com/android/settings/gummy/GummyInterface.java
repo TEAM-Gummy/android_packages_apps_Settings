@@ -27,6 +27,7 @@ import android.os.ServiceManager;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.util.Log;
+import android.view.IWindowManager;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -41,6 +42,7 @@ public class GummyInterface extends SettingsPreferenceFragment implements
     private static final String TAG = "GummyInterface";
 
     private static final String KEY_LOCK_CLOCK = "lock_clock";
+    private static final String KEY_HARDWARE_KEYS = "hardware_keys";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,17 @@ public class GummyInterface extends SettingsPreferenceFragment implements
 
         // Dont display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
+
+        // Only show the hardware keys config on a device that does not have a navbar
+        IWindowManager windowManager = IWindowManager.Stub.asInterface(
+                ServiceManager.getService(Context.WINDOW_SERVICE));
+        try {
+            if (windowManager.hasNavigationBar()) {
+                getPreferenceScreen().removePreference(findPreference(KEY_HARDWARE_KEYS));
+            }
+        } catch (RemoteException e) {
+            // Do nothing
+        }
     }
 
     @Override

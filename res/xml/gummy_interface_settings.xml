@@ -29,6 +29,11 @@
             android:title="@string/status_bar_title" />
 
         <PreferenceScreen
+            android:key="hardware_keys"
+            android:fragment="com.android.settings.gummy.HardwareKeys"
+            android:title="@string/hardware_keys_title" />
+
+        <PreferenceScreen
             android:key="lock_clock"
             android:title="@string/lock_clock_title">
             <intent android:action="android.intent.action.MAIN"
