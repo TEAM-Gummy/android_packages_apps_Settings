@@ -17,7 +17,7 @@
 
     <!-- PERSONALIZATION Settings  -->
     <!-- Settings main menu category heading. Interface (Launcher, Themes, System). [CHAR LIMIT=40] -->
-    <string name="header_category_interface">Gummy Setings</string>
+    <string name="header_category_interface">Gummy Settings</string>
 
     <!-- Gummy Interface  -->
     <string name="gummy_interface_title">Gummy Interface</string>
