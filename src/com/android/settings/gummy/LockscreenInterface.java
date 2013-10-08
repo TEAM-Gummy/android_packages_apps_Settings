@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
@@ -34,6 +35,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
     private static final String PREF_LOCKSCREEN_AUTO_ROTATE = "lockscreen_auto_rotate";
     private static final String PREF_LOCKSCREEN_BATTERY = "lockscreen_battery";
     private static final String PREF_LOCKSCREEN_TEXT_COLOR = "lockscreen_text_color";
+    private static final String KEY_ADVANCED_CATAGORY = "advanced_catagory";
+    private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
+
+    private PreferenceScreen mLockscreenButtons;
+    private PreferenceCategory mAdvancedCatagory;
 
     CheckBoxPreference mLockscreenBattery;
     ColorPickerPreference mLockscreenTextColor;
@@ -61,6 +67,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
 
         mLockscreenTextColor = (ColorPickerPreference) findPreference(PREF_LOCKSCREEN_TEXT_COLOR);
         mLockscreenTextColor.setOnPreferenceChangeListener(this);
+
+        PreferenceScreen prefs = getPreferenceScreen();
+        mAdvancedCatagory = (PreferenceCategory) prefs.findPreference(KEY_ADVANCED_CATAGORY);
+
+        mLockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
+        if (!hasButtons()) {
+            mAdvancedCatagory.removePreference(mLockscreenButtons);
+        }
     }
 
     @Override
