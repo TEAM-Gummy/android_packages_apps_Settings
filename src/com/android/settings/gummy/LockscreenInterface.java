@@ -21,6 +21,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
@@ -36,6 +38,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
     private static final String LOCKSCREEN_MAXIMIZE_WIDGETS = "lockscreen_maximize_widgets";
+    private static final String KEY_OPTIONS_CATAGORY = "lockscreen_options";
+    private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
+
+    private PreferenceScreen mLockscreenButtons;
+    private PreferenceCategory mOptionsCatagory;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private DevicePolicyManager mDPM;
@@ -80,6 +87,13 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         if (mMaximizeKeyguardWidgets != null) {
             mMaximizeKeyguardWidgets.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
+        }
+
+        PreferenceScreen prefs = getPreferenceScreen();
+        mOptionsCatagory = (PreferenceCategory) prefs.findPreference(KEY_OPTIONS_CATAGORY);
+        mLockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
+        if (!hasButtons()) {
+            mOptionsCatagory.removePreference(mLockscreenButtons);
         }
     }
 

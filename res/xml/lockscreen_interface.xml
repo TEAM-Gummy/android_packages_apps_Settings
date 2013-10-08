@@ -21,6 +21,12 @@
         android:key="lockscreen_options"
         android:title="@string/lockscreen_options">
 
+        <PreferenceScreen
+            android:fragment="com.android.settings.gummy.LockscreenButtons"
+            android:key="lockscreen_buttons"
+            android:title="@string/lockscreen_buttons_title"
+            android:summary="@string/lockscreen_buttons_summary" />
+
         <CheckBoxPreference
             android:key="keyguard_enable_widgets"
             android:title="@string/security_enable_widgets_title"/>

@@ -1649,6 +1649,7 @@
         <activity android:name=".gummy.ClockClicks" />
         <activity android:name=".gummy.NotificationDrawer" />
         <activity android:name=".gummy.LockscreenInterface" />
+        <activity android:name=".gummy.LockscreenButtons" />
         <!-- Gummy activities End -->
 
         <activity android:name=".gummy.AutoBrightnessSetup"
