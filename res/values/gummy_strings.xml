@@ -289,4 +289,8 @@
     <string name="lockscreen_buttons_playpause">Play/Pause music</string>
     <string name="lockscreen_buttons_toggle_sound">Toggle sound</string>
 
+    <!-- Home Unlock -->
+    <string name="unlock_home_unlock_title">Home unlock</string>
+    <string name="unlock_home_unlock_summary">Pressing the home button unlocks the device</string>
+
 </resources>

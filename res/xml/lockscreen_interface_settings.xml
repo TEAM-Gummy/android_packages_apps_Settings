@@ -39,6 +39,11 @@
         android:key="general_catagory"
         android:title="@string/general_general_title">
 
+        <CheckBoxPreference
+            android:key="home_unlock"
+            android:title="@string/unlock_home_unlock_title"
+            android:summary="@string/unlock_home_unlock_summary" />
+
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="lockscreen_text_color"
             android:title="@string/lockscreen_text_color_title"

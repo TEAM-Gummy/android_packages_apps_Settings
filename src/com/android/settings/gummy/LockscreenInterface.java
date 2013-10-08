@@ -37,6 +37,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
     private static final String PREF_LOCKSCREEN_TEXT_COLOR = "lockscreen_text_color";
     private static final String KEY_ADVANCED_CATAGORY = "advanced_catagory";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
+    private static final String HOME_UNLOCK_PREF = "home_unlock";
 
     private PreferenceScreen mLockscreenButtons;
     private PreferenceCategory mAdvancedCatagory;
@@ -44,6 +45,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
     CheckBoxPreference mLockscreenBattery;
     ColorPickerPreference mLockscreenTextColor;
     CheckBoxPreference mLockscreenAutoRotate;
+
+    private CheckBoxPreference mHomeUnlock;
 
     Context mContext;
 
@@ -58,7 +61,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
         addPreferencesFromResource(R.xml.lockscreen_interface_settings);
 
         mLockscreenAutoRotate = (CheckBoxPreference)findPreference(PREF_LOCKSCREEN_AUTO_ROTATE);
-        mLockscreenAutoRotate.setChecked(Settings.System.getBoolean(mContext
+        mLockscreenAutoRotate.setChecked(Settings.System.getBoolean(getActivity()
                 .getContentResolver(), Settings.System.LOCKSCREEN_AUTO_ROTATE, false));
 
         mLockscreenBattery = (CheckBoxPreference)findPreference(PREF_LOCKSCREEN_BATTERY);
@@ -74,6 +77,16 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
         mLockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
         if (!hasButtons()) {
             mAdvancedCatagory.removePreference(mLockscreenButtons);
+        }
+
+        mHomeUnlock = (CheckBoxPreference) findPreference(HOME_UNLOCK_PREF);
+        mHomeUnlock.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.HOME_UNLOCK_SCREEN, 0) == 1);
+
+        // Disable the HomeUnlock setting if no home button is available
+        if (getActivity().getApplicationContext().getResources()
+                .getBoolean(com.android.internal.R.bool.config_disableHomeUnlockSetting)) {
+            mHomeUnlock.setEnabled(false);
         }
     }
 
@@ -95,9 +108,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
                     ((CheckBoxPreference)preference).isChecked() ? 1 : 0);
             return true;
         } else if (preference == mLockscreenAutoRotate) {
-            Settings.System.putBoolean(mContext.getContentResolver(),
+            Settings.System.putBoolean(getActivity().getContentResolver(),
                     Settings.System.LOCKSCREEN_AUTO_ROTATE,
                     ((CheckBoxPreference) preference).isChecked());
+            return true;
+        } else if (preference == mHomeUnlock) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.HOME_UNLOCK_SCREEN,
+                    ((CheckBoxPreference)preference).isChecked() ? 1 : 0);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
