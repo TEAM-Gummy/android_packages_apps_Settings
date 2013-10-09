@@ -1566,6 +1566,7 @@
         <activity android:name=".gummy.LockscreenTargets" />
         <activity android:name=".gummy.LockscreenInterface" />
         <activity android:name=".gummy.LockscreenButtons" />
+        <activity android:name=".gummy.CarrierLabel" />
         <!-- Gummy activities End -->
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
