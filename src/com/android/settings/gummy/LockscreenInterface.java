@@ -38,6 +38,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
     private static final String KEY_ADVANCED_CATAGORY = "advanced_catagory";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String HOME_UNLOCK_PREF = "home_unlock";
+    private static final String KEY_LOCKSCREEN_CAMERA_WIDGET = "lockscreen_camera_widget";
+    private static final String KEY_LOCKSCREEN_ALL_WIDGETS = "lockscreen_all_widgets";
 
     private PreferenceScreen mLockscreenButtons;
     private PreferenceCategory mAdvancedCatagory;
@@ -46,6 +48,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
     ColorPickerPreference mLockscreenTextColor;
     CheckBoxPreference mLockscreenAutoRotate;
 
+    private CheckBoxPreference mAllWidgets;
+    private CheckBoxPreference mCameraWidget;
     private CheckBoxPreference mHomeUnlock;
 
     Context mContext;
@@ -88,6 +92,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
                 .getBoolean(com.android.internal.R.bool.config_disableHomeUnlockSetting)) {
             mHomeUnlock.setEnabled(false);
         }
+
+        mCameraWidget = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_CAMERA_WIDGET);
+        mCameraWidget.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.KG_CAMERA_WIDGET, 0) == 1);
+
+        mAllWidgets = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_ALL_WIDGETS);
+        mAllWidgets.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.KG_ALL_WIDGETS, 1) == 1);
     }
 
     @Override
@@ -116,6 +128,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements O
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.HOME_UNLOCK_SCREEN,
                     ((CheckBoxPreference)preference).isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mCameraWidget) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.KG_CAMERA_WIDGET, mCameraWidget.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mAllWidgets) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.KG_ALL_WIDGETS, mAllWidgets.isChecked() ? 1 : 0);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);

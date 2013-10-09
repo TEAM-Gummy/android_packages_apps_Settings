@@ -33,6 +33,27 @@
             android:title="@string/lockscreen_buttons_title"
             android:summary="@string/lockscreen_buttons_summary" />
 
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="lockscreen_text_color"
+            android:title="@string/lockscreen_text_color_title"
+            android:defaultValue="#ffffffff" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+       android:key="lockscreen_widgets_group"
+       android:title="@string/lockscreen_widgets_category">
+
+         <CheckBoxPreference
+            android:key="lockscreen_all_widgets"
+            android:title="@string/lockscreen_widgets_title"
+            android:summary="@string/lockscreen_widgets_summary" />
+
+         <CheckBoxPreference
+            android:key="lockscreen_camera_widget"
+            android:title="@string/lockscreen_camera_widget_title"
+            android:summary="@string/lockscreen_camera_widget_summary" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -43,11 +64,6 @@
             android:key="home_unlock"
             android:title="@string/unlock_home_unlock_title"
             android:summary="@string/unlock_home_unlock_summary" />
-
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="lockscreen_text_color"
-            android:title="@string/lockscreen_text_color_title"
-            android:defaultValue="#ffffffff" />
 
         <CheckBoxPreference
             android:key="lockscreen_battery"

@@ -302,4 +302,11 @@
     <string name="notification_show_wifi_ssid_title">Show Wifi network name</string>
     <string name="notification_show_wifi_ssid_summary">Display the name of the currently connected Wifi network</string>
 
+    <!-- Lockscreen widget toggles Title -->
+    <string name="lockscreen_widgets_category">Lockscreen Widgets</string>
+    <string name="lockscreen_widgets_title">Enable all widgets</string>
+    <string name="lockscreen_widgets_summary">Ability to add widgets on lockscreen</string>
+    <string name="lockscreen_camera_widget_title">Enable camera widget</string>
+    <string name="lockscreen_camera_widget_summary">Shows camera widget on lockscreen</string>
+
 </resources>
