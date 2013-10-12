@@ -25,6 +25,7 @@
     <string name="status_bar_general_catagory">Status Bar / Notification Drawer</string>
     <string name="advanced_catagory_title">Advanced</string>
     <string name="general_general_title">General</string>
+    <string name="system_catagory_title">System</string>
 
     <!-- Lock screen title-->
     <string name="lock_screen_title">Lock screen</string>
