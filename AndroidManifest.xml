@@ -1567,6 +1567,8 @@
         <activity android:name=".gummy.LockscreenInterface" />
         <activity android:name=".gummy.LockscreenButtons" />
         <activity android:name=".gummy.CarrierLabel" />
+        <activity android:name=".gummy.ClockClicks" />
+        <activity android:name=".gummy.NotificationDrawer" />
         <!-- Gummy activities End -->
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->

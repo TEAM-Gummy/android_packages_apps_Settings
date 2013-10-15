@@ -26,6 +26,8 @@
     <string name="advanced_catagory_title">Advanced</string>
     <string name="general_general_title">General</string>
     <string name="system_catagory_title">System</string>
+    <string name="notification_drawer_title">Notification Drawer</string>
+    <string name="notification_drawer_options">Notification Drawer Options</string>
 
     <!-- Lock screen title-->
     <string name="lock_screen_title">Lock screen</string>
@@ -327,5 +329,20 @@
     <string name="lockscreen_disable_hints_summary">Disables the glow that surrounds the widgets on lockscreen</string>
     <string name="lockscreen_use_widget_container_carousel_title">Use widget carousel in portrait</string>
     <string name="lockscreen_use_widget_container_carousel_summary">Use carousel animation in portrait like it is in landscape when switching between lockscreen widgets.</string>
+
+    <!-- Clock Clicks -->
+    <string name="clock_clicks_title">Clock click actions</string>
+    <string name="clock_options">Clock Options</string>
+    <string name="clock_clicks_summary">Set the actions for expanded status bar date/time header</string>
+    <string name="alarm">Alarms</string>
+    <string name="clock_options">Clock Options</string>
+    <string name="nothing">Nothing</string>
+    <string name="today">Calendar for today</string>
+    <string name="event">Calendar new event</string>
+    <string name="custom_app">Custom App</string>
+    <string name="voiceassist">Voice commands</string>
+    <string name="title_clock_doubleclick">Clock double click actions</string>
+    <string name="title_clock_longclick">Clock long click actions</string>
+    <string name="title_clock_shortclick">Clock short click actions</string>
 
 </resources>

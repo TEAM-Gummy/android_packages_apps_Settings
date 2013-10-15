@@ -33,10 +33,10 @@
             android:fragment="com.android.settings.gummy.StatusBarStyle"
             android:title="@string/status_bar_background_style" />
 
-        <Preference
-            android:key="carrier_label"
-            android:fragment="com.android.settings.gummy.CarrierLabel"
-            android:title="@string/carrier_label_title" />
+        <PreferenceScreen
+            android:key="notification_drawer"
+            android:fragment="com.android.settings.gummy.NotificationDrawer"
+            android:title="@string/notification_drawer_title" />
 
     </PreferenceCategory>
 
