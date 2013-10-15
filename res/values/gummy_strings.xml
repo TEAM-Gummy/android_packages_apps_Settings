@@ -23,6 +23,8 @@
     <string name="advanced_catagory_title">Advanced</string>
     <string name="general_catagory_title">General</string>
     <string name="system_catagory_title">System</string>
+    <string name="notification_drawer_title">Notification Drawer</string>
+    <string name="notification_drawer_options">Notification Drawer Options</string>
 
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
@@ -390,5 +392,20 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="battery_bolt_color">Bolt charging color</string>
     <string name="battery_text_charging_color">Percentage text charging color</string>
     <string name="battery_style_reset_message">Reset all battery colors?</string>
+
+    <!-- Clock Clicks -->
+    <string name="clock_clicks_title">Clock click actions</string>
+    <string name="clock_options">Clock Options</string>
+    <string name="clock_clicks_summary">Set the actions for expanded status bar date/time header</string>
+    <string name="alarm">Alarms</string>
+    <string name="clock_options">Clock Options</string>
+    <string name="nothing">Nothing</string>
+    <string name="today">Calendar for today</string>
+    <string name="event">Calendar new event</string>
+    <string name="custom_app">Custom App</string>
+    <string name="voiceassist">Voice commands</string>
+    <string name="title_clock_doubleclick">Clock double click actions</string>
+    <string name="title_clock_longclick">Clock long click actions</string>
+    <string name="title_clock_shortclick">Clock short click actions</string>
 
 </resources>

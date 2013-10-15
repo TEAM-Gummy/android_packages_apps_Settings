@@ -1646,6 +1646,8 @@
         <activity android:name=".gummy.GummyInterface" />
         <activity android:name=".gummy.PerformanceSettings" />
         <activity android:name=".gummy.CarrierLabel" />
+        <activity android:name=".gummy.ClockClicks" />
+        <activity android:name=".gummy.NotificationDrawer" />
         <!-- Gummy activities End -->
 
         <activity android:name=".slim.AutoBrightnessSetup"
