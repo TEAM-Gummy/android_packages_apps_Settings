@@ -46,6 +46,7 @@ import android.util.Log;
 
 import com.android.internal.view.RotationPolicy;
 import com.android.settings.DreamSettings;
+import com.android.settings.util.Helpers;
 
 import java.util.ArrayList;
 
