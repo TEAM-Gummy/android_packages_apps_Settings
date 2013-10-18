@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 import android.view.IWindowManager;
@@ -43,6 +44,14 @@ public class GummyInterface extends SettingsPreferenceFragment implements
 
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
+    private static final String KEY_ADVANCED_CATAGORY = "advanced_catagory";
+
+    private PreferenceScreen mHardwareKeys;
+    private PreferenceCategory mAdvancedCatagory;
+
+    public boolean hasButtons() {
+        return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,15 +65,13 @@ public class GummyInterface extends SettingsPreferenceFragment implements
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
 
         // Only show the hardware keys config on a device that does not have a navbar
-        IWindowManager windowManager = IWindowManager.Stub.asInterface(
-                ServiceManager.getService(Context.WINDOW_SERVICE));
-        try {
-            if (windowManager.hasNavigationBar()) {
-                getPreferenceScreen().removePreference(findPreference(KEY_HARDWARE_KEYS));
-            }
-        } catch (RemoteException e) {
-            // Do nothing
+        mAdvancedCatagory = (PreferenceCategory) prefSet.findPreference(KEY_ADVANCED_CATAGORY);
+        mHardwareKeys = (PreferenceScreen) findPreference(KEY_HARDWARE_KEYS);
+
+        if (!hasButtons()) {
+            mAdvancedCatagory.removePreference(mHardwareKeys);
         }
+    
     }
 
     @Override
