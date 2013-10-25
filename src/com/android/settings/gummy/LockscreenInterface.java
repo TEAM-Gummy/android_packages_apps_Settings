@@ -68,9 +68,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_BACKGROUND_ALPHA_PREF = "lockscreen_alpha";
     private static final String KEY_LOCKSCREEN_DISABLE_HINTS = "lockscreen_disable_hints";
     private static final String PREF_LOCKSCREEN_USE_CAROUSEL = "lockscreen_use_widget_container_carousel";
+    private static final String KEY_WIDGETS_CATAGORY = "lockscreen_widgets_catagory";
 
     private PreferenceScreen mLockscreenButtons;
     private PreferenceCategory mAdvancedCatagory;
+    private PreferenceCategory mWidgetsCatagory;
     private SeekBarPreference mBgAlpha;
 
     CheckBoxPreference mLockscreenBattery;
@@ -93,6 +95,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
     public boolean hasButtons() {
         return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+    }
+
+    public boolean showCarousel() {
+        return !getResources().getBoolean(R.bool.config_show_carousel);
     }
 
     @Override
@@ -180,9 +186,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         mLockscreenHints.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.LOCKSCREEN_DISABLE_HINTS, 0) == 1);
 
+        mWidgetsCatagory = (PreferenceCategory) prefs.findPreference(KEY_WIDGETS_CATAGORY);
         mLockscreenUseCarousel = (CheckBoxPreference)findPreference(PREF_LOCKSCREEN_USE_CAROUSEL);
-        mLockscreenUseCarousel.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+        if (!showCarousel()) {
+            mWidgetsCatagory.removePreference(mLockscreenUseCarousel);
+        } else {
+            mLockscreenUseCarousel.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.LOCKSCREEN_USE_WIDGET_CONTAINER_CAROUSEL, 0) == 1);
+        }
     }
 
     @Override
