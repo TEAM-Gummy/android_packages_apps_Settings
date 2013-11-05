@@ -62,30 +62,18 @@
     <header android:id="@+id/interface_section"
         android:title="@string/header_category_interface" />
 
-    <!-- Lock Clock -->
     <header
-        android:id="@+id/lock_clock"
-        android:title="@string/lock_clock_title"
-        android:icon="@drawable/ic_clock_preferences">
-        <intent 
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.cyanogenmod.lockclock"
-            android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
-    </header>
+        android:id="@+id/gummy_interface"
+        android:icon="@drawable/ic_settings_gummy"
+        android:fragment="com.android.settings.gummy.GummyInterface"
+        android:title="@string/gummy_interface_title" />
 
-    <!-- App Ops -->
-    <header
-        android:fragment="com.android.settings.applications.AppOpsSummary"
-        android:icon="@drawable/ic_app_ops"
-        android:title="@string/app_ops_settings"
-        android:id="@+id/appops_settings" />
-
-    <!-- Superuser
+    <!-- Superuser -->
     <header
         android:id="@+id/superuser"
         android:fragment="com.android.settings.gummy.superuser.PolicyNativeFragment"
         android:icon="@drawable/ic_action_permission"
-        android:title="@string/superuser" /> -->
+        android:title="@string/superuser" />
 
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
@@ -202,13 +190,6 @@
     <!-- SYSTEM -->
     <header android:id="@+id/system_section"
         android:title="@string/header_category_system" />
-
-    <!-- Superuser -->
-    <header
-        android:id="@+id/superuser"
-        android:fragment="com.android.settings.gummy.superuser.PolicyNativeFragment"
-        android:icon="@drawable/ic_action_permission"
-        android:title="@string/superuser" />
 
     <!-- Date & Time -->
     <header
