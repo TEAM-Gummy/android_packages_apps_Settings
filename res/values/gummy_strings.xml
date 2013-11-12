@@ -411,4 +411,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Lockscreen battery ring -->
     <string name="battery_around_lockscreen_ring">Battery around unlock ring</string>
 
+    <!-- Text shown for title of settings checkbox to maximize widgets [CHAR LIMIT=20]-->
+    <string name="security_maximize_widgets_title">Maximize lockscreen widgets</string>
+
 </resources>
