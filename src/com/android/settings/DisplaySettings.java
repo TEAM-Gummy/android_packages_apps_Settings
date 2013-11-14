@@ -132,8 +132,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             getPreferenceScreen().removePreference(mScreenSaverPreference);
         }
 
-        mDisplayRotationPreference = (PreferenceScreen) findPreference(KEY_DISPLAY_ROTATION);
-
         mScreenTimeoutPreference = (ListPreference) findPreference(KEY_SCREEN_TIMEOUT);
         final long currentTimeout = Settings.System.getLong(resolver, SCREEN_OFF_TIMEOUT,
                 FALLBACK_SCREEN_TIMEOUT_VALUE);
@@ -188,7 +186,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     }
 
     private void updateDisplayRotationPreferenceDescription() {
-        PreferenceScreen preference = mDisplayRotationPreference;
+        if (mDisplayRotationPreference == null) {
+            // The preference was removed, do nothing
+            return;
+        }
+
+        // We have a preference, lets update the summary
         StringBuilder summary = new StringBuilder();
         Boolean rotationEnabled = Settings.System.getInt(getContentResolver(),
                 Settings.System.ACCELEROMETER_ROTATION, 0) != 0;
@@ -201,7 +204,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         } else {
             ArrayList<String> rotationList = new ArrayList<String>();
             String delim = "";
-            summary.append(getString(R.string.display_rotation_enabled) + " ");
             if ((mode & DisplayRotation.ROTATION_0_MODE) != 0) {
                 rotationList.add(ROTATION_ANGLE_0);
             }
@@ -214,17 +216,17 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             if ((mode & DisplayRotation.ROTATION_270_MODE) != 0) {
                 rotationList.add(ROTATION_ANGLE_270);
             }
-            for(int i=0;i<rotationList.size();i++) {
+            for (int i = 0; i < rotationList.size(); i++) {
                 summary.append(delim).append(rotationList.get(i));
-                if (rotationList.size() >= 2 && (rotationList.size() - 2) == i) {
-                    delim = " " + ROTATION_ANGLE_DELIM_FINAL + " ";
+                if ((rotationList.size() - i) > 2) {
+                    delim = ", ";
                 } else {
-                    delim = ROTATION_ANGLE_DELIM + " ";
+                    delim = " & ";
                 }
             }
             summary.append(" " + getString(R.string.display_rotation_unit));
         }
-        preference.setSummary(summary);
+        mDisplayRotationPreference.setSummary(summary);
     }
 
     private void updateTimeoutPreferenceDescription(long currentTimeout) {
