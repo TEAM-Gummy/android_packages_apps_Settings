@@ -1650,7 +1650,7 @@
         <activity android:name=".gummy.NotificationDrawer" />
         <!-- Gummy activities End -->
 
-        <activity android:name=".slim.AutoBrightnessSetup"
+        <activity android:name=".gummy.AutoBrightnessSetup"
                 android:excludeFromRecents="true"
                 android:theme="@*android:style/Theme.Holo.Dialog.Alert" />
 
