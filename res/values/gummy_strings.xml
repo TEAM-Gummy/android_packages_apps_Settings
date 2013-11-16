@@ -25,6 +25,8 @@
     <string name="system_catagory_title">System</string>
     <string name="notification_drawer_title">Notification Drawer</string>
     <string name="notification_drawer_options">Notification Drawer Options</string>
+    <string name="lockscreen_title">Lockscreen</string>
+    <string name="lockscreen_options">Lockscreen Options</string>
 
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
@@ -413,5 +415,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Text shown for title of settings checkbox to maximize widgets [CHAR LIMIT=20]-->
     <string name="security_maximize_widgets_title">Maximize lockscreen widgets</string>
+
+    <!-- Lockscreen enable widgets -->
+    <string name="security_enable_widgets_title">Enable widgets</string>
+    <string name="security_enable_widgets_disabled_summary">Disabled by administrator</string>
 
 </resources>

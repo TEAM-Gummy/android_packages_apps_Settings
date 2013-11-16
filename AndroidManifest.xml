@@ -1648,6 +1648,7 @@
         <activity android:name=".gummy.CarrierLabel" />
         <activity android:name=".gummy.ClockClicks" />
         <activity android:name=".gummy.NotificationDrawer" />
+        <activity android:name=".gummy.LockscreenInterface" />
         <!-- Gummy activities End -->
 
         <activity android:name=".gummy.AutoBrightnessSetup"
