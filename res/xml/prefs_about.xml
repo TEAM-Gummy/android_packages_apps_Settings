@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gummy="http://schemas.android.com/apk/res/com.android.settings">
+
+    <PreferenceScreen android:key="logo1"
+        android:layout="@layout/logo_row" />
+
+    <PreferenceCategory
+        android:key="source"
+        android:title="@string/sauce">
+
+        <Preference
+            android:key="gummy_gerrit"
+            android:title="@string/gummy_gerrit_title"
+            android:summary="@string/gummy_gerrit_summary" />
+
+        <com.android.settings.gummy.DeveloperPreference
+            android:title="Gummy"
+            gummy:nameDev="Team Gummy"
+            gummy:twitterHandle="TeamGummyRom"
+            gummy:githubLink="@string/github_gummy"
+            android:icon="@drawable/twitter_bird" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="primary_devs"
+        android:title="@string/primary_devs">
+
+        <Preference
+            android:key="cphelps76"
+            android:title="@string/cphelps76"
+            android:icon="@drawable/twitter_bird" />
+
+        <Preference
+            android:key="Kejar31"
+            android:title="@string/Kejar31"
+            android:icon="@drawable/twitter_bird" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="devs"
+        android:title="@string/devs">
+
+        <Preference
+            android:key="Bkjolly"
+            android:title="@string/Bkjolly"
+            android:icon="@drawable/twitter_bird" />
+
+        <Preference
+            android:key="Buckmarble"
+            android:title="@string/Buckmarble"
+            android:icon="@drawable/twitter_bird" />
+
+        <Preference
+            android:key="BytecodeMe"
+            android:title="@string/BytecodeMe"
+            android:icon="@drawable/twitter_bird" />
+
+        <Preference
+            android:key="dhacker29"
+            android:title="@string/dhacker29"
+            android:icon="@drawable/twitter_bird" />
+
+        <Preference
+            android:key="Emericanx"
+            android:title="@string/Emericanx"
+            android:icon="@drawable/twitter_bird" />
+
+        <Preference
+            android:key="hashcode"
+            android:title="@string/hashcode"
+            android:icon="@drawable/twitter_bird" />
+
+        <Preference
+            android:key="Hedwig34"
+            android:title="@string/Hedwig34"
+            android:icon="@drawable/twitter_bird" />
+
+        <Preference
+            android:key="papi92"
+            android:title="@string/papi92"
+            android:icon="@drawable/twitter_bird" />
+
+        <Preference
+            android:key="tdm"
+            android:title="@string/tdm"
+            android:icon="@drawable/twitter_bird" />
+
+        <Preference
+            android:key="xoomdev"
+            android:title="@string/xoomdev"
+            android:icon="@drawable/twitter_bird" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="artwork"
+        android:title="@string/artwork">
+
+        <Preference
+            android:key="Chadfran84"
+            android:title="@string/Chadfran84"
+            android:icon="@drawable/twitter_bird" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

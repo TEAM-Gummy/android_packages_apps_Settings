@@ -590,4 +590,29 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcuts_icon_picker_twitter">Twitter</string>
     <string name="shortcuts_icon_picker_unlock">Unlock</string>
 
+    <!-- About Gummy -->
+    <string name="about_Gummy">About Team Gummy</string>
+    <string name="devs">The Crew</string>
+    <string name="primary_devs">Primary Devs</string>
+    <string name="artwork">Artwork Development</string>
+    <string name="gummy_gerrit_title">Gerrit Code Review</string>
+    <string name="gummy_gerrit_summary">Help us make Gummy a better rom by submitting patches to review.gummyrom.com</string>
+    <string name="gummy_source_title">Team Gummy Source</string>
+    <string name="gummy_source_summary">www.github.com/TEAM-Gummy</string>
+    <string name="sauce">The Secret Sauce</string>
+    <string name="github_gummy">https://github.com/TEAM-Gummy</string>
+    <string name="cphelps76">cphelps76</string>
+    <string name="Kejar31">kejar31</string>
+    <string name="Bkjolly">Bkjolly</string>
+    <string name="Buckmarble">Buckmarble</string>
+    <string name="BytecodeMe">BytecodeMe</string>
+    <string name="Chadfran84">st3rdroids</string>
+    <string name="dhacker29">dhacker29</string>
+    <string name="Emericanx">EmericanX</string>
+    <string name="hashcode">Hashcode</string>
+    <string name="Hedwig34">hedwig34</string>
+    <string name="papi92">papi92</string>
+    <string name="tdm">tdm</string>
+    <string name="xoomdev">xoomdev</string>
+
 </resources>
