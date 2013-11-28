@@ -49,6 +49,7 @@ public class HomeSettings extends SettingsPreferenceFragment {
 
     static final int REQUESTING_UNINSTALL = 10;
 
+    public static final String CURRENT_HOME = "current_home";
     public static final String HOME_PREFS = "home_prefs";
     public static final String HOME_PREFS_DO_SHOW = "do_show";
 

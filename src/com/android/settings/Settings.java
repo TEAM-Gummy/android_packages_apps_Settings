@@ -801,8 +801,6 @@ public class Settings extends PreferenceActivity
                 return HEADER_TYPE_CATEGORY;
             } else if (header.id == R.id.wifi_settings || header.id == R.id.bluetooth_settings) {
                 return HEADER_TYPE_SWITCH;
-            } else if (header.id == R.id.security_settings) {
-                return HEADER_TYPE_BUTTON;
             } else {
                 return HEADER_TYPE_NORMAL;
             }
@@ -875,18 +873,6 @@ public class Settings extends PreferenceActivity
                         holder.switch_ = (Switch) view.findViewById(R.id.switchWidget);
                         break;
 
-                    case HEADER_TYPE_BUTTON:
-                        view = mInflater.inflate(R.layout.preference_header_button_item, parent,
-                                false);
-                        holder.icon = (ImageView) view.findViewById(R.id.icon);
-                        holder.title = (TextView)
-                                view.findViewById(com.android.internal.R.id.title);
-                        holder.summary = (TextView)
-                                view.findViewById(com.android.internal.R.id.summary);
-                        holder.button_ = (ImageButton) view.findViewById(R.id.buttonWidget);
-                        holder.divider_ = view.findViewById(R.id.divider);
-                        break;
-
                     case HEADER_TYPE_NORMAL:
                         view = mInflater.inflate(
                                 R.layout.preference_header_item, parent,
@@ -920,37 +906,30 @@ public class Settings extends PreferenceActivity
                     updateCommonHeaderView(header, holder);
                     break;
 
-                case HEADER_TYPE_BUTTON:
-                    if (header.id == R.id.security_settings) {
-                        boolean hasCert = DevicePolicyManager.hasAnyCaCertsInstalled();
-                        if (hasCert) {
-                            holder.button_.setVisibility(View.VISIBLE);
-                            holder.divider_.setVisibility(View.VISIBLE);
-                            boolean isManaged = mDevicePolicyManager.getDeviceOwner() != null;
-                            if (isManaged) {
-                                holder.button_.setImageResource(R.drawable.ic_settings_about);
-                            } else {
-                                holder.button_.setImageResource(
-                                        android.R.drawable.stat_notify_error);
-                            }
-                            holder.button_.setOnClickListener(new OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Intent intent = new Intent(
-                                            android.provider.Settings.ACTION_MONITORING_CERT_INFO);
-                                    getContext().startActivity(intent);
-                                }
-                            });
-                        } else {
-                            holder.button_.setVisibility(View.GONE);
-                            holder.divider_.setVisibility(View.GONE);
-                        }
-                    }
-                    updateCommonHeaderView(header, holder);
-                    break;
-
+                     //$FALL-THROUGH$
                 case HEADER_TYPE_NORMAL:
-                    updateCommonHeaderView(header, holder);
+                    if (header.extras != null &&
+                            header.extras.containsKey(ManageAccountsSettings.KEY_ACCOUNT_TYPE)) {
+                        String accType = header.extras.getString(
+                                ManageAccountsSettings.KEY_ACCOUNT_TYPE);
+                        Drawable icon = mAuthHelper.getDrawableForType(getContext(), accType);
+                        setHeaderIcon(holder, icon);
+                    } else if (header.extras != null &&
+                            header.extras.containsKey(HomeSettings.CURRENT_HOME)) {
+                        ActivityInfo ai = header.extras.getParcelable(HomeSettings.CURRENT_HOME);
+                        Drawable icon = ai.loadIcon(getContext().getPackageManager());
+                        setHeaderIcon(holder, icon);
+                    } else {
+                        holder.icon.setImageResource(header.iconRes);
+                    }
+                    holder.title.setText(header.getTitle(getContext().getResources()));
+                    CharSequence summary = header.getSummary(getContext().getResources());
+                    if (!TextUtils.isEmpty(summary)) {
+                        holder.summary.setVisibility(View.VISIBLE);
+                        holder.summary.setText(summary);
+                    } else {
+                        holder.summary.setVisibility(View.GONE);
+                    }
                     break;
             }
 

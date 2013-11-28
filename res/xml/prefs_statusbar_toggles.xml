@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gummy="http://schemas.android.com/apk/res/com.android.settings">
+
+
+    <PreferenceCategory
+        android:key="toggle_setup"
+        android:title="@string/toggle_setup">
+
+        <Preference
+            android:key="toggles"
+            android:title="@string/toggle_dialog_arrange_title" />
+
+        <ListPreference
+            android:entries="@array/toggles_style_entries"
+            android:entryValues="@array/toggles_style_values"
+            android:key="toggles_style"
+            android:title="@string/toggles_style_title" />
+
+        <CheckBoxPreference
+            android:key="collapse_shade_all"
+            android:title="@string/toggle_collapse_generic_title" />
+
+        <CheckBoxPreference
+            android:key="quick_toggle_vibrate"
+            android:title="@string/toggle_vibrate_title" />
+
+        <ListPreference
+            android:entries="@array/toggles_per_row_entries"
+            android:entryValues="@array/toggles_per_row_values"
+            android:key="toggles_per_row"
+            android:title="@string/toggles_per_row_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="general_settings"
+        android:title="@string/general_catagory_title">
+
+        <CheckBoxPreference
+            android:key="enable_fast_toggle"
+            android:title="@string/toggle_enable_fasttoggle_title" />
+
+        <ListPreference
+            android:entries="@array/choose_toggle_side_entries"
+            android:entryValues="@array/choose_toggle_side_values"
+            android:key="choose_fast_toggle_side"
+            android:title="@string/toggle_choose_fasttoggle_side_title"
+            android:dependency="enable_fast_toggle" />
+
+        <Preference
+            android:key="toggle_fav_contact"
+            android:title="@string/toggle_favcontact_title" />
+
+        <ListPreference
+            android:entries="@array/screenshot_delay_entries"
+            android:entryValues="@array/screenshot_delay_values"
+            android:key="screenshot_delay"
+            android:title="@string/screenshot_delay_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="custom_toggle"
+        android:title="@string/custom_toggle_cat">
+
+        <Preference
+            android:key="custom_toggle_help"
+            android:title="@string/custom_help_title" />
+
+        <CheckBoxPreference
+            android:key="set_boot_action"
+            android:title="@string/boot_action_title" />
+
+        <CheckBoxPreference
+            android:key="match_icon_action"
+            android:title="@string/match_icon_action_title" />
+
+        <ListPreference
+            android:entries="@array/collapse_bar_entries"
+            android:entryValues="@array/collapse_bar_values"
+            android:key="collapse_bar"
+            android:title="@string/collapse_bar_title" />
+
+        <ListPreference
+            android:entries="@array/custom_toggle_dclick_entries"
+            android:entryValues="@array/custom_toggle_dclick_values"
+            android:key="dclick_action"
+            android:title="@string/dclick_action_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="custom_buttons"
+        android:title="@string/custom_button_cat">
+
+        <com.android.settings.gummy.widgets.CustomTogglePref
+            android:key="custom_toggle_pref" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
