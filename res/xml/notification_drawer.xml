@@ -34,5 +34,11 @@
             android:fragment="com.android.settings.gummy.ClockClicks"
             android:summary="@string/clock_clicks_summary" />
 
+         <Preference
+             android:fragment="com.android.settings.gummy.NotificationDrawerStyle"
+             android:key="notification_style"
+             android:title="@string/notification_style_title"
+             android:summary="@string/notification_style_summary" />
+
     </PreferenceCategory>
 </PreferenceScreen>
