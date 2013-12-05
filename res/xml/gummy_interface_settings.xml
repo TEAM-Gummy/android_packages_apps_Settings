@@ -147,6 +147,12 @@
             android:title="@string/performance_settings_title" />
 
         <PreferenceScreen
+            android:key="initD"
+            android:fragment="com.android.settings.InitD"
+            android:title="@string/init_d_title"
+            android:summary="@string/header_summary_init_d" />
+
+        <PreferenceScreen
             android:id="@+id/appops_settings"
             android:key="app_ops"
             android:title="@string/app_ops_settings"
