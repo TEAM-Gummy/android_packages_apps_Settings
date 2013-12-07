@@ -21,7 +21,6 @@ import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
 import android.app.ActivityManagerNative;
 import android.app.Dialog;
 import android.app.admin.DevicePolicyManager;
-import android.content.BroadcastReceiver;
 import android.content.res.Resources;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -29,8 +28,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.database.ContentObserver;
-import android.hardware.display.DisplayManager;
-import android.hardware.display.WifiDisplayStatus;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
@@ -60,7 +57,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_SCREEN_SAVER = "screensaver";
-    private static final String KEY_WIFI_DISPLAY = "wifi_display";
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
     private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
 
@@ -74,8 +70,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String ROTATION_ANGLE_DELIM = ", ";
     private static final String ROTATION_ANGLE_DELIM_FINAL = " & ";
 
-    private DisplayManager mDisplayManager;
-
     private WarnedListPreference mFontSizePref;
     private PreferenceCategory mLightOptions;
     private PreferenceScreen mNotificationPulse;
@@ -87,9 +81,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     
     private ListPreference mScreenTimeoutPreference;
     private Preference mScreenSaverPreference;
-
-    private WifiDisplayStatus mWifiDisplayStatus;
-    private Preference mWifiDisplayPreference;
 
     private ContentObserver mAccelerometerRotationObserver =
             new ContentObserver(new Handler()) {
@@ -144,17 +135,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mFontSizePref = (WarnedListPreference) findPreference(KEY_FONT_SIZE);
         mFontSizePref.setOnPreferenceChangeListener(this);
         mFontSizePref.setOnPreferenceClickListener(this);
-
-        mDisplayManager = (DisplayManager)getActivity().getSystemService(
-                Context.DISPLAY_SERVICE);
-        mWifiDisplayStatus = mDisplayManager.getWifiDisplayStatus();
-        mWifiDisplayPreference = (Preference)findPreference(KEY_WIFI_DISPLAY);
-        if (mWifiDisplayStatus.getFeatureState()
-                == WifiDisplayStatus.FEATURE_STATE_UNAVAILABLE) {
-            getPreferenceScreen().removePreference(mWifiDisplayPreference);
-            mWifiDisplayPreference = null;
-        }
-
 
         mLightOptions = (PreferenceCategory) prefSet.findPreference(KEY_LIGHT_OPTIONS);
         mNotificationPulse = (PreferenceScreen) findPreference(KEY_NOTIFICATION_PULSE);
@@ -342,12 +322,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true,
                 mAccelerometerRotationObserver);
 
-        if (mWifiDisplayPreference != null) {
-            getActivity().registerReceiver(mReceiver, new IntentFilter(
-                    DisplayManager.ACTION_WIFI_DISPLAY_STATUS_CHANGED));
-            mWifiDisplayStatus = mDisplayManager.getWifiDisplayStatus();
-        }
-
         updateState();
     }
 
@@ -360,10 +334,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         // Display rotation observer
         getContentResolver().unregisterContentObserver(mAccelerometerRotationObserver);
-
-        if (mWifiDisplayPreference != null) {
-            getActivity().unregisterReceiver(mReceiver);
-        }
     }
 
     @Override
@@ -383,30 +353,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private void updateState() {
         readFontSizePreference(mFontSizePref);
         updateScreenSaverSummary();
-        updateWifiDisplaySummary();
     }
 
     private void updateScreenSaverSummary() {
         if (mScreenSaverPreference != null) {
             mScreenSaverPreference.setSummary(
                     DreamSettings.getSummaryTextWithDreamName(getActivity()));
-        }
-    }
-
-    private void updateWifiDisplaySummary() {
-        if (mWifiDisplayPreference != null) {
-            switch (mWifiDisplayStatus.getFeatureState()) {
-                case WifiDisplayStatus.FEATURE_STATE_OFF:
-                    mWifiDisplayPreference.setSummary(R.string.wifi_display_summary_off);
-                    break;
-                case WifiDisplayStatus.FEATURE_STATE_ON:
-                    mWifiDisplayPreference.setSummary(R.string.wifi_display_summary_on);
-                    break;
-                case WifiDisplayStatus.FEATURE_STATE_DISABLED:
-                default:
-                    mWifiDisplayPreference.setSummary(R.string.wifi_display_summary_disabled);
-                    break;
-            }
         }
     }
 
@@ -442,6 +394,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
         if (KEY_SCREEN_TIMEOUT.equals(key)) {
@@ -463,17 +416,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
         return true;
     }
-
-    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(DisplayManager.ACTION_WIFI_DISPLAY_STATUS_CHANGED)) {
-                mWifiDisplayStatus = (WifiDisplayStatus)intent.getParcelableExtra(
-                        DisplayManager.EXTRA_WIFI_DISPLAY_STATUS);
-                updateWifiDisplaySummary();
-            }
-        }
-    };
 
     @Override
     public boolean onPreferenceClick(Preference preference) {
