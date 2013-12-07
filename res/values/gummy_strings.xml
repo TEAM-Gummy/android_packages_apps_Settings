@@ -679,7 +679,7 @@ f anonymous statistics. -->
     <string name="toggle_quickrecord">Quick Record</string>
 
     <!-- Statusbar | Toggles -->
-    <string name="title_statusbar_toggles">QuickSettngs</string>
+    <string name="title_statusbar_toggles">QuickSettings</string>
     <string name="toggle_setup">Toggle Setup</string>
     <string name="back">Back</string>
     <string name="right">Right</string>
