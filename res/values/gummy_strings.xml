@@ -613,7 +613,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="Hedwig34">hedwig34</string>
     <string name="papi92">papi92</string>
     <string name="tdm">tdm</string>
-    <string name="xoomdev">xoomdev</string>
 
     <!-- Anonymous Statistics -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out o

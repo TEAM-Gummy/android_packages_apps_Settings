@@ -47,7 +47,6 @@ public class About extends SettingsPreferenceFragment {
     private static final String HASHCODE = "https://twitter.com/Hashcode0f";
     private static final String HEDWIG34 = "https://twitter.com/hedwig34";
     private static final String PAPI92 = "https://twitter.com/Anthony_J_Fox";
-    private static final String XOOMDEV = "https://twitter.com/xoomdev";
     private static final String CHADFRAN84 = "https://twitter.com/Chadfran84";
 
     Preference mReviewUrl;
@@ -62,7 +61,6 @@ public class About extends SettingsPreferenceFragment {
     Preference mHedwig34;
     Preference mPapi92;
     Preference mtdm;
-    Preference mXoomdev;
     Preference mChadfran84;
 
     @Override
@@ -83,7 +81,6 @@ public class About extends SettingsPreferenceFragment {
         mHedwig34 = findPreference("Hedwig34");
         mPapi92 = findPreference("papi92");
         mtdm = findPreference("tdm");
-        mXoomdev = findPreference("xoomdev");
         mChadfran84 = findPreference("Chadfran84");
 
     }
@@ -125,9 +122,6 @@ public class About extends SettingsPreferenceFragment {
             return true;
         } else if (preference == mtdm) {
             launchUrl(GUMMY_TWITTER);
-            return true;
-        } else if (preference == mXoomdev) {
-            launchUrl(XOOMDEV);
             return true;
         } else if (preference == mChadfran84) {
             launchUrl(CHADFRAN84);
