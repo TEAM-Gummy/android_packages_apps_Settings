@@ -80,6 +80,11 @@
             android:icon="@drawable/twitter_bird" />
 
         <Preference
+            android:key="mattlgroff"
+            android:title="@string/mattlgroff"
+            android:icon="@drawable/twitter_bird" />
+
+        <Preference
             android:key="papi92"
             android:title="@string/papi92"
             android:icon="@drawable/twitter_bird" />

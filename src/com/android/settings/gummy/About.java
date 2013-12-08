@@ -46,6 +46,7 @@ public class About extends SettingsPreferenceFragment {
     private static final String EMERICANX = "https://twitter.com/emericanx";
     private static final String HASHCODE = "https://twitter.com/Hashcode0f";
     private static final String HEDWIG34 = "https://twitter.com/hedwig34";
+    private static final String MATTLGROFF = "https://twitter.com/mattlgroff";
     private static final String PAPI92 = "https://twitter.com/Anthony_J_Fox";
     private static final String CHADFRAN84 = "https://twitter.com/Chadfran84";
 
@@ -59,6 +60,7 @@ public class About extends SettingsPreferenceFragment {
     Preference mEmericanx;
     Preference mHashcode;
     Preference mHedwig34;
+    Preference mmattlgroff;
     Preference mPapi92;
     Preference mtdm;
     Preference mChadfran84;
@@ -79,6 +81,7 @@ public class About extends SettingsPreferenceFragment {
         mEmericanx = findPreference("Emericanx");
         mHashcode = findPreference("hashcode");
         mHedwig34 = findPreference("Hedwig34");
+        mmattlgroff = findPreference("mattlgroff");
         mPapi92 = findPreference("papi92");
         mtdm = findPreference("tdm");
         mChadfran84 = findPreference("Chadfran84");
@@ -116,6 +119,9 @@ public class About extends SettingsPreferenceFragment {
             return true;
         } else if (preference == mHedwig34) {
             launchUrl(HEDWIG34);
+            return true;
+        } else if (preference == mmattlgroff) {
+            launchUrl(MATTLGROFF);
             return true;
         } else if (preference == mPapi92) {
             launchUrl(PAPI92);
