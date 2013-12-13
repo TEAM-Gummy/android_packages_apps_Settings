@@ -59,6 +59,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
     private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
+    private static final String KEY_ADVANCED_DISPLAY_SETTINGS = "advanced_display_settings";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -146,6 +147,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 updateLightPulseDescription();
             }
         }
+		
+        Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
+                getPreferenceScreen(), KEY_ADVANCED_DISPLAY_SETTINGS);
 
         mBatteryPulse = (PreferenceScreen) findPreference(KEY_BATTERY_LIGHT);
         if (mBatteryPulse != null) {

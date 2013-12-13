@@ -84,5 +84,16 @@
                 android:key="wifi_display"
                 android:title="@string/wifi_display_settings_title"
                 android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
+				
+        <!-- DeviceParts Device Specific Display settings -->
+        <Preference
+            android:key="advanced_display_settings"
+            android:title="@string/advanced_settings_title">
+            <intent
+                android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
+                android:targetPackage="com.cyanogenmod.settings.device"
+                android:targetClass="com.cyanogenmod.settings.device.DisplaySettings" />
+        </Preference>
+
 
 </PreferenceScreen>
