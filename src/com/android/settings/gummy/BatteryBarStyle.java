@@ -77,7 +77,7 @@ public class BatteryBarStyle extends SettingsPreferenceFragment implements OnPre
         mBatteryBarColor = (ColorPickerPreference) findPreference(PREF_BATT_BAR_COLOR);
         mBatteryBarColor.setOnPreferenceChangeListener(this);
         int defaultColor = getResources().getColor(
-                com.android.internal.R.color.holo_blue_light);
+                com.android.internal.R.color.white);
         int intColor = Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_BATTERY_BAR_COLOR, defaultColor);
         String hexColor = String.format("#%08x", (0xffffffff & intColor));
