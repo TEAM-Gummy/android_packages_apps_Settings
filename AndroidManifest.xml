@@ -1669,6 +1669,7 @@
         <activity android:name=".gummy.NotificationDrawer" />
         <activity android:name=".gummy.LockscreenInterface" />
         <activity android:name=".gummy.LockscreenButtons" />
+        <activity android:name=".gummy.BatteryBarStyle" />
         <!-- Gummy activities End -->
 
         <activity android:name=".gummy.AutoBrightnessSetup"

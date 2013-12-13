@@ -29,6 +29,7 @@
     <string name="lockscreen_options">Lockscreen Options</string>
     <string name="navigation_settings_options_title">Navigation options</string>
     <string name="navigation_settings_title">Navigation</string>
+    <string name="battery_bar_title">Battery Bar</string>
 
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
@@ -839,5 +840,15 @@ f anonymous statistics. -->
     <string name="notification_drawer_custom_background_dialog_title">Choose color</string>
     <string name="notif_wallpaper_alpha_title">Background transparency</string>
     <string name="notif_alpha_title">Notification transparency</string>
+
+    <!-- Battery Bar -->
+    <string name="battery_bar">Battery bar location</string>
+    <string name="battery_bar_color">Battery bar color</string>
+    <string name="battery_bar_cat">Battery bar style</string>
+    <string name="battery_bar_style_title">Battery bar alignment</string>
+    <string name="battery_bar_thickness_title">Battery bar thickness</string>
+    <string name="battery_bar_animate_title">Charging animation</string>
+    <string name="battery_bar_animate_summary">The charging animation may result in a poor user expe
+rience. Enable at your own discretion.</string>
 
 </resources>

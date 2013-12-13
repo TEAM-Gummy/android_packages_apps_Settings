@@ -33,6 +33,11 @@
             android:key="battery_style_pref"
             android:title="@string/battery_icon_title" />
 
+        <PreferenceScreen
+            android:fragment="com.android.settings.gummy.BatteryBarStyle"
+            android:key="battery_bar"
+            android:title="@string/battery_bar_title" />
+
         <CheckBoxPreference
             android:key="status_bar_brightness_control"
             android:title="@string/status_bar_toggle_brightness"
