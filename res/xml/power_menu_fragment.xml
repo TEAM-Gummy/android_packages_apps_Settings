@@ -17,9 +17,9 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceScreen
-        android:fragment="com.android.settings.gummy.NavBarButtonStyle"
-        android:key="nav_bar_button_style"
+        android:fragment="com.android.settings.gummy.PowerMenuStyle"
+        android:key="power_menu_style"
         android:title="@string/style_title"
-        android:summary="@string/nav_bar_button_style_summary" />
+        android:summary="@string/power_menu_style_summary" />
 
 </PreferenceScreen>

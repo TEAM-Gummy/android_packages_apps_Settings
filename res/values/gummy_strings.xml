@@ -30,6 +30,10 @@
     <string name="navigation_settings_options_title">Navigation options</string>
     <string name="navigation_settings_title">Navigation</string>
     <string name="battery_bar_title">Battery Bar</string>
+    <string name="power_menu_title">Power menu</string>
+
+    <string name="reset_message">Reset all entries to default?</string>
+    <string name="style_title">Style</string>
 
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
@@ -477,17 +481,13 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="navbar_targets_title">Ring targets</string>
     <string name="navbar_cat">Navigation bar</string>
     <string name="navbar_dimensions_reset_message">Reset all dimensions entries to default?</string>
-    <string name="navbar_button_style_reset_message">Reset all style entries to default?</string>
 
     <!-- Navigation bar button style -->
     <string name="nav_bar_button_style">Button style</string>
-    <string name="nav_bar_button_style_summary">Change navigation bar button style</string>
+    <string name="nav_bar_button_style_summary">Change navigation bar button colors</string>
     <string name="button_transparency_title">Button transparency</string>
-    <string name="navigation_bar_icon_tint_title">Button color</string>
-    <string name="nav_button_color_mode_title">Color mode</string>
-    <string name="nav_button_color_mode_dialog_title">Colorize</string>
     <string name="nav_button_color_mode_summary">Change the navigation bar button color mode</string>
-    <string name="navigation_bar_glow_tint_title">Button glow color</string>
+    <string name="navigation_bar_glow_tint_title">Glow color</string>
     <string name="icon_picker_type">Select icon type:</string>
     <string name="icon_default">Default</string>
     <string name="icon_presets">System icons</string>
@@ -500,6 +500,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="select_custom_app_title">Select custom application</string>
     <string name="disabled">Disabled</string>
     <string name="navbar_action_disable_message">Disabled\nAdd an entry to enable this feature</string>
+    <string name="shortcut_action_airplane">Airplane mode</string>
+    <string name="shortcut_action_power_off">Power off</string>
+    <string name="shortcut_action_reboot">Reboot</string>
+    <string name="shortcut_action_sound">Sound</string>
     <string name="shortcut_action_app">Custom app</string>
     <string name="shortcut_action_home">Home</string>
     <string name="shortcut_action_back">Back</string>
@@ -522,7 +526,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcut_action_longpress">Longpress:</string>
     <string name="shortcut_action_select_action_longpress">Choose longpress action:</string>
     <string name="shortcut_action_select_action">Choose action:</string>
-    <string name="shortcut_action_select_action_newbutton">Choose new button:</string>
+    <string name="shortcut_action_select_action_newbutton">Choose new action:</string>
     <string name="shortcut_action_reset">Reset</string>
     <string name="shortcut_action_add">Add</string>
     <string name="shortcut_action_reset_message">Reset all entries to default?</string>
@@ -590,6 +594,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcuts_icon_picker_tv">TV</string>
     <string name="shortcuts_icon_picker_twitter">Twitter</string>
     <string name="shortcuts_icon_picker_unlock">Unlock</string>
+    <string name="shortcuts_text_color_title">Text color</string>
+    <string name="shortcuts_color_title">Icon color</string>
+    <string name="shortcuts_color_mode_title">Icon color mode</string>
+    <string name="shortcuts_color_mode_summary">Change the shorcuts icon color mode</string>
 
     <!-- About Gummy -->
     <string name="about_Gummy">About Team Gummy</string>
@@ -853,5 +861,8 @@ f anonymous statistics. -->
     <!-- Message of dialog confirming that user wants to restart their device with a new runtime -->
     <string name="custom_runtime_warning_title">Warning</string>
     <string name="custom_runtime_warning_message">ART is not supported by Gummy. This setting is included for experimentation only and has the potential to cause instability, crashes, data loss or prevent the proper boot of your device. Visit &lt;a href=\"http://source.android.com/devices/tech/dalvik/art.html\"&gt;Introducing ART&lt;/a&gt; for more information.&lt;br/&gt;&lt;br/&gt;We request you do not file bug reports if you have enabled ART as your runtime.&lt;br/&gt;&lt;br/&gt;Are you sure you want to reboot to change runtime from <xliff:g id="old" example="libdvm.so">%1$s</xliff:g> to <xliff:g id="new" example="libart.so">%2$s</xliff:g>?</string>
+
+    <!-- Power menu -->
+    <string name="power_menu_style_summary">Change power menu colors</string>
 
 </resources>

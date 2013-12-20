@@ -28,7 +28,7 @@
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_bar_color"
             android:title="@string/battery_bar_color"
-            android:defaultValue="#ffffff" />
+            android:defaultValue="0xffffffff" />
 
         <ListPreference
             android:key="battery_bar_style"
