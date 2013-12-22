@@ -18,14 +18,26 @@
     android:title="@string/lockscreen_title" >
 
     <PreferenceCategory
-        android:key="lockscreen_options"
-        android:title="@string/lockscreen_options">
+        android:key="advanced_catagory"
+        android:title="@string/advanced_catagory_title">
 
         <PreferenceScreen
-            android:fragment="com.android.settings.gummy.LockscreenButtons"
             android:key="lockscreen_buttons"
+            android:fragment="com.android.settings.gummy.LockscreenButtons"
             android:title="@string/lockscreen_buttons_title"
             android:summary="@string/lockscreen_buttons_summary" />
+
+        <PreferenceScreen
+            android:key="lockscreen_settings"
+            android:fragment="com.android.settings.gummy.LockscreenExtras"
+            android:title="@string/lockscreen_settings"
+            android:summary="@string/lock_screen_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="general_catagory"
+        android:title="@string/general_catagory_title">
 
         <CheckBoxPreference
             android:key="keyguard_enable_widgets"

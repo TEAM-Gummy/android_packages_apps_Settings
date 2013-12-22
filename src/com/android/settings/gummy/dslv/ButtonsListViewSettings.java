@@ -55,7 +55,7 @@ import android.widget.Toast;
 import com.android.internal.util.gummy.ButtonConfig;
 import com.android.internal.util.gummy.ButtonsConstants;
 import com.android.internal.util.gummy.ButtonsHelper;
-import com.android.internal.util.gummy.ColorHelper;
+import com.android.internal.util.gummy.ImageHelper;
 import com.android.internal.util.gummy.DeviceUtils;
 import com.android.internal.util.gummy.DeviceUtils.FilteredDeviceFeaturesArray;
 import com.android.internal.util.gummy.PolicyHelper;
@@ -472,6 +472,8 @@ public class ButtonsListViewSettings extends ListFragment implements
             case POWER_MENU_SHORTCUT:
                 return PolicyHelper.getPowerMenuConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
+            case LOCKSCREEN_SHORTCUT:
+                return ButtonsHelper.getLockscreenShortcutConfig(mActivity);
         }
         return null;
     }
@@ -487,6 +489,9 @@ public class ButtonsListViewSettings extends ListFragment implements
             case POWER_MENU_SHORTCUT:
                 PolicyHelper.setPowerMenuConfig(mActivity, buttonConfigs, reset);
                 break;
+            case LOCKSCREEN_SHORTCUT:
+                ButtonsHelper.setLockscreenShortcutConfig(mActivity, buttonConfigs, reset);
+                 break;
         }
     }
 
@@ -531,12 +536,12 @@ public class ButtonsListViewSettings extends ListFragment implements
                     + " " + getItem(position).getLongpressActionDescription());
             }
             if (mButtonMode == POWER_MENU_SHORTCUT) {
-                holder.iconView.setImageDrawable(ColorHelper.resize(
+                holder.iconView.setImageDrawable(ImageHelper.resize(
                         mActivity, PolicyHelper.getPowerMenuIconImage(mActivity,
                         getItem(position).getClickAction(),
                         getItem(position).getIcon(), false), 36));
             } else {
-                holder.iconView.setImageDrawable(ColorHelper.resize(
+                holder.iconView.setImageDrawable(ImageHelper.resize(
                         mActivity, ButtonsHelper.getButtonIconImage(mActivity,
                         getItem(position).getClickAction(),
                         getItem(position).getIcon()), 36));
