@@ -28,9 +28,9 @@
             android:summary="@string/lockscreen_buttons_summary" />
 
         <PreferenceScreen
-            android:key="lockscreen_settings"
+            android:key="lockscreen_extras"
             android:fragment="com.android.settings.gummy.LockscreenExtras"
-            android:title="@string/lockscreen_settings"
+            android:title="@string/lockscreen_extras_title"
             android:summary="@string/lock_screen_summary" />
 
     </PreferenceCategory>

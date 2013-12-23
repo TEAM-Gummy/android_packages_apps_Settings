@@ -32,6 +32,8 @@ import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.android.internal.util.gummy.DeviceUtils;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -46,9 +48,11 @@ public class LockscreenExtras extends SettingsPreferenceFragment implements
 
     private static final String PREF_LOCKSCREEN_EIGHT_TARGETS = "lockscreen_eight_targets";
     private static final String PREF_LOCKSCREEN_SHORTCUTS = "lockscreen_shortcuts";
+    private static final String KEY_OPTIONS_CATAGORY = "target_ptions_catagory";
 
     private CheckBoxPreference mLockscreenEightTargets;
     private Preference mShortcuts;
+    private PreferenceCategory mOptionsCatagory;
 
     private boolean mCheckPreferences;
 
@@ -80,8 +84,13 @@ public class LockscreenExtras extends SettingsPreferenceFragment implements
                 Settings.System.LOCKSCREEN_EIGHT_TARGETS, 0) == 1);
         mLockscreenEightTargets.setOnPreferenceChangeListener(this);
 
+        mOptionsCatagory = (PreferenceCategory) prefs.findPreference(KEY_OPTIONS_CATAGORY);
         mShortcuts = (Preference) findPreference(PREF_LOCKSCREEN_SHORTCUTS);
-        mShortcuts.setEnabled(!mLockscreenEightTargets.isChecked());
+        if (!DeviceUtils.isPhone(getActivity())) {
+            mOptionsCatagory.removePreference(mShortcuts);
+        } else {
+            mShortcuts.setEnabled(!mLockscreenEightTargets.isChecked());
+        }
 
         mCheckPreferences = true;
         return prefs;

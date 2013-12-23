@@ -38,11 +38,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
     private static final String LOCKSCREEN_MAXIMIZE_WIDGETS = "lockscreen_maximize_widgets";
-    private static final String KEY_OPTIONS_CATAGORY = "lockscreen_options";
+    private static final String KEY_ADVANCED_CATAGORY = "advanced_catagory";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
 
     private PreferenceScreen mLockscreenButtons;
-    private PreferenceCategory mOptionsCatagory;
+    private PreferenceCategory mAdvancedCatagory;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private DevicePolicyManager mDPM;
@@ -64,6 +64,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         // Enable or disable keyguard widget checkbox based on DPM state
         mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
         mDPM = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
+        PreferenceScreen root = getPreferenceScreen();
         mEnableKeyguardWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_WIDGETS);
         if (mEnableKeyguardWidgets != null) {
             final boolean disabled = (0 != (mDPM.getKeyguardDisabledFeatures(null)
@@ -90,10 +91,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         }
 
         PreferenceScreen prefs = getPreferenceScreen();
-        mOptionsCatagory = (PreferenceCategory) prefs.findPreference(KEY_OPTIONS_CATAGORY);
+        mAdvancedCatagory = (PreferenceCategory) prefs.findPreference(KEY_ADVANCED_CATAGORY);
         mLockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
         if (!hasButtons()) {
-            mOptionsCatagory.removePreference(mLockscreenButtons);
+            mAdvancedCatagory.removePreference(mLockscreenButtons);
         }
     }
 

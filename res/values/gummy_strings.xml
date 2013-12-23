@@ -31,8 +31,9 @@
     <string name="navigation_settings_title">Navigation</string>
     <string name="battery_bar_title">Battery Bar</string>
     <string name="power_menu_title">Power menu</string>
-    <string name="lockscreen_settings">Slider targets and shortcuts</string>
+    <string name="lockscreen_extras_title">Slider targets and shortcuts</string>
     <string name="lock_screen_summary">View or change the slider targets and shortcuts</string>
+    <string name="target_options_catagory_title">Target Options</string>
     <string name="reset_message">Reset all entries to default?</string>
     <string name="style_title">Style</string>
 

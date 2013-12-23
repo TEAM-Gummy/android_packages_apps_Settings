@@ -15,29 +15,35 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/lockscreen_settings" >
+    android:title="@string/lockscreen_extras_title" >
 
-    <CheckBoxPreference
-        android:key="lockscreen_eight_targets"
-        android:title="@string/lockscreen_eight_targets_title"
-        android:summary="@string/lockscreen_eight_targets_summary" />
+    <PreferenceCategory
+        android:key="target_ptions_catagory"
+        android:title="@string/target_options_catagory_title">
 
-    <Preference
-        android:fragment="com.android.settings.gummy.LockscreenTargets"
-        android:key="lockscreen_targets"
-        android:summary="@string/lockscreen_target_summary"
-        android:title="@string/lockscreen_target_title" />
+        <CheckBoxPreference
+            android:key="lockscreen_eight_targets"
+            android:title="@string/lockscreen_eight_targets_title"
+            android:summary="@string/lockscreen_eight_targets_summary" />
 
-    <PreferenceScreen
-             android:key="lockscreen_shortcuts"
-             android:fragment="com.android.settings.gummy.dslv.ButtonsListViewSettings"
-             android:summary="@string/lockscreen_shortcuts_summary"
-             android:title="@string/lockscreen_shortcuts_title">
-         <extra android:name="buttonMode" android:value="4" />
-         <extra android:name="maxAllowedButtons" android:value="5" />
-         <extra android:name="disableLongpress" android:value="true" />
-         <extra android:name="useAppPickerOnly" android:value="true" />
-         <extra android:name="fragment" android:value="com.android.settings.gummy.fragments.LockscreenShortcutFragment" />
-     </PreferenceScreen>
+        <Preference
+            android:fragment="com.android.settings.gummy.LockscreenTargets"
+            android:key="lockscreen_targets"
+            android:summary="@string/lockscreen_target_summary"
+            android:title="@string/lockscreen_target_title" />
+
+        <PreferenceScreen
+                 android:key="lockscreen_shortcuts"
+                 android:fragment="com.android.settings.gummy.dslv.ButtonsListViewSettings"
+                 android:summary="@string/lockscreen_shortcuts_summary"
+                 android:title="@string/lockscreen_shortcuts_title">
+             <extra android:name="buttonMode" android:value="4" />
+             <extra android:name="maxAllowedButtons" android:value="5" />
+             <extra android:name="disableLongpress" android:value="true" />
+             <extra android:name="useAppPickerOnly" android:value="true" />
+             <extra android:name="fragment" android:value="com.android.settings.gummy.fragments.LockscreenShortcutFragment" />
+        </PreferenceScreen>
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
