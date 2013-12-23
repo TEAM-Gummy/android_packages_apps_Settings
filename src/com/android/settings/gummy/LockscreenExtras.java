@@ -48,7 +48,7 @@ public class LockscreenExtras extends SettingsPreferenceFragment implements
 
     private static final String PREF_LOCKSCREEN_EIGHT_TARGETS = "lockscreen_eight_targets";
     private static final String PREF_LOCKSCREEN_SHORTCUTS = "lockscreen_shortcuts";
-    private static final String KEY_OPTIONS_CATAGORY = "target_ptions_catagory";
+    private static final String KEY_OPTIONS_CATAGORY = "target_options_catagory";
 
     private CheckBoxPreference mLockscreenEightTargets;
     private Preference mShortcuts;

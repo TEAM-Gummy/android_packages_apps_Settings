@@ -18,7 +18,7 @@
     android:title="@string/lockscreen_extras_title" >
 
     <PreferenceCategory
-        android:key="target_ptions_catagory"
+        android:key="target_options_catagory"
         android:title="@string/target_options_catagory_title">
 
         <CheckBoxPreference
