@@ -19,6 +19,17 @@
     android:title="@string/general_options_title">
 
     <PreferenceCategory
+        android:key="doubletap_options"
+        android:title="@string/doubletap_options_title">
+
+        <com.android.settings.gummy.SystemSettingCheckBoxPreference
+            android:key="double_tap_sleep_gesture"
+            android:title="@string/status_bar_double_tap_to_sleep_title"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="general_options"
         android:title="@string/general_options_title">
 
