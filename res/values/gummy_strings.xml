@@ -36,6 +36,7 @@
     <string name="target_options_catagory_title">Target Options</string>
     <string name="reset_message">Reset all entries to default?</string>
     <string name="style_title">Style</string>
+    <string name="widgets_catagory_title">Widgets</string>
 
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
@@ -261,8 +262,8 @@
     <!-- KSM -->
     <string name="pref_ksm_title">Kernel samepage merging</string>
     <string name="pref_ksm_summary">KSM reduces physical memory requirements and improves performance</string>
-    <!-- Purgeable Assets -->
 
+    <!-- Purgeable Assets -->
     <string name="pref_purgeable_assets_title">Allow purging of assets</string>
     <string name="pref_purgeable_assets_summary">Purging of bitmap memory assets allows the freeing of more RAM when needed (requires reboot)</string>
 
@@ -918,5 +919,9 @@ f anonymous statistics. -->
     <string name="icon_picker_rss">Rss</string>
     <string name="icon_picker_search">Search</string>
     <string name="icon_picker_twitter">Twitter</string>
+
+    <!-- Lockscreen widget carousel animation -->
+    <string name="lockscreen_use_widget_container_carousel_title">Use widget carousel in portrait</string>
+    <string name="lockscreen_use_widget_container_carousel_summary">Use carousel animation in portrait like it is in landscape when switching between lockscreen widgets.</string>
 
 </resources>

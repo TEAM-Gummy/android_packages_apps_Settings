@@ -36,8 +36,8 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="general_catagory"
-        android:title="@string/general_catagory_title">
+        android:key="widgets_catagory"
+        android:title="@string/widgets_catagory_title">
 
         <CheckBoxPreference
             android:key="keyguard_enable_widgets"
@@ -46,6 +46,17 @@
         <CheckBoxPreference
             android:key="lockscreen_maximize_widgets"
             android:title="@string/security_maximize_widgets_title"/>
+
+        <CheckBoxPreference
+            android:key="lockscreen_use_widget_container_carousel"
+            android:title="@string/lockscreen_use_widget_container_carousel_title"
+            android:summary="@string/lockscreen_use_widget_container_carousel_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="general_catagory"
+        android:title="@string/general_catagory_title">
 
         <CheckBoxPreference
             android:key="battery_around_lockscreen_ring"
