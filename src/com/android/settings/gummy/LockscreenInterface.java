@@ -18,6 +18,8 @@ package com.android.settings.gummy;
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
@@ -39,6 +41,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
     private static final String LOCKSCREEN_MAXIMIZE_WIDGETS = "lockscreen_maximize_widgets";
     private static final String PREF_LOCKSCREEN_USE_CAROUSEL = "lockscreen_use_widget_container_carousel";
+    private static final String KEY_LOCKSCREEN_CAMERA_WIDGET = "lockscreen_camera_widget";
     private static final String KEY_ADVANCED_CATAGORY = "advanced_catagory";
     private static final String KEY_WIDGETS_CATAGORY = "widgets_catagory";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
@@ -54,6 +57,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private CheckBoxPreference mLockRingBattery;
     private CheckBoxPreference mMaximizeKeyguardWidgets;
     private CheckBoxPreference mLockscreenUseCarousel;
+    private CheckBoxPreference mCameraWidget;
 
     public boolean hasButtons() {
         return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
@@ -96,6 +100,30 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         if (mMaximizeKeyguardWidgets != null) {
             mMaximizeKeyguardWidgets.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
+        }
+
+        Resources keyguardResources = null;
+        PackageManager pm = getPackageManager();
+        try {
+            keyguardResources = pm.getResourcesForApplication("com.android.keyguard");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        final boolean cameraDefault = keyguardResources != null
+                ? keyguardResources.getBoolean(keyguardResources.getIdentifier(
+                "com.android.keyguard:bool/kg_enable_camera_default_widget", null, null)) : false;
+
+        DevicePolicyManager dpm = (DevicePolicyManager)getSystemService(
+                Context.DEVICE_POLICY_SERVICE);
+        mCameraWidget = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_CAMERA_WIDGET);
+        if (dpm.getCameraDisabled(null)
+                || (dpm.getKeyguardDisabledFeatures(null)
+                    & DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA) != 0) {
+            prefs.removePreference(mCameraWidget);
+        } else {
+            mCameraWidget.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_CAMERA_WIDGET, cameraDefault ? 1 : 0) == 1);
         }
 
         mWidgetsCatagory = (PreferenceCategory) prefs.findPreference(KEY_WIDGETS_CATAGORY);
@@ -143,7 +171,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
                     Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, isToggled(preference) ? 1 : 0);
         } else if (preference == mLockscreenUseCarousel) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_USE_WIDGET_CONTAINER_CAROUSEL, mLockscreenUseCarousel.isChecked() ? 1 : 0);
+                    Settings.System.LOCKSCREEN_USE_WIDGET_CONTAINER_CAROUSEL, isToggled(preference) ? 1 : 0);
+        } else if (preference == mCameraWidget) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_CAMERA_WIDGET, isToggled(preference) ? 1 : 0);
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
