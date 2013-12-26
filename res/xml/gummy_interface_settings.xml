@@ -72,14 +72,6 @@
             android:fragment="com.android.settings.gummy.LockscreenInterface"
             android:title="@string/lockscreen_title" />
 
-        <PreferenceScreen
-            android:key="lock_clock"
-            android:title="@string/lock_clock_title">
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.cyanogenmod.lockclock"
-                    android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
-        </PreferenceScreen>
-
     </PreferenceCategory>
 
     <PreferenceCategory

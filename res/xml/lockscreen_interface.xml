@@ -41,21 +41,23 @@
 
         <CheckBoxPreference
             android:key="keyguard_enable_widgets"
-            android:title="@string/security_enable_widgets_title"/>
+            android:title="@string/security_enable_widgets_title" />
 
-        <CheckBoxPreference
-            android:key="lockscreen_maximize_widgets"
-            android:title="@string/security_maximize_widgets_title"/>
+        <PreferenceScreen
+            android:key="lockscreen_widgets"
+            android:fragment="com.android.settings.gummy.LockscreenWidgets"
+            android:title="@string/lockscreen_widgets_title"
+            android:summary="@string/lockscreen_widgets_summary"
+            android:dependency="keyguard_enable_widgets" />
 
-        <CheckBoxPreference
-            android:key="lockscreen_use_widget_container_carousel"
-            android:title="@string/lockscreen_use_widget_container_carousel_title"
-            android:summary="@string/lockscreen_use_widget_container_carousel_summary" />
-
-         <CheckBoxPreference
-            android:key="lockscreen_camera_widget"
-            android:title="@string/lockscreen_camera_widget_title"
-            android:summary="@string/lockscreen_camera_widget_summary" />
+        <PreferenceScreen
+            android:key="lock_clock"
+            android:title="@string/lock_clock_title"
+            android:dependency="keyguard_enable_widgets">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.cyanogenmod.lockclock"
+                    android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+        </PreferenceScreen>
 
     </PreferenceCategory>
 

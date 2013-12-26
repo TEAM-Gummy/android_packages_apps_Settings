@@ -54,7 +54,6 @@ public class GummyInterface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "GummyInterface";
 
-    private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
     private static final String KEY_ADVANCED_CATAGORY = "advanced_catagory";
     private static final String KEY_POWER_NOTIFICATIONS = "power_notifications";
@@ -95,9 +94,6 @@ public class GummyInterface extends SettingsPreferenceFragment implements
 
         ContentResolver resolver = getContentResolver();
         PreferenceScreen prefSet = getPreferenceScreen();
-
-        // Dont display the lock clock preference if its not installed
-        removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
 
         // Only show the hardware keys config on a device that does not have a navbar
         mAdvancedCatagory = (PreferenceCategory) prefSet.findPreference(KEY_ADVANCED_CATAGORY);
@@ -162,24 +158,6 @@ public class GummyInterface extends SettingsPreferenceFragment implements
     @Override
     public void onPause() {
         super.onPause();
-    }
-
-    private boolean removePreferenceIfPackageNotInstalled(Preference preference) {
-        String intentUri=((PreferenceScreen) preference).getIntent().toUri(1);
-        Pattern pattern = Pattern.compile("component=([^/]+)/");
-        Matcher matcher = pattern.matcher(intentUri);
-
-        String packageName=matcher.find()?matcher.group(1):null;
-        if(packageName != null) {
-            try {
-                getPackageManager().getPackageInfo(packageName, 0);
-            } catch (NameNotFoundException e) {
-                Log.e(TAG,"package "+packageName+" not installed, hiding preference.");
-                getPreferenceScreen().removePreference(preference);
-                return true;
-            }
-        }
-        return false;
     }
 
     @Override

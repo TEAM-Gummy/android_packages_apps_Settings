@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2013 Gummy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +20,7 @@ import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -27,6 +29,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.util.Log;
 
 import com.android.internal.widget.LockPatternUtils;
 
@@ -34,44 +37,40 @@ import com.android.settings.R;
 import com.android.settings.ChooseLockSettingsHelper;
 import com.android.settings.SettingsPreferenceFragment;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class LockscreenInterface extends SettingsPreferenceFragment {
     private static final String TAG = "LockscreenInterface";
 
+    private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
-    private static final String LOCKSCREEN_MAXIMIZE_WIDGETS = "lockscreen_maximize_widgets";
-    private static final String PREF_LOCKSCREEN_USE_CAROUSEL = "lockscreen_use_widget_container_carousel";
-    private static final String KEY_LOCKSCREEN_CAMERA_WIDGET = "lockscreen_camera_widget";
     private static final String KEY_ADVANCED_CATAGORY = "advanced_catagory";
-    private static final String KEY_WIDGETS_CATAGORY = "widgets_catagory";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
 
     private PreferenceScreen mLockscreenButtons;
     private PreferenceCategory mAdvancedCatagory;
-    private PreferenceCategory mWidgetsCatagory;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private DevicePolicyManager mDPM;
 
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mLockRingBattery;
-    private CheckBoxPreference mMaximizeKeyguardWidgets;
-    private CheckBoxPreference mLockscreenUseCarousel;
-    private CheckBoxPreference mCameraWidget;
 
     public boolean hasButtons() {
         return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
     }
 
-    public boolean showCarousel() {
-        return !getResources().getBoolean(R.bool.config_show_carousel);
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.lockscreen_interface);
+
+        // Dont display the lock clock preference if its not installed
+        removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
 
         // Enable or disable keyguard widget checkbox based on DPM state
         mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
@@ -96,45 +95,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
                     Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
         }
 
-        mMaximizeKeyguardWidgets = (CheckBoxPreference) findPreference(LOCKSCREEN_MAXIMIZE_WIDGETS);
-        if (mMaximizeKeyguardWidgets != null) {
-            mMaximizeKeyguardWidgets.setChecked(Settings.System.getInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
-        }
-
-        Resources keyguardResources = null;
-        PackageManager pm = getPackageManager();
-        try {
-            keyguardResources = pm.getResourcesForApplication("com.android.keyguard");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        final boolean cameraDefault = keyguardResources != null
-                ? keyguardResources.getBoolean(keyguardResources.getIdentifier(
-                "com.android.keyguard:bool/kg_enable_camera_default_widget", null, null)) : false;
-
-        DevicePolicyManager dpm = (DevicePolicyManager)getSystemService(
-                Context.DEVICE_POLICY_SERVICE);
-        mCameraWidget = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_CAMERA_WIDGET);
-        if (dpm.getCameraDisabled(null)
-                || (dpm.getKeyguardDisabledFeatures(null)
-                    & DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA) != 0) {
-            prefs.removePreference(mCameraWidget);
-        } else {
-            mCameraWidget.setChecked(Settings.System.getInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_CAMERA_WIDGET, cameraDefault ? 1 : 0) == 1);
-        }
-
-        mWidgetsCatagory = (PreferenceCategory) prefs.findPreference(KEY_WIDGETS_CATAGORY);
-        mLockscreenUseCarousel = (CheckBoxPreference)findPreference(PREF_LOCKSCREEN_USE_CAROUSEL);
-        if (!showCarousel()) {
-            mWidgetsCatagory.removePreference(mLockscreenUseCarousel);
-        } else {
-            mLockscreenUseCarousel.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.LOCKSCREEN_USE_WIDGET_CONTAINER_CAROUSEL, 0) == 1);
-        }
-
         mAdvancedCatagory = (PreferenceCategory) prefs.findPreference(KEY_ADVANCED_CATAGORY);
         mLockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
         if (!hasButtons()) {
@@ -156,6 +116,24 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         return ((CheckBoxPreference) pref).isChecked();
     }
 
+    private boolean removePreferenceIfPackageNotInstalled(Preference preference) {
+        String intentUri=((PreferenceScreen) preference).getIntent().toUri(1);
+        Pattern pattern = Pattern.compile("component=([^/]+)/");
+        Matcher matcher = pattern.matcher(intentUri);
+
+        String packageName=matcher.find()?matcher.group(1):null;
+        if(packageName != null) {
+            try {
+                getPackageManager().getPackageInfo(packageName, 0);
+            } catch (NameNotFoundException e) {
+                Log.e(TAG,"package "+packageName+" not installed, hiding preference.");
+                getPreferenceScreen().removePreference(preference);
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         final String key = preference.getKey();
@@ -166,15 +144,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         } else if (preference == mLockRingBattery) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, isToggled(preference) ? 1 : 0);
-        } else if (preference == mMaximizeKeyguardWidgets) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, isToggled(preference) ? 1 : 0);
-        } else if (preference == mLockscreenUseCarousel) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_USE_WIDGET_CONTAINER_CAROUSEL, isToggled(preference) ? 1 : 0);
-        } else if (preference == mCameraWidget) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_CAMERA_WIDGET, isToggled(preference) ? 1 : 0);
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);

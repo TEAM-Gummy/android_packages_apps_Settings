@@ -36,6 +36,8 @@
     <string name="target_options_catagory_title">Target Options</string>
     <string name="reset_message">Reset all entries to default?</string>
     <string name="style_title">Style</string>
+    <string name="lockscreen_widgets_title">Lockscreen Widgets</string>
+    <string name="lockscreen_widgets_summary">Change the lockscreen widget options</string>
     <string name="widgets_catagory_title">Widgets</string>
 
     <!-- Hostname setting -->
