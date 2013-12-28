@@ -33,6 +33,11 @@
             android:title="@string/lockscreen_extras_title"
             android:summary="@string/lock_screen_summary" />
 
+        <PreferenceScreen
+            android:key="keyguard_style"
+            android:fragment="com.android.settings.gummy.LockscreenStyle"
+            android:title="@string/lockscreen_style_title"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
