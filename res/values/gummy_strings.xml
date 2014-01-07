@@ -39,7 +39,6 @@
     <string name="lockscreen_widgets_title">Lockscreen Widgets</string>
     <string name="lockscreen_widgets_summary">Change the lockscreen widget options</string>
     <string name="widgets_catagory_title">Widgets</string>
-    <string name="app_security_title">App security</string>
 
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>

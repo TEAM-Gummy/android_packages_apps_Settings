@@ -21,6 +21,7 @@ import android.app.ActivityManagerNative;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.media.Ringtone;
@@ -40,6 +41,7 @@ import android.preference.TwoStatePreference;
 import android.provider.Settings;
 import android.view.IWindowManager;
 
+import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -57,6 +59,7 @@ public class GummyInterface extends SettingsPreferenceFragment implements
     private static final String KEY_POWER_NOTIFICATIONS_RINGTONE = "power_notifications_ringtone";
     private static final String KEY_POWER_CRT_MODE = "system_power_crt_mode";
     private static final String KEY_POWER_CRT_SCREEN_OFF = "system_power_crt_screen_off";
+    private static final String KEY_BLACKLIST = "blacklist";
 
     // Request code for power notification ringtone picker
     private static final int REQUEST_CODE_POWER_NOTIFICATIONS_RINGTONE = 1;
@@ -71,6 +74,7 @@ public class GummyInterface extends SettingsPreferenceFragment implements
     private Preference mPowerSoundsRingtone;
     private ListPreference mCrtMode;
     private CheckBoxPreference mCrtOff;
+    private PreferenceScreen mBlacklist;
 
     private static ContentResolver mContentResolver;
 
@@ -144,11 +148,20 @@ public class GummyInterface extends SettingsPreferenceFragment implements
         mCrtMode.setValueIndex(crtMode);
         mCrtMode.setSummary(mCrtMode.getEntries()[crtMode]);
         mCrtMode.setOnPreferenceChangeListener(this);
+
+        mBlacklist = (PreferenceScreen) findPreference(KEY_BLACKLIST);
+        // Determine options based on device telephony support
+        PackageManager pm = getPackageManager();
+        if (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
+            // No telephony, remove dependent options
+            mAdvancedCatagory.removePreference(mBlacklist);
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        updateBlacklistSummary();
     }
 
     @Override
@@ -243,6 +256,16 @@ public class GummyInterface extends SettingsPreferenceFragment implements
             default:
                 super.onActivityResult(requestCode, resultCode, data);
                 break;
+        }
+    }
+
+    private void updateBlacklistSummary() {
+        if (mBlacklist != null) {
+            if (BlacklistUtils.isBlacklistEnabled(getActivity())) {
+                mBlacklist.setSummary(R.string.blacklist_summary);
+            } else {
+                mBlacklist.setSummary(R.string.blacklist_summary_disabled);
+            }
         }
     }
 }
