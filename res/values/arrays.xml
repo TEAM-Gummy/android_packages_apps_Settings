@@ -206,11 +206,11 @@
     <!-- Do not translate. -->
     <string-array name="tts_demo_strings" translatable="false">
         <item>This is an example of speech synthesis in English.</item>
-        <item>Voici un échantillon de synthèse vocale en français.</item>
-        <item>Dies ist ein Beispiel für Sprachsynthese in Deutsch.</item>
-        <item>Questo è un esempio di sintesi vocale in italiano.</item>
-        <item>Este es un ejemplo de síntesis de voz en español.</item>
-        <item>이것은 한국어 음성 합성의 예입니다.</item>
+        <item>Voici un Ã©chantillon de synthÃ¨se vocale en franÃ§ais.</item>
+        <item>Dies ist ein Beispiel fÃ¼r Sprachsynthese in Deutsch.</item>
+        <item>Questo Ã¨ un esempio di sintesi vocale in italiano.</item>
+        <item>Este es un ejemplo de sÃ­ntesis de voz en espaÃ±ol.</item>
+        <item>ì´ê²ƒì€ í•œêµ­ì–´ ìŒì„± í•©ì„±ì˜ ì˜ˆìž…ë‹ˆë‹¤.</item>
     </string-array>
     <string-array name="tts_demo_string_langs" translatable="false">
         <item>eng</item>
@@ -494,8 +494,8 @@
     </string-array>
 
     <string-array translatable="false" name="special_locale_names">
-        <item>中文 (简体)</item>
-        <item>中文 (繁體)</item>
+        <item>ä¸­æ–‡ (ç®€ä½“)</item>
+        <item>ä¸­æ–‡ (ç¹é«”)</item>
     </string-array>
 
     <!-- Authentication Types used in APN editor -->

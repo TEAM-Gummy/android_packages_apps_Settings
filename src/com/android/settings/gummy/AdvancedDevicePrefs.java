@@ -18,6 +18,8 @@ package com.android.settings.gummy;
 
 import android.app.ActivityManagerNative;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.SharedPreferences;
@@ -44,8 +46,10 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
     private static final String KEY_ADAPTIVE_BACKLIGHT = "adaptive_backlight";
     private static final String KEY_ADVANCED_DISPLAY_SETTINGS = "advanced_display_settings";
     private static final String KEY_ADVANCED_DEVICE_SETTINGS = "advanced_device_settings";
+    private static final String KEY_SCREEN_COLOR_SETTINGS = "screencolor_settings";
 
     private CheckBoxPreference mAdaptiveBacklight;
+    private PreferenceScreen mScreenColorSettings;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,6 +69,10 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_ADVANCED_DISPLAY_SETTINGS);
 
+        mScreenColorSettings = (PreferenceScreen) findPreference(KEY_SCREEN_COLOR_SETTINGS);
+        if (!isPostProcessingSupported()) {
+            getPreferenceScreen().removePreference(mScreenColorSettings);
+        }
     }
 
     @Override
@@ -108,5 +116,16 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
                 Log.d(TAG, "Adaptive backlight settings restored.");
             }
         }
+    }
+
+    private boolean isPostProcessingSupported() {
+        boolean ret = true;
+        final PackageManager pm = getPackageManager();
+        try {
+            pm.getPackageInfo("com.qualcomm.display", PackageManager.GET_META_DATA);
+        } catch (NameNotFoundException e) {
+            ret = false;
+        }
+        return ret;
     }
 }

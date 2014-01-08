@@ -37,6 +37,16 @@
             android:targetClass="com.cyanogenmod.settings.device.DisplaySettings" />
     </PreferenceScreen>
 
+        <PreferenceScreen
+            android:persistent="false"
+            android:key="screencolor_settings"
+            android:title="@string/screencolor">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.gummy.ScreenColorSettings" />
+        </PreferenceScreen>
+
     <CheckBoxPreference
         android:key="adaptive_backlight"
         android:title="@string/adaptive_backlight_title"
