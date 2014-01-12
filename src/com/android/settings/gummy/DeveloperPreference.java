@@ -16,109 +16,118 @@
 
 package com.android.settings.gummy;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.TypedArray;
-import android.graphics.Point;
-import android.net.Uri;
+import android.os.Bundle;
 import android.preference.Preference;
-import android.util.AttributeSet;
-import android.view.Display;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.preference.PreferenceGroup;
+import android.preference.PreferenceScreen;
+import android.net.Uri;
 
 import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+public class DeveloperPreference extends SettingsPreferenceFragment {
 
-public class DeveloperPreference extends Preference {
-    private static final String TAG = "DeveloperPreference";
-    private ImageView twitterButton;
-    private ImageView githubButton;
+    public static final String TAG = "DeveloperPreference";
 
-    private TextView devName;
+    private static final String GUMMY_TWITTER = "https://twitter.com/TeamGummyRom";
+    private static final String CPHELPS76 = "https://twitter.com/csphelps76";
+    private static final String KEJAR31 = "https://twitter.com/kejar31";
+    private static final String BKJOLLY = "https://twitter.com/bkjolly";
+    private static final String BUCKMARBLE = "https://twitter.com/buckmarble";
+    private static final String BYTECODEME = "https://twitter.com/BytecodeMe";
+    private static final String DHACKER29 = "https://twitter.com/dhacker29";
+    private static final String EMERICANX = "https://twitter.com/emericanx";
+    private static final String HASHCODE = "https://twitter.com/Hashcode0f";
+    private static final String HEDWIG34 = "https://twitter.com/hedwig34";
+    private static final String MATTLGROFF = "https://twitter.com/mattlgroff";
+    private static final String PAPI92 = "https://twitter.com/Anthony_J_Fox";
+    private static final String CHADFRAN84 = "https://twitter.com/Chadfran84";
 
-    private String nameDev;
-    private String twitterName;
-    private String githubLink;
-    private final Display mDisplay;
-    private TypedArray typedArray;
-    private TextView twitter;
+    Preference mCphelps76;
+    Preference mKejar31;
+    Preference mBkjolly;
+    Preference mBuckmarble;
+    Preference mBytecodeme;
+    Preference mDhacker29;
+    Preference mEmericanx;
+    Preference mHashcode;
+    Preference mHedwig34;
+    Preference mmattlgroff;
+    Preference mPapi92;
+    Preference mtdm;
+    Preference mChadfran84;
 
-    public DeveloperPreference(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setTitle(R.string.about_gummy_developer);
+        addPreferencesFromResource(R.xml.prefs_gummy_developer);
 
-        typedArray = context.obtainStyledAttributes(attrs, R.styleable.DeveloperPreference);
-        nameDev = typedArray.getString(R.styleable.DeveloperPreference_nameDev);
-        twitterName = typedArray.getString(R.styleable.DeveloperPreference_twitterHandle);
-        githubLink = typedArray.getString(R.styleable.DeveloperPreference_githubLink);
+        mCphelps76 = findPreference("cphelps76");
+        mKejar31 = findPreference("Kejar31");
+        mBkjolly = findPreference("Bkjolly");
+        mBuckmarble = findPreference("Buckmarble");
+        mBytecodeme = findPreference("BytecodeMe");
+        mDhacker29 = findPreference("dhacker29");
+        mEmericanx = findPreference("Emericanx");
+        mHashcode = findPreference("hashcode");
+        mHedwig34 = findPreference("Hedwig34");
+        mmattlgroff = findPreference("mattlgroff");
+        mPapi92 = findPreference("papi92");
+        mtdm = findPreference("tdm");
+        mChadfran84 = findPreference("Chadfran84");
 
-        WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
-        mDisplay = wm.getDefaultDisplay();
     }
 
     @Override
-    protected View onCreateView(ViewGroup parent) {
-        super.onCreateView(parent);
-        View layout = View.inflate(getContext(), R.layout.dev_pref, null);
-        twitterButton = (ImageView) layout.findViewById(R.id.twitter_button);
-        githubButton = (ImageView) layout.findViewById(R.id.github_button);
-        devName = (TextView) layout.findViewById(R.id.name);
-        return layout;
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mCphelps76) {
+            launchUrl(CPHELPS76);
+            return true;
+        } else if (preference == mKejar31) {
+            launchUrl(KEJAR31);
+            return true;
+        } else if (preference == mBkjolly) {
+            launchUrl(BKJOLLY);
+            return true;
+        } else if (preference == mBuckmarble) {
+            launchUrl(BUCKMARBLE);
+            return true;
+        } else if (preference == mBytecodeme) {
+            launchUrl(BYTECODEME);
+            return true;
+        } else if (preference == mDhacker29) {
+            launchUrl(DHACKER29);
+            return true;
+        } else if (preference == mEmericanx) {
+            launchUrl(EMERICANX);
+            return true;
+        } else if (preference == mHashcode) {
+            launchUrl(HASHCODE);
+            return true;
+        } else if (preference == mHedwig34) {
+            launchUrl(HEDWIG34);
+            return true;
+        } else if (preference == mmattlgroff) {
+            launchUrl(MATTLGROFF);
+            return true;
+        } else if (preference == mPapi92) {
+            launchUrl(PAPI92);
+            return true;
+        } else if (preference == mtdm) {
+            launchUrl(GUMMY_TWITTER);
+            return true;
+        } else if (preference == mChadfran84) {
+            launchUrl(CHADFRAN84);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
-    @Override
-    protected void onBindView(View view) {
-        super.onBindView(view);
-
-        try {
-            if (githubLink != null) {
-                final OnClickListener openGithub = new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Uri githubURL = Uri.parse(githubLink);
-                        final Intent intent = new Intent(Intent.ACTION_VIEW, githubURL);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        getContext().startActivity(intent);
-                    }
-                };
-                githubButton.setOnClickListener(openGithub);
-            } else {
-                githubButton.setVisibility(View.GONE);
-            }
-        } catch (Exception e) {
-            // Do nothing
-        }
-
-        try {
-            if (twitterName != null) {
-                final OnPreferenceClickListener openTwitter = new OnPreferenceClickListener() {
-                    @Override
-                    public boolean onPreferenceClick(Preference preference) {
-                        Uri twitterURL = Uri.parse("http://twitter.com/#!/" + twitterName);
-                        final Intent intent = new Intent(Intent.ACTION_VIEW, twitterURL);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        getContext().startActivity(intent);
-                        return true;
-                    }
-                };
-
-                // changed to clicking the preference to open twitter
-                // it was a hit or miss to click the twitter bird
-                this.setOnPreferenceClickListener(openTwitter);
-            } else {
-                twitterButton.setVisibility(View.INVISIBLE);
-            }
-        } catch (Exception e) {
-            // Do nothing
-        }
-        if (devName != null) {
-            devName.setText(nameDev);
-        }
+    private void launchUrl(String url) {
+        Uri uriUrl = Uri.parse(url);
+        Intent whatever = new Intent(Intent.ACTION_VIEW, uriUrl);
+        getActivity().startActivity(whatever);
     }
 }

@@ -612,6 +612,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- About Gummy -->
     <string name="about_Gummy">About Team Gummy</string>
+    <string name="gummy_devs">Developers</string>
+    <string name="about_gummy_developer">Team Gummy Devs</string>
     <string name="devs">The Crew</string>
     <string name="primary_devs">Primary Devs</string>
     <string name="artwork">Artwork Development</string>
