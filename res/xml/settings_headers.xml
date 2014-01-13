@@ -86,6 +86,13 @@
         android:icon="@drawable/ic_action_permission"
         android:title="@string/superuser" />
 
+    <!-- App Settings -->
+    <header
+        android:fragment="com.android.settings.gummy.AppSettings"
+        android:icon="@drawable/ic_settings_applications"
+        android:title="@string/app_settings"
+        android:id="@+id/app_settings" />
+
     <!-- About Gummy -->
     <header
         android:id="@+id/about"

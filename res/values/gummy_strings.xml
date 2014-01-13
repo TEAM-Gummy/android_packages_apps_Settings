@@ -39,6 +39,22 @@
     <string name="lockscreen_widgets_title">Lockscreen Widgets</string>
     <string name="lockscreen_widgets_summary">Change the lockscreen widget options</string>
     <string name="widgets_catagory_title">Widgets</string>
+    <string name="app_settings">App settings</string>
+
+    <!-- App Setting menus
+    <string name="app_settings_entry_dialog">In an effort to make app specific settings more accessable and initial setup easier and quicker, source built app settings menus have been consolidaed into a single preference screen. You can also still access the app settings menus from the apps themselves</string> -->
+    <string name="app_settings_entry_dialog">Source built app settings can be accessed here directly as well as from within the apps themselves</string>
+    <string name="app_settings_entry_dialog_title">Gummy App Settings</string>
+    <string name="apollo_title">Apollo</string>
+    <string name="browser_title">Browser</string>
+    <string name="calculator2_title">Calculator</string>
+    <string name="calendar_title">Calendar</string>
+    <string name="contacts_title">Contacts</string>
+    <string name="deskclock_title">DeskClock</string>
+    <string name="email_title">Email</string>
+    <string name="launcher3_title">Launcher3</string>
+    <string name="mms_title">Mms</string>
+    <string name="phone_title">Phone</string>
 
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
