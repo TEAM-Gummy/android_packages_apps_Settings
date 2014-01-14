@@ -528,6 +528,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="disabled">Disabled</string>
     <string name="navbar_action_disable_message">Disabled\nAdd an entry to enable this feature</string>
     <string name="shortcut_action_airplane">Airplane mode</string>
+    <string name="shortcut_action_expanded_desktop">Expanded Desktop</string>
     <string name="shortcut_action_power_off">Power off</string>
     <string name="shortcut_action_reboot">Reboot</string>
     <string name="shortcut_action_sound">Sound</string>
