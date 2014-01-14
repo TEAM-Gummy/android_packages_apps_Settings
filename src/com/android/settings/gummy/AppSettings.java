@@ -87,7 +87,7 @@ public class AppSettings extends SettingsPreferenceFragment
 
             mAppCatagory = (PreferenceCategory) prefSet.findPreference(KEY_APP_CATAGORY);
 
-            // Dont display the app preferences if user diables or removes them
+            // Dont display the app preferences if user disables or removes them
             try {
                 if (!isPackageInstalled("com.andrew.apollo")) {
                     mAppCatagory.removePreference(findPreference(KEY_APOLLO));
