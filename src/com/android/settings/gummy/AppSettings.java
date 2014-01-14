@@ -37,27 +37,29 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class AppSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
     private static final String TAG = "AppSettings";
 
     private static final String KEY_APP_CATAGORY = "app_settings_catagory";
+    private static final String KEY_APOLLO = "apollo";
+    private static final String KEY_BROWSER = "browser";
+    private static final String KEY_CALENDAR = "calendar";
+    private static final String KEY_CONTACTS = "contacts";
+    private static final String KEY_DESKCLOCK = "deskclock";
+    private static final String KEY_EMAIL = "email";
     private static final String KEY_MMS = "mms";
     private static final String KEY_PHONE = "phone";
 
     private PreferenceCategory mAppCatagory;
     private PreferenceScreen mMms;
     private PreferenceScreen mPhone;
-
     private AlertDialog alertDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         if (getPreferenceManager() != null) {
 
@@ -82,15 +84,45 @@ public class AppSettings extends SettingsPreferenceFragment
             alertDialog.show();
 
             PreferenceScreen prefSet = getPreferenceScreen();
+
             mAppCatagory = (PreferenceCategory) prefSet.findPreference(KEY_APP_CATAGORY);
-            mMms = (PreferenceScreen) findPreference(KEY_MMS);
-            mPhone = (PreferenceScreen) findPreference(KEY_PHONE);
+
+            // Dont display the app preferences if user diables or removes them
+            try {
+                if (!isPackageInstalled("com.andrew.apollo")) {
+                    mAppCatagory.removePreference(findPreference(KEY_APOLLO));
+                }
+                if (!isPackageInstalled("com.android.browser")) {
+                    mAppCatagory.removePreference(findPreference(KEY_BROWSER));
+                }
+                if (!isPackageInstalled("com.android.calendar")) {
+                    mAppCatagory.removePreference(findPreference(KEY_CALENDAR));
+                }
+                if (!isPackageInstalled("com.android.contacts")) {
+                    mAppCatagory.removePreference(findPreference(KEY_CONTACTS));
+                }
+                if (!isPackageInstalled("com.android.deskclock")) {
+                    mAppCatagory.removePreference(findPreference(KEY_DESKCLOCK));
+                }
+                if (!isPackageInstalled("com.android.email")) {
+                    mAppCatagory.removePreference(findPreference(KEY_EMAIL));
+                }
+                if (!isPackageInstalled("com.android.mms")) {
+                    mAppCatagory.removePreference(findPreference(KEY_MMS));
+                }
+                if (!isPackageInstalled("com.android.phone")) {
+                    mAppCatagory.removePreference(findPreference(KEY_PHONE));
+                }
+            } catch (Exception e) {
+                // Do nothing
+            }
+
             // Determine options based on device telephony support
             PackageManager pm = getPackageManager();
             if (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
                 // No telephony, remove dependent options
-                mAppCatagory.removePreference(mMms);
-                mAppCatagory.removePreference(mPhone);
+                mAppCatagory.removePreference(findPreference(KEY_MMS));
+                mAppCatagory.removePreference(findPreference(KEY_PHONE));
             }
         }
     }
@@ -103,24 +135,6 @@ public class AppSettings extends SettingsPreferenceFragment
     @Override
     public void onPause() {
         super.onPause();
-    }
-
-    private boolean removePreferenceIfPackageNotInstalled(Preference preference) {
-        String intentUri=((PreferenceScreen) preference).getIntent().toUri(1);
-        Pattern pattern = Pattern.compile("component=([^/]+)/");
-        Matcher matcher = pattern.matcher(intentUri);
-
-        String packageName=matcher.find()?matcher.group(1):null;
-        if(packageName != null) {
-            try {
-                getPackageManager().getPackageInfo(packageName, 0);
-            } catch (NameNotFoundException e) {
-                Log.e(TAG,"package "+packageName+" not installed, hiding preference.");
-                getPreferenceScreen().removePreference(preference);
-                return true;
-            }
-        }
-        return false;
     }
 
     @Override
