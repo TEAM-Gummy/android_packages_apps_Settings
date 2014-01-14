@@ -48,6 +48,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
     private static final String KEY_ADVANCED_CATAGORY = "advanced_catagory";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
+    private static final String KEY_LOCKSCREEN_ROTATION = "lockscreen_rotation";
 
     private PreferenceScreen mLockscreenButtons;
     private PreferenceCategory mAdvancedCatagory;
@@ -57,6 +58,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
 
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mLockRingBattery;
+    private CheckBoxPreference mLockscreenRotation;
 
     public boolean hasButtons() {
         return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
@@ -87,6 +89,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
                 mEnableKeyguardWidgets.setSummary("");
             }
             mEnableKeyguardWidgets.setEnabled(!disabled);
+        }
+
+        mLockscreenRotation = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_ROTATION);
+        if (mLockscreenRotation != null) {
+            mLockscreenRotation.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_ROTATION, 0) == 1);
         }
 
         mLockRingBattery = (CheckBoxPreference) findPreference(BATTERY_AROUND_LOCKSCREEN_RING);
@@ -144,6 +152,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         } else if (preference == mLockRingBattery) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, isToggled(preference) ? 1 : 0);
+        } else if (preference == mLockscreenRotation) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_ROTATION, isToggled(preference) ? 1 : 0);
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
