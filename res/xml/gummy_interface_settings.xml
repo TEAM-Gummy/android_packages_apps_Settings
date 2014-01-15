@@ -123,6 +123,12 @@
         android:title="@string/system_catagory_title">
 
         <PreferenceScreen
+            android:key="device_options"
+            android:title="@string/advanced_device_prefs_title"
+            android:summary="@string/advanced_device_prefs_summary"
+            android:fragment="com.android.settings.gummy.AdvancedDevicePrefs" />
+
+        <PreferenceScreen
             android:key="blacklist"
             android:title="@string/blacklist_title"
             android:fragment="com.android.settings.gummy.blacklist.BlacklistSettings" />

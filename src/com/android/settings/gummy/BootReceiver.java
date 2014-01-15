@@ -24,8 +24,12 @@ import android.os.SystemProperties;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.android.settings.gummy.AdvancedDevicePrefs;
 import com.android.settings.R;
 import com.android.settings.Utils;
+import com.android.settings.hardware.DisplayColor;
+import com.android.settings.hardware.DisplayGamma;
+import com.android.settings.hardware.VibratorIntensity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -65,10 +69,16 @@ public class BootReceiver extends BroadcastReceiver {
                 SystemProperties.set(KSM_SETTINGS_PROP, "false");
             }
         }
+
+        /* Restore the hardware tunable values */
+        DisplayColor.restore(ctx);
+        DisplayGamma.restore(ctx);
+        VibratorIntensity.restore(ctx);
+        AdvancedDevicePrefs.restore(ctx);
+
     }
 
-    private void initFreqCapFiles(Context ctx)
-    {
+    private void initFreqCapFiles(Context ctx) {
         if (Processor.freqCapFilesInitialized) return;
         Processor.FREQ_MAX_FILE = ctx.getResources().getString(R.string.max_cpu_freq_file);
         Processor.FREQ_MIN_FILE = ctx.getResources().getString(R.string.min_cpu_freq_file);
