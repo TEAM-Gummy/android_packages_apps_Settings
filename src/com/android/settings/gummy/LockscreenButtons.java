@@ -45,6 +45,7 @@ public class LockscreenButtons extends SettingsPreferenceFragment
     private static final String LONG_PRESS_HOME = "lockscreen_long_press_home";
     private static final String LONG_PRESS_MENU = "lockscreen_long_press_menu";
     private static final String HOME_UNLOCK_PREF = "home_unlock";
+    private static final String MENU_UNLOCK_PREF = "menu_unlock";
 
     // Masks for checking presence of hardware keys.
     // Must match values in frameworks/base/core/res/res/values/config.xml
@@ -57,9 +58,14 @@ public class LockscreenButtons extends SettingsPreferenceFragment
     private ListPreference mLongMenuAction;
     private ListPreference[] mActions;
     private CheckBoxPreference mHomeUnlock;
+    private CheckBoxPreference mMenuUnlock;
 
     private boolean torchSupported() {
         return getResources().getBoolean(R.bool.has_led_flash);
+    }
+
+    private boolean diableMenuUnlock() {
+        return getResources().getBoolean(R.bool.disable_menu_unlock);
     }
 
     @Override
@@ -129,6 +135,16 @@ public class LockscreenButtons extends SettingsPreferenceFragment
                 .getBoolean(com.android.internal.R.bool.config_disableHomeUnlockSetting)) {
             mHomeUnlock.setEnabled(false);
         }
+
+        mMenuUnlock = (CheckBoxPreference) findPreference(MENU_UNLOCK_PREF);
+        mMenuUnlock.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.MENU_UNLOCK_SCREEN, 0) == 1);
+
+        // Disable the MenuUnlock setting if no menu button is available
+        if (diableMenuUnlock()) {
+            mMenuUnlock.setEnabled(false);
+        }
+
     }
 
 
@@ -183,6 +199,11 @@ public class LockscreenButtons extends SettingsPreferenceFragment
         if (preference == mHomeUnlock) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.HOME_UNLOCK_SCREEN,
+                    ((CheckBoxPreference)preference).isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mMenuUnlock) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.MENU_UNLOCK_SCREEN,
                     ((CheckBoxPreference)preference).isChecked() ? 1 : 0);
             return true;
         }

@@ -34,6 +34,9 @@
     <string name="min_cpu_freq_file" translatable="false">/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq</string>
 
     <!-- Whether the carousel widget animation preference should be hidden. -->
-    <bool name="config_show_carousel" translatable="false">false</bool>
+    <bool name="config_show_carousel">false</bool>
+
+    <!-- Boolean to diable menu unlock option -->
+    <bool name="disable_menu_unlock">false</bool>
 
 </resources>

@@ -467,6 +467,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="unlock_home_unlock_title">Home unlock</string>
     <string name="unlock_home_unlock_summary">Pressing the home button unlocks the device</string>
 
+    <!-- Menu Unlock -->
+    <string name="unlock_menu_unlock_title">Menu unlock</string>
+    <string name="unlock_menu_unlock_summary">Pressing the menu button unlocks the device</string>
+
     <!-- Navigation bar -->
     <string name="navigation_bar_size_42_dp_default">42 dp (default)</string>
     <string name="navigation_bar_size_36_dp">36 dp</string>
