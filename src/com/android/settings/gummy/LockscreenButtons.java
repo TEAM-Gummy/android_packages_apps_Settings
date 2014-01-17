@@ -64,7 +64,7 @@ public class LockscreenButtons extends SettingsPreferenceFragment
         return getResources().getBoolean(R.bool.has_led_flash);
     }
 
-    private boolean diableMenuUnlock() {
+    private boolean disableMenuUnlock() {
         return getResources().getBoolean(R.bool.disable_menu_unlock);
     }
 
@@ -141,7 +141,7 @@ public class LockscreenButtons extends SettingsPreferenceFragment
                 Settings.System.MENU_UNLOCK_SCREEN, 0) == 1);
 
         // Disable the MenuUnlock setting if no menu button is available
-        if (diableMenuUnlock()) {
+        if (disableMenuUnlock()) {
             mMenuUnlock.setEnabled(false);
         }
 
