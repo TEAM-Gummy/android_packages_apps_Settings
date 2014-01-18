@@ -17,6 +17,7 @@
 package com.android.settings.gummy;
 
 import android.content.ContentResolver;
+import android.content.pm.PackageManager;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Handler;
@@ -41,9 +42,15 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
     private static final String KEY_STATUS_BAR_CLOCK = "clock_style_pref";
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
+    private static final String KEY_NOTIFICATIONS_CATAGORY = "notifications";
+    private static final String KEY_MISSED_CALL_BREATH = "missed_call_breath";
+    private static final String KEY_MMS_BREATH = "mms_breath";
 
     private PreferenceScreen mClockStyle;
     private CheckBoxPreference mStatusBarBrightnessControl;
+    private PreferenceCategory mNotificationsCatagory;
+    private CheckBoxPreference mMissedCallBreath;
+    private CheckBoxPreference mMMSBreath;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +59,8 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         addPreferencesFromResource(R.xml.status_bar_settings);
 
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        mNotificationsCatagory = (PreferenceCategory) prefSet.findPreference(KEY_NOTIFICATIONS_CATAGORY);
 
         // Start observing for changes on auto brightness
         StatusBarBrightnessChangedObserver statusBarBrightnessChangedObserver =
@@ -69,6 +78,14 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                             Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
         mStatusBarBrightnessControl.setOnPreferenceChangeListener(this);
 
+        mMissedCallBreath = (CheckBoxPreference) findPreference(KEY_MISSED_CALL_BREATH);
+            mMissedCallBreath.setOnPreferenceChangeListener(this);
+
+        mMMSBreath = (CheckBoxPreference) findPreference(KEY_MMS_BREATH);
+            mMMSBreath.setOnPreferenceChangeListener(this);
+
+        isTelephony ();
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -76,6 +93,14 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL,
                     (Boolean) newValue ? 1 : 0);
+            return true;
+         } else if (preference == mMissedCallBreath) {
+            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.MISSED_CALL_BREATH,
+                    ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
+            return true;
+         } else if (preference == mMMSBreath) {
+            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.MMS_BREATH,
+                    ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
             return true;
         }
         return false;
@@ -131,6 +156,16 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             getContentResolver().registerContentObserver(
                     Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS_MODE),
                     false, this);
+        }
+    }
+
+    private void isTelephony () {
+        // Determine options based on device telephony support
+        PackageManager pm = getPackageManager();
+        if (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
+            // No telephony, remove dependent options
+            mNotificationsCatagory.removePreference(findPreference(KEY_MISSED_CALL_BREATH));
+            mNotificationsCatagory.removePreference(findPreference(KEY_MMS_BREATH));
         }
     }
 

@@ -42,6 +42,7 @@
     <string name="app_settings">App settings</string>
     <string name="advanced_device_prefs_title">Device Options</string>
     <string name="advanced_device_prefs_summary">Device specific advanced options</string>
+    <string name="notications_title">Notifications</string>
 
     <!-- App Setting menus
     <string name="app_settings_entry_dialog">In an effort to make app specific settings more accessable and initial setup easier and quicker, source built app settings menus have been consolidaed into a single preference screen. You can also still access the app settings menus from the apps themselves</string> -->
@@ -1044,5 +1045,11 @@ f anonymous statistics. -->
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="advanced_device_title">Advanced device options</string>
     <string name="advanced_display_title">Advanced display options</string>
+
+    <!-- Breathing notifications -->
+    <string name="mms_breath">Breathing Sms</string>
+    <string name="mms_breath_summary">Show sms icon with a breathing effect</string>
+    <string name="missed_call_breath">Breathing Missed Call</string>
+    <string name="missed_call_breath_summary">Show missed call icon with a breathing effect</string>
 
 </resources>
