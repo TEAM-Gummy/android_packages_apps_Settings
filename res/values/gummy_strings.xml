@@ -1056,4 +1056,11 @@ f anonymous statistics. -->
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
 
+    <!-- Status Bar Signal -->
+    <string name="status_bar_style_icon">Signal bars</string>
+    <string name="status_bar_style_dbm_text">Dbm text</string>
+    <string name="status_bar_signal_text_show_text">Signal text</string>
+    <string name="status_bar_signal_text_title">Signal</string>
+    <string name="status_bar_signal_color">Signal text color</string>
+
 </resources>
