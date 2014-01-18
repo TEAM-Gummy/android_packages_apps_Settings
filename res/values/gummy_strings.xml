@@ -1052,4 +1052,8 @@ f anonymous statistics. -->
     <string name="missed_call_breath">Breathing Missed Call</string>
     <string name="missed_call_breath_summary">Show missed call icon with a breathing effect</string>
 
+    <!-- Notification count -->
+    <string name="status_bar_notif_count_title">Show notification count</string>
+    <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
+
 </resources>

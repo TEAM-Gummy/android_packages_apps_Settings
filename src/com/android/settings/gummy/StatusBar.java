@@ -45,12 +45,14 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String KEY_NOTIFICATIONS_CATAGORY = "notifications";
     private static final String KEY_MISSED_CALL_BREATH = "missed_call_breath";
     private static final String KEY_MMS_BREATH = "mms_breath";
+    private static final String STATUSBAR_NOTIF_COUNT = "status_bar_notif_count";
 
     private PreferenceScreen mClockStyle;
     private CheckBoxPreference mStatusBarBrightnessControl;
     private PreferenceCategory mNotificationsCatagory;
     private CheckBoxPreference mMissedCallBreath;
     private CheckBoxPreference mMMSBreath;
+    private CheckBoxPreference mStatusBarNotifCount;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,6 +86,9 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mMMSBreath = (CheckBoxPreference) findPreference(KEY_MMS_BREATH);
             mMMSBreath.setOnPreferenceChangeListener(this);
 
+        mStatusBarNotifCount = (CheckBoxPreference) findPreference(STATUSBAR_NOTIF_COUNT);
+            mStatusBarNotifCount.setOnPreferenceChangeListener(this);
+
         isTelephony ();
 
     }
@@ -94,12 +99,16 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                     Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL,
                     (Boolean) newValue ? 1 : 0);
             return true;
-         } else if (preference == mMissedCallBreath) {
+        } else if (preference == mMissedCallBreath) {
             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.MISSED_CALL_BREATH,
                     ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
             return true;
-         } else if (preference == mMMSBreath) {
+        } else if (preference == mMMSBreath) {
             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.MMS_BREATH,
+                    ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
+            return true;
+        } else if (preference == mStatusBarNotifCount) {
+            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.STATUSBAR_NOTIF_COUNT,
                     ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
             return true;
         }
