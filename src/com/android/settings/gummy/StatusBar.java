@@ -44,7 +44,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String KEY_STATUS_BAR_CLOCK = "clock_style_pref";
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
     private static final String KEY_NOTIFICATIONS_CATAGORY = "notifications";
-    private static final String KEY_GENERAL_CATAGORY = "general_catagory";
+    private static final String KEY_STYLE_CATAGORY = "status_bar_style";
     private static final String KEY_MISSED_CALL_BREATH = "missed_call_breath";
     private static final String KEY_MMS_BREATH = "mms_breath";
     private static final String STATUSBAR_NOTIF_COUNT = "status_bar_notif_count";
@@ -54,7 +54,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private PreferenceScreen mClockStyle;
     private CheckBoxPreference mStatusBarBrightnessControl;
     private PreferenceCategory mNotificationsCatagory;
-    private PreferenceCategory mGeneralCatagory;
+    private PreferenceCategory mStyleCatagory;
     private CheckBoxPreference mMissedCallBreath;
     private CheckBoxPreference mMMSBreath;
     private CheckBoxPreference mStatusBarNotifCount;
@@ -70,7 +70,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         PreferenceScreen prefSet = getPreferenceScreen();
 
         mNotificationsCatagory = (PreferenceCategory) prefSet.findPreference(KEY_NOTIFICATIONS_CATAGORY);
-        mGeneralCatagory = (PreferenceCategory) prefSet.findPreference(KEY_NOTIFICATIONS_CATAGORY);
+        mStyleCatagory = (PreferenceCategory) prefSet.findPreference(KEY_STYLE_CATAGORY);
 
         // Start observing for changes on auto brightness
         StatusBarBrightnessChangedObserver statusBarBrightnessChangedObserver =
@@ -113,7 +113,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         String hexColor = String.format("#%08x", (0xffffffff & intColor));
         mStatusBarSignalColor.setSummary(hexColor);
 
-        isTelephony ();
+        isTelephony();
 
     }
 
@@ -208,15 +208,15 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         }
     }
 
-    private void isTelephony () {
+    private void isTelephony() {
         // Determine options based on device telephony support
         PackageManager pm = getPackageManager();
         if (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
             // No telephony, remove dependent options
             mNotificationsCatagory.removePreference(findPreference(KEY_MISSED_CALL_BREATH));
             mNotificationsCatagory.removePreference(findPreference(KEY_MMS_BREATH));
-            mGeneralCatagory.removePreference(findPreference(STATUS_BAR_SIGNAL));
-            mGeneralCatagory.removePreference(findPreference(STATUSBAR_SIGNAL_TEXT_COLOR));
+            mStyleCatagory.removePreference(findPreference(STATUS_BAR_SIGNAL));
+            mStyleCatagory.removePreference(findPreference(STATUSBAR_SIGNAL_TEXT_COLOR));
         }
     }
 
