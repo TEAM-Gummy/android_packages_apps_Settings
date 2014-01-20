@@ -116,14 +116,6 @@ public class AppSettings extends SettingsPreferenceFragment
             } catch (Exception e) {
                 // Do nothing
             }
-
-            // Determine options based on device telephony support
-            PackageManager pm = getPackageManager();
-            if (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
-                // No telephony, remove dependent options
-                mAppCatagory.removePreference(findPreference(KEY_MMS));
-                mAppCatagory.removePreference(findPreference(KEY_PHONE));
-            }
         }
     }
 

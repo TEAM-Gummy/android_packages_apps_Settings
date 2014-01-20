@@ -50,6 +50,9 @@ public class HardwareKeys extends SettingsPreferenceFragment implements
     private static final String HARDWARE_KEYS_APP_SWITCH_PRESS = "hardware_keys_app_switch_press";
     private static final String HARDWARE_KEYS_APP_SWITCH_LONG_PRESS = "hardware_keys_app_switch_long_press";
     private static final String HARDWARE_KEYS_SHOW_OVERFLOW = "hardware_keys_show_overflow";
+    private static final String HARDWARE_KEYS_BUTTON_BACKLIGHT = "button_backlight";
+
+    private static final String CATEGORY_ADDITIONAL = "additional_options";
 
     // Available custom actions to perform on a key press.
     // Must match values for KEY_HOME_LONG_PRESS_ACTION in:
@@ -76,6 +79,7 @@ public class HardwareKeys extends SettingsPreferenceFragment implements
     private static final int KEY_MASK_ASSIST = 0x08;
     private static final int KEY_MASK_APP_SWITCH = 0x10;
 
+    private PreferenceCategory mAdditionalCatagory;
     private CheckBoxPreference mEnableCustomBindings;
     private ListPreference mHomePressAction;
     private ListPreference mHomeLongPressAction;
@@ -106,6 +110,8 @@ public class HardwareKeys extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.hardware_keys);
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        mAdditionalCatagory = (PreferenceCategory) prefSet.findPreference(CATEGORY_ADDITIONAL);
 
         mPicker = new ShortcutPickerHelper(this, this);
 
@@ -333,9 +339,13 @@ public class HardwareKeys extends SettingsPreferenceFragment implements
         mEnableCustomBindings.setChecked((Settings.System.getInt(getActivity().
                 getApplicationContext().getContentResolver(),
                 Settings.System.HARDWARE_KEY_REBINDING, 0) == 1));
+
         mShowActionOverflow.setChecked((Settings.System.getInt(getActivity().
                 getApplicationContext().getContentResolver(),
                 Settings.System.UI_FORCE_OVERFLOW_BUTTON, 0) == 1));
+
+        showBacklight();
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -477,6 +487,7 @@ public class HardwareKeys extends SettingsPreferenceFragment implements
         }
         preference.setSummary(friendlyName);
     }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == ShortcutPickerHelper.REQUEST_PICK_SHORTCUT
@@ -487,4 +498,13 @@ public class HardwareKeys extends SettingsPreferenceFragment implements
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+    private void showBacklight() {
+        final ButtonBacklightBrightness backlight =
+                (ButtonBacklightBrightness) findPreference(HARDWARE_KEYS_BUTTON_BACKLIGHT);
+        if (!backlight.isButtonSupported() && !backlight.isKeyboardSupported()) {
+            mAdditionalCatagory.removePreference(findPreference(HARDWARE_KEYS_BUTTON_BACKLIGHT));
+        }
+    }
+
 }

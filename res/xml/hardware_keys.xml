@@ -121,7 +121,14 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="additional_options"
         android:title="@string/additional_options_title">
+
+        <com.android.settings.gummy.ButtonBacklightBrightness
+            android:key="button_backlight"
+            android:title="@string/button_backlight_title"
+            android:dialogTitle="@string/button_backlight_title"
+            android:persistent="false" />
 
        <CheckBoxPreference
             android:key="hardware_keys_show_overflow"
