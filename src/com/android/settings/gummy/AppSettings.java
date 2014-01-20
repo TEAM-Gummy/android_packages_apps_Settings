@@ -84,6 +84,7 @@ public class AppSettings extends SettingsPreferenceFragment
             alertDialog.show();
 
             PreferenceScreen prefSet = getPreferenceScreen();
+            PackageManager pm = getPackageManager();
 
             mAppCatagory = (PreferenceCategory) prefSet.findPreference(KEY_APP_CATAGORY);
 
@@ -109,9 +110,13 @@ public class AppSettings extends SettingsPreferenceFragment
                 }
                 if (!isPackageInstalled("com.android.mms")) {
                     mAppCatagory.removePreference(findPreference(KEY_MMS));
+                } else if (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
+                   mAppCatagory.removePreference(findPreference(KEY_MMS));
                 }
                 if (!isPackageInstalled("com.android.phone")) {
                     mAppCatagory.removePreference(findPreference(KEY_PHONE));
+                } else if (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
+                   mAppCatagory.removePreference(findPreference(KEY_PHONE));
                 }
             } catch (Exception e) {
                 // Do nothing
