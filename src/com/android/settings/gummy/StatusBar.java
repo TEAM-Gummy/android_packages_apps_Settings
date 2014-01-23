@@ -47,6 +47,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String KEY_STYLE_CATAGORY = "status_bar_style";
     private static final String KEY_MISSED_CALL_BREATH = "missed_call_breath";
     private static final String KEY_MMS_BREATH = "mms_breath";
+    private static final String VOICEMAIL_BREATH = "voicemail_breath";
     private static final String STATUSBAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUSBAR_SIGNAL_TEXT_COLOR = "status_bar_signal_color";
@@ -57,6 +58,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private PreferenceCategory mStyleCatagory;
     private CheckBoxPreference mMissedCallBreath;
     private CheckBoxPreference mMMSBreath;
+    private CheckBoxPreference mVoicemailBreath;
     private CheckBoxPreference mStatusBarNotifCount;
     private ListPreference mStatusBarSignal;
     private ColorPickerPreference mStatusBarSignalColor;
@@ -94,6 +96,9 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mMMSBreath = (CheckBoxPreference) findPreference(KEY_MMS_BREATH);
             mMMSBreath.setOnPreferenceChangeListener(this);
 
+        mVoicemailBreath = (CheckBoxPreference) findPreference(VOICEMAIL_BREATH);
+            mVoicemailBreath.setOnPreferenceChangeListener(this);
+
         mStatusBarNotifCount = (CheckBoxPreference) findPreference(STATUSBAR_NOTIF_COUNT);
             mStatusBarNotifCount.setOnPreferenceChangeListener(this);
 
@@ -129,6 +134,10 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             return true;
         } else if (preference == mMMSBreath) {
             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.MMS_BREATH,
+                    ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
+            return true;
+        } else if (preference == mVoicemailBreath) {
+            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.VOICEMAIL_BREATH,
                     ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
             return true;
         } else if (preference == mStatusBarNotifCount) {
