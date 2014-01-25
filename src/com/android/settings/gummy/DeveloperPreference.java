@@ -40,6 +40,7 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
     private static final String EMERICANX = "https://twitter.com/emericanx";
     private static final String HASHCODE = "https://twitter.com/Hashcode0f";
     private static final String HEDWIG34 = "https://twitter.com/hedwig34";
+    private static final String INKSLINGER420 = "https://twitter.com/InkSlinger420";
     private static final String MATTLGROFF = "https://twitter.com/mattlgroff";
     private static final String PAPI92 = "https://twitter.com/Anthony_J_Fox";
     private static final String WEDGESS = "https://twitter.com/wedgess";
@@ -54,6 +55,7 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
     Preference mEmericanx;
     Preference mHashcode;
     Preference mHedwig34;
+    Preference mInkSlinger420;
     Preference mmattlgroff;
     Preference mPapi92;
     Preference mtdm;
@@ -75,6 +77,7 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
         mEmericanx = findPreference("Emericanx");
         mHashcode = findPreference("hashcode");
         mHedwig34 = findPreference("Hedwig34");
+        mInkSlinger420 = findPreference("InkSlinger420");
         mmattlgroff = findPreference("mattlgroff");
         mPapi92 = findPreference("papi92");
         mtdm = findPreference("tdm");
@@ -111,6 +114,9 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
             return true;
         } else if (preference == mHedwig34) {
             launchUrl(HEDWIG34);
+            return true;
+        } else if (preference == mInkSlinger420) {
+            launchUrl(INKSLINGER420);
             return true;
         } else if (preference == mmattlgroff) {
             launchUrl(MATTLGROFF);

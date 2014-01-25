@@ -62,6 +62,11 @@
             android:icon="@drawable/twitter_bird" />
 
         <Preference
+            android:key="InkSlinger420"
+            android:title="@string/InkSlinger420"
+            android:icon="@drawable/twitter_bird" />
+
+        <Preference
             android:key="mattlgroff"
             android:title="@string/mattlgroff"
             android:icon="@drawable/twitter_bird" />
