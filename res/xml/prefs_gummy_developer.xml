@@ -76,6 +76,11 @@
             android:title="@string/tdm"
             android:icon="@drawable/twitter_bird" />
 
+        <Preference
+            android:key="wedgess"
+            android:title="@string/wedgess"
+            android:icon="@drawable/twitter_bird" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

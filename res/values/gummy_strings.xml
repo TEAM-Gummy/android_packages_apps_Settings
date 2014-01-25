@@ -660,6 +660,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="mattlgroff">mattlgroff</string>
     <string name="papi92">papi92</string>
     <string name="tdm">tdm</string>
+    <string name="wedgess">wedgess</string>
 
     <!-- Anonymous Statistics -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out o

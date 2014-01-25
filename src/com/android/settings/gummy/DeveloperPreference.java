@@ -42,6 +42,7 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
     private static final String HEDWIG34 = "https://twitter.com/hedwig34";
     private static final String MATTLGROFF = "https://twitter.com/mattlgroff";
     private static final String PAPI92 = "https://twitter.com/Anthony_J_Fox";
+    private static final String WEDGESS = "https://twitter.com/wedgess";
     private static final String CHADFRAN84 = "https://twitter.com/Chadfran84";
 
     Preference mCphelps76;
@@ -56,6 +57,7 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
     Preference mmattlgroff;
     Preference mPapi92;
     Preference mtdm;
+    Preference mWedgess;
     Preference mChadfran84;
 
     @Override
@@ -76,6 +78,7 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
         mmattlgroff = findPreference("mattlgroff");
         mPapi92 = findPreference("papi92");
         mtdm = findPreference("tdm");
+        mWedgess = findPreference("wedgess");
         mChadfran84 = findPreference("Chadfran84");
 
     }
@@ -117,6 +120,9 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
             return true;
         } else if (preference == mtdm) {
             launchUrl(GUMMY_TWITTER);
+            return true;
+        } else if (preference == mWedgess) {
+            launchUrl(WEDGESS);
             return true;
         } else if (preference == mChadfran84) {
             launchUrl(CHADFRAN84);
