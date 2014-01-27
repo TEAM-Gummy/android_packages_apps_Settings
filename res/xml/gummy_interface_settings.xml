@@ -68,6 +68,14 @@
         </PreferenceScreen>
 
         <PreferenceScreen
+            android:key="screen_security"
+            android:fragment="com.android.settings.SecuritySettings"
+            android:title="@string/screen_security_category"
+            android:summary="@string/screen_security_summary">
+            <extra android:name="gummy_security" android:value="true" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
             android:key="lock_screen_settings"
             android:fragment="com.android.settings.gummy.LockscreenInterface"
             android:title="@string/lockscreen_title" />
