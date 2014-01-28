@@ -31,6 +31,7 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.Log;
 
+import com.android.internal.util.gummy.DeviceUtils;
 import com.android.internal.widget.LockPatternUtils;
 
 import com.android.settings.R;
@@ -47,11 +48,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
     private static final String KEY_ADVANCED_CATAGORY = "advanced_catagory";
+    private static final String KEY_GENERAL_CATAGORY = "general_catagory";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String KEY_LOCKSCREEN_ROTATION = "lockscreen_rotation";
+    private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
 
     private PreferenceScreen mLockscreenButtons;
     private PreferenceCategory mAdvancedCatagory;
+    private PreferenceCategory mGeneralCatagory;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private DevicePolicyManager mDPM;
@@ -59,6 +63,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mLockRingBattery;
     private CheckBoxPreference mLockscreenRotation;
+    private CheckBoxPreference mGlowpadTorch;
 
     public boolean hasButtons() {
         return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
@@ -108,6 +113,15 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         if (!hasButtons()) {
             mAdvancedCatagory.removePreference(mLockscreenButtons);
         }
+
+        mGeneralCatagory = (PreferenceCategory) prefs.findPreference(KEY_GENERAL_CATAGORY);
+        mGlowpadTorch = (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_TORCH);
+        mGlowpadTorch.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_GLOWPAD_TORCH, 0) == 1);
+
+        if (!DeviceUtils.deviceSupportsTorch(getActivity())) {
+            mGeneralCatagory.removePreference(mGlowpadTorch);
+        }
     }
 
     @Override
@@ -155,6 +169,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         } else if (preference == mLockscreenRotation) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_ROTATION, isToggled(preference) ? 1 : 0);
+        } else if (preference == mGlowpadTorch) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_GLOWPAD_TORCH, isToggled(preference) ? 1 : 0);
+            return true;
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
