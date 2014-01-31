@@ -27,8 +27,7 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 
-import com.android.settings.util.CMDProcessor;
-import com.android.settings.util.Helpers;
+import com.android.settings.util.LSCMDProcessor;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -199,7 +198,7 @@ public class InitD extends SettingsPreferenceFragment {
     }
 
     private void updateShellVariable(String key, String value) {
-        CMDProcessor.SH shell = new CMDProcessor().su;
+        LSCMDProcessor.SH shell = new LSCMDProcessor().su;
         shell.runWaitFor("busybox mount -o remount,rw /system");
         shell.runWaitFor("busybox sed -i 's|" + key + "=.*|" + key + "=" + value + "|' " + INIT_D_CFG);
         shell.runWaitFor("busybox mount -o remount,ro /system");
@@ -208,8 +207,8 @@ public class InitD extends SettingsPreferenceFragment {
 
     private HashMap<String, String> getShellVariables() {
         HashMap<String, String> variables = null;
-        CMDProcessor.SH sh = new CMDProcessor().sh;
-        CMDProcessor.CommandResult result;
+        LSCMDProcessor.SH sh = new LSCMDProcessor().sh;
+        LSCMDProcessor.CommandResult result;
         int numOfKeys = KEYS.length;
         String[] cmds = new String[numOfKeys + 1];
         String[] values;

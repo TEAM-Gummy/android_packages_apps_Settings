@@ -54,8 +54,8 @@ import java.io.FileWriter;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.util.CMDProcessor;
-import com.android.settings.util.Helpers;
+import com.android.settings.util.LSCMDProcessor;
+import com.android.settings.util.LSHelpers;
 
 public class PropModder extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -165,7 +165,7 @@ public class PropModder extends PreferenceFragment implements
     private File init_d = new File("/system/etc/init.d");
 
     //handler for command processor
-    private final CMDProcessor cmd = new CMDProcessor();
+    private final LSCMDProcessor cmd = new LSCMDProcessor();
     private PreferenceScreen prefSet;
 
     @Override
@@ -201,7 +201,7 @@ public class PropModder extends PreferenceFragment implements
         mJitPref = (CheckBoxPreference) prefSet.findPreference(JIT_PREF);
 
         mModVersionPref = (EditTextPreference) prefSet.findPreference(MOD_VERSION_PREF);
-        String mod = Helpers.findBuildPropValueOf(MOD_VERSION_PROP);
+        String mod = LSHelpers.findBuildPropValueOf(MOD_VERSION_PROP);
         if (mModVersionPref != null) {
             EditText modET = mModVersionPref.getEditText();
             ModPrefHolder = mModVersionPref.getEditText().toString();
@@ -372,78 +372,78 @@ public class PropModder extends PreferenceFragment implements
 
     public void updateScreen() {
         //update all the summaries
-        String wifi = Helpers.findBuildPropValueOf(WIFI_SCAN_PROP);
+        String wifi = LSHelpers.findBuildPropValueOf(WIFI_SCAN_PROP);
         if (!wifi.equals(DISABLE)) {
             mWifiScanPref.setValue(wifi);
             mWifiScanPref.setSummary(String.format(getString(R.string.pref_wifi_scan_alt_summary), wifi));
         } else {
             mWifiScanPref.setValue(WIFI_SCAN_DEFAULT);
         }
-        String maxE = Helpers.findBuildPropValueOf(MAX_EVENTS_PROP);
+        String maxE = LSHelpers.findBuildPropValueOf(MAX_EVENTS_PROP);
         if (!maxE.equals(DISABLE)) {
             mMaxEventsPref.setValue(maxE);
             mMaxEventsPref.setSummary(String.format(getString(R.string.pref_max_events_alt_summary), maxE));
         } else {
             mMaxEventsPref.setValue(MAX_EVENTS_DEFAULT);
         }
-        String ring = Helpers.findBuildPropValueOf(RING_DELAY_PROP);
+        String ring = LSHelpers.findBuildPropValueOf(RING_DELAY_PROP);
         if (!ring.equals(DISABLE)) {
             mRingDelayPref.setValue(ring);
             mRingDelayPref.setSummary(String.format(getString(R.string.pref_ring_delay_alt_summary), ring));
         } else {
             mRingDelayPref.setValue(RING_DELAY_DEFAULT);
         }
-        String vm = Helpers.findBuildPropValueOf(VM_HEAPSIZE_PROP);
+        String vm = LSHelpers.findBuildPropValueOf(VM_HEAPSIZE_PROP);
         if (!vm.equals(DISABLE)) {
             mVmHeapsizePref.setValue(vm);
             mVmHeapsizePref.setSummary(String.format(getString(R.string.pref_vm_heapsize_alt_summary), vm));
         } else {
             mVmHeapsizePref.setValue(VM_HEAPSIZE_DEFAULT);
         }
-        String fast = Helpers.findBuildPropValueOf(FAST_UP_PROP);
+        String fast = LSHelpers.findBuildPropValueOf(FAST_UP_PROP);
         if (!fast.equals(DISABLE)) {
             mFastUpPref.setValue(fast);
             mFastUpPref.setSummary(String.format(getString(R.string.pref_fast_up_alt_summary), fast));
         } else {
             mFastUpPref.setValue(FAST_UP_DEFAULT);
         }
-        String prox = Helpers.findBuildPropValueOf(PROX_DELAY_PROP);
+        String prox = LSHelpers.findBuildPropValueOf(PROX_DELAY_PROP);
         if (!prox.equals(DISABLE)) {
             mProxDelayPref.setValue(prox);
             mProxDelayPref.setSummary(String.format(getString(R.string.pref_prox_delay_alt_summary), prox));
         } else {
             mProxDelayPref.setValue(PROX_DELAY_DEFAULT);
         }
-        String sleep = Helpers.findBuildPropValueOf(SLEEP_PROP);
+        String sleep = LSHelpers.findBuildPropValueOf(SLEEP_PROP);
         if (!sleep.equals(DISABLE)) {
             mSleepPref.setValue(sleep);
             mSleepPref.setSummary(String.format(getString(R.string.pref_sleep_alt_summary), sleep));
         } else {
             mSleepPref.setValue(SLEEP_DEFAULT);
         }
-        String tcp = Helpers.findBuildPropValueOf(TCP_STACK_PROP_0);
+        String tcp = LSHelpers.findBuildPropValueOf(TCP_STACK_PROP_0);
         if (tcp.equals(TCP_STACK_BUFFER)) {
             mTcpStackPref.setChecked(true);
         } else {
             mTcpStackPref.setChecked(false);
         }
-        String jit = Helpers.findBuildPropValueOf(JIT_PROP);
+        String jit = LSHelpers.findBuildPropValueOf(JIT_PROP);
         if (jit.equals("int:jit")) {
             mJitPref.setChecked(true);
         } else {
             mJitPref.setChecked(false);
         }
-        String mod = Helpers.findBuildPropValueOf(MOD_VERSION_PROP);
+        String mod = LSHelpers.findBuildPropValueOf(MOD_VERSION_PROP);
         mModVersionPref.setSummary(String.format(getString(R.string.pref_mod_version_alt_summary), mod));
-        String g0 = Helpers.findBuildPropValueOf(THREE_G_PROP_0);
-        String g3 = Helpers.findBuildPropValueOf(THREE_G_PROP_3);
-        String g6 = Helpers.findBuildPropValueOf(THREE_G_PROP_6);
+        String g0 = LSHelpers.findBuildPropValueOf(THREE_G_PROP_0);
+        String g3 = LSHelpers.findBuildPropValueOf(THREE_G_PROP_3);
+        String g6 = LSHelpers.findBuildPropValueOf(THREE_G_PROP_6);
         if (g0.equals("1") && g3.equals("1") && g6.equals("1")) {
             m3gSpeedPref.setChecked(true);
         } else {
             m3gSpeedPref.setChecked(false);
         }
-        String gpu = Helpers.findBuildPropValueOf(GPU_PROP);
+        String gpu = LSHelpers.findBuildPropValueOf(GPU_PROP);
         if (!gpu.equals(DISABLE)) {
             mGpuPref.setChecked(true);
         } else {
