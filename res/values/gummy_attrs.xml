@@ -15,6 +15,7 @@
 -->
 
 <resources>
+
     <declare-styleable name="ListPreferenceMultiSelect">
         <attr format="string" name="checkAll" />
         <attr format="string" name="separator" />
@@ -29,6 +30,12 @@
     <declare-styleable name="ImageListPreference">
         <attr name="summaryImage" format="reference" />
         <attr name="entryImages" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="SeekBarPreferenceChOS">
+        <attr name="minAD" format="integer" />
+        <attr name="unitsLeft" format="string" />
+        <attr name="unitsRight" format="string" />
     </declare-styleable>
 
 </resources>

@@ -1685,6 +1685,8 @@
 
         <activity android:name=".ApnEditor" />
         <activity android:name=".util.ShowBuildProp" />
+        <activity android:name=".InitD" />
+        <activity android:name=".gummy.ActiveDisplaySettings" />
 
         <activity android:name=".gummy.AutoBrightnessSetup"
                 android:excludeFromRecents="true"
