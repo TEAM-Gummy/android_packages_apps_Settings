@@ -27,11 +27,6 @@
         android:title="@string/devs">
 
         <Preference
-            android:key="apascual89"
-            android:title="@string/apascual89"
-            android:icon="@drawable/twitter_bird" />
-
-        <Preference
             android:key="Bkjolly"
             android:title="@string/Bkjolly"
             android:icon="@drawable/twitter_bird" />
