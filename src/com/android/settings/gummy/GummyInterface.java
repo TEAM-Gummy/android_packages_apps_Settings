@@ -16,7 +16,9 @@
 
 package com.android.settings.gummy;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.net.Uri;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -29,11 +31,18 @@ public class GummyInterface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "GummyInterface";
 
+    private static final String KEY_GUMMY_GPLUS = "https://plus.google.com/communities/107327062894755590855";
+    private static final String KEY_GUMMY_HEADER = "logo1";
+
+    Preference mlogo1;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.gummy_interface_settings);
+
+        mlogo1 = findPreference("logo1");
 
     }
 
@@ -49,6 +58,10 @@ public class GummyInterface extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mlogo1) {
+            launchUrl(KEY_GUMMY_GPLUS);
+            return true;
+        }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
@@ -56,4 +69,11 @@ public class GummyInterface extends SettingsPreferenceFragment implements
         final String key = preference.getKey();
         return true;
     }
+
+    private void launchUrl(String url) {
+        Uri uriUrl = Uri.parse(url);
+        Intent whatever = new Intent(Intent.ACTION_VIEW, uriUrl);
+        getActivity().startActivity(whatever);
+    }
+
 }
