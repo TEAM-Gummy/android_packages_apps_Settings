@@ -46,7 +46,7 @@
     <string name="layout_catagory_title">Layout</string>
     <string name="privacy_catagory_title">Privacy</string>
     <string name="status_notification_title">Status Bar / Notification Drawer</string>
-    <string name="status_notification_summary">View and change the availble statusbar and notifiction drawer options</string>
+    <string name="status_notification_summary">View and change the availble statusbar and notification drawer options</string>
     <string name="advanced_options_title">Advanced Gummy options</string>
     <string name="advanced_options_summary">Advanced functionality options can be changed here, the list of available options will vary between devices</string>
     <string name="advanced_system_options_title">Advanced system options</string>
