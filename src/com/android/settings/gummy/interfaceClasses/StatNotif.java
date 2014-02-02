@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.gummy;
+package com.android.settings.gummy.interfaceClasses;
 
 import android.os.Bundle;
 import android.preference.Preference;
@@ -25,15 +25,15 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-public class GummyInterface extends SettingsPreferenceFragment implements
+public class StatNotif extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-    private static final String TAG = "GummyInterface";
+    private static final String TAG = "StatNotif";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.gummy_interface_settings);
+        addPreferencesFromResource(R.xml.prefs_status_notification);
 
     }
 

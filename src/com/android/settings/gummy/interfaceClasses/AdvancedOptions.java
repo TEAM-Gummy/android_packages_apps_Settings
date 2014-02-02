@@ -14,30 +14,52 @@
  * limitations under the License.
  */
 
-package com.android.settings.gummy;
+package com.android.settings.gummy.interfaceClasses;
 
+import android.content.ContentResolver;
 import android.os.Bundle;
+import android.preference.PreferenceCategory;
 import android.preference.Preference;
-import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceScreen;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 
-public class GummyInterface extends SettingsPreferenceFragment implements
+public class AdvancedOptions extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-    private static final String TAG = "GummyInterface";
+
+    private static final String TAG = "AdvancedOptions";
+
+    private static final String KEY_HARDWARE_KEYS = "hardware_keys";
+    private static final String KEY_ADVANCED_OPTIONS = "advanced_options";
+
+    private PreferenceScreen mHardwareKeys;
+    private PreferenceCategory mAdvancedOptions;
+
+    public boolean hasButtons() {
+        return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.gummy_interface_settings);
+        addPreferencesFromResource(R.xml.prefs_advanced_options);
+
+        PreferenceScreen prefSet = getPreferenceScreen();
+
+        // Only show the hardware keys config on a device that does not have a navbar
+        mAdvancedOptions = (PreferenceCategory) prefSet.findPreference(KEY_ADVANCED_OPTIONS);
+        mHardwareKeys = (PreferenceScreen) findPreference(KEY_HARDWARE_KEYS);
+
+        if (!hasButtons()) {
+            mAdvancedOptions.removePreference(mHardwareKeys);
+        }
 
     }
 
-    @Override
+        @Override
     public void onResume() {
         super.onResume();
     }

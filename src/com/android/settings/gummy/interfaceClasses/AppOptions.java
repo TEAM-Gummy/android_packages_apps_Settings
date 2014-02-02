@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.gummy;
+package com.android.settings.gummy.interfaceClasses;
 
 import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
@@ -38,9 +38,9 @@ import com.android.settings.Utils;
 
 import java.util.ArrayList;
 
-public class AppSettings extends SettingsPreferenceFragment
+public class AppOptions extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
-    private static final String TAG = "AppSettings";
+    private static final String TAG = "AppOptions";
 
     private static final String KEY_APP_CATAGORY = "app_settings_catagory";
     private static final String KEY_APOLLO = "apollo";
@@ -78,7 +78,7 @@ public class AppSettings extends SettingsPreferenceFragment
                     });
             alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
                 public void onCancel(DialogInterface dialog) {
-                    AppSettings.this.finish();
+                    AppOptions.this.finish();
                 }
             });
             alertDialog.show();

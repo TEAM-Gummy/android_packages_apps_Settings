@@ -45,9 +45,18 @@
     <string name="notications_title">Notifications</string>
     <string name="layout_catagory_title">Layout</string>
     <string name="privacy_catagory_title">Privacy</string>
+    <string name="status_notification_title">Status Bar / Notification Drawer</string>
+    <string name="status_notification_summary">View and change the availble statusbar and notifiction drawer options</string>
+    <string name="advanced_options_title">Advanced Gummy options</string>
+    <string name="advanced_options_summary">Advanced functionality options can be changed here, the list of available options will vary between devices</string>
+    <string name="advanced_system_options_title">Advanced system options</string>
+    <string name="advanced_system_options_summary">View and change the more advanced system modifying features, use at your own risk</string>
+    <string name="general_options_title">General Gummy options</string>
+    <string name="general_options_summary">View and change the more basic settings</string>
+    <string name="app_options_title">App options</string>
+    <string name="app_options_summary">Source built app options</string>
 
-    <!-- App Setting menus
-    <string name="app_settings_entry_dialog">In an effort to make app specific settings more accessable and initial setup easier and quicker, source built app settings menus have been consolidaed into a single preference screen. You can also still access the app settings menus from the apps themselves</string> -->
+    <!-- App Setting menus -->
     <string name="app_settings_entry_dialog">Source built app settings can be accessed here directly as well as from within the apps themselves</string>
     <string name="app_settings_entry_dialog_title">Gummy App Settings</string>
     <string name="apollo_title">Apollo</string>
@@ -222,9 +231,8 @@
     <string name="group_applications">Applications</string>
 
     <!-- Power connect / disconnect notifications -->
-    <string name="power_notifications_category_title">Power sounds</string>
-    <string name="power_notifications_enable_title">Enable</string>
-    <string name="power_notifications_vibrate_title">Vibrate</string>
+    <string name="power_notifications_enable_title">Enable power notifications</string>
+    <string name="power_notifications_vibrate_title">Power notification vibration</string>
     <string name="power_notifications_ringtone_title">Notification sound</string>
     <string name="power_notifications_ringtone_silent">Silent</string>
 

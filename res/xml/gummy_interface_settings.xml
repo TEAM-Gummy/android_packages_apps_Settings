@@ -16,159 +16,40 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/gummy_interface_title"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    android:title="@string/gummy_interface_title">
 
-    <PreferenceCategory
-        android:key="status_bar_catagory"
-        android:title="@string/status_bar_catagory">
+    <Preference
+        android:key="logo1"
+        android:layout="@layout/logo_row" />
 
-        <PreferenceScreen
-            android:key="status_bar"
-            android:fragment="com.android.settings.gummy.StatusBar"
-            android:title="@string/status_bar_title" />
+    <PreferenceScreen
+        android:key="prefs_status_notification"
+        android:fragment="com.android.settings.gummy.interfaceClasses.StatNotif"
+        android:title="@string/status_notification_title" 
+        android:summary="@string/status_notification_summary" />
 
-        <PreferenceScreen
-            android:key="notification_drawer"
-            android:fragment="com.android.settings.gummy.NotificationDrawer"
-            android:title="@string/notification_drawer_title" />
+    <PreferenceScreen
+        android:key="advanced_options"
+        android:fragment="com.android.settings.gummy.interfaceClasses.AdvancedOptions"
+        android:title="@string/advanced_options_title"
+        android:summary="@string/advanced_options_summary" />
 
-        <PreferenceScreen
-            android:key="statusbar_toggles"
-            android:fragment="com.android.settings.gummy.StatusBarToggles"
-            android:title="@string/title_statusbar_toggles" />
+    <PreferenceScreen
+        android:key="advanced_system_options"
+        android:fragment="com.android.settings.gummy.interfaceClasses.AdvancedSystemOptions"
+        android:title="@string/advanced_system_options_title"
+        android:summary="@string/advanced_system_options_summary" />
 
-    </PreferenceCategory>
+    <PreferenceScreen
+        android:key="general_options"
+        android:fragment="com.android.settings.gummy.interfaceClasses.GeneralOptions"
+        android:title="@string/general_options_title"
+        android:summary="@string/general_options_summary" />
 
-    <PreferenceCategory
-        android:key="advanced_catagory"
-        android:title="@string/advanced_catagory_title">
-
-        <PreferenceScreen
-            android:key="hardware_keys"
-            android:fragment="com.android.settings.gummy.HardwareKeys"
-            android:title="@string/hardware_keys_title" />
-
-        <PreferenceScreen
-            android:key="navbar"
-            android:fragment="com.android.settings.gummy.NavbarSettings"
-            android:title="@string/navigation_settings_title" />
-
-        <PreferenceScreen
-            android:key="power_menu_settings"
-            android:fragment="com.android.settings.gummy.dslv.ButtonsListViewSettings"
-            android:title="@string/power_menu_title">
-                <extra android:name="buttonMode" android:value="5" />
-                <extra android:name="maxAllowedButtons" android:value="8" />
-                <extra android:name="disableLongpress" android:value="true" />
-                <extra android:name="disableDeleteLastEntry" android:value="true" />
-                <extra android:name="actionValues" android:value="shortcut_action_power_menu_values" />
-                <extra android:name="actionEntries" android:value="shortcut_action_power_menu_entries" />
-                <extra android:name="fragment" android:value="com.android.settings.gummy.PowerMenuFragment" />
-        </PreferenceScreen>
-
-        <PreferenceScreen
-            android:key="screen_security"
-            android:fragment="com.android.settings.SecuritySettings"
-            android:title="@string/screen_security_category"
-            android:summary="@string/screen_security_summary">
-            <extra android:name="gummy_security" android:value="true" />
-        </PreferenceScreen>
-
-        <PreferenceScreen
-            android:key="lock_screen_settings"
-            android:fragment="com.android.settings.gummy.LockscreenInterface"
-            android:title="@string/lockscreen_title" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="power_notifications_category"
-        android:title="@string/power_notifications_category_title">
-
-        <CheckBoxPreference
-            android:key="power_notifications"
-            android:title="@string/power_notifications_enable_title"
-            android:defaultValue="false"
-            android:persistent="false" />
-
-        <CheckBoxPreference
-            android:key="power_notifications_vibrate"
-            android:title="@string/power_notifications_vibrate_title"
-            android:defaultValue="false"
-            android:dependency="power_notifications"
-            android:persistent="false" />
-
-        <Preference
-            android:key="power_notifications_ringtone"
-            android:title="@string/power_notifications_ringtone_title"
-            android:dependency="power_notifications"
-            android:persistent="false" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="general_catagory"
-        android:title="@string/general_catagory_title">
-
-        <CheckBoxPreference
-            android:key="system_power_crt_screen_off"
-            android:summary="@string/system_power_crt_screen_off_summary"
-            android:title="@string/system_power_crt_screen_off_title" />
-
-        <ListPreference
-            android:key="system_power_crt_mode"
-            android:dialogTitle="@string/system_power_crt_mode_dialog_title"
-            android:title="@string/system_power_crt_mode_title"
-            android:entries="@array/entries_system_power_crt_mode"
-            android:entryValues="@array/values_system_power_crt_mode"
-            android:dependency="system_power_crt_screen_off" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="system_catagory"
-        android:title="@string/system_catagory_title">
-
-        <PreferenceScreen
-            android:key="device_options"
-            android:title="@string/advanced_device_prefs_title"
-            android:summary="@string/advanced_device_prefs_summary"
-            android:fragment="com.android.settings.gummy.AdvancedDevicePrefs" />
-
-        <PreferenceScreen
-            android:key="blacklist"
-            android:title="@string/blacklist_title"
-            android:fragment="com.android.settings.gummy.blacklist.BlacklistSettings" />
-
-        <PreferenceScreen
-            android:key="@+id/performance_settings"
-            android:fragment="com.android.settings.gummy.PerformanceSettings"
-            android:title="@string/performance_settings_title" />
-
-        <PreferenceScreen
-            android:key="active_display"	
-            android:fragment="com.android.settings.gummy.ActiveDisplaySettings"	
-            android:title="@string/ad_settings_title"	
-            android:summary="@string/ad_settings_summary" />
-
-        <PreferenceScreen
-            android:key="initD"
-            android:fragment="com.android.settings.InitD"
-            android:title="@string/init_d_title"
-            android:summary="@string/header_summary_init_d" />
-
-        <PreferenceScreen
-            android:key="buildprop_modder"
-            android:fragment="com.android.settings.gummy.PropModder"
-            android:title="@string/propmodder_title" />
-
-        <PreferenceScreen
-            android:id="@+id/appops_settings"
-            android:key="app_ops"
-            android:title="@string/app_ops_settings"
-            android:fragment="com.android.settings.applications.AppOpsSummary" />
-
-    </PreferenceCategory>
+    <PreferenceScreen
+        android:key="app_options"
+        android:fragment="com.android.settings.gummy.interfaceClasses.AppOptions"
+        android:title="@string/app_options_title"
+        android:summary="@string/app_options_summary" />
 
 </PreferenceScreen>
