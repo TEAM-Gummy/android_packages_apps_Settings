@@ -44,7 +44,7 @@
             android:title="@string/ad_settings_title"
             android:summary="@string/ad_settings_summary" />
 
-        <PreferenceScreen
+      <!-- <PreferenceScreen
             android:key="initD"
             android:fragment="com.android.settings.InitD"
             android:title="@string/init_d_title"
@@ -53,7 +53,7 @@
         <PreferenceScreen
             android:key="buildprop_modder"
             android:fragment="com.android.settings.gummy.PropModder"
-            android:title="@string/propmodder_title" />
+            android:title="@string/propmodder_title" /> -->
 
         <PreferenceScreen
             android:id="@+id/appops_settings"
