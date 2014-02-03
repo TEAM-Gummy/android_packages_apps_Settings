@@ -44,7 +44,7 @@
             android:title="@string/ad_settings_title"
             android:summary="@string/ad_settings_summary" />
 
-      <!-- <PreferenceScreen
+   <!-- <PreferenceScreen
             android:key="initD"
             android:fragment="com.android.settings.InitD"
             android:title="@string/init_d_title"
