@@ -48,6 +48,7 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
 
     Preference mCphelps76;
     Preference mKejar31;
+    Preference mapascual89;
     Preference mBkjolly;
     Preference mBuckmarble;
     Preference mBytecodeme;
@@ -70,6 +71,7 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
 
         mCphelps76 = findPreference("cphelps76");
         mKejar31 = findPreference("Kejar31");
+        mapascual89 = findPreference("apascual89");
         mBkjolly = findPreference("Bkjolly");
         mBuckmarble = findPreference("Buckmarble");
         mBytecodeme = findPreference("BytecodeMe");
@@ -93,6 +95,9 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
             return true;
         } else if (preference == mKejar31) {
             launchUrl(KEJAR31);
+            return true;
+        } else if (preference == mapascual89) {
+            launchUrl(GUMMY_TWITTER);
             return true;
         } else if (preference == mBkjolly) {
             launchUrl(BKJOLLY);
