@@ -519,6 +519,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="navbar_targets_title">Ring targets</string>
     <string name="navbar_cat">Navigation bar</string>
     <string name="navbar_dimensions_reset_message">Reset all dimensions entries to default?</string>
+    <string name="navigation_bar_warning_no_navigation_present">No other navigation is currently enabled. Turning off the navigation bar can result in an unusable device. Do you want to enable pie controls instead?</string>
 
     <!-- Navigation bar button style -->
     <string name="nav_bar_button_style">Button style</string>
@@ -544,6 +545,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="select_custom_app_title">Select custom application</string>
     <string name="disabled">Disabled</string>
     <string name="navbar_action_disable_message">Disabled\nAdd an entry to enable this feature</string>
+
+    <!-- Button shorcut actions -->
+    <string name="shortcut_action_navbar">Navigation bar</string>
+    <string name="shortcut_action_pie">Pie controls</string>
     <string name="shortcut_action_airplane">Airplane mode</string>
     <string name="shortcut_action_expanded_desktop">Expanded Desktop</string>
     <string name="shortcut_action_power_off">Power off</string>
@@ -587,6 +592,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcut_action_help_main">To add a %1$s, select the Add icon.  Once a %1$s is added, selecting the row will change the target%2$s\n\nTo remove a %1$s, swipe the row horizontally left or right.  Re-order a %1$s in the list by vertically dragging the anchor on the left.\n\nTo clear or reset to defaults, select the Reset icon.</string>
     <string name="shortcut_action_help_delete_last_entry">Removing every %1$s in the list will disable the feature entirely.</string>
     <string name="shortcut_action_help">Help</string>
+
+    <!-- Shorcut icon picker -->
     <string name="shortcuts_icon_picker_alarm">Alarm</string>
     <string name="shortcuts_icon_picker_andy">Andy</string>
     <string name="shortcuts_icon_picker_battery">Battery</string>
@@ -1570,5 +1577,7 @@ f anonymous statistics. -->
     <string name="pie_button_style_summary">Change pie button style</string>
     <string name="pie_style_reset_message">Reset style entries to default?</string>
     <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Removing every %1$s in the list will disable the second pie layer entirely.</string>
+    <string name="pie_warning_no_navigation_present">No other navigation is currently enabled. Turning off pie controls can result in an unusable device. Do you want to enable navigation bar instead?</string>
+    <string name="pie_trigger_warning">Minimum one of the main triggers (bottom, left or right) needs to be enabled.</string>
 
 </resources>
