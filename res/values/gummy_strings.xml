@@ -1427,4 +1427,7 @@ f anonymous statistics. -->
     <!-- Wi-Fi settings diables message if Wifi is off-->
     <string name="wifi_setting_countrycode_disabled">Enable Wi-Fi to change this option.</string>
 
+    <!-- Enable translucent decor -->
+    <string name="enable_translucent_decor_title">Enable translucent decor</string>
+
 </resources>
