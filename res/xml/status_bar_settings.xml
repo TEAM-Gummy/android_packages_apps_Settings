@@ -49,6 +49,12 @@
             android:title="@string/status_bar_signal_color"
             android:defaultValue="0xffffffff" />
 
+        <com.android.settings.gummy.SystemSettingCheckBoxPreference
+            android:key="show_activity_indicators"
+            android:title="@string/show_activity_indicators_title"
+            android:summary="@string/show_activity_indicators_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

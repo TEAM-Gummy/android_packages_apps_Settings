@@ -1430,4 +1430,8 @@ f anonymous statistics. -->
     <!-- Enable translucent decor -->
     <string name="enable_translucent_decor_title">Enable translucent decor</string>
 
+    <!-- Show the signal and wifi data direction indicators -->
+    <string name="show_activity_indicators_title">Show activity indicators</string>
+    <string name="show_activity_indicators_summary">Enable / disable the signal and wifi data direction indicators</string>
+
 </resources>
