@@ -62,6 +62,13 @@
             android:persistent="false"
             android:streamType="ring" />
 
+    <!-- Volume steps -->
+    <PreferenceScreen
+            android:key="volume_steps"
+            android:fragment="com.android.settings.gummy.VolumeSteps"
+            android:summary="@string/volume_steps_summary"
+            android:title="@string/volume_steps_title" />
+
     <PreferenceCategory
             android:title="@string/sound_category_system_title"/>
 
