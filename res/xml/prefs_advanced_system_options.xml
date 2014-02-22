@@ -38,6 +38,12 @@
             android:fragment="com.android.settings.gummy.PerformanceSettings"
             android:title="@string/performance_settings_title" />
 
+        <PreferenceScreen
+            android:key="wakelock_blocker"
+            android:fragment="com.android.settings.gummy.WakeLockBlocker"
+            android:layout="@layout/preference_wakelockblocker"
+            android:title="@string/wakelock_blocker" />
+
    <!-- <PreferenceScreen
             android:key="initD"
             android:fragment="com.android.settings.InitD"
