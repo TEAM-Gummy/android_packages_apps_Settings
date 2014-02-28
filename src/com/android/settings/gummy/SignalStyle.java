@@ -99,7 +99,6 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
         if (preference == mShow4G) {
             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.SHOW_4G_FOR_LTE,
                     ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
-            Helpers.restartSystemUI();
             return true;
         } else if (preference == mStatusBarSignal) {
             int signalStyle = Integer.valueOf((String) newValue);

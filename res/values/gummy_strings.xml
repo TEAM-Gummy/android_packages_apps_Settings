@@ -1436,6 +1436,6 @@ f anonymous statistics. -->
 
     <!-- Show 4G for LTE -->
     <string name="show_4G_for_LTE_title">Show 4G for LTE</string>
-    <string name="show_4G_for_LTE_summary">Whether to show the 4G icon in statusbar when in LTE, requires a SystemUI restart</string>
+    <string name="show_4G_for_LTE_summary">Whether to show the 4G icon in statusbar when in LTE</string>
 
 </resources>
