@@ -40,6 +40,12 @@
             android:title="@string/status_bar_signal_color"
             android:defaultValue="0xffffffff" />
 
+        <CheckBoxPreference
+            android:key="hide_signal_bars"
+            android:title="@string/hide_signal_bars_title"
+            android:summary="@string/hide_signal_bars_summary"
+            android:defaultValue="false" />
+
         <com.android.settings.gummy.SystemSettingCheckBoxPreference
             android:key="show_activity_indicators"
             android:title="@string/show_activity_indicators_title"

@@ -41,12 +41,14 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
     private static final String KEY_STYLE_CATAGORY = "signal_style";
     private static final String KEY_SHOW_4G = "show_4g_for_lte";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
+    private static final String HIDE_SIGNAL_BARS = "hide_signal_bars";
     private static final String STATUSBAR_SIGNAL_TEXT_COLOR = "status_bar_signal_color";
 
     private PreferenceCategory mStyleCatagory;
     private ListPreference mStatusBarSignal;
     private ColorPickerPreference mStatusBarSignalColor;
     private CheckBoxPreference mShow4G;
+    private CheckBoxPreference mHideSignal;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,9 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
 
         mShow4G = (CheckBoxPreference) findPreference(KEY_SHOW_4G);
             mShow4G.setOnPreferenceChangeListener(this);
+
+        mHideSignal = (CheckBoxPreference) findPreference(HIDE_SIGNAL_BARS);
+            mHideSignal.setOnPreferenceChangeListener(this);
 
         mStatusBarSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
         int signalStyle = Settings.System.getInt(getContentResolver(),
@@ -100,6 +105,10 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.SHOW_4G_FOR_LTE,
                     ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
             return true;
+        } else if (preference == mHideSignal) {
+            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.STATUSBAR_HIDE_SIGNAL_BARS,
+                    ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
+            return true;
         } else if (preference == mStatusBarSignal) {
             int signalStyle = Integer.valueOf((String) newValue);
             int index = mStatusBarSignal.findIndexOfValue((String) newValue);
@@ -127,6 +136,7 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
             if (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
                 // No telephony, remove dependent options
                 mStyleCatagory.removePreference(findPreference(KEY_SHOW_4G));
+                mStyleCatagory.removePreference(findPreference(HIDE_SIGNAL_BARS));
                 mStyleCatagory.removePreference(findPreference(STATUS_BAR_SIGNAL));
                 mStyleCatagory.removePreference(findPreference(STATUSBAR_SIGNAL_TEXT_COLOR));
             }
