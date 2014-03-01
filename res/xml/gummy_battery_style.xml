@@ -25,6 +25,12 @@
         android:entries="@array/entries_battery_icon"
         android:entryValues="@array/values_battery_icon" />
 
+    <com.android.settings.gummy.SystemSettingCheckBoxPreference
+        android:key="hide_battery_icon"
+        android:title="@string/hide_battery_icon_title"
+        android:summary="@string/hide_battery_icon_summary"
+        android:defaultValue="false" />
+
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="battery_color"
         android:title="@string/battery_color_title"

@@ -1440,6 +1440,10 @@ f anonymous statistics. -->
 
     <!-- Hide signal activity -->
     <string name="hide_signal_bars_title">Hide signal bars/text</string>
-    <string name="hide_signal_bars_summary">Hides the signal bars or text from the statusbar</string>
+    <string name="hide_signal_bars_summary">Hides the signal bars or signal text in the statusbar</string>
+
+    <!-- Hide battery icon -->
+    <string name="hide_battery_icon_title">Hide battery icon</string>
+    <string name="hide_battery_icon_summary">Hides the battery icon in the status bar</string>
 
 </resources>
