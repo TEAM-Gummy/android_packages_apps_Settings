@@ -25,7 +25,7 @@
         android:entries="@array/entries_battery_icon"
         android:entryValues="@array/values_battery_icon" />
 
-    <com.android.settings.gummy.SystemSettingCheckBoxPreference
+    <CheckBoxPreference
         android:key="hide_battery_icon"
         android:title="@string/hide_battery_icon_title"
         android:summary="@string/hide_battery_icon_summary"

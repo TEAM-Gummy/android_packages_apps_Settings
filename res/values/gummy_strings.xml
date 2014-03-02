@@ -1433,6 +1433,7 @@ f anonymous statistics. -->
     <!-- Show the signal and wifi data direction indicators -->
     <string name="show_activity_indicators_title">Show activity indicators</string>
     <string name="show_activity_indicators_summary">Enable / disable the signal and wifi data direction indicators</string>
+    <string name="show_wifi_activity_indicators_summary">Enable / disable the wifi data direction indicators</string>
 
     <!-- Show 4G for LTE -->
     <string name="show_4G_for_LTE_title">Show 4G for LTE</string>

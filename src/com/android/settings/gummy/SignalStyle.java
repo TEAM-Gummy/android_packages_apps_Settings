@@ -43,12 +43,14 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String HIDE_SIGNAL_BARS = "hide_signal_bars";
     private static final String STATUSBAR_SIGNAL_TEXT_COLOR = "status_bar_signal_color";
+    private static final String SHOW_ACTIVITY_INDICATORS = "show_activity_indicators";
 
     private PreferenceCategory mStyleCatagory;
     private ListPreference mStatusBarSignal;
     private ColorPickerPreference mStatusBarSignalColor;
     private CheckBoxPreference mShow4G;
     private CheckBoxPreference mHideSignal;
+    private CheckBoxPreference mShowIndicators;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,7 +84,10 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
         String hexColor = String.format("#%08x", (0xffffffff & intColor));
         mStatusBarSignalColor.setSummary(hexColor);
 
+        mShowIndicators = (CheckBoxPreference) findPreference(SHOW_ACTIVITY_INDICATORS);
+
         isTelephony();
+        DisableIconOptions();
     }
 
     @Override
@@ -102,12 +107,13 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mShow4G) {
-            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.SHOW_4G_FOR_LTE,
-                    ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SHOW_4G_FOR_LTE, ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
             return true;
         } else if (preference == mHideSignal) {
-            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.STATUSBAR_HIDE_SIGNAL_BARS,
-                    ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_HIDE_SIGNAL_BARS, ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
+            DisableIconOptions();
             return true;
         } else if (preference == mStatusBarSignal) {
             int signalStyle = Integer.valueOf((String) newValue);
@@ -142,6 +148,28 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
             }
         } catch (Exception e) {
             // Do nothing
+        }
+    }
+
+    private void DisableIconOptions() {
+        boolean areBarsHidden = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_HIDE_SIGNAL_BARS, 0) == 1;
+        Settings.System.putInt(getActivity().getContentResolver(),
+               Settings.System.STATUSBAR_SIGNAL_TEXT, 0);
+        int signalStyle = Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUSBAR_SIGNAL_TEXT, 0);
+        mStatusBarSignal.setValue(String.valueOf(signalStyle));
+        mStatusBarSignal.setSummary(mStatusBarSignal.getEntry());
+        if (areBarsHidden) {
+            mShow4G.setEnabled(false);
+            mStatusBarSignal.setEnabled(false);
+            mStatusBarSignalColor.setEnabled(false);
+            mShowIndicators.setSummary(R.string.show_wifi_activity_indicators_summary);
+        } else {
+            mShow4G.setEnabled(true);
+            mStatusBarSignal.setEnabled(true);
+            mStatusBarSignalColor.setEnabled(true);
+            mShowIndicators.setSummary(R.string.show_activity_indicators_summary);
         }
     }
 }

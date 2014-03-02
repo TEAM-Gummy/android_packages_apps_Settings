@@ -19,6 +19,7 @@ package com.android.settings.gummy;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
@@ -54,7 +55,7 @@ public class BatteryIconStyle extends SettingsPreferenceFragment
     private static final String PREF_STATUS_BAR_BATTERY_TEXT_COLOR = "battery_text_color";
     private static final String PREF_STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR = "battery_text_charging_color";
     private static final String PREF_STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED = "circle_battery_animation_speed";
-
+    private static final String PREF_HIDE_BATTERY_ICON = "hide_battery_icon";
 
     private static final int MENU_RESET = Menu.FIRST;
 
@@ -65,8 +66,11 @@ public class BatteryIconStyle extends SettingsPreferenceFragment
     private ColorPickerPreference mBatteryTextColor;
     private ColorPickerPreference mBatteryTextChargingColor;
     private ListPreference mCircleAnimSpeed;
+    private CheckBoxPreference mHideBattery;
 
     private boolean mCheckPreferences;
+
+    Context mContext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -162,7 +166,12 @@ public class BatteryIconStyle extends SettingsPreferenceFragment
                 + "");
         mCircleAnimSpeed.setSummary(mCircleAnimSpeed.getEntry());
 
+        mHideBattery = (CheckBoxPreference) findPreference(PREF_HIDE_BATTERY_ICON);
+            mHideBattery.setOnPreferenceChangeListener(this);
+
         updateBatteryIconOptions(statusBarBattery);
+
+        SetOptionOnCreate();
 
         setHasOptionsMenu(true);
         mCheckPreferences = true;
@@ -229,6 +238,11 @@ public class BatteryIconStyle extends SettingsPreferenceFragment
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED, val);
             mCircleAnimSpeed.setSummary(mCircleAnimSpeed.getEntries()[index]);
+            return true;
+        } else if (preference == mHideBattery) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                   Settings.System.HIDE_BATTERY_ICON, ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
+            DisableIconOptions();
             return true;
         }
         return false;
@@ -317,4 +331,43 @@ public class BatteryIconStyle extends SettingsPreferenceFragment
         }
     }
 
+    private void DisableIconOptions() {
+        boolean IsBatteryHidden = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.HIDE_BATTERY_ICON, 0) == 1;
+        Settings.System.putInt(getActivity().getContentResolver(),
+               Settings.System.STATUS_BAR_BATTERY, 0);
+        int statusBarBattery = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_BATTERY, 0);
+        mStatusBarBattery.setValue(String.valueOf(statusBarBattery));
+        mStatusBarBattery.setSummary(mStatusBarBattery.getEntry());
+        if (IsBatteryHidden) {
+            mBatteryColor.setEnabled(false);
+            mBatteryTextColor.setEnabled(false);
+            mBatteryTextChargingColor.setEnabled(false);
+            mBatteryTextChargingColor.setTitle(R.string.battery_bolt_color);
+            mCircleAnimSpeed.setEnabled(false);
+            mStatusBarBattery.setEnabled(false);
+        } else {
+            mBatteryColor.setEnabled(true);
+            mBatteryTextChargingColor.setEnabled(true);
+            mStatusBarBattery.setEnabled(true);
+        }
+    }
+
+    private void SetOptionOnCreate() {
+        boolean IsBatteryHidden = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.HIDE_BATTERY_ICON, 0) == 1;
+        if (IsBatteryHidden) {
+            mBatteryColor.setEnabled(false);
+            mBatteryTextColor.setEnabled(false);
+            mBatteryTextChargingColor.setEnabled(false);
+            mBatteryTextChargingColor.setTitle(R.string.battery_bolt_color);
+            mCircleAnimSpeed.setEnabled(false);
+            mStatusBarBattery.setEnabled(false);
+        } else {
+            mBatteryColor.setEnabled(true);
+            mBatteryTextChargingColor.setEnabled(true);
+            mStatusBarBattery.setEnabled(true);
+        }
+    }
 }
