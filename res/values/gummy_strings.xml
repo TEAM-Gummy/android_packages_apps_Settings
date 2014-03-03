@@ -1448,4 +1448,7 @@ f anonymous statistics. -->
     <string name="hide_battery_icon_title">Hide battery icon</string>
     <string name="hide_battery_icon_summary">Hides the battery icon in the status bar</string>
 
+    <!-- Gummy Updater -->
+    <string name="gummyupdate_settings_title">Gummy updates</string>
+    <string name="gummyupdate_settings_summary">Check for, view or install available updates</string>
 </resources>

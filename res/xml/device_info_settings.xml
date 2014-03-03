@@ -26,6 +26,15 @@
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
 
+        <!-- Gummy Updates -->
+        <PreferenceScreen android:key="gummy_updates"
+                android:title="@string/gummyupdate_settings_title"
+                android:summary="@string/gummyupdate_settings_summary">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.gummy.updater"
+                    android:targetClass="com.gummy.updater.UpdatesSettings" />
+        </PreferenceScreen>
+
         <!-- Anonymous statistics -->
         <PreferenceScreen
             android:key="anonymous_stats"
