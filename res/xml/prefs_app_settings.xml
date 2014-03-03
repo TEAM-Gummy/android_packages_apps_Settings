@@ -69,12 +69,30 @@
         </PreferenceScreen>
 
         <PreferenceScreen
+            android:key="dspmanager"
+            android:title="@string/dspmanager_title"
+            android:icon="@drawable/ic_dsp">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.bel.android.dspmanager"
+                    android:targetClass="com.bel.android.dspmanager.activity.DSPManager" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
             android:key="email"
             android:title="@string/email_title"
             android:icon="@drawable/ic_email">
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="com.android.email"
                     android:targetClass="com.android.email.activity.setup.AccountSettings" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="file_manager"
+            android:title="@string/file_manager_title"
+            android:icon="@drawable/ic_file_manager">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.cyanogenmod.filemanager"
+                    android:targetClass="com.cyanogenmod.filemanager.activities.preferences.SettingsPreferences" />
         </PreferenceScreen>
 
         <PreferenceScreen
