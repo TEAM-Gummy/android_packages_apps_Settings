@@ -4720,7 +4720,6 @@
     <string name="priority_sub_title">Priority Subscription</string>
     <string name="priority_sub_summary">Select Priority Subscription</string>
 
->>>>>>> cea415d... Settings(MSIM): Add TuneAway and PrioritySub to MultiSimSettings
     <!-- User settings -->
     <skip/>
 
