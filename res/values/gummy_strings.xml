@@ -1622,4 +1622,6 @@ f anonymous statistics. -->
     <string name="update_recovery_title">Update Gummy recovery</string>
     <string name="update_recovery_summary">Update recovery when installing system updates</string>
 
+    <!-- Wi-Fi SSID string limits -->
+    <string name="wifi_ssid_input_limit">SSID exceeds maximum length</string>
 </resources>
