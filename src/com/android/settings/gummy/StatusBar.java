@@ -94,6 +94,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarNotifCount = (CheckBoxPreference) findPreference(STATUSBAR_NOTIF_COUNT);
             mStatusBarNotifCount.setOnPreferenceChangeListener(this);
 
+        isTelephony();
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -182,6 +183,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             // No telephony, remove dependent options
             mNotificationsCatagory.removePreference(findPreference(KEY_MISSED_CALL_BREATH));
             mNotificationsCatagory.removePreference(findPreference(KEY_MMS_BREATH));
+            mNotificationsCatagory.removePreference(findPreference(VOICEMAIL_BREATH));
         }
     }
 }
