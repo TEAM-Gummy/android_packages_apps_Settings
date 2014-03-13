@@ -78,6 +78,8 @@ public class LockscreenStyle extends SettingsPreferenceFragment
     private static final String LOCKSCREEN_BACKGROUND = "lockscreen_background";
     private static final String LOCKSCREEN_BACKGROUND_STYLE = "lockscreen_background_style";
     private static final String LOCKSCREEN_BACKGROUND_COLOR_FILL = "lockscreen_background_color_fill";
+    private static final String KEY_LOCKSCREEN_TARGETS_COLOR = "lockscreen_targets_color";
+    private static final String KEY_LOCKSCREEN_MISC_COLOR = "lockscreen_misc_color";
 
     private static final int REQUEST_PICK_WALLPAPER = 201;
     private static final int COLOR_FILL = 0;
@@ -91,6 +93,8 @@ public class LockscreenStyle extends SettingsPreferenceFragment
     private ColorPickerPreference mFrameColor;
     private ColorPickerPreference mLockColor;
     private ColorPickerPreference mDotsColor;
+    private ColorPickerPreference mTargetsColor;
+    private ColorPickerPreference mMiscColor;
 
     private ColorPickerPreference mLockColorFill;
     private ListPreference mLockBackground;
@@ -172,6 +176,26 @@ public class LockscreenStyle extends SettingsPreferenceFragment
         mDotsColor.setNewPreviewColor(dotsColor);
 
         boolean dotsDisabled = new LockPatternUtils(getActivity()).isSecure();
+
+        mTargetsColor = (ColorPickerPreference)
+                findPreference(KEY_LOCKSCREEN_TARGETS_COLOR);
+        mTargetsColor.setOnPreferenceChangeListener(this);
+        int targetColor = Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.LOCKSCREEN_TARGETS_COLOR, -2);
+        setPreferenceSummary(mTargetsColor,
+                getResources().getString(
+                R.string.lockscreen_targets_color_summary), targetColor);
+        mTargetsColor.setNewPreviewColor(targetColor);
+
+        mMiscColor = (ColorPickerPreference)
+                findPreference(KEY_LOCKSCREEN_MISC_COLOR);
+        mMiscColor.setOnPreferenceChangeListener(this);
+        int miscColor = Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.LOCKSCREEN_MISC_COLOR, -2);
+        setPreferenceSummary(mMiscColor,
+                getResources().getString(
+                R.string.lockscreen_misc_color_summary), miscColor);
+        mMiscColor.setNewPreviewColor(miscColor);
 
         boolean imageExists = Settings.Secure.getString(getContentResolver(),
                 Settings.Secure.LOCKSCREEN_LOCK_ICON) != null;
@@ -353,6 +377,20 @@ public class LockscreenStyle extends SettingsPreferenceFragment
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_BACKGROUND_COLOR, value);
             return true;
+        } else if (preference == mTargetsColor) {
+            int val = Integer.valueOf(String.valueOf(newValue));
+            Settings.Secure.putInt(getContentResolver(),
+                    Settings.Secure.LOCKSCREEN_TARGETS_COLOR, val);
+            setPreferenceSummary(preference,
+                    getResources().getString(R.string.lockscreen_targets_color_summary), val);
+            return true;
+        } else if (preference == mMiscColor) {
+            int val = Integer.valueOf(String.valueOf(newValue));
+            Settings.Secure.putInt(getContentResolver(),
+                    Settings.Secure.LOCKSCREEN_MISC_COLOR, val);
+            setPreferenceSummary(preference,
+                    getResources().getString(R.string.lockscreen_misc_color_summary), val);
+            return true;
         }
         return false;
     }
@@ -513,6 +551,10 @@ public class LockscreenStyle extends SettingsPreferenceFragment
                                     Settings.Secure.LOCKSCREEN_LOCK_COLOR, -2);
                             Settings.Secure.putInt(getActivity().getContentResolver(),
                                     Settings.Secure.LOCKSCREEN_DOTS_COLOR, -2);
+                            Settings.Secure.putInt(getActivity().getContentResolver(),
+                                    Settings.Secure.LOCKSCREEN_TARGETS_COLOR, -2);
+                            Settings.Secure.putInt(getActivity().getContentResolver(),
+                                    Settings.Secure.LOCKSCREEN_MISC_COLOR, -2);
                             getOwner().createCustomView();
                         }
                     })
