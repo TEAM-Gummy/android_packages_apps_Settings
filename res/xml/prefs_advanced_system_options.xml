@@ -41,7 +41,6 @@
         <PreferenceScreen
             android:key="wakelock_blocker"
             android:fragment="com.android.settings.gummy.WakeLockBlocker"
-            android:layout="@layout/preference_wakelockblocker"
             android:title="@string/wakelock_blocker" />
 
    <!-- <PreferenceScreen
