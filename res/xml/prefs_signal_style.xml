@@ -46,6 +46,12 @@
             android:summary="@string/hide_signal_bars_summary"
             android:defaultValue="false" />
 
+        <CheckBoxPreference
+            android:key="hide_sim_icon"
+            android:title="@string/hide_sim_icon_title"
+            android:summary="@string/hide_sim_icon_summary"
+            android:defaultValue="false" />
+
         <com.android.settings.gummy.SystemSettingCheckBoxPreference
             android:key="show_activity_indicators"
             android:title="@string/show_activity_indicators_title"

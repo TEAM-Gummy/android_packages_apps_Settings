@@ -42,6 +42,7 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
     private static final String KEY_SHOW_4G = "show_4g_for_lte";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String HIDE_SIGNAL_BARS = "hide_signal_bars";
+    private static final String HIDE_SIM_ICON = "hide_sim_icon";
     private static final String STATUSBAR_SIGNAL_TEXT_COLOR = "status_bar_signal_color";
     private static final String SHOW_ACTIVITY_INDICATORS = "show_activity_indicators";
 
@@ -50,6 +51,7 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
     private ColorPickerPreference mStatusBarSignalColor;
     private CheckBoxPreference mShow4G;
     private CheckBoxPreference mHideSignal;
+    private CheckBoxPreference mHideSimIcon;
     private CheckBoxPreference mShowIndicators;
 
     @Override
@@ -67,6 +69,9 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
 
         mHideSignal = (CheckBoxPreference) findPreference(HIDE_SIGNAL_BARS);
             mHideSignal.setOnPreferenceChangeListener(this);
+
+        mHideSimIcon = (CheckBoxPreference) findPreference(HIDE_SIM_ICON);
+            mHideSimIcon.setOnPreferenceChangeListener(this);
 
         mStatusBarSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
         int signalStyle = Settings.System.getInt(getContentResolver(),
@@ -88,6 +93,7 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
 
         isTelephony();
         DisableIconOptions();
+        disableSimIconOption();
     }
 
     @Override
@@ -114,6 +120,11 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_HIDE_SIGNAL_BARS, ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
             DisableIconOptions();
+            return true;
+        } else if (preference == mHideSimIcon) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_HIDE_SIM_ICON, ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
+            Helpers.restartSystemUI();
             return true;
         } else if (preference == mStatusBarSignal) {
             int signalStyle = Integer.valueOf((String) newValue);
@@ -170,6 +181,19 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
             mStatusBarSignal.setEnabled(true);
             mStatusBarSignalColor.setEnabled(true);
             mShowIndicators.setSummary(R.string.show_activity_indicators_summary);
+        }
+    }
+
+    private void disableSimIconOption() {
+        PackageManager pm = getPackageManager();
+        boolean mIsSimIconShowing = Settings.System.getBoolean(getActivity().getContentResolver(),
+                    Settings.System.SIM_ICON_SHOWN, false);
+        try {
+            if ((mIsSimIconShowing != true) || (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY))) {
+                mStyleCatagory.removePreference(findPreference(HIDE_SIM_ICON));
+            }
+        } catch (Exception e) {
+            // Do nothing
         }
     }
 }

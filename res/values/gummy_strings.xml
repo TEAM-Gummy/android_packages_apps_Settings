@@ -1501,4 +1501,7 @@ f anonymous statistics. -->
     <string name="lock_before_unlock_title">Show slider before secure unlock</string>
     <string name="lock_before_unlock_summary">Show slider lockscreen before secure unlock mechanism</string>
 
+    <!-- Hide the sim icon -->
+    <string name="hide_sim_icon_title">"Hide noSim icon"</string>
+    <string name="hide_sim_icon_summary">"Hides the noSim icon in the statusbar"</string>
 </resources>
