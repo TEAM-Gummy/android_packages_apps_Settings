@@ -653,6 +653,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="artwork">Artwork Development</string>
     <string name="gummy_gerrit_title">Gerrit Code Review</string>
     <string name="gummy_gerrit_summary">Help us make Gummy a better rom by submitting patches to review.gummyrom.com</string>
+    <string name="jenkins_title">Gummy Nightlies</string>
+    <string name="jenkins_summary">Here you can watch the Gummy Nightlies build in Jenkins or log in and build your own on our build servers</string>
     <string name="gummy_source_title">Team Gummy Source</string>
     <string name="gummy_source_summary">www.github.com/TEAM-Gummy</string>
     <string name="sauce">The Secret Sauce</string>

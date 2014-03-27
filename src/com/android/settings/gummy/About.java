@@ -36,8 +36,10 @@ public class About extends SettingsPreferenceFragment {
     public static final String TAG = "About";
 
     private static final String GUMMY_REVIEW = "http://review.gummyrom.com/#/q/status:open,n,z";
+    private static final String JENKINS = "http://jenkins.gummyrom.com/";
 
     Preference mReviewUrl;
+    Preference mJenkins;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,13 +48,16 @@ public class About extends SettingsPreferenceFragment {
         addPreferencesFromResource(R.xml.prefs_about);
 
         mReviewUrl = findPreference("gummy_gerrit");
-
+        mJenkins = findPreference("jenkins");
     }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mReviewUrl) {
             launchUrl(GUMMY_REVIEW);
+            return true;
+        } else if (preference == mJenkins) {
+            launchUrl(JENKINS);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);

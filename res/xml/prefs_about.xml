@@ -15,6 +15,11 @@
             android:title="@string/gummy_gerrit_title"
             android:summary="@string/gummy_gerrit_summary" />
 
+        <Preference
+            android:key="jenkins"
+            android:title="@string/jenkins_title"
+            android:summary="@string/jenkins_summary" />
+
         <com.android.settings.gummy.TGPreference
             android:title="Gummy"
             gummy:nameDev="Team Gummy"
