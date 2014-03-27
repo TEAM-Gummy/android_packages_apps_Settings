@@ -663,7 +663,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="Bkjolly">Bkjolly</string>
     <string name="Buckmarble">Buckmarble</string>
     <string name="BytecodeMe">BytecodeMe</string>
-    <string name="Chadfran84">st3rdroids</string>
     <string name="dhacker29">dhacker29</string>
     <string name="Emericanx">EmericanX</string>
     <string name="hashcode">Hashcode</string>
@@ -674,6 +673,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="tdm">tdm</string>
     <string name="thomasraines">thomasraines</string>
     <string name="wedgess">wedgess</string>
+    <string name="rinkle">Rinkle McBally</string>
 
     <!-- Anonymous Statistics -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out o

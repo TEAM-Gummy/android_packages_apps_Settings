@@ -40,12 +40,11 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
     private static final String EMERICANX = "https://twitter.com/emericanx";
     private static final String HASHCODE = "https://twitter.com/Hashcode0f";
     private static final String HEDWIG34 = "https://twitter.com/hedwig34";
-    private static final String INKSLINGER420 = "https://twitter.com/InkSlinger420";
     private static final String MATTLGROFF = "https://twitter.com/mattlgroff";
     private static final String PAPI92 = "https://twitter.com/Anthony_J_Fox";
     private static final String THOMASRAINES = "https://twitter.com/thomasraines";
     private static final String WEDGESS = "https://twitter.com/wedgess";
-    private static final String CHADFRAN84 = "https://twitter.com/Chadfran84";
+    private static final String RINKLE = "https://twitter.com/Rinkle_McBally";
 
     Preference mCphelps76;
     Preference mKejar31;
@@ -63,7 +62,7 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
     Preference mtdm;
     Preference mthomasraines;
     Preference mWedgess;
-    Preference mChadfran84;
+    Preference mRinkle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -87,7 +86,7 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
         mtdm = findPreference("tdm");
         mthomasraines = findPreference("thomasraines");
         mWedgess = findPreference("wedgess");
-        mChadfran84 = findPreference("Chadfran84");
+        mRinkle = findPreference("rinkle");
 
     }
 
@@ -123,9 +122,6 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
         } else if (preference == mHedwig34) {
             launchUrl(HEDWIG34);
             return true;
-        } else if (preference == mInkSlinger420) {
-            launchUrl(INKSLINGER420);
-            return true;
         } else if (preference == mmattlgroff) {
             launchUrl(MATTLGROFF);
             return true;
@@ -141,8 +137,11 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
         } else if (preference == mWedgess) {
             launchUrl(WEDGESS);
             return true;
-        } else if (preference == mChadfran84) {
-            launchUrl(CHADFRAN84);
+        } else if (preference == mInkSlinger420) {
+            launchUrl(GUMMY_TWITTER);
+            return true;
+        } else if (preference == mRinkle) {
+            launchUrl(RINKLE);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);

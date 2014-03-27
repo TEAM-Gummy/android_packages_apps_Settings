@@ -67,11 +67,6 @@
             android:icon="@drawable/twitter_bird" />
 
         <Preference
-            android:key="InkSlinger420"
-            android:title="@string/InkSlinger420"
-            android:icon="@drawable/twitter_bird" />
-
-        <Preference
             android:key="mattlgroff"
             android:title="@string/mattlgroff"
             android:icon="@drawable/twitter_bird" />
@@ -103,8 +98,13 @@
         android:title="@string/artwork">
 
         <Preference
-            android:key="Chadfran84"
-            android:title="@string/Chadfran84"
+            android:key="InkSlinger420"
+            android:title="@string/InkSlinger420"
+            android:icon="@drawable/twitter_bird" />
+
+        <Preference
+            android:key="rinkle"
+            android:title="@string/rinkle"
             android:icon="@drawable/twitter_bird" />
 
     </PreferenceCategory>
