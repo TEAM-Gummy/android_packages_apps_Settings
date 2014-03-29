@@ -29,7 +29,6 @@ import android.provider.Settings;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.util.Helpers;
 import com.android.settings.Utils;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
@@ -124,7 +123,6 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
         } else if (preference == mHideSimIcon) {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_HIDE_SIM_ICON, ((CheckBoxPreference)preference).isChecked() ? 0 : 1);
-            Helpers.restartSystemUI();
             return true;
         } else if (preference == mStatusBarSignal) {
             int signalStyle = Integer.valueOf((String) newValue);
