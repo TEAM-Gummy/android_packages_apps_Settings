@@ -186,6 +186,13 @@ public class SignalStyle extends SettingsPreferenceFragment implements OnPrefere
         PackageManager pm = getPackageManager();
         boolean mIsSimIconShowing = Settings.System.getBoolean(getActivity().getContentResolver(),
                     Settings.System.SIM_ICON_SHOWN, false);
+        if (mIsSimIconShowing) {
+            mShow4G.setEnabled(false);
+            mStatusBarSignal.setEnabled(false);
+            mStatusBarSignalColor.setEnabled(false);
+            mHideSignal.setEnabled(false);
+            mShowIndicators.setSummary(R.string.show_wifi_activity_indicators_summary);
+        }
         try {
             if ((mIsSimIconShowing != true) || (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY))) {
                 mStyleCatagory.removePreference(findPreference(HIDE_SIM_ICON));
