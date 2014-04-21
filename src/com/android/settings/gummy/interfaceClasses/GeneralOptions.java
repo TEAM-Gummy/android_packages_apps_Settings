@@ -44,6 +44,8 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
+import org.cyanogenmod.hardware.TapToWake;
+
 public class GeneralOptions extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
@@ -54,6 +56,7 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
     private static final String KEY_POWER_NOTIFICATIONS_RINGTONE = "power_notifications_ringtone";
     private static final String KEY_POWER_CRT_MODE = "system_power_crt_mode";
     private static final String KEY_POWER_CRT_SCREEN_OFF = "system_power_crt_screen_off";
+    private static final String KEY_TAP_TO_WAKE = "double_tap_wake_gesture";
 
     // Request code for power notification ringtone picker
     private static final int REQUEST_CODE_POWER_NOTIFICATIONS_RINGTONE = 1;
@@ -66,6 +69,7 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
     private Preference mPowerSoundsRingtone;
     private ListPreference mCrtMode;
     private CheckBoxPreference mCrtOff;
+    private CheckBoxPreference mTapToWake;
 
     private boolean mIsCrtOffChecked = false;
 
@@ -76,6 +80,12 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.prefs_general_options);
 
         ContentResolver resolver = getContentResolver();
+
+        mTapToWake = (CheckBoxPreference) findPreference(KEY_TAP_TO_WAKE);
+        if (!isTapToWakeSupported()) {
+            getPreferenceScreen().removePreference(mTapToWake);
+            mTapToWake = null;
+        }
 
         // power state change notification sounds
         mPowerSounds = (CheckBoxPreference) findPreference(KEY_POWER_NOTIFICATIONS);
@@ -125,9 +135,12 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
 
     }
 
-        @Override
+    @Override
     public void onResume() {
         super.onResume();
+        if (mTapToWake != null) {
+            mTapToWake.setChecked(TapToWake.isEnabled());
+        }
     }
 
     @Override
@@ -137,7 +150,9 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mPowerSounds) {
+        if (preference == mTapToWake) {
+            return TapToWake.setEnabled(mTapToWake.isChecked());
+        } else if (preference == mPowerSounds) {
             Settings.Global.putInt(getContentResolver(),
                     Settings.Global.POWER_NOTIFICATIONS_ENABLED,
                     mPowerSounds.isChecked() ? 1 : 0);
@@ -222,6 +237,15 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
             default:
                 super.onActivityResult(requestCode, resultCode, data);
                 break;
+        }
+    }
+
+    private static boolean isTapToWakeSupported() {
+        try {
+            return TapToWake.isSupported();
+        } catch (NoClassDefFoundError e) {
+            // Hardware abstraction framework not installed
+            return false;
         }
     }
 }
