@@ -1595,6 +1595,7 @@ f anonymous statistics. -->
     <!-- Doubletap to sleep -->
     <string name="doubletap_options_title">Double-tap options</string>
     <string name="status_bar_double_tap_to_sleep_title">Double-tap to sleep</string>
+    <string name="status_bar_double_tap_to_sleep_summary">Double tap the status bar / lockscreen glowpad to sleep"</string>
 
     <!-- Doubletap to wake -->
     <string name="double_tap_to_wake_title">Double-tap to wake</string>
