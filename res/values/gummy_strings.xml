@@ -1604,4 +1604,10 @@ f anonymous statistics. -->
     <string name="enable_quickboot_title">Enable QuickBoot mode</string>
     <string name="enable_quickboot_summary">Put device into QuickBoot mode instead of normal power off.</string>
 
+    <!-- 0-click settings -->
+    <string name="advanced_0click_title">0-Click settings</string>
+
+    <!-- Gesture input settings -->
+    <string name="advanced_gesture_title">Gesture Shortcuts</string>
+
 </resources>

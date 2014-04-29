@@ -46,6 +46,8 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
     private static final String KEY_ADAPTIVE_BACKLIGHT = "adaptive_backlight";
     private static final String KEY_ADVANCED_DISPLAY_SETTINGS = "advanced_display_settings";
     private static final String KEY_ADVANCED_DEVICE_SETTINGS = "advanced_device_settings";
+    private static final String KEY_0CLICK_SETTINGS = "advanced_Oclick_settings";
+    private static final String KEY_GESTURE_SETTINGS = "advanced_gesture_settings";
     private static final String KEY_SCREEN_COLOR_SETTINGS = "screencolor_settings";
 
     private CheckBoxPreference mAdaptiveBacklight;
@@ -62,6 +64,12 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
             getPreferenceScreen().removePreference(mAdaptiveBacklight);
             mAdaptiveBacklight = null;
         }
+
+        Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
+                getPreferenceScreen(), KEY_0CLICK_SETTINGS);
+
+        Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
+                getPreferenceScreen(), KEY_GESTURE_SETTINGS);
 
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_ADVANCED_DEVICE_SETTINGS);
