@@ -67,7 +67,7 @@ public class AdvancedOptions extends SettingsPreferenceFragment implements
         // Quickboot
         mQuickBoot = findAndInitCheckboxPref(ENABLE_QUICKBOOT_KEY);
         if (!isPackageInstalled(QUICKBOOT_PACKAGE_NAME)) {
-            removePreference(mQuickBoot);
+            mAdvancedOptions.removePreference(mQuickBoot);
         }
     }
 
