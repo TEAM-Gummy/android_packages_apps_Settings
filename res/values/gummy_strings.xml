@@ -1636,4 +1636,7 @@ f anonymous statistics. -->
     <!-- Priority subscription settings -->
     <string name="priority_sub_title">Priority subscription</string>
 
+    <!-- Bluetooth accept all Filestypes -->
+    <string name="bluetooth_accept_all_files">Accept all file types</string>
+
 </resources>
