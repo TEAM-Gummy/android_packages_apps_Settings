@@ -42,4 +42,7 @@
     <!-- Enable translucent decor -->
     <item type="bool" name="config_enableTranslucentDecor">@*android:bool/config_enableTranslucentDecor</item>
 
+    <!-- Multi SIM Tune Away/Priority Subscription Support. Some device RILs do not support this.
+         Setting to false will disable Tune Away/Priority Subscription support -->
+    <bool name="config_HasTuneAway">false</bool>
 </resources>

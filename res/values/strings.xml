@@ -4665,24 +4665,7 @@
     <string name="subs_settings">Subscription status</string>
 
     <!-- Main settings screen, Multi Sim settings title for item to go into the Multi settings -->
-    <string name="multi_sim_settings_title">Multi Sim Settings</string>
-    <!-- Main settings screen, Multi Sim settings summary for item to go into Multi settings -->
-    <string name="multi_sim_settings_summary">Set up Multi Sim Settings for Voice, Data and SMS</string>
-
-    <!-- Multi Sim Settings screen, Voice box label -->
-    <string name="voice_title">Voice/USSD/MMI</string>
-    <!-- Multi Sim Settings screen, Voice Summary label -->
-    <string name="voice_summary">Select Subscription for Voice Call</string>
-
-    <!-- Multi Sim Settings screen, Data box label -->
-    <string name="data_title">Data Call</string>
-    <!-- Multi Sim Settings screen, Voice Summary label -->
-    <string name="data_summary">Select Subscription for Data Call</string>
-
-    <!-- Multi Sim Settings screen, SMS box label -->
-    <string name="sms_title">SMS </string>
-    <!-- Multi Sim Settings screen, Voice Summary label -->
-    <string name="sms_summary">Select the Subscription for Sending SMS</string>
+    <string name="multi_sim_settings_title">Multi SIM settings</string>
 
     <!-- Multi Sim Settings screen, Set DDS progress dialog message -->
     <string name="set_data_subscription_progress">Set data subscription in progress</string>
@@ -4715,10 +4698,6 @@
     <!-- Summary for the TuneAway status displayed in Multi SIM Settings -->
     <string name="tune_away_enabled">TuneAway Enabled!</string>
     <string name="tune_away_disabled">TuneAway Disabled!</string>
-
-    <!-- Priority subscription settings -->
-    <string name="priority_sub_title">Priority Subscription</string>
-    <string name="priority_sub_summary">Select Priority Subscription</string>
 
     <!-- User settings -->
     <skip/>
