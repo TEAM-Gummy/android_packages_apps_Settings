@@ -1645,6 +1645,12 @@ f anonymous statistics. -->
     <string name="notification_peek_title">Notification peek</string>
     <string name="notification_peek_summary">Show latest notification after picking up your device</string>
     <string name="notification_peek_disabled_summary">Peek is currently disabled, to re-enable turn off Active Display</string>
+    <string name="peek_pickup_timeout_title">Peek pickup timeout</string>
+    <string name="peek_pickup_10seconds">10 seconds (default)</string>
+    <string name="peek_pickup_30seconds">30 seconds</string>
+    <string name="peek_pickup_45seconds">45 seconds</string>
+    <string name="peek_pickup_60seconds">1 minute</string>
+    <string name="peek_pickup_120seconds">2 minutes</string>
 
     <!--Blacklist-->
     <string name="blacklist_button_title">Blacklist</string>

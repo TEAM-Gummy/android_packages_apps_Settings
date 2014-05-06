@@ -28,6 +28,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
@@ -45,7 +46,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class LockscreenInterface extends SettingsPreferenceFragment {
+public class LockscreenInterface extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener {
     private static final String TAG = "LockscreenInterface";
 
     private static final String KEY_LOCK_CLOCK = "lock_clock";
@@ -59,6 +61,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private static final String PREF_LOCKSCREEN_EXTRAS = "lockscreen_extras";
     private static final String KEY_ACTIVE_DISPLAY = "active_display";
     private static final String KEY_PEEK = "notification_peek";
+    private static final String KEY_PEEK_PICKUP_TIMEOUT = "peek_pickup_timeout";
 
     private PreferenceScreen mLockscreenButtons;
     private PreferenceCategory mAdvancedCatagory;
@@ -66,6 +69,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private PreferenceScreen mLockscreenExtras;
     private PreferenceScreen mActiveDisplay;
     private CheckBoxPreference mNotificationPeek;
+    private ListPreference mPeekPickupTimeout;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private DevicePolicyManager mDPM;
@@ -164,6 +168,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         mActiveDisplay = (PreferenceScreen) findPreference(KEY_ACTIVE_DISPLAY);
 
         mNotificationPeek = (CheckBoxPreference) findPreference(KEY_PEEK);
+        mNotificationPeek.setPersistent(false);
+
+        mPeekPickupTimeout = (ListPreference) findPreference(KEY_PEEK_PICKUP_TIMEOUT);
+        int peekTimeout = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.PEEK_PICKUP_TIMEOUT, 0, UserHandle.USER_CURRENT);
+        mPeekPickupTimeout.setValue(String.valueOf(peekTimeout));
+        mPeekPickupTimeout.setSummary(mPeekPickupTimeout.getEntry());
+        mPeekPickupTimeout.setOnPreferenceChangeListener(this);
 
         SettingsObserver settingsObserver = new SettingsObserver(new Handler());
         settingsObserver.observe();
@@ -190,9 +202,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
 
         if (adEnabled) {
             mNotificationPeek.setEnabled(false);
+            mPeekPickupTimeout.setEnabled(false);
             mNotificationPeek.setSummary(R.string.notification_peek_disabled_summary);
         } else {
             mNotificationPeek.setEnabled(true);
+            mPeekPickupTimeout.setEnabled(true);
             mNotificationPeek.setSummary(R.string.notification_peek_summary);
         }
 
@@ -267,5 +281,25 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
         return true;
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        final String key = preference.getKey();
+        if (KEY_PEEK_PICKUP_TIMEOUT.equals(key)) {
+            int peekTimeout = Integer.valueOf((String) objValue);
+            Settings.System.putInt(getContentResolver(),
+                Settings.System.PEEK_PICKUP_TIMEOUT, peekTimeout);
+            updatePeekTimeoutOptions(objValue);
+        }
+        return true;
+    }
+
+    private void updatePeekTimeoutOptions(Object newValue) {
+        int index = mPeekPickupTimeout.findIndexOfValue((String) newValue);
+        int value = Integer.valueOf((String) newValue);
+        Settings.Secure.putInt(getActivity().getContentResolver(),
+                Settings.System.PEEK_PICKUP_TIMEOUT, value);
+        mPeekPickupTimeout.setSummary(mPeekPickupTimeout.getEntries()[index]);
     }
 }
