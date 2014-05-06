@@ -1432,17 +1432,6 @@ f anonymous statistics. -->
     <string name="root_access_adb">ADB only</string>
     <string name="root_access_all">Apps and ADB</string>
 
-    <!-- Lockscreen background -->
-    <string name="lockscreen_background">Background</string>
-    <string name="lockscreen_background_style_title">Lockscreen background style</string>
-    <string name="background_color_fill_title">Background color</string>
-    <string name="background_default">Default style background</string>
-    <string name="background_color_fill">Color fill</string>
-    <string name="background_wallpaper">Custom wallpaper</string>
-    <string name="transparency">Background transparency</string>
-    <string name="background_result_successful">Background changed</string>
-    <string name="background_result_not_successful">Background not changed</string>
-
     <!-- Wi-Fi region code settings-->
     <string name="wifi_setting_countrycode_title">Wi-Fi region code</string>
     <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]. -->
@@ -1609,5 +1598,14 @@ f anonymous statistics. -->
 
     <!-- Gesture input settings -->
     <string name="advanced_gesture_title">Gesture Shortcuts</string>
+
+    <!-- Lockscreen background -->
+    <string name="lockscreen_background">Background</string>
+    <string name="lockscreen_background_style_title">Lock screen background</string>
+    <string name="background_default">Default background</string>
+    <string name="background_wallpaper">Custom wallpaper</string>
+    <string name="background_result_successful">Background changed</string>
+    <string name="background_result_not_successful">Background not changed</string>
+    <string name="setting_lockscreen_background">Applying background</string>
 
 </resources>
