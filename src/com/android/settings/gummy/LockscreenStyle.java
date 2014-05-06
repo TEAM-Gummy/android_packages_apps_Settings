@@ -18,23 +18,17 @@ package com.android.settings.gummy;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.admin.DevicePolicyManager;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.ActivityNotFoundException;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Point;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.ParcelFileDescriptor;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -60,7 +54,6 @@ import com.android.internal.widget.LockPatternUtils;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import java.io.File;
-import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 
 public class LockscreenStyle extends SettingsPreferenceFragment
