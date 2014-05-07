@@ -45,10 +45,6 @@ public class AdvancedOptions extends SettingsPreferenceFragment implements
     private PreferenceCategory mAdvancedOptions;
     private CheckBoxPreference mQuickBoot;
 
-    public boolean hasButtons() {
-        return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,28 +53,29 @@ public class AdvancedOptions extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        // Only show the hardware keys config on a device that does not have a navbar
         mAdvancedOptions = (PreferenceCategory) prefSet.findPreference(KEY_ADVANCED_OPTIONS);
+
         mHardwareKeys = (PreferenceScreen) findPreference(KEY_HARDWARE_KEYS);
-        if (!hasButtons()) {
-            mAdvancedOptions.removePreference(mHardwareKeys);
-        }
 
         // Quickboot
         mQuickBoot = findAndInitCheckboxPref(ENABLE_QUICKBOOT_KEY);
         if (!isPackageInstalled(QUICKBOOT_PACKAGE_NAME)) {
             mAdvancedOptions.removePreference(mQuickBoot);
         }
+
+        removeHardwareKeyPreference();
     }
 
         @Override
     public void onResume() {
         super.onResume();
+        removeHardwareKeyPreference();
     }
 
     @Override
     public void onPause() {
         super.onPause();
+        removeHardwareKeyPreference();
     }
 
     @Override
@@ -116,5 +113,22 @@ public class AdvancedOptions extends SettingsPreferenceFragment implements
 
     private void removePreference(Preference preference) {
         getPreferenceScreen().removePreference(preference);
+    }
+
+    private boolean hasButtons() {
+        return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+    }
+
+    private void removeHardwareKeyPreference() {
+        ContentResolver resolver = getActivity().getContentResolver();
+        boolean mHardwareKeysDisable = Settings.System.getInt(resolver,
+                Settings.System.HARDWARE_KEYS_DISABLE, 0) == 1;
+        try {
+            if ((mHardwareKeysDisable) || (!hasButtons())) {
+                mAdvancedOptions.removePreference(mHardwareKeys);
+            }
+        } catch (Exception e) {
+            // Do nothing
+        }
     }
 }

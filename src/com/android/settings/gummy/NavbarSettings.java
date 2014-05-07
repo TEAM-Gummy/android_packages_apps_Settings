@@ -171,6 +171,9 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
                     Settings.System.NAVIGATION_BAR_SHOW,
                     ((Boolean) newValue) ? 1 : 0);
             updateNavbarPreferences((Boolean) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HARDWARE_KEYS_DISABLE,
+                    ((Boolean) newValue) ? 1 : 0);
             return true;
         } else if (preference == mNavigationBarCanMove) {
             Settings.System.putInt(getActivity().getContentResolver(),
