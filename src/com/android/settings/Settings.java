@@ -362,6 +362,7 @@ public class Settings extends PreferenceActivity
         QuietHours.class.getName(),
         BlacklistSettings.class.getName(),
         ApnSettings.class.getName()
+        ThemeSettings.class.getName()
     };
 
     @Override
