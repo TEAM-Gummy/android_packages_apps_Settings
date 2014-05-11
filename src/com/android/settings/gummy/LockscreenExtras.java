@@ -88,6 +88,7 @@ public class LockscreenExtras extends SettingsPreferenceFragment implements
         mShortcuts = (Preference) findPreference(PREF_LOCKSCREEN_SHORTCUTS);
         if (!DeviceUtils.isPhone(getActivity())) {
             mOptionsCatagory.removePreference(mShortcuts);
+            mOptionsCatagory.removePreference(mLockscreenEightTargets);
         } else {
             mShortcuts.setEnabled(!mLockscreenEightTargets.isChecked());
         }
@@ -198,5 +199,4 @@ public class LockscreenExtras extends SettingsPreferenceFragment implements
              }
         }
     }
-
 }
