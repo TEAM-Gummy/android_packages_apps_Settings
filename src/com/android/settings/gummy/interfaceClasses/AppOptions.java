@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 The CyanogenMod Project
+ * Copyright (C) 2014 Gummy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@
 package com.android.settings.gummy.interfaceClasses;
 
 import android.app.ActivityManagerNative;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
@@ -56,7 +55,6 @@ public class AppOptions extends SettingsPreferenceFragment
     private PreferenceCategory mAppCatagory;
     private PreferenceScreen mMms;
     private PreferenceScreen mPhone;
-    private AlertDialog alertDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,24 +63,6 @@ public class AppOptions extends SettingsPreferenceFragment
         if (getPreferenceManager() != null) {
 
             addPreferencesFromResource(R.xml.prefs_app_settings);
-
-            /* Display the entry dialog */
-            alertDialog = new AlertDialog.Builder(getActivity()).create();
-            alertDialog.setTitle(R.string.app_settings_entry_dialog_title);
-            alertDialog.setMessage(getResources().getString(R.string.app_settings_entry_dialog));
-            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,
-                    getResources().getString(com.android.internal.R.string.ok),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            return;
-                        }
-                    });
-            alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                public void onCancel(DialogInterface dialog) {
-                    AppOptions.this.finish();
-                }
-            });
-            alertDialog.show();
 
             PreferenceScreen prefSet = getPreferenceScreen();
             PackageManager pm = getPackageManager();
