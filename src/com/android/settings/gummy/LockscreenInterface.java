@@ -172,7 +172,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         mPeekPickupTimeout = (ListPreference) findPreference(KEY_PEEK_PICKUP_TIMEOUT);
         int peekTimeout = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.PEEK_PICKUP_TIMEOUT, 0, UserHandle.USER_CURRENT);
+                Settings.System.PEEK_PICKUP_TIMEOUT, 10000, UserHandle.USER_CURRENT);
         mPeekPickupTimeout.setValue(String.valueOf(peekTimeout));
         mPeekPickupTimeout.setSummary(mPeekPickupTimeout.getEntry());
         mPeekPickupTimeout.setOnPreferenceChangeListener(this);
@@ -285,21 +285,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+        int index = mPeekPickupTimeout.findIndexOfValue((String) objValue);
         final String key = preference.getKey();
         if (KEY_PEEK_PICKUP_TIMEOUT.equals(key)) {
             int peekTimeout = Integer.valueOf((String) objValue);
             Settings.System.putInt(getContentResolver(),
                 Settings.System.PEEK_PICKUP_TIMEOUT, peekTimeout);
-            updatePeekTimeoutOptions(objValue);
+            mPeekPickupTimeout.setSummary(mPeekPickupTimeout.getEntries()[index]);
         }
         return true;
-    }
-
-    private void updatePeekTimeoutOptions(Object newValue) {
-        int index = mPeekPickupTimeout.findIndexOfValue((String) newValue);
-        int value = Integer.valueOf((String) newValue);
-        Settings.Secure.putInt(getActivity().getContentResolver(),
-                Settings.System.PEEK_PICKUP_TIMEOUT, value);
-        mPeekPickupTimeout.setSummary(mPeekPickupTimeout.getEntries()[index]);
     }
 }
