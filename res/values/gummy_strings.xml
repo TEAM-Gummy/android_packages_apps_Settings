@@ -54,7 +54,7 @@
     <string name="general_options_title">General Gummy options</string>
     <string name="general_options_summary">View and change the more basic settings</string>
     <string name="app_options_title">App options</string>
-    <string name="app_options_summary">Source built app options</string>
+    <string name="app_options_summary">Source built app settings</string>
     <string name="lockscreen_theme_title">Lockscreen theme</string>
     <string name="signal_style_title">Signal Style</string>
 
