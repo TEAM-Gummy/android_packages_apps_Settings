@@ -52,10 +52,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String KEY_LOCKSCREEN_ROTATION = "lockscreen_rotation";
     private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
+    private static final String PREF_LOCKSCREEN_EXTRAS = "lockscreen_extras";
 
     private PreferenceScreen mLockscreenButtons;
     private PreferenceCategory mAdvancedCatagory;
     private PreferenceCategory mGeneralCatagory;
+    private PreferenceScreen mLockscreenExtras;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private DevicePolicyManager mDPM;
@@ -112,6 +114,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         mLockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
         if (!hasButtons()) {
             mAdvancedCatagory.removePreference(mLockscreenButtons);
+        }
+
+        mLockscreenExtras = (PreferenceScreen) findPreference(PREF_LOCKSCREEN_EXTRAS);
+        if (!DeviceUtils.isPhone(getActivity())) {
+            mLockscreenExtras.setTitle(R.string.lockscreen_extras_title_targets_only);
+            mLockscreenExtras.setSummary(R.string.lock_screen_summary_targets_only);
         }
 
         mGeneralCatagory = (PreferenceCategory) prefs.findPreference(KEY_GENERAL_CATAGORY);
