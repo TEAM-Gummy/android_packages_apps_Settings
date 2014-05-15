@@ -36,6 +36,7 @@ public class LockscreenWidgets extends SettingsPreferenceFragment {
     private static final String TAG = "LockscreenWidgets";
 
     private static final String LOCKSCREEN_MAXIMIZE_WIDGETS = "lockscreen_maximize_widgets";
+    private static final String KEY_DISABLE_FRAME = "lockscreen_disable_frame";
     private static final String PREF_LOCKSCREEN_USE_CAROUSEL = "lockscreen_use_widget_container_carousel";
     private static final String KEY_LOCKSCREEN_CAMERA_WIDGET = "lockscreen_camera_widget";
     private static final String KEY_WIDGETS_CATAGORY = "widgets_catagory";
@@ -43,6 +44,7 @@ public class LockscreenWidgets extends SettingsPreferenceFragment {
     private PreferenceCategory mWidgetsCatagory;
 
     private CheckBoxPreference mMaximizeKeyguardWidgets;
+    private CheckBoxPreference mDisableFrame;
     private CheckBoxPreference mLockscreenUseCarousel;
     private CheckBoxPreference mCameraWidget;
 
@@ -62,6 +64,12 @@ public class LockscreenWidgets extends SettingsPreferenceFragment {
         if (mMaximizeKeyguardWidgets != null) {
             mMaximizeKeyguardWidgets.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
+        }
+
+        mDisableFrame = (CheckBoxPreference) findPreference(KEY_DISABLE_FRAME);
+        if (mDisableFrame != null) {
+            mDisableFrame.setChecked(Settings.System.getInt(getContentResolver(),
+                        Settings.System.LOCKSCREEN_WIDGET_FRAME_ENABLED, 0) == 1);
         }
 
         Resources keyguardResources = null;
@@ -117,6 +125,9 @@ public class LockscreenWidgets extends SettingsPreferenceFragment {
         if (preference == mMaximizeKeyguardWidgets) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, isToggled(preference) ? 1 : 0);
+        } else if (preference == mDisableFrame) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_WIDGET_FRAME_ENABLED, isToggled(preference) ? 1 : 0);
         } else if (preference == mLockscreenUseCarousel) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_USE_WIDGET_CONTAINER_CAROUSEL, isToggled(preference) ? 1 : 0);

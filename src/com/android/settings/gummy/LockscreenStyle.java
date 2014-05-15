@@ -120,15 +120,21 @@ public class LockscreenStyle extends SettingsPreferenceFragment
                 Settings.Secure.LOCKSCREEN_COLORIZE_LOCK, 0) == 1);
         mColorizeCustom.setOnPreferenceChangeListener(this);
 
+        boolean isFrameDisabled = Settings.System.getBoolean(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_WIDGET_FRAME_ENABLED, false);
         mFrameColor = (ColorPickerPreference)
                 findPreference(KEY_LOCKSCREEN_FRAME_COLOR);
-        mFrameColor.setOnPreferenceChangeListener(this);
-        int frameColor = Settings.Secure.getInt(getContentResolver(),
-                    Settings.Secure.LOCKSCREEN_FRAME_COLOR, -2);
-        setPreferenceSummary(mFrameColor,
-                getResources().getString(
-                R.string.lockscreen_frame_color_summary), frameColor);
-        mFrameColor.setNewPreviewColor(frameColor);
+        if (isFrameDisabled) {
+            mFrameColor.setEnabled(false);
+        } else {
+            mFrameColor.setOnPreferenceChangeListener(this);
+            int frameColor = Settings.Secure.getInt(getContentResolver(),
+                        Settings.Secure.LOCKSCREEN_FRAME_COLOR, -2);
+            setPreferenceSummary(mFrameColor,
+                    getResources().getString(
+                    R.string.lockscreen_frame_color_summary), frameColor);
+            mFrameColor.setNewPreviewColor(frameColor);
+        }
 
         mLockColor = (ColorPickerPreference)
                 findPreference(KEY_LOCKSCREEN_LOCK_COLOR);

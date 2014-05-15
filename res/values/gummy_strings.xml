@@ -988,6 +988,10 @@ f anonymous statistics. -->
     <string name="lockscreen_use_widget_container_carousel_title">Use widget carousel in portrait</string>
     <string name="lockscreen_use_widget_container_carousel_summary">Use carousel animation in portrait like it is in landscape when switching between lockscreen widgets.</string>
 
+    <!-- Lockscreen frame widget toggle -->
+    <string name="lockscreen_widget_frame_title">Disable widget frames</string>
+    <string name="lockscreen_widget_frame_summary">Disable widget background frames</string>
+
     <!-- Lockscreen camera widget toggle -->
     <string name="lockscreen_camera_widget_title">Enable camera widget</string>
     <string name="lockscreen_camera_widget_summary">Show secure camera widget on the lock screen</string>
