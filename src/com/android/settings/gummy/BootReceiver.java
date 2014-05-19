@@ -25,6 +25,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.android.settings.gummy.AdvancedDevicePrefs;
+import com.android.settings.gummy.interfaceClasses.GeneralOptions;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.hardware.DisplayColor;
@@ -75,6 +76,7 @@ public class BootReceiver extends BroadcastReceiver {
         DisplayGamma.restore(ctx);
         VibratorIntensity.restore(ctx);
         AdvancedDevicePrefs.restore(ctx);
+        GeneralOptions.restore(ctx);
 
     }
 
