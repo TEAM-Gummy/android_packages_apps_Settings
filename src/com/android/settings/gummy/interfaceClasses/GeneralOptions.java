@@ -57,6 +57,7 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
     private static final String KEY_POWER_CRT_MODE = "system_power_crt_mode";
     private static final String KEY_POWER_CRT_SCREEN_OFF = "system_power_crt_screen_off";
     private static final String KEY_TAP_TO_WAKE = "double_tap_wake_gesture";
+    private static final String DOUBLE_TAP_OPTIONS = "double_tap_options";
 
     // Request code for power notification ringtone picker
     private static final int REQUEST_CODE_POWER_NOTIFICATIONS_RINGTONE = 1;
@@ -70,8 +71,13 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
     private ListPreference mCrtMode;
     private CheckBoxPreference mCrtOff;
     private CheckBoxPreference mTapToWake;
+    private PreferenceCategory mDoubleTapOptions;
 
     private boolean mIsCrtOffChecked = false;
+
+    private boolean showTapToWake() {
+        return !getResources().getBoolean(com.android.internal.R.bool.config_showTapToWake);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,10 +86,12 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.prefs_general_options);
 
         ContentResolver resolver = getContentResolver();
+        PreferenceScreen prefSet = getPreferenceScreen();
 
+        mDoubleTapOptions = (PreferenceCategory) prefSet.findPreference(DOUBLE_TAP_OPTIONS);
         mTapToWake = (CheckBoxPreference) findPreference(KEY_TAP_TO_WAKE);
-        if (!isTapToWakeSupported()) {
-            getPreferenceScreen().removePreference(mTapToWake);
+        if ((!isTapToWakeSupported()) || (!showTapToWake())) {
+            mDoubleTapOptions.removePreference(mTapToWake);
             mTapToWake = null;
         }
 

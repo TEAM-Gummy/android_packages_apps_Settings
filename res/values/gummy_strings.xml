@@ -1587,12 +1587,12 @@ f anonymous statistics. -->
     <string name="pie_disable_ime_triggers_title">Reduce trigger size on keyboard</string>
     <string name="pie_disable_ime_triggers_summary">Reduces left and right trigger size if keyboard is active</string>
 
-    <!-- Doubletap to sleep -->
-    <string name="doubletap_options_title">Double-tap options</string>
+    <!-- Double tap to sleep -->
+    <string name="double_tap_options_title">Double-tap options</string>
     <string name="status_bar_double_tap_to_sleep_title">Double-tap to sleep</string>
     <string name="status_bar_double_tap_to_sleep_summary">Double tap the status bar / lockscreen glowpad to sleep"</string>
 
-    <!-- Doubletap to wake -->
+    <!-- Double tap to wake -->
     <string name="double_tap_to_wake_title">Double-tap to wake</string>
 
     <!-- Quickboot -->
