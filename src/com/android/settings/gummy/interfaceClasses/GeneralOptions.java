@@ -78,10 +78,6 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
 
     private boolean mIsCrtOffChecked = false;
 
-    private boolean showTapToWake() {
-        return !getResources().getBoolean(com.android.internal.R.bool.config_showTapToWake);
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +89,7 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
 
         mDoubleTapOptions = (PreferenceCategory) prefSet.findPreference(DOUBLE_TAP_OPTIONS);
         mTapToWake = (CheckBoxPreference) findPreference(KEY_TAP_TO_WAKE);
-        if ((!isTapToWakeSupported()) || (!showTapToWake())) {
+        if (!isTapToWakeSupported()) {
             mDoubleTapOptions.removePreference(mTapToWake);
             mTapToWake = null;
         }
