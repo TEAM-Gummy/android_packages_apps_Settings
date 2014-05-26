@@ -443,7 +443,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="clock_options">Clock Options</string>
     <string name="clock_clicks_summary">Set the actions for expanded status bar date/time header</string>
     <string name="alarm">Alarms</string>
-    <string name="clock_options">Clock Options</string>
     <string name="nothing">Nothing</string>
     <string name="today">Calendar for today</string>
     <string name="event">Calendar new event</string>
