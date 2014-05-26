@@ -1441,7 +1441,7 @@ f anonymous statistics. -->
     <string name="enable_translucent_decor_title">启用半透明</string>
 
     <!-- Show the signal and Wifi data direction indicators -->
-    <string name="show_activity_indicators_title">显示 Activity 标示</string>
+    <string name="show_activity_indicators_title">显示活动标示</string>
     <string name="show_activity_indicators_summary">开启/关闭信息和 Wifi 数据方向标示</string>
     <string name="show_wifi_activity_indicators_summary">开启/关闭 Wifi 数据方向标示</string>
 
