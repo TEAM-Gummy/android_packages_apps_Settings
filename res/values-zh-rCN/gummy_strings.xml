@@ -434,7 +434,6 @@
     <string name="clock_options">时钟设置</string>
     <string name="clock_clicks_summary">设置状态栏展开后显示的时钟/日期的点击操作</string>
     <string name="alarm">闹钟</string>
-    <string name="clock_options">时钟设置</string>
     <string name="nothing">无</string>
     <string name="today">日历</string>
     <string name="event">新建日历事项</string>
@@ -1121,7 +1120,7 @@ f anonymous statistics. -->
     <string name="category_spen_title">手写笔手势</string>
     <string name="enable_subcat_title">手写笔</string>
     <string name="enable_spen_title_head">开启手写笔手势</string>
-    <string name="enable_spen_summary_head">为手写笔滑动手势自定义动作。警告: 程序程序将无法识别按住手写笔按钮的动作。</string>
+    <string name="enable_spen_summary_head">为手写笔滑动手势自定义动作。警告: 应用程序将无法识别按住手写笔按钮的动作。</string>
     <string name="gestures_subcat_title">手势</string>
     <string name="gestures_left_spen_title_head">左滑</string>
     <string name="gestures_left_spen_summary_head">为左滑自定义动作</string>
@@ -1393,8 +1392,8 @@ f anonymous statistics. -->
     <string name="ad_sunlight_mode_title">日光模式</string>
     <string name="ad_sunlight_mode_summary">在有类似日光直射的亮光区反转颜色</string>
     <string name="ad_customizations_title">自定义</string>
-    <string name="ad_excluded_apps_title">排除程序程序</string>
-    <string name="ad_excluded_apps_summary">排除程序程序将不再显示</string>
+    <string name="ad_excluded_apps_title">排除应用程序</string>
+    <string name="ad_excluded_apps_summary">排除应用程序将不再显示</string>
     <string name="ad_brightness_title">通知亮度</string>
     <string name="ad_brightness_summary">"当未开启自动亮度时，
  设置显示通知的亮度水平。"</string>
@@ -1423,9 +1422,9 @@ f anonymous statistics. -->
     <!-- Setting checkbox title for root access -->
     <string name="root_access">Root 权限</string>
     <string name="root_access_warning_title">是否允许 Root 权限？</string>
-    <string name="root_access_warning_message">允许程序程序获取 Root 权限将很危险，可能危及您的系统的安全性！</string>
+    <string name="root_access_warning_message">允许应用程序获取 Root 权限将很危险，可能危及您的系统的安全性！</string>
     <string name="root_access_none">关闭</string>
-    <string name="root_access_apps">仅程序程序</string>
+    <string name="root_access_apps">仅应用程序</string>
     <string name="root_access_adb">仅 ADB</string>
     <string name="root_access_all">程序和 ADB</string>
 
