@@ -1628,6 +1628,6 @@ f anonymous statistics. -->
     <string name="priority_sub_title">优先认购</string>
 
     <!-- Bluetooth accept all Filestypes -->
-    <string name="bluetooth_accept_all_files">接受所有文件类型</string
+    <string name="bluetooth_accept_all_files">接受所有文件类型</string>
 
 </resources>
