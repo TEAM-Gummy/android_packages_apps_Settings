@@ -18,7 +18,7 @@
     <!-- PERSONALIZATION Settings  -->
     <!-- Settings main menu category heading. Interface (Launcher, Themes, System). [CHAR LIMIT=40] -->
     <string name="header_category_interface">Gummy 设置</string>
-    <string name="gummy_interface_title">界面</string>
+    <string name="gummy_interface_title">Gummy 界面</string>
     <string name="status_bar_catagory">状态栏 / 通知抽屉</string>
     <string name="advanced_catagory_title">高级</string>
     <string name="general_catagory_title">常规</string>
@@ -1590,7 +1590,7 @@ f anonymous statistics. -->
     <string name="enable_quickboot_summary">使设备进入快速启动模式而不是正常关机。</string>
 
     <!-- 0-click settings -->
-    <string name="advanced_0click_title">0-点击设置</string>
+    <string name="advanced_0click_title">零点击设置</string>
 
     <!-- Gesture input settings -->
     <string name="advanced_gesture_title">快捷手势</string>
