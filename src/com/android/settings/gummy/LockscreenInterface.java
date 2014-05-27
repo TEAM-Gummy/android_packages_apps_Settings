@@ -19,6 +19,7 @@ package com.android.settings.gummy;
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
+import android.content.ContentResolver;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
@@ -67,11 +68,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private CheckBoxPreference mLockscreenRotation;
     private CheckBoxPreference mGlowpadTorch;
 
-    public boolean hasButtons() {
-        return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
-    }
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,9 +108,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
 
         mAdvancedCatagory = (PreferenceCategory) prefs.findPreference(KEY_ADVANCED_CATAGORY);
         mLockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
-        if (!hasButtons()) {
-            mAdvancedCatagory.removePreference(mLockscreenButtons);
-        }
 
         mLockscreenExtras = (PreferenceScreen) findPreference(PREF_LOCKSCREEN_EXTRAS);
         if (!DeviceUtils.isPhone(getActivity())) {
@@ -130,15 +123,20 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         if (!DeviceUtils.deviceSupportsTorch(getActivity())) {
             mGeneralCatagory.removePreference(mGlowpadTorch);
         }
+
+        removeButtonsPreference();
+
     }
 
     @Override
     public void onResume() {
+        removeButtonsPreference();
         super.onResume();
     }
 
     @Override
     public void onPause() {
+        removeButtonsPreference();
         super.onPause();
     }
 
@@ -186,5 +184,22 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
         return true;
+    }
+
+    private boolean hasButtons() {
+        return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+    }
+
+    private void removeButtonsPreference() {
+        ContentResolver resolver = getActivity().getContentResolver();
+        boolean mHardwareKeysDisable = Settings.System.getInt(resolver,
+                Settings.System.HARDWARE_KEYS_DISABLE, 0) == 1;
+        try {
+            if ((mHardwareKeysDisable) || (!hasButtons())) {
+                mAdvancedCatagory.removePreference(mLockscreenButtons);
+            }
+        } catch (Exception e) {
+            // Do nothing
+        }
     }
 }
