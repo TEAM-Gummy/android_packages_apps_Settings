@@ -38,6 +38,13 @@
             android:fragment="com.android.settings.gummy.SoundSettings"
             android:title="@string/advanced_sound_title" />
 
+    <!-- Headset -->
+    <com.android.settings.gummy.SystemSettingCheckBoxPreference
+            android:key="headset_connect_player"
+            android:title="@string/headset_connect_player_title"
+            android:summary="@string/headset_connect_player_summary"
+            android:defaultValue="false" />
+
     <PreferenceCategory
             android:key="category_calls_and_notification"
             android:title="@string/sound_category_call_ringtone_vibrate_title"/>

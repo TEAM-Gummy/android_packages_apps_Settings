@@ -49,9 +49,11 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
     private static final String KEY_0CLICK_SETTINGS = "advanced_0click_settings";
     private static final String KEY_GESTURE_SETTINGS = "advanced_gesture_settings";
     private static final String KEY_SCREEN_COLOR_SETTINGS = "screencolor_settings";
+    private static final String KEY_MORE_DEVICE_SETTINGS = "more_device_settings";
 
     private CheckBoxPreference mAdaptiveBacklight;
     private PreferenceScreen mScreenColorSettings;
+    private PreferenceScreen mMoreDeviceSettings;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,6 +83,10 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
         if (!isPostProcessingSupported()) {
             getPreferenceScreen().removePreference(mScreenColorSettings);
         }
+
+        mMoreDeviceSettings = (PreferenceScreen) findPreference(KEY_MORE_DEVICE_SETTINGS);
+
+        hideMoreSettingsPref();
     }
 
     @Override
@@ -135,5 +141,15 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
             ret = false;
         }
         return ret;
+    }
+
+    private boolean isMorePrefEmpty() {
+        return MoreDeviceSettings.hasItems();
+    }
+
+    private void hideMoreSettingsPref() {
+        if (!isMorePrefEmpty()) {
+            getPreferenceScreen().removePreference(mMoreDeviceSettings);
+        }
     }
 }
