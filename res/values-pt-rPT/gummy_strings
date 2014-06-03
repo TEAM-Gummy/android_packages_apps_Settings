@@ -20,16 +20,16 @@
     <string name="header_category_interface">Definições Gummy</string>
     <string name="gummy_interface_title">Gummy Interface</string>
     <string name="status_bar_catagory">Status Bar / Notification Drawer</string>
-    <string name="advanced_catagory_title">Advanced</string>
-    <string name="general_catagory_title">General</string>
-    <string name="system_catagory_title">System</string>
+    <string name="advanced_catagory_title">Avançado</string>
+    <string name="general_catagory_title">Geral</string>
+    <string name="system_catagory_title">Sistema</string>
     <string name="notification_drawer_title">Notification Drawer</string>
     <string name="notification_drawer_options">Notification Drawer Options</string>
-    <string name="lockscreen_title">Lockscreen</string>
-    <string name="lockscreen_options">Lockscreen Options</string>
-    <string name="navigation_settings_options_title">Navigation options</string>
-    <string name="navigation_settings_title">Navigation</string>
-    <string name="battery_bar_title">Battery Bar</string>
+    <string name="lockscreen_title">Ecrã de bloqueio</string>
+    <string name="lockscreen_options">Opções do ecrã de bloqueio</string>
+    <string name="navigation_settings_options_title">Opções de navegação</string>
+    <string name="navigation_settings_title">Navegação</string>
+    <string name="battery_bar_title">Barra da bateria</string>
     <string name="power_menu_title">Power menu</string>
     <string name="lockscreen_extras_title">Slider targets and shortcuts</string>
     <string name="lock_screen_summary">View and change the slider targets and shortcuts</string>
@@ -37,16 +37,16 @@
     <string name="lock_screen_summary_targets_only">View and change the slider targets</string>
     <string name="target_options_catagory_title">Target Options</string>
     <string name="reset_message">Reset all entries to default?</string>
-    <string name="style_title">Style</string>
-    <string name="lockscreen_widgets_title">Lockscreen Widgets</string>
-    <string name="lockscreen_widgets_summary">Change the lockscreen widget options</string>
+    <string name="style_title">Estilo</string>
+    <string name="lockscreen_widgets_title">Widgets do ecrã de bloqueio</string>
+    <string name="lockscreen_widgets_summary">Alterar opções widget do ecrã de bloqueio</string>
     <string name="widgets_catagory_title">Widgets</string>
-    <string name="app_settings">App settings</string>
-    <string name="advanced_device_prefs_title">Device Options</string>
+    <string name="app_settings">Definiçoes da aplicação</string>
+    <string name="advanced_device_prefs_title">Opçoes dispositivo</string>
     <string name="advanced_device_prefs_summary">Device specific advanced options</string>
-    <string name="notications_title">Notifications</string>
+    <string name="notications_title">Notificações</string>
     <string name="layout_catagory_title">Layout</string>
-    <string name="privacy_catagory_title">Privacy</string>
+    <string name="privacy_catagory_title">Privacidade</string>
     <string name="status_notification_title">Status Bar / Notification Drawer</string>
     <string name="status_notification_summary">View and change the availble statusbar and notification drawer options</string>
     <string name="advanced_options_title">Advanced Gummy options</string>
@@ -57,34 +57,34 @@
     <string name="general_options_summary">View and change the more basic settings</string>
     <string name="app_options_title">App options</string>
     <string name="app_options_summary">Source built app settings</string>
-    <string name="lockscreen_theme_title">Lockscreen theme</string>
+    <string name="lockscreen_theme_title">Tema ecrã de bloqueio</string>
     <string name="signal_style_title">Signal Style</string>
 
     <!-- App Setting menus -->
     <string name="app_settings_entry_dialog">Source built app settings can be accessed here directly as well as from within the apps themselves</string>
     <string name="app_settings_entry_dialog_title">Gummy App Settings</string>
     <string name="apollo_title">Apollo</string>
-    <string name="browser_title">Browser</string>
-    <string name="calculator2_title">Calculator</string>
-    <string name="calendar_title">Calendar</string>
-    <string name="contacts_title">Contacts</string>
+    <string name="browser_title">Navegador</string>
+    <string name="calculator2_title">Calculadora</string>
+    <string name="calendar_title">Calendário</string>
+    <string name="contacts_title">Contactos</string>
     <string name="deskclock_title">DeskClock</string>
-    <string name="email_title">Email</string>
+    <string name="email_title">E-mail</string>
     <string name="file_manager_title">File Manager</string>
     <string name="launcher3_title">Launcher3</string>
     <string name="mms_title">Mms</string>
-    <string name="phone_title">Phone</string>
+    <string name="phone_title">Telefone</string>
 
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
 
     <!-- About phone screen,  Modversion-->
-    <string name="mod_version">Gummy version</string>
-    <string name="mod_version_default">Unknown</string>
+    <string name="mod_version">versão Gummy</string>
+    <string name="mod_version_default">Desconhecido</string>
 
     <!-- About phone screen, build date of ROM -->
-    <string name="build_date">Build date</string>
-    <string name="build_date_default">2012-01-01-0000</string>
+    <string name="build_date">Data de construção</string>
+    <string name="build_date_default">0000-01-01-2012</string>
 
     <!--- Lock clock -->
     <string name="lock_clock_title">Lock clock widget</string>
@@ -93,18 +93,18 @@
     <!-- OK! -->
     <string name="ok">OK</string>
     <string name="reset">Reset</string>
-    <string name="enabled">Enabled</string>
-    <string name="attention">Attention</string>
+    <string name="enabled">Activo</string>
+    <string name="attention">Atenção</string>
     <string name="default_string">Default</string>
 
     <!-- Color Picker -->
-    <string name="dialog_color_picker">Color Picker</string>
-    <string name="press_color_to_apply">Press on color below to apply</string>
+    <string name="dialog_color_picker">Escolher cor</string>
+    <string name="press_color_to_apply">Escolha a cor para aplicar</string>
     <string name="arrow_right">→</string>
     <string name="arrow_down">↓</string>
     <string name="hex">Hex:</string>
     <string name="hex_hint">#ff000000</string>
-    <string name="set">Set</string>
+    <string name="set">Definir</string>
     <string name="color_default">Default</string>
 
     <!-- Display settings screen, notification light settings -->
