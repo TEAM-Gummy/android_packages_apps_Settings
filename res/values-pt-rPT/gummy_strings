@@ -947,7 +947,7 @@ f anonymous statistics. -->
     <string name="lockscreen_target_edit_msg">Select or change the desired application or activity and the associated icon</string>
 
     <!-- Lockscreen Shortcuts -->
-    <string name="lockscreen_shortcuts_title">Shortcuts</string>
+    <string name="lockscreen_shortcuts_title">Atalhos</string>
     <string name="lockscreen_shortcuts_summary">View or change custom lock screen shortcuts</string>
     <string name="lockscreen_shorcuts_longpress_title">Shortcuts longpress</string>
     <string name="lockscreen_shorcuts_longpress_summary">Open custom lock screen shortcuts on longpress</string>
@@ -955,26 +955,26 @@ f anonymous statistics. -->
     <!-- Lock screen targets and shortcuts -->
     <string name="picker_activities">Activities</string>
     <string name="select_custom_activity_title">Select custom activity</string>
-    <string name="icon_picker_alarm">Alarm</string>
+    <string name="icon_picker_alarm">Alarme</string>
     <string name="icon_picker_browser">Browser</string>
-    <string name="icon_picker_calendar">Calendar</string>
+    <string name="icon_picker_calendar">Calendário</string>
     <string name="icon_picker_camera">Camera</string>
-    <string name="icon_picker_email">Email</string>
-    <string name="icon_picker_email2">Email Holo</string>
+    <string name="icon_picker_email">E-mail</string>
+    <string name="icon_picker_email2">E-mail Holo</string>
     <string name="icon_picker_facebook">Facebook</string>
-    <string name="icon_picker_gallery">Gallery</string>
-    <string name="icon_picker_google_small">Google (small)</string>
+    <string name="icon_picker_gallery">Galeria</string>
+    <string name="icon_picker_google_small">Google (pequenol)</string>
     <string name="icon_picker_googleplus">Google Plus</string>
     <string name="icon_picker_googletalk">Hangouts</string>
-    <string name="icon_picker_maps">Maps</string>
-    <string name="icon_picker_sms">Messaging</string>
-    <string name="icon_picker_movie">Movie</string>
-    <string name="icon_picker_music">Music</string>
-    <string name="icon_picker_nav_normal">Navigation</string>
-    <string name="icon_picker_phone">Phone</string>
+    <string name="icon_picker_maps">Mapas</string>
+    <string name="icon_picker_sms">Mensagens</string>
+    <string name="icon_picker_movie">Filme</string>
+    <string name="icon_picker_music">Musica</string>
+    <string name="icon_picker_nav_normal">Navegação</string>
+    <string name="icon_picker_phone">Telefone</string>
     <string name="icon_picker_podcast">Podcast</string>
     <string name="icon_picker_rss">Rss</string>
-    <string name="icon_picker_search">Search</string>
+    <string name="icon_picker_search">Procura</string>
     <string name="icon_picker_twitter">Twitter</string>
 
     <!-- Lockscreen widget carousel animation -->
@@ -1012,7 +1012,7 @@ f anonymous statistics. -->
     <!-- Blacklist preferences -->
     <string name="blacklist_title">Blacklist</string>
     <string name="blacklist_edit_dialog_title">Edit blacklist entry</string>
-    <string name="blacklist_prefs">Settings</string>
+    <string name="blacklist_prefs">Definições</string>
     <string name="blacklist_button_delete">Delete</string>
     <string name="blacklist_empty_text">You don\'t have any blacklisted numbers. Add an entry by touching the Add (+) button.</string>
     <string name="blacklist_disabled_empty_text">To blacklist calls and/or messages from certain numbers, enable the blacklist.</string>
@@ -1040,23 +1040,23 @@ f anonymous statistics. -->
     <string name="select_contact">Select contact</string>
 
     <!-- Hardware tunables - Vibrator intensity -->
-    <string name="vibrator_intensity_title">Vibrator intensity</string>
-    <string name="vibrator_warning">Values higher than %1$d are not recommended</string>
+    <string name="vibrator_intensity_title">Intensidade vibração</string>
+    <string name="vibrator_warning">Valores acima de %1$d não são recomendadas</string>
 
     <!-- Hardware tunables - Color calibration -->
-    <string name="color_calibration_title">Color calibration</string>
+    <string name="color_calibration_title">Calibração da cor</string>
     <string name="color_calibration_summary">Calibrate on-screen colors</string>
-    <string name="color_red_title">Red</string>
-    <string name="color_green_title">Green</string>
-    <string name="color_blue_title">Blue</string>
+    <string name="color_red_title">Vermelho</string>
+    <string name="color_green_title">Verde</string>
+    <string name="color_blue_title">Azul</string>
 
     <!-- Hardware tunables - Gamma calibration -->
     <string name="gamma_tuning_title_head">Gamma calibration</string>
     <string name="gamma_tuning_summary_head">Tweak gamma values</string>
     <string name="gamma_tuning_control_set_header">Group <xliff:g id="index">%d</xliff:g></string> <!-- used if no name provided by overlay -->
-    <string name="gamma_tuning_contrast">Contrast</string>
-    <string name="gamma_tuning_brightness">Brightness</string>
-    <string name="gamma_tuning_saturation">Saturation</string>
+    <string name="gamma_tuning_contrast">Contraste</string>
+    <string name="gamma_tuning_brightness">Brilho</string>
+    <string name="gamma_tuning_saturation">Saturação</string>
 
     <!-- Category title for headset specific Settings.
          [CHAR LIMIT=40] -->
@@ -1089,15 +1089,15 @@ f anonymous statistics. -->
     <string name="voicemail_breath_summary">Show voicemail icon with a breathing effect</string>
 
     <!-- Notification count -->
-    <string name="status_bar_notif_count_title">Show notification count</string>
+    <string name="status_bar_notif_count_title">Mostrar contagem de notificação</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
 
     <!-- Status Bar Signal -->
     <string name="status_bar_style_icon">Signal bars</string>
-    <string name="status_bar_style_dbm_text">Dbm text</string>
+    <string name="status_bar_style_dbm_text">Texto dbm </string>
     <string name="status_bar_signal_text_show_text">Signal text</string>
-    <string name="status_bar_signal_text_title">Signal</string>
-    <string name="status_bar_signal_color">Signal text color</string>
+    <string name="status_bar_signal_text_title">Sinal</string>
+    <string name="status_bar_signal_color">Cor do texto do sinal</string>
 
     <!-- Hardware tunables - Key backlight -->
     <string name="button_backlight_title">Backlight</string>
@@ -1124,7 +1124,7 @@ f anonymous statistics. -->
     <string name="enable_subcat_title">Stylus</string>
     <string name="enable_spen_title_head">Enable stylus gestures</string>
     <string name="enable_spen_summary_head">Launch custom actions with stylus button swipe gestures. Warning: apps will not be able to receive input fired by holding the stylus button</string>
-    <string name="gestures_subcat_title">Gestures</string>
+    <string name="gestures_subcat_title">Gestos</string>
     <string name="gestures_left_spen_title_head">Left swipe</string>
     <string name="gestures_left_spen_summary_head">Launch custom action on left swipe</string>
     <string name="gestures_right_spen_title_head">Right swipe</string>
@@ -1236,7 +1236,7 @@ f anonymous statistics. -->
     <string name="lockscreen_notifications_summary">Show pending notifications on lockscreen</string>
     <string name="pocket_mode">Pocket mode</string>
     <string name="pocket_mode_summary">Turn screen on and show all notifications when device is pulled out of pocket. Turn screen off when device gets back into pocket.</string>
-    <string name="show_always">Show always</string>
+    <string name="show_always">Mostrar sempre</string>
     <string name="show_always_summary">Always turn screen on when pulled out of pocket, even when there are no notifications pending</string>
     <string name="hide_low_priority">Hide low priority</string>
     <string name="hide_low_priority_summary">Hide low priority notifications such as Google Now weather notifications</string>
@@ -1264,7 +1264,7 @@ f anonymous statistics. -->
     <string name="header_summary_init_d">@null</string>
     <string name="init_d_title">Init.d</string>
     <string name="app_name">Init.d Conf</string>
-    <string name="pt_general">General</string>
+    <string name="pt_general">Geral</string>
     <string name="pt_zipalign_apks">Zipalign apps</string>
     <string name="ps_zipalign_apks">Zipalign any unaligned apps on each boot</string>
     <string name="pt_fix_permissions">Fix permissions</string>
@@ -1348,8 +1348,8 @@ f anonymous statistics. -->
     <string name="showbuild_dialog">Displaying /system/Build.Prop</string>
     <string name="showbuild_loading">Loading build.prop\u2026</string>
     <string name="showbuild_error">Error loading build.prop\u2026</string>
-    <string name="showbuild_unknown">Unknown</string>
-    <string name="showbuild_version">Version</string>
+    <string name="showbuild_unknown">Desconhecido</string>
+    <string name="showbuild_version">Versão</string>
     <string name="showbuild_label">We should look because knowing is half the battle</string>
     <string name="pref_fast_up_title">HSUPA upload speed hack</string>
     <string name="pref_fast_up_summary">*WARNING* if you change this value it will add the needed values to your build.prop if they are not already present</string>
@@ -1381,11 +1381,11 @@ f anonymous statistics. -->
     <string name="ad_enable_summary_off">Active display disabled</string>
     <string name="ad_text_title">Notification text</string>
     <string name="ad_text_summary">Show the notification text around the ring.</string>
-    <string name="ad_all_notifications_title">All notifications</string>
+    <string name="ad_all_notifications_title">Todas as notificações</string>
     <string name="ad_all_notifications_summary">Show all notifications including ongoing, non-clearable notifications.</string>
     <string name="ad_hide_low_priority_title">Hide low priority</string>
     <string name="ad_hide_low_priority_summary">Hide low priority notifications such as those from Google Now.</string>
-    <string name="ad_pocket_mode_title">Pocket mode</string>
+    <string name="ad_pocket_mode_title">Modo bolso</string>
     <string name="ad_pocket_mode_summary">Show active display notifications when you take the device out of your pocket.</string>
     <string name="ad_redisplay_title">Redisplay notifications</string>
     <string name="ad_timeout_title">Display timeout</string>
@@ -1397,11 +1397,11 @@ f anonymous statistics. -->
     <string name="ad_brightness_title">Notification brightness</string>
     <string name="ad_brightness_summary">Brightness level for displaying notifications\n when automatic brightness is not enabled.</string>
     <string name="ad_show_date_title">Mostrar data</string>
-    <string name="ad_show_date_summary">Show the date above the clock</string>
-    <string name="ad_show_ampm_title">Show AM/PM</string>
-    <string name="ad_show_ampm_summary">Show AM/PM indicator next to time when using 12hour format</string>
-    <string name="ad_redisplay_never">Never</string>
-    <string name="ad_redisplay_1m">1 minute</string>
+    <string name="ad_show_date_summary">Mostrar the date above the clock</string>
+    <string name="ad_show_ampm_title">Mostrar AM/PM</string>
+    <string name="ad_show_ampm_summary">Mostrar AM/PM indicator next to time when using 12hour format</string>
+    <string name="ad_redisplay_never">Nunca</string>
+    <string name="ad_redisplay_1m">1 minuto</string>
     <string name="ad_redisplay_5m">5 minutos</string>
     <string name="ad_redisplay_15m">15 minutos</string>
     <string name="ad_redisplay_30m">30 minutos</string>
@@ -1414,13 +1414,13 @@ f anonymous statistics. -->
     <string name="ad_timeout_10s">10 segundos</string>
     <string name="ad_timeout_15s">15 segundos</string>
     <string name="ad_timeout_25s">25 segundos</string>
-    <string name="ad_pocket_mode_off">Off</string>
-    <string name="ad_pocket_mode_notifications">Notifications only</string>
+    <string name="ad_pocket_mode_off">Desligadp</string>
+    <string name="ad_pocket_mode_notifications">Apenas notificações</string>
     <string name="ad_pocket_mode_always">Sempre</string>
 
     <!-- Setting checkbox title for root access -->
     <string name="root_access">Acesso root</string>
-    <string name="root_access_warning_title">Allow root access?</string>
+    <string name="root_access_warning_title">Permitir acesso root?</string>
     <string name="root_access_warning_message">Allowing applications to request root access is very dangerous and could compromise the security of your system!</string>
     <string name="root_access_none">Disabled</string>
     <string name="root_access_apps">Apps only</string>
@@ -1437,7 +1437,7 @@ f anonymous statistics. -->
     <string name="wifi_setting_countrycode_disabled">Enable Wi-Fi to change this option.</string>
 
     <!-- Enable translucent decor -->
-    <string name="enable_translucent_decor_title">Enable translucent decor</string>
+    <string name="enable_translucent_decor_title">Activar transparências</string>
 
     <!-- Show the signal and wifi data direction indicators -->
     <string name="show_activity_indicators_title">Show activity indicators</string>
@@ -1467,9 +1467,9 @@ f anonymous statistics. -->
 
     <!-- Wakelock blocker -->
     <string name="wakelock_blocker">Wakelock Blocker</string>
-    <string name="wakelock_blocker_title">Enable</string>
+    <string name="wakelock_blocker_title">Activar</string>
     <string name="wakelock_blocker_summary">Activate blocking for checked wakelocks</string>
-    <string name="wakelock_blocker_save">Save</string>
+    <string name="wakelock_blocker_save">Salvar</string>
     <string name="wakelock_list_header">Available Wakelocks</string>
     <string name="wakelock_blocker_reload">Reload</string>
     <string name="wakelock_blocker_warning_title">Proceed with Caution</string>
@@ -1508,12 +1508,12 @@ f anonymous statistics. -->
     <string name="hide_sim_icon_summary">"Hides the noSim icon in the statusbar"</string>
 
     <!-- Screen color settings -->
-    <string name="screencolor">Screen color</string>
+    <string name="screencolor">Cor do ecrã</string>
     <string name="custom_screencolor">Custom screen color</string>
-    <string name="screencolor_save">Save</string>
-    <string name="screencolor_cancel">Cancel</string>
+    <string name="screencolor_save">Salvar</string>
+    <string name="screencolor_cancel">Cancelar</string>
     <string name="previous_str">Previous</string>
-    <string name="new_str">New</string>
+    <string name="new_str">Novo</string>
     <string name="restore_preview">View default picture</string>
     <string name="selectnewfile_menu">View new picture from Gallery</string>
     <string name="selectfile_menu">View picture from Gallery</string>
@@ -1524,7 +1524,7 @@ f anonymous statistics. -->
     <string name="intensity_str">Intensity: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
 
     <!-- Minimum Vibration Duration -->
-    <string name="minimum_vibration_duration">Minimum vibration duration</string>
+    <string name="minimum_vibration_duration">Duração mínima de vibração</string>
 
     <!-- Pie Control -->
     <string name="pie_control_title">PIE</string>
@@ -1546,9 +1546,9 @@ f anonymous statistics. -->
     <string name="pie_icon_style">Button icon style</string>
     <string name="pie_icon_color_title">Button icon color</string>
     <string name="pie_icon_color_mode_title">Button icon color mode</string>
-    <string name="pie_icon_color_mode_dialog_title">Colorize</string>
+    <string name="pie_icon_color_mode_dialog_title">Colorir</string>
     <string name="pie_icon_color_mode_summary">Change the button icon color mode</string>
-    <string name="pie_trigger_note_title">Note</string>
+    <string name="pie_trigger_note_title">Nota</string>
     <string name="pie_trigger_note_summary">To avoid conflicts with status bar or navigation bar, the triggers on these edges are automatically turned off if one or both are available</string>
     <string name="pie_background_color_title">Background color</string>
     <string name="pie_snap_color_title">Snap point color</string>
@@ -1556,7 +1556,7 @@ f anonymous statistics. -->
     <string name="pie_background_alpha_title">Transparência do fundo</string>
     <string name="pie_mirror_right_title">Mirror right pie</string>
     <string name="pie_mirror_right_summary">Mirror right pie on the horizontal axis</string>
-    <string name="pie_style">Style and dimension</string>
+    <string name="pie_style">Estilo e dimensões</string>
     <string name="pie_style_title">Style</string>
     <string name="pie_dimens_title">Dimensões</string>
     <string name="pie_show_snap_title">Show snap points</string>
@@ -1565,7 +1565,7 @@ f anonymous statistics. -->
     <string name="pie_show_text_summary">Shows phone status, time and date information</string>
     <string name="pie_show_background_title">Show background</string>
     <string name="pie_show_background_summary">Enable pie background screen</string>
-    <string name="pie_button">Buttons</string>
+    <string name="pie_button">Botões </string>
     <string name="pie_button_second_layer">Buttons second layer</string>
     <string name="pie_button_second_layer_summary">Change second layer buttons</string>
     <string name="pie_button_style_summary">Change pie button style</string>
@@ -1589,13 +1589,13 @@ f anonymous statistics. -->
     <string name="enable_quickboot_summary">Put device into QuickBoot mode instead of normal power off.</string>
 
     <!-- 0-click settings -->
-    <string name="advanced_0click_title">Definiçoes 0-Click</string>
+    <string name="advanced_0click_title">Definições 0-Click</string>
 
     <!-- Gesture input settings -->
-    <string name="advanced_gesture_title">Gesture Shortcuts</string>
+    <string name="advanced_gesture_title">Atalhos gestuais</string>
 
     <!-- Lockscreen background -->
-    <string name="lockscreen_background">Background</string>
+    <string name="lockscreen_background">Fundo</string>
     <string name="lockscreen_background_style_title">Fundo do ecrã de bloqueio</string>
     <string name="background_default">Default background</string>
     <string name="background_wallpaper">Custom wallpaper</string>
