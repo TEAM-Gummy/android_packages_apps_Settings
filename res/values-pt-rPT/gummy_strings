@@ -62,7 +62,7 @@
 
     <!-- App Setting menus -->
     <string name="app_settings_entry_dialog">Source built app settings can be accessed here directly as well as from within the apps themselves</string>
-    <string name="app_settings_entry_dialog_title">Definições aplicações Gummy</string>
+    <string name="app_settings_entry_dialog_title">Definições de aplicações Gummy</string>
     <string name="apollo_title">Apollo</string>
     <string name="browser_title">Navegador</string>
     <string name="calculator2_title">Calculadora</string>
@@ -113,8 +113,8 @@
     <string name="notification_light_applist_title">Aplicações</string>
     <string name="notification_light_phonelist_title">Telefone</string>
     <string name="notification_light_use_custom">Use custom values</string>
-    <string name="notification_light_enabled">Enabled</string>
-    <string name="notification_light_disabled">Disabled</string>
+    <string name="notification_light_enabled">Ligado</string>
+    <string name="notification_light_disabled">Desligado</string>
     <string name="notification_light_default_value">Default</string>
     <string name="notification_light_missed_call_title">Chamada perdida</string>
     <string name="notification_light_voicemail_title">Correio de voz</string>
@@ -147,7 +147,7 @@
     <string name="battery_reset_title">Reset</string>
     <string name="battery_light_title">Luz da bateria</string>
     <string name="battery_low_pulse_title">Pulsar em bateria fraca</string>
-    <string name="battery_light_list_title">Colors while charging</string>
+    <string name="battery_light_list_title">Cores enquanto carrega</string>
     <string name="battery_light_low_color_title">Bateria fraca</string>
     <string name="battery_light_medium_color_title">carregamento médio</string>
     <string name="battery_light_full_color_title">Carregamento completo</string>
@@ -160,42 +160,42 @@
     <string name="status_bar_clock">Hora e data</string>
     <string name="status_bar_clock_title">Estilo da hora e data</string>
     <string name="clock_title_enable">Alinhamento</string>
-    <string name="clock_enabled">Enabled</string>
-    <string name="clock_disabled">Disabled</string>
+    <string name="clock_enabled">Ligado</string>
+    <string name="clock_disabled">Desligado</string>
     <string name="clock_color_title">Cor</string>
     <string name="status_bar_clock_style_reset">Reset color</string>
     <string name="status_bar_show_clock_title">Mostrar hora e data</string>
     <string name="status_bar_am_pm_title">AM/PM</string>
-    <string name="status_bar_am_pm_info">24-hour clock is enabled</string>
+    <string name="status_bar_am_pm_info">Modo 24 horas activo</string>
     <string name="enable_clock_weekday">Dia da semana</string>
     <string name="enable_clock_weekday_summary">Dia da semana abreviada antes das horas</string>
-    <string name="right_clock">Relógio direita</string>
+    <string name="right_clock">Relógio á direita</string>
     <string name="center_clock">Centrar relógio</string>
     <string name="dont_show">Não mostrar</string>
     <string name="clock_date_display">Data</string>
-    <string name="clock_date_display_summary">Display custom date before the clock</string>
+    <string name="clock_date_display_summary">Mostrar data personalizada antes das horas</string>
     <string name="clock_date_style">Estilo da data</string>
     <string name="clock_date_format">Formato da data</string>
     <string name="clock_date_string_edittext_title">Must be in DateFormat ex. mm/dd/aa</string>
-    <string name="clock_date_string_edittext_summary">Enter string</string>
-    <string name="am_pm_clock_normal">Tamanho da fonte normal</string>
-    <string name="am_pm_clock_small">Tamanho da fonte pequena</string>
+    <string name="clock_date_string_edittext_summary">Inserir string</string>
+    <string name="am_pm_clock_normal">Tamanho de letra normal</string>
+    <string name="am_pm_clock_small">Tamanho de letra pequena</string>
     <string name="am_pm_clock_none">Não mostrar</string>
     <string name="clock_date_display_none">Não mostrar</string>
-    <string name="clock_date_display_small">Small font size</string>
-    <string name="clock_date_display_normal">Normal font size</string>
+    <string name="clock_date_display_small">Tamanho da fonte pequeno</string>
+    <string name="clock_date_display_normal">Tamanho da fonte normal</string>
     <string name="clock_date_style_normal">Normal</string>
     <string name="clock_date_style_lowercase">Minúscula</string>
     <string name="clock_date_style_uppercase">Maiúscula</string>
-    <string name="clock_date_format_custom">Custom java format</string>
+    <string name="clock_date_format_custom">Formato Java personalizado</string>
     <string name="status_bar_clock_style_reset_message">Reset clock color?</string>
-    <string name="status_bar_toggle_brightness">Brightness control</string>
-    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across status bar</string>
+    <string name="status_bar_toggle_brightness"Controle de brilho</string>
+    <string name="status_bar_toggle_brightness_summary">Ajustar brilho deslizando na status bar</string>
     <string name="status_bar_toggle_info">Automatic brightness is enabled</string>
 
     <!-- Hardware keys -->
     <string name="additional_options_title">Opções adicionais</string>
-    <string name="hardware_keys_title">Hardware keys</string>
+    <string name="hardware_keys_title">Teclas físicas</string>
     <string name="hardware_keys_bindings_title">Key actions</string>
     <string name="hardware_keys_enable_custom_title">Enable custom actions</string>
     <string name="hardware_keys_home_press_title">Home key</string>
@@ -235,14 +235,14 @@
     <!-- Power connect / disconnect notifications -->
     <string name="power_notifications_enable_title">Enable power notifications</string>
     <string name="power_notifications_vibrate_title">Power notification vibration</string>
-    <string name="power_notifications_ringtone_title">Notification sound</string>
-    <string name="power_notifications_ringtone_silent">Silent</string>
+    <string name="power_notifications_ringtone_title">Som de notificação</string>
+    <string name="power_notifications_ringtone_silent">Silencio</string>
 
     <!-- CRT Animation -->
-    <string name="display_category_animation_options_title">Opçoes da animação</string>
+    <string name="display_category_animation_options_title">Opções da animação</string>
     <string name="system_power_crt_screen_off_title">CRT Screen Off</string>
     <string name="system_power_crt_screen_off_summary">Screen will animate an Electron Beam when turned off</string>
-    <string name="system_power_crt_mode_title">CRT animation mode</string>
+    <string name="system_power_crt_mode_title">Animação CRT</string>
     <string name="system_power_crt_mode_dialog_title">Show CRT animation</string>
     <string name="system_power_crt_mode_horizontal">Portrait horizontal</string>
     <string name="system_power_crt_mode_vertical">Portrait vertical</string>
@@ -269,7 +269,7 @@
     <string name="cpu_min_freq_summary">%s</string>
     <string name="cpu_max_freq_title">Maximum CPU frequency</string>
     <string name="cpu_max_freq_summary">%s</string>
-    <string name="cpu_set_on_boot">Set on boot</string>
+    <string name="cpu_set_on_boot">Definido ao ligar</string>
     <string name="cpu_set_on_boot_summary">Restore the processor settings on boot</string>
 
     <!-- Performance Settings : I/O scheduler settings title -->
@@ -281,7 +281,7 @@
     <!-- Performance Settings : I/O scheduler settings sub items -->
     <string name="io_sched_title">I/O scheduler</string>
     <string name="io_sched_summary">%S</string>
-    <string name="io_sched_set_on_boot">Set on boot</string>
+    <string name="io_sched_set_on_boot">Definido ao ligar</string>
     <string name="io_sched_set_on_boot_summary">Restore the I/O scheduler settings on boot</string>
 
     <!-- Memory Management -->
@@ -333,11 +333,11 @@
 
     <!-- Wakeup options -->
     <string name="display_category_wakeup_options_title">Wakeup options</string>
-    <string name="pref_volume_wake_title">Acordar com teclas volume</string>
-    <string name="pref_volume_wake_summary">Pressing the volume rocker up/down will wake the device</string>
+    <string name="pref_volume_wake_title">Acordar com teclas de volume</string>
+    <string name="pref_volume_wake_summary">Precionar as teclas de volume irá acordar o dispositivo</string>
 
     <!-- Sound settings -->
-    <string name="sound_title">Sound</string>
+    <string name="sound_title">Som</string>
     <string name="advanced_sound_title">Opções avançadas</string>
     <string name="volbtn_music_controls_title">Volume rocker music controls</string>
     <string name="volbtn_music_controls_summary">When screen off, long-pressing the volume rockers will seek music tracks</string>
@@ -352,7 +352,7 @@
     <string name="safe_headset_volume_warning_dialog_text">Listening at high volume for long periods may damage your hearing. Disable it with caution.</string>
 
     <!-- Automatic brightness customization -->
-    <string name="auto_brightness_setup_title">Automatic brightness</string>
+    <string name="auto_brightness_setup_title">Brilho automático</string>
     <string name="auto_brightness_adjustment_title">Brightness adjustment</string>
     <string name="auto_brightness_twilight_adjustment">Adjust to sunrise and sunset</string>
     <string name="light_sensor_current_value">Current light sensor value: <xliff:g id="light_level">%d</xliff:g> lux</string>
@@ -362,12 +362,12 @@
     <string name="auto_brightness_brightness_format" translatable="false"><xliff:g id="percent">%s</xliff:g>%%</string>
     <string name="auto_brightness_adjust_button">Ajustar</string>
     <string name="auto_brightness_close_button">Fechar</string>
-    <string name="auto_brightness_reset_button">Reset</string>
+    <string name="auto_brightness_reset_button">Reiniciar</string>
     <string name="auto_brightness_split_dialog_title">Split brightness level</string>
     <string name="auto_brightness_level_dialog_title">Light level setup</string>
     <string name="auto_brightness_lux">Ambient brightness (lux)</string>
-    <string name="auto_brightness_backlight">Screen brightness (%)</string>
-    <string name="auto_brightness_reset_dialog_title">Reset levels?</string>
+    <string name="auto_brightness_backlight">Brilho do ecrã (%)</string>
+    <string name="auto_brightness_reset_dialog_title">Reiniciar valores?</string>
     <string name="auto_brightness_reset_confirmation">All brightness levels will be reset to their default settings.</string>
     <string name="auto_brightness_split_lux_format">Split position (between <xliff:g id="min">%1$d</xliff:g> and <xliff:g id="max">%2$d</xliff:g> lux)</string>
     <string name="auto_brightness_level_options">Light level options</string>
@@ -409,12 +409,12 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Low battery warning policy -->
     <string name="pref_low_battery_warning_policy_title">Aviso bateria fraca</string>
-    <string name="pref_low_battery_warning_policy_dialog_title">Indicate low battery warning with</string>
-    <string name="low_battery_warning_policy_popup_sound">Pop-up and sound</string>
-    <string name="low_battery_warning_policy_notif_sound">Notification and sound</string>
-    <string name="low_battery_warning_policy_popup">Pop-up dialog only</string>
+    <string name="pref_low_battery_warning_policy_dialog_title">Aviso de bateria baixa com</string>
+    <string name="low_battery_warning_policy_popup_sound">Pop-up e som</string>
+    <string name="low_battery_warning_policy_notif_sound">Notificação e som</string>
+    <string name="low_battery_warning_policy_popup">Pop-up de diálogo apenas</string>
     <string name="low_battery_warning_policy_notif">Apenas notificação</string>
-    <string name="low_battery_warning_policy_sound">Sound only</string>
+    <string name="low_battery_warning_policy_sound">Apenas som</string>
     <string name="battery_prefs_title">Opções</string>
     <string name="battery_stats_title">Estatísticas</string>
 
@@ -422,10 +422,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="battery_icon_title">Ícone bateria</string>
     <string name="battery_status_icon">Ícone</string>
     <string name="battery_status_percentage">Percentagem</string>
-    <string name="battery_status_icon_percentage">Icon com percentagem</string>
+    <string name="battery_status_icon_percentage">Ícone com percentagem</string>
     <string name="battery_status_circle">Círculo</string>
     <string name="battery_status_circle_percentage">Círculo com percentagem</string>
-    <string name="battery_status_dotted_circle_percentage">Dotted Circle with percentage</string>
+    <string name="battery_status_dotted_circle_percentage">Círculo pontilhado com percentagem</string>
     <string name="battery_status_dotted_circle">Dotted Circle</string>
     <string name="battery_color_title">Cor bateria</string>
     <string name="circle_battery_animation_speed">Circle animation speed</string>
