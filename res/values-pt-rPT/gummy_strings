@@ -41,13 +41,13 @@
     <string name="lockscreen_widgets_title">Widgets do ecrã de bloqueio</string>
     <string name="lockscreen_widgets_summary">Alterar opções widget do ecrã de bloqueio</string>
     <string name="widgets_catagory_title">Widgets</string>
-    <string name="app_settings">Definiçoes da aplicação</string>
-    <string name="advanced_device_prefs_title">Opçoes dispositivo</string>
+    <string name="app_settings">Definições da aplicação</string>
+    <string name="advanced_device_prefs_title">Opções dispositivo</string>
     <string name="advanced_device_prefs_summary">Device specific advanced options</string>
     <string name="notications_title">Notificações</string>
     <string name="layout_catagory_title">Layout</string>
     <string name="privacy_catagory_title">Privacidade</string>
-    <string name="status_notification_title">Status Bar / Notification Drawer</string>
+    <string name="status_notification_title">Status Bar / Gaveta de notificações</string>
     <string name="status_notification_summary">View and change the availble statusbar and notification drawer options</string>
     <string name="advanced_options_title">Opções avançadas Gummy</string>
     <string name="advanced_options_summary">Advanced functionality options can be changed here, the list of available options will vary between devices</string>
@@ -55,14 +55,14 @@
     <string name="advanced_system_options_summary">View and change the more advanced system modifying features, use at your own risk</string>
     <string name="general_options_title">Opções gerais Gummy </string>
     <string name="general_options_summary">View and change the more basic settings</string>
-    <string name="app_options_title">App options</string>
+    <string name="app_options_title">Opções aplicações</string>
     <string name="app_options_summary">Source built app settings</string>
     <string name="lockscreen_theme_title">Tema ecrã de bloqueio</string>
-    <string name="signal_style_title">Signal Style</string>
+    <string name="signal_style_title">Estilo barras de sinal</string>
 
     <!-- App Setting menus -->
     <string name="app_settings_entry_dialog">Source built app settings can be accessed here directly as well as from within the apps themselves</string>
-    <string name="app_settings_entry_dialog_title">Gummy App Settings</string>
+    <string name="app_settings_entry_dialog_title">Definições aplicações Gummy</string>
     <string name="apollo_title">Apollo</string>
     <string name="browser_title">Navegador</string>
     <string name="calculator2_title">Calculadora</string>
@@ -108,10 +108,10 @@
     <string name="color_default">Default</string>
 
     <!-- Display settings screen, notification light settings -->
-    <string name="display_category_light_options_title">Light options</string>
-    <string name="notification_light_general_title">General</string>
-    <string name="notification_light_applist_title">Applications</string>
-    <string name="notification_light_phonelist_title">Phone</string>
+    <string name="display_category_light_options_title">Opções de luz</string>
+    <string name="notification_light_general_title">Geral</string>
+    <string name="notification_light_applist_title">Aplicações</string>
+    <string name="notification_light_phonelist_title">Telefone</string>
     <string name="notification_light_use_custom">Use custom values</string>
     <string name="notification_light_enabled">Enabled</string>
     <string name="notification_light_disabled">Disabled</string>
@@ -162,31 +162,31 @@
     <string name="clock_title_enable">Alinhamento</string>
     <string name="clock_enabled">Enabled</string>
     <string name="clock_disabled">Disabled</string>
-    <string name="clock_color_title">Color</string>
+    <string name="clock_color_title">Cor</string>
     <string name="status_bar_clock_style_reset">Reset color</string>
     <string name="status_bar_show_clock_title">Mostrar hora e data</string>
     <string name="status_bar_am_pm_title">AM/PM</string>
     <string name="status_bar_am_pm_info">24-hour clock is enabled</string>
     <string name="enable_clock_weekday">Dia da semana</string>
-    <string name="enable_clock_weekday_summary">Abbreviated day of the week before the time</string>
-    <string name="right_clock">Right clock</string>
-    <string name="center_clock">Center clock</string>
-    <string name="dont_show">Don\'t show</string>
-    <string name="clock_date_display">Date</string>
+    <string name="enable_clock_weekday_summary">Dia da semana abreviada antes das horas</string>
+    <string name="right_clock">Relógio direita</string>
+    <string name="center_clock">Centrar relógio</string>
+    <string name="dont_show">Não mostrar</string>
+    <string name="clock_date_display">Data</string>
     <string name="clock_date_display_summary">Display custom date before the clock</string>
     <string name="clock_date_style">Estilo da data</string>
     <string name="clock_date_format">Formato da data</string>
-    <string name="clock_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
+    <string name="clock_date_string_edittext_title">Must be in DateFormat ex. mm/dd/aa</string>
     <string name="clock_date_string_edittext_summary">Enter string</string>
-    <string name="am_pm_clock_normal">Normal font size</string>
-    <string name="am_pm_clock_small">Small font size</string>
+    <string name="am_pm_clock_normal">Tamanho da fonte normal</string>
+    <string name="am_pm_clock_small">Tamanho da fonte pequena</string>
     <string name="am_pm_clock_none">Não mostrar</string>
     <string name="clock_date_display_none">Não mostrar</string>
     <string name="clock_date_display_small">Small font size</string>
     <string name="clock_date_display_normal">Normal font size</string>
     <string name="clock_date_style_normal">Normal</string>
-    <string name="clock_date_style_lowercase">Lowercase</string>
-    <string name="clock_date_style_uppercase">Uppercase</string>
+    <string name="clock_date_style_lowercase">Minúscula</string>
+    <string name="clock_date_style_uppercase">Maiúscula</string>
     <string name="clock_date_format_custom">Custom java format</string>
     <string name="status_bar_clock_style_reset_message">Reset clock color?</string>
     <string name="status_bar_toggle_brightness">Brightness control</string>
@@ -239,24 +239,24 @@
     <string name="power_notifications_ringtone_silent">Silent</string>
 
     <!-- CRT Animation -->
-    <string name="display_category_animation_options_title">Animation options</string>
+    <string name="display_category_animation_options_title">Opçoes da animação</string>
     <string name="system_power_crt_screen_off_title">CRT Screen Off</string>
     <string name="system_power_crt_screen_off_summary">Screen will animate an Electron Beam when turned off</string>
     <string name="system_power_crt_mode_title">CRT animation mode</string>
     <string name="system_power_crt_mode_dialog_title">Show CRT animation</string>
     <string name="system_power_crt_mode_horizontal">Portrait horizontal</string>
     <string name="system_power_crt_mode_vertical">Portrait vertical</string>
-    <string name="system_power_crt_mode_both">Orientation dependent</string>
+    <string name="system_power_crt_mode_both">Orientação dependente</string>
 
     <!-- Performance settings  -->
     <string name="performance_settings_title">Performance</string>
 
     <!-- Performance Settings : Warning dialog  -->
-    <string name="performance_settings_warning_title">Proceed with Caution</string>
+    <string name="performance_settings_warning_title">Proceder com precaução</string>
     <string name="performance_settings_warning">These settings are included for experimentation and any changes made to them have the potential to cause instability, crashes, data loss or hardware failures.\n\nWe request you do not file bug reports if any of these settings have been changed from the defaults.</string>
 
     <!-- Performance Settings : Processor settings title -->
-    <string name="processor_title">Processor</string>
+    <string name="processor_title">Processador</string>
 
     <!-- Performance Settings : Processor settings summary. -->
     <string name="processor_summary">Change CPU governor and clock speed</string>
@@ -285,7 +285,7 @@
     <string name="io_sched_set_on_boot_summary">Restore the I/O scheduler settings on boot</string>
 
     <!-- Memory Management -->
-    <string name="memory_management_title">Memory management</string>
+    <string name="memory_management_title">Gestão da memória</string>
     <string name="memory_management_summary">Customize the usage of memory to alter system performance</string>
 
     <!-- zRam -->
@@ -311,16 +311,16 @@
     <string name="pref_use_16bpp_alpha_summary">Better graphics performance, but lower quality and may cause visual artifacts (requires reboot)</string>
 
     <!-- Display : Rotation  -->
-    <string name="display_rotation_title">Rotation</string>
+    <string name="display_rotation_title">Rotação</string>
     <string name="display_rotation_enabled">Enabled.</string>
     <string name="display_rotation_disabled">Disabled.</string>
-    <string name="display_rotation_unit">degrees</string>
+    <string name="display_rotation_unit">graus</string>
     <string name="display_lockscreen_rotation_title">Rotate lock screen</string>
     <string name="display_rotation_category_title">Rotation modes</string>
-    <string name="display_rotation_0_title">0 degrees</string>
-    <string name="display_rotation_90_title">90 degrees</string>
-    <string name="display_rotation_180_title">180 degrees</string>
-    <string name="display_rotation_270_title">270 degrees</string>
+    <string name="display_rotation_0_title">0 graus</string>
+    <string name="display_rotation_90_title">90 graus</string>
+    <string name="display_rotation_180_title">180 graus</string>
+    <string name="display_rotation_270_title">270 graus</string>
 
     <!-- Custom Carrier Label Options -->
     <string name="carrier_label_title">Carrier Label Options</string>
@@ -333,12 +333,12 @@
 
     <!-- Wakeup options -->
     <string name="display_category_wakeup_options_title">Wakeup options</string>
-    <string name="pref_volume_wake_title">Volume rocker wake</string>
+    <string name="pref_volume_wake_title">Acordar com teclas volume</string>
     <string name="pref_volume_wake_summary">Pressing the volume rocker up/down will wake the device</string>
 
     <!-- Sound settings -->
     <string name="sound_title">Sound</string>
-    <string name="advanced_sound_title">Advanced options</string>
+    <string name="advanced_sound_title">Opções avançadas</string>
     <string name="volbtn_music_controls_title">Volume rocker music controls</string>
     <string name="volbtn_music_controls_summary">When screen off, long-pressing the volume rockers will seek music tracks</string>
     <string name="volume_adjust_sounds_enable_title">Volume adjust sound</string>
@@ -360,8 +360,8 @@
     <string name="auto_brightness_level_format"><xliff:g id="level">%1$d</xliff:g> lux</string>
     <string name="auto_brightness_last_level_format"><xliff:g id="level">%1$d</xliff:g> -\n\u221e lux</string>
     <string name="auto_brightness_brightness_format" translatable="false"><xliff:g id="percent">%s</xliff:g>%%</string>
-    <string name="auto_brightness_adjust_button">Adjust</string>
-    <string name="auto_brightness_close_button">Close</string>
+    <string name="auto_brightness_adjust_button">Ajustar</string>
+    <string name="auto_brightness_close_button">Fechar</string>
     <string name="auto_brightness_reset_button">Reset</string>
     <string name="auto_brightness_split_dialog_title">Split brightness level</string>
     <string name="auto_brightness_level_dialog_title">Light level setup</string>
@@ -371,12 +371,12 @@
     <string name="auto_brightness_reset_confirmation">All brightness levels will be reset to their default settings.</string>
     <string name="auto_brightness_split_lux_format">Split position (between <xliff:g id="min">%1$d</xliff:g> and <xliff:g id="max">%2$d</xliff:g> lux)</string>
     <string name="auto_brightness_level_options">Light level options</string>
-    <string name="auto_brightness_menu_edit">Edit</string>
-    <string name="auto_brightness_menu_split">Split</string>
-    <string name="auto_brightness_menu_remove">Remove</string>
-    <string name="auto_brightness_preview">Preview</string>
+    <string name="auto_brightness_menu_edit">Editar</string>
+    <string name="auto_brightness_menu_split">Dividir</string>
+    <string name="auto_brightness_menu_remove">Remover</string>
+    <string name="auto_brightness_preview">Pré-visualizar</string>
     <string name="auto_brightness_preview_dialog_title">Brightness curve preview</string>
-    <string name="auto_brightness_help_dialog_title">Help</string>
+    <string name="auto_brightness_help_dialog_title">Ajuda</string>
     <string name="auto_brightness_help_text"><b>How is brightness calculated?</b>
 \n\n
 The brightness curve is calculated by performing a <i>cubic spline interpolation</i>
@@ -400,39 +400,39 @@ both edit the ambient brightness level of the control point as well as manually 
 desired screen brightness. Selecting \'Split\' allows you to to duplicate one line into
 two in order to insert additional control points. \'Remove\' deletes the selected line.
     </string>
-    <string name="auto_brightness_sensitivity_title">Adjustment sensitivity</string>
-    <string name="auto_brightness_sensitivity_verylow">Very low</string>
-    <string name="auto_brightness_sensitivity_low">Low</string>
-    <string name="auto_brightness_sensitivity_medium">Medium</string>
-    <string name="auto_brightness_sensitivity_high">High</string>
-    <string name="auto_brightness_sensitivity_veryhigh">Very high</string>
+    <string name="auto_brightness_sensitivity_title">Ajustar sensibilidade</string>
+    <string name="auto_brightness_sensitivity_verylow">Muito baixo</string>
+    <string name="auto_brightness_sensitivity_low">baixo</string>
+    <string name="auto_brightness_sensitivity_medium">Médio</string>
+    <string name="auto_brightness_sensitivity_high">Alto</string>
+    <string name="auto_brightness_sensitivity_veryhigh">Muito alto</string>
 
     <!-- Low battery warning policy -->
-    <string name="pref_low_battery_warning_policy_title">Low battery warning</string>
+    <string name="pref_low_battery_warning_policy_title">Aviso bateria fraca</string>
     <string name="pref_low_battery_warning_policy_dialog_title">Indicate low battery warning with</string>
     <string name="low_battery_warning_policy_popup_sound">Pop-up and sound</string>
     <string name="low_battery_warning_policy_notif_sound">Notification and sound</string>
     <string name="low_battery_warning_policy_popup">Pop-up dialog only</string>
-    <string name="low_battery_warning_policy_notif">Notification only</string>
+    <string name="low_battery_warning_policy_notif">Apenas notificação</string>
     <string name="low_battery_warning_policy_sound">Sound only</string>
-    <string name="battery_prefs_title">Options</string>
-    <string name="battery_stats_title">Statistics</string>
+    <string name="battery_prefs_title">Opções</string>
+    <string name="battery_stats_title">Estatísticas</string>
 
     <!-- StatusBar Battery Settings -->
-    <string name="battery_icon_title">Battery icon</string>
-    <string name="battery_status_icon">Icon</string>
-    <string name="battery_status_percentage">Percentage</string>
-    <string name="battery_status_icon_percentage">Icon with percentage</string>
-    <string name="battery_status_circle">Circle</string>
-    <string name="battery_status_circle_percentage">Circle with percentage</string>
+    <string name="battery_icon_title">Ícone bateria</string>
+    <string name="battery_status_icon">Ícone</string>
+    <string name="battery_status_percentage">Percentagem</string>
+    <string name="battery_status_icon_percentage">Icon com percentagem</string>
+    <string name="battery_status_circle">Círculo</string>
+    <string name="battery_status_circle_percentage">Círculo com percentagem</string>
     <string name="battery_status_dotted_circle_percentage">Dotted Circle with percentage</string>
     <string name="battery_status_dotted_circle">Dotted Circle</string>
-    <string name="battery_color_title">Battery color</string>
+    <string name="battery_color_title">Cor bateria</string>
     <string name="circle_battery_animation_speed">Circle animation speed</string>
-    <string name="circle_battery_animation_speed_none">None</string>
-    <string name="circle_battery_animation_speed_slow">Slow</string>
+    <string name="circle_battery_animation_speed_none">Nenhum</string>
+    <string name="circle_battery_animation_speed_slow">Lento</string>
     <string name="circle_battery_animation_speed_stock">Normal</string>
-    <string name="circle_battery_animation_speed_fast">Fast</string>
+    <string name="circle_battery_animation_speed_fast">Rápido</string>
     <string name="battery_text_color">Percentage text color</string>
     <string name="battery_bolt_color">Bolt charging color</string>
     <string name="battery_text_charging_color">Percentage text charging color</string>
@@ -440,15 +440,15 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Clock Clicks -->
     <string name="clock_clicks_title">Clock click actions</string>
-    <string name="clock_options">Clock Options</string>
+    <string name="clock_options">Opções de relógio</string>
     <string name="clock_clicks_summary">Set the actions for expanded status bar date/time header</string>
-    <string name="alarm">Alarms</string>
-    <string name="clock_options">Clock Options</string>
-    <string name="nothing">Nothing</string>
-    <string name="today">Calendar for today</string>
-    <string name="event">Calendar new event</string>
+    <string name="alarm">Alarmes</string>
+    <string name="clock_options">Opções de relógio</string>
+    <string name="nothing">Nada</string>
+    <string name="today">Calendário para hoje</string>
+    <string name="event">Novo evento</string>
     <string name="custom_app">Custom App</string>
-    <string name="voiceassist">Voice commands</string>
+    <string name="voiceassist">Comandos de voz</string>
     <string name="title_clock_doubleclick">Clock double click actions</string>
     <string name="title_clock_longclick">Clock long click actions</string>
     <string name="title_clock_shortclick">Clock short click actions</string>
@@ -471,7 +471,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="lockscreen_long_press_menu_title">Long press Menu button</string>
     <string name="lockscreen_buttons_no_action">No action</string>
     <string name="lockscreen_buttons_flashlight">Torch</string>
-    <string name="lockscreen_buttons_next">Next song</string>
+    <string name="lockscreen_buttons_next">Próxima música</string>
     <string name="lockscreen_buttons_previous">Previous song</string>
     <string name="lockscreen_buttons_playpause">Play/Pause music</string>
     <string name="lockscreen_buttons_toggle_sound">Toggle sound</string>
@@ -485,7 +485,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="unlock_menu_unlock_summary">Pressing the menu button unlocks the device</string>
 
     <!-- Navigation bar -->
-    <string name="navigation_bar_size_42_dp_default">42 dp (default)</string>
+    <string name="navigation_bar_size_42_dp_default">42 dp (origem)</string>
     <string name="navigation_bar_size_36_dp">36 dp</string>
     <string name="navigation_bar_size_30_dp">30 dp</string>
     <string name="navigation_bar_size_24_dp">24 dp</string>
@@ -493,15 +493,15 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="navigation_bar_size_44_dp">44 dp</string>
     <string name="navigation_bar_size_40_dp">40 dp</string>
     <string name="navigation_bar_size_42_dp">42 dp</string>
-    <string name="navigation_bar_size_0_dp">0 dp (off)</string>
-    <string name="navigation_menu_right">Right</string>
-    <string name="navigation_menu_left">Left</string>
-    <string name="navigation_menu_both">Both</string>
+    <string name="navigation_bar_size_0_dp">0 dp (desligado)</string>
+    <string name="navigation_menu_right">Direita</string>
+    <string name="navigation_menu_left">Esquerda</string>
+    <string name="navigation_menu_both">Ambos</string>
     <string name="navigation_menu_default_jb_behavior">Show on request (default)</string>
-    <string name="navigation_menu_never_show">Never show</string>
-    <string name="navigation_menu_always_show">Always show</string>
-    <string name="navigation_bar">Navigation bar</string>
-    <string name="navbar_button_cat">Navigation bar buttons</string>
+    <string name="navigation_menu_never_show">Nunca mostrar</string>
+    <string name="navigation_menu_always_show">Mostrar sempre</string>
+    <string name="navigation_bar">Barra notificação</string>
+    <string name="navbar_button_cat">Butões da barra notificação</string>
     <string name="title_pref_menu_location">Menu location</string>
     <string name="summary_pref_menu_location">Where do you want the menu buttons to appear?</string>
     <string name="title_pref_menu_display">Menu visibility</string>
@@ -531,9 +531,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="navigation_bar_glow_tint_title">Glow color</string>
     <string name="icon_picker_type">Select icon type:</string>
     <string name="icon_default">Default</string>
-    <string name="icon_presets">System icons</string>
-    <string name="icon_custom">Gallery</string>
-    <string name="icon_pack">Icon pack</string>
+    <string name="icon_presets">Ícones dos sistema</string>
+    <string name="icon_custom">Galeria</string>
+    <string name="icon_pack">Pacote de ícones</string>
     <string name="icon_picker_choose_icon_title">Choose icon</string>
     <string name="icon_color_mode_all_icons">All icons</string>
     <string name="icon_color_mode_system_icons">System icons</string>
@@ -544,44 +544,44 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Button shorcut actions -->
     <string name="shortcut_action_navbar">Navigation bar</string>
     <string name="shortcut_action_pie">Pie controls</string>
-    <string name="shortcut_action_airplane">Airplane mode</string>
+    <string name="shortcut_action_airplane">Modo avião</string>
     <string name="shortcut_action_expanded_desktop">Expanded Desktop</string>
-    <string name="shortcut_action_power_off">Power off</string>
-    <string name="shortcut_action_reboot">Reboot</string>
-    <string name="shortcut_action_sound">Sound</string>
+    <string name="shortcut_action_power_off">Desligar</string>
+    <string name="shortcut_action_reboot">Reiniciar</string>
+    <string name="shortcut_action_sound">Som</string>
     <string name="shortcut_action_app">Custom app</string>
-    <string name="shortcut_action_home">Home</string>
+    <string name="shortcut_action_home">Página principal</string>
     <string name="shortcut_action_back">Back</string>
-    <string name="shortcut_action_recent">Recents</string>
-    <string name="shortcut_action_lastapp">Last app</string>
-    <string name="shortcut_action_search">Search</string>
+    <string name="shortcut_action_recent">Recentes</string>
+    <string name="shortcut_action_lastapp">Última aplicação</string>
+    <string name="shortcut_action_search">Procurar</string>
     <string name="shortcut_action_screenshot">Screenshot</string>
     <string name="shortcut_action_menu">Menu</string>
     <string name="shortcut_action_ime">Open IME Switcher</string>
     <string name="shortcut_action_kill">Kill app</string>
-    <string name="shortcut_action_power">Screen Off</string>
-    <string name="shortcut_action_notifications">Notifications</string>
+    <string name="shortcut_action_power">Desligar ecrã</string>
+    <string name="shortcut_action_notifications">Notificações</string>
     <string name="shortcut_action_qs">Quicksettings panel</string>
-    <string name="shortcut_action_none">None</string>
+    <string name="shortcut_action_none">nenhum</string>
     <string name="shortcut_action_power_menu">Power menu</string>
     <string name="shortcut_action_torch">Torch</string>
-    <string name="shortcut_action_ring_vib">Ring/Vib</string>
-    <string name="shortcut_action_ring_silent">Ring/Silent</string>
-    <string name="shortcut_action_ring_vib_silent">Ring/Vib/Silent</string>
-    <string name="shortcut_action_longpress">Longpress:</string>
-    <string name="shortcut_action_select_action_longpress">Choose longpress action:</string>
-    <string name="shortcut_action_select_action">Choose action:</string>
-    <string name="shortcut_action_select_action_newbutton">Choose new action:</string>
+    <string name="shortcut_action_ring_vib">Tocar/Vib</string>
+    <string name="shortcut_action_ring_silent">Tocar/Silêncio</string>
+    <string name="shortcut_action_ring_vib_silent">Tocar/Vib/Silêncio</string>
+    <string name="shortcut_action_longpress">Pressionar:</string>
+    <string name="shortcut_action_select_action_longpress">Escolher acção ao pressionar:</string>
+    <string name="shortcut_action_select_action">Escolher acção:</string>
+    <string name="shortcut_action_select_action_newbutton">Escolher nova acção</string>
     <string name="shortcut_action_reset">Reset</string>
-    <string name="shortcut_action_add">Add</string>
+    <string name="shortcut_action_add">Adicionar</string>
     <string name="shortcut_action_reset_message">Reset all entries to default?</string>
     <string name="shortcut_action_max">Maximum entries size has been reached</string>
-    <string name="shortcut_action_warning">Warning</string>
+    <string name="shortcut_action_warning">Aviso</string>
     <string name="shortcut_action_warning_message">It is not possible to delete last entry</string>
     <string name="shortcut_action_disable_message">Disabled\nAdd an entry to enable this feature</string>
     <string name="shortcut_image_not_valid">The chosen app did not return a valid icon or does not support image cropping. Use another app.</string>
     <string name="shortcut_duplicate_entry">The chosen action cannot be added twice</string>
-    <string name="shortcut_action_help_shortcut">shortcut</string>
+    <string name="shortcut_action_help_shortcut">atalho</string>
     <string name="shortcut_action_help_button">button</string>
     <string name="shortcut_action_help_icon">, while selecting the icon will bring up customization options</string>
     <string name="shortcut_action_help_main">To add a %1$s, select the Add icon.  Once a %1$s is added, selecting the row will change the target%2$s\n\nTo remove a %1$s, swipe the row horizontally left or right.  Re-order a %1$s in the list by vertically dragging the anchor on the left.\n\nTo clear or reset to defaults, select the Reset icon.</string>
@@ -589,14 +589,14 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcut_action_help">Help</string>
 
     <!-- Shorcut icon picker -->
-    <string name="shortcuts_icon_picker_alarm">Alarm</string>
+    <string name="shortcuts_icon_picker_alarm">Alarme</string>
     <string name="shortcuts_icon_picker_andy">Andy</string>
-    <string name="shortcuts_icon_picker_battery">Battery</string>
-    <string name="shortcuts_icon_picker_browser">Browser</string>
-    <string name="shortcuts_icon_picker_calendar">Calendar</string>
+    <string name="shortcuts_icon_picker_battery">Bateria</string>
+    <string name="shortcuts_icon_picker_browser">Explorador</string>
+    <string name="shortcuts_icon_picker_calendar">Calendário</string>
     <string name="shortcuts_icon_picker_camera">Camera</string>
     <string name="shortcuts_icon_picker_cloud">Cloud</string>
-    <string name="shortcuts_icon_picker_contact">Contact</string>
+    <string name="shortcuts_icon_picker_contact">Contacto</string>
     <string name="shortcuts_icon_picker_directdial">Direct Dial</string>
     <string name="shortcuts_icon_picker_directmessage">Direct Message</string>
     <string name="shortcuts_icon_picker_drive">Drive</string>
@@ -605,27 +605,27 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcuts_icon_picker_email2">Email Alternate</string>
     <string name="shortcuts_icon_picker_evernote">Evernote</string>
     <string name="shortcuts_icon_picker_facebook">Facebook</string>
-    <string name="shortcuts_icon_picker_favorite">Favorite</string>
+    <string name="shortcuts_icon_picker_favorite">Favorito</string>
     <string name="shortcuts_icon_picker_file_browser">File Browser</string>
     <string name="shortcuts_icon_picker_file_browser2">File Browser Alternate</string>
     <string name="shortcuts_icon_picker_fitness">Fitness</string>
-    <string name="shortcuts_icon_picker_gallery">Gallery</string>
+    <string name="shortcuts_icon_picker_gallery">Galeria</string>
     <string name="shortcuts_icon_picker_gears">Gears</string>
     <string name="shortcuts_icon_picker_google_small">Google</string>
     <string name="shortcuts_icon_picker_gplus">Google Plus</string>
     <string name="shortcuts_icon_picker_gtalk">Hangouts</string>
-    <string name="shortcuts_icon_picker_help">Help</string>
+    <string name="shortcuts_icon_picker_help">Ajuda</string>
     <string name="shortcuts_icon_picker_joystick">Joystick</string>
     <string name="shortcuts_icon_picker_key">Keys/Accounts</string>
     <string name="shortcuts_icon_picker_laptop">Laptop</string>
-    <string name="shortcuts_icon_picker_notes">Notes</string>
-    <string name="shortcuts_icon_picker_luggage">Travel</string>
-    <string name="shortcuts_icon_picker_maps">Maps</string>
-    <string name="shortcuts_icon_picker_market">Market</string>
-    <string name="shortcuts_icon_picker_movie">Movies</string>
-    <string name="shortcuts_icon_picker_music">Music</string>
-    <string name="shortcuts_icon_picker_nav">Navigation</string>
-    <string name="shortcuts_icon_picker_phone">Phone</string>
+    <string name="shortcuts_icon_picker_notes">Notas</string>
+    <string name="shortcuts_icon_picker_luggage">Viagem</string>
+    <string name="shortcuts_icon_picker_maps">Mapas</string>
+    <string name="shortcuts_icon_picker_market">Loja</string>
+    <string name="shortcuts_icon_picker_movie">Filmes</string>
+    <string name="shortcuts_icon_picker_music">Música</string>
+    <string name="shortcuts_icon_picker_nav">Navegação</string>
+    <string name="shortcuts_icon_picker_phone">Telefone</string>
     <string name="shortcuts_icon_picker_package">Package</string>
     <string name="shortcuts_icon_picker_pinterest">Pinterest</string>
     <string name="shortcuts_icon_picker_play">Play</string>
@@ -640,18 +640,18 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcuts_icon_picker_transit">Transit</string>
     <string name="shortcuts_icon_picker_tv">TV</string>
     <string name="shortcuts_icon_picker_twitter">Twitter</string>
-    <string name="shortcuts_icon_picker_unlock">Unlock</string>
-    <string name="shortcuts_text_color_title">Text color</string>
+    <string name="shortcuts_icon_picker_unlock">Desbloquear</string>
+    <string name="shortcuts_text_color_title">Côr texto</string>
     <string name="shortcuts_color_title">Icon color</string>
     <string name="shortcuts_color_mode_title">Icon color mode</string>
     <string name="shortcuts_color_mode_summary">Change the shorcuts icon color mode</string>
 
     <!-- About Gummy -->
-    <string name="about_Gummy">About Team Gummy</string>
+    <string name="about_Gummy">Informações da equipa Gummy</string>
     <string name="gummy_devs">Developers</string>
     <string name="about_gummy_developer">Team Gummy Devs</string>
-    <string name="devs">The Crew</string>
-    <string name="primary_devs">Primary Devs</string>
+    <string name="devs">A malta</string>
+    <string name="primary_devs">Programadores principais</string>
     <string name="artwork">Artwork Development</string>
     <string name="gummy_gerrit_title">Gerrit Code Review</string>
     <string name="gummy_gerrit_summary">Help us make Gummy a better rom by submitting patches to review.gummyrom.com</string>
@@ -682,9 +682,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Anonymous Statistics -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out o
 f anonymous statistics. -->
-    <string name="anonymous_statistics_title">Anonymous Statistics</string>
+    <string name="anonymous_statistics_title">Estatísticas anónimasAnonymous Statistics</string>
     <string name="anonymous_statistics_summary">Help make this ROM better by opting into anonymous statistics reporting</string>
-    <string name="anonymous_statistics_about_title">About</string>
+    <string name="anonymous_statistics_about_title">Acerca</string>
     <string name="anonymous_statistics_about">Opting into anonymous statistics will allow non-personal data to be submitted to the
         developers to track unique installations across devices. The information submitted includes an unique identifier,
         which does not compromise your privacy or personal data.\n\nFor an example of the data that is submitted, tap on Preview Data.</string>
@@ -694,71 +694,71 @@ f anonymous statistics. -->
     <string name="stats_view_title">View stats</string>
 
     <!-- Anonymous Statistics - Notification -->
-    <string name="anonymous_notification_desc">Enable or Disable Anonymous Statistics</string>
+    <string name="anonymous_notification_desc">Permitir ou recusar estatísticas anónimas</string>
 
     <string name="stats_view_url">http://stats.gummyrom.com/view.php</string>
     <string name="stats_submit_url">http://stats.gummyrom.com/submit.php</string>
 
     <!-- Anonymous Statistics - Preview -->
-    <string name="preview_target_name_title">Device</string>
-    <string name="preview_model_name_title">Model</string>
-    <string name="preview_android_version_title">Android Version</string>
-    <string name="preview_rom_version_title">ROM Version</string>
-    <string name="preview_carrier_name_title">Carrier Name</string>
-    <string name="preview_carrier_id_title">Carrier ID</string>
-    <string name="preview_country_code_title">Country Code</string>
-    <string name="preview_device_id_title">Device ID</string>
+    <string name="preview_target_name_title">Dispositivo</string>
+    <string name="preview_model_name_title">Modelo</string>
+    <string name="preview_android_version_title">Versão Android</string>
+    <string name="preview_rom_version_title">Versão da rom</string>
+    <string name="preview_carrier_name_title">Nome operadora</string>
+    <string name="preview_carrier_id_title">Id da operadora</string>
+    <string name="preview_country_code_title">Código do país</string>
+    <string name="preview_device_id_title">ID do dispositivo</string>
 
     <!-- Themes Settings -->
     <!-- Settings main menu entry -->
-    <string name="themes_settings_title">Themes</string>
+    <string name="themes_settings_title">Temas</string>
 
     <!-- The following are entries under the themes menu -->
-    <string name="themepacks_settings_title">Theme Packs</string>
+    <string name="themepacks_settings_title">Packs de temas</string>
     <string name="styles_settings_title">Styles</string>
-    <string name="icons_settings_title">Icons</string>
-    <string name="fonts_settings_title">Fonts</string>
+    <string name="icons_settings_title">Ícones</string>
+    <string name="fonts_settings_title">Fontes</string>
     <string name="wallpaper_settings_title">Wallpapers</string>
     <string name="lockscreen_wallpaper_settings_title">Lockscreen Wallpapers</string>
     <string name="bootanim_settings_title">Boot Animations</string>
-    <string name="soundpack_settings_title">Sound Packs</string>
+    <string name="soundpack_settings_title">Packs de sons</string>
 
     <!-- Toggle Strings to be called from device overlays -->
-    <string name="toggle_airplane_mode">Airplane Mode</string>
+    <string name="toggle_airplane_mode">Modo de avião</string>
     <string name="toggle_auto_rotate">Auto Rotate</string>
     <string name="toggle_bluetooth">Bluetooth</string>
-    <string name="toggle_fcharge">Fast Charge</string>
+    <string name="toggle_fcharge">Carregamento rápido</string>
     <string name="toggle_gps">GPS</string>
     <string name="toggle_lte">LTE</string>
-    <string name="toggle_data">Data</string>
+    <string name="toggle_data">Dados móveis</string>
     <string name="toggle_nfc">NFC</string>
-    <string name="toggle_silent">Silent</string>
-    <string name="toggle_sync">Sync</string>
+    <string name="toggle_silent">Silêncio</string>
+    <string name="toggle_sync">Sinc</string>
     <string name="toggle_torch">Torch</string>
     <string name="toggle_statusbar">StatusBar</string>
     <string name="toggle_2g">2G</string>
     <string name="toggle_usb_tether">USB Tether</string>
-    <string name="toggle_vibrate">Vibrate</string>
+    <string name="toggle_vibrate">Vibrar</string>
     <string name="toggle_wifi_tether">Wifi Tether</string>
     <string name="toggle_wifi">Wi-Fi</string>
-    <string name="toggle_user">User</string>
-    <string name="toggle_favorite_contact">Favorite Contact</string>
-    <string name="toggle_settings">Settings</string>
+    <string name="toggle_user">Utilizador</string>
+    <string name="toggle_favorite_contact">Contactos favoritos</string>
+    <string name="toggle_settings">Definições</string>
     <string name="toggle_signal">Signal</string>
-    <string name="toggle_clock">Clock</string>
+    <string name="toggle_clock">Relógio</string>
     <string name="toggle_ime">IME</string>
-    <string name="toggle_battery">Battery</string>
-    <string name="toggle_brightness">Brightness</string>
-    <string name="toggle_sound_state">Ring/Vib/Silent</string>
+    <string name="toggle_battery">Bateria</string>
+    <string name="toggle_brightness">Brilho</string>
+    <string name="toggle_sound_state">Tocar/Vib/Silêncio</string>
     <string name="toggle_navbar_hide">NavBar Auto Hide</string>
-    <string name="toggle_quickrecord">Quick Record</string>
+    <string name="toggle_quickrecord">Gravação rápida</string>
 
     <!-- Statusbar | Toggles -->
     <string name="title_statusbar_toggles">QuickSettings</string>
     <string name="toggle_setup">Toggle Setup</string>
     <string name="back">Back</string>
-    <string name="right">Right</string>
-    <string name="left">Left</string>
+    <string name="right">Direita</string>
+    <string name="left">Esquerda</string>
     <string name="toggle_style_title">Toggle style</string>
     <string name="toggle_style_summary">Whether to show icons or text on your toggles.</string>
     <string name="toggles_layout_title">Toggle layout</string>
@@ -833,22 +833,22 @@ f anonymous statistics. -->
 
     <!-- Old strings for build supprt -->
     <string name="navbar_title_menu">Button options</string>
-    <string name="navbar_actiontitle_menu">Action: %1$s</string>
+    <string name="navbar_actiontitle_menu">Acção: %1$s</string>
     <string name="navbar_longpress_menu">Longpress: %1$s</string>
     <string name="navbar_icon_menu">Custom icon</string>
     <string name="navbar_delete_menu">Delete button</string>
 
     <!-- Basic Numbers -->
-    <string name="two">Two</string>
-    <string name="three">Three</string>
-    <string name="four">Four</string>
-    <string name="five">Five</string>
-    <string name="six">Six</string>
+    <string name="two">Dois</string>
+    <string name="three">Três</string>
+    <string name="four">Quatro</string>
+    <string name="five">Cinco</string>
+    <string name="six">Seis</string>
 
     <!-- Quiet hours -->
     <string name="quiet_hours_title">Quiet hours</string>
     <string name="quiet_hours_summary">Configure the hours the device should be quiet</string>
-    <string name="quiet_hours_note_title">Note</string>
+    <string name="quiet_hours_note_title">Nota</string>
     <string name="quiet_hours_note_summary">Incoming calls will behave like usual during quiet hours</string>
     <string name="quiet_hours_enabled">Enable quiet hours</string>
     <string name="quiet_hours_enabled_on">Quiet hours will be enforced</string>
@@ -879,8 +879,8 @@ f anonymous statistics. -->
             quiet hours are active</string>
     <string name="quiet_hours_auto_sms_null">[Automated Message] I\'ll get back to you when I can.</string>
     <string name="quiet_hours_auto_disabled">Disabled</string>
-    <string name="quiet_hours_auto_enabled">All numbers</string>
-    <string name="quiet_hours_auto_contacts">Contacts only</string>
+    <string name="quiet_hours_auto_enabled">Todos os números</string>
+    <string name="quiet_hours_auto_contacts">Apenas contactos</string>
     <string name="quiet_hours_bypass_group">Bypass quiet hours</string>
     <string name="quiet_hours_sms_code_null">[Alarm]</string>
     <string name="quiet_hours_sms_bypass_title">Text message bypass</string>
@@ -906,7 +906,7 @@ f anonymous statistics. -->
     <!-- Notification drawer background -->
     <string name="notification_style_title">Style</string>
     <string name="notification_style_summary">Change your notification drawer style</string>
-    <string name="notification_wallpaper_title">Background</string>
+    <string name="notification_wallpaper_title">Fundo</string>
     <string name="notification_wallpaper_landscape_title">Different landscape background</string>
     <string name="notification_background_color_fill">Color fill</string>
     <string name="notification_background_custom_image">Custom image</string>
@@ -956,14 +956,14 @@ f anonymous statistics. -->
     <string name="picker_activities">Activities</string>
     <string name="select_custom_activity_title">Select custom activity</string>
     <string name="icon_picker_alarm">Alarme</string>
-    <string name="icon_picker_browser">Browser</string>
+    <string name="icon_picker_browser">Navegador</string>
     <string name="icon_picker_calendar">Calendário</string>
     <string name="icon_picker_camera">Camera</string>
     <string name="icon_picker_email">E-mail</string>
     <string name="icon_picker_email2">E-mail Holo</string>
     <string name="icon_picker_facebook">Facebook</string>
     <string name="icon_picker_gallery">Galeria</string>
-    <string name="icon_picker_google_small">Google (pequenol)</string>
+    <string name="icon_picker_google_small">Google (pequeno)</string>
     <string name="icon_picker_googleplus">Google Plus</string>
     <string name="icon_picker_googletalk">Hangouts</string>
     <string name="icon_picker_maps">Mapas</string>
@@ -992,8 +992,8 @@ f anonymous statistics. -->
     <!-- Lockscreen style settings -->
     <string name="lockscreen_style_reset_message">Reset all lockscreen colors?</string>
     <string name="lockscreen_icon_title">Lock handle icon</string>
-    <string name="lockscreen_lock_icon_custom">Custom icon</string>
-    <string name="lockscreen_lock_icon_gummy">Gummy icon</string>
+    <string name="lockscreen_lock_icon_custom">Ícone personalizado</string>
+    <string name="lockscreen_lock_icon_gummy">Ícone Gummy</string>
     <string name="lockscreen_lock_icon_default">Default icon</string>
     <string name="lockscreen_colorize_handle_title">Colorize custom handle</string>
     <string name="lockscreen_colorize_handle_summary">Lock color will be set to the lock handle</string>
@@ -1010,10 +1010,10 @@ f anonymous statistics. -->
     <string name="lockscreen_misc_color_summary">Color of the remaining items</string>
 
     <!-- Blacklist preferences -->
-    <string name="blacklist_title">Blacklist</string>
-    <string name="blacklist_edit_dialog_title">Edit blacklist entry</string>
+    <string name="blacklist_title">Lista negra</string>
+    <string name="blacklist_edit_dialog_title">Editar lista negra</string>
     <string name="blacklist_prefs">Definições</string>
-    <string name="blacklist_button_delete">Delete</string>
+    <string name="blacklist_button_delete">Apagar</string>
     <string name="blacklist_empty_text">You don\'t have any blacklisted numbers. Add an entry by touching the Add (+) button.</string>
     <string name="blacklist_disabled_empty_text">To blacklist calls and/or messages from certain numbers, enable the blacklist.</string>
     <string name="blacklist_summary_disabled">Disabled</string>
@@ -1022,20 +1022,20 @@ f anonymous statistics. -->
     <string name="blacklist_private_numbers_title">Private numbers</string>
     <string name="blacklist_private_numbers_summary_disabled">Don\'t block calls from private numbers</string>
     <string name="blacklist_private_numbers_summary">Block incoming <xliff:g id="type">%s</xliff:g> from private numbers</string>
-    <string name="blacklist_unknown_numbers_title">Unknown numbers</string>
+    <string name="blacklist_unknown_numbers_title">Número desconhecido</string>
     <string name="blacklist_unknown_numbers_summary_disabled">Don\'t block calls or messages from numbers not in the contact list</string>
     <string name="blacklist_unknown_numbers_summary">Block incoming <xliff:g id="type">%s</xliff:g> from numbers not in the contact list</string>
-    <string name="blacklist_summary_type_calls_only">calls</string>
-    <string name="blacklist_summary_type_messages_only">messages</string>
-    <string name="blacklist_summary_type_calls_and_messages">calls and messages</string>
+    <string name="blacklist_summary_type_calls_only">chamadas</string>
+    <string name="blacklist_summary_type_messages_only">mensagens</string>
+    <string name="blacklist_summary_type_calls_and_messages">chamadas e mensagens</string>
     <string name="blacklist_regex_title">Use wildcards</string>
     <string name="blacklist_regex_summary">Use . as a wildcard and * for repetition. E.g. 123.* blocks numbers starting with 123 and .*123.* blocks numbers containing 123</string>
     <string name="blacklist_policy_block_calls">Block incoming calls</string>
     <string name="blacklist_policy_block_messages">Block incoming messages</string>
 
     <!-- Blacklist management -->
-    <string name="add_blacklist_number">Add number</string>
-    <string name="remove_blacklist_number_title">Remove number</string>
+    <string name="add_blacklist_number">Adicionar número</string>
+    <string name="remove_blacklist_number_title">Remover número</string>
     <string name="remove_blacklist_entry">Do you want to remove this blacklist entry?</string>
     <string name="select_contact">Select contact</string>
 
@@ -1070,7 +1070,7 @@ f anonymous statistics. -->
     <string name="more_device_controls_title">More\u2026</string>
     <string name="more_device_settings_title">Other device options</string>
     <string name="sensors_motors_title">Sensors &amp; motors</string>
-    <string name="display_calibration_title">Display calibration</string>
+    <string name="display_calibration_title">Calibração do ecrã</string>
 
     <!-- Backlight brightness settings screen -->
     <string name="adaptive_backlight_title">Adaptive backlight</string>
@@ -1116,7 +1116,7 @@ f anonymous statistics. -->
     <string name="backlight_summary_enabled">Enabled</string>
 
     <!-- TRDS Settings -->
-    <string name="trds_settings_title">Dark Gummy</string>
+    <string name="trds_settings_title">Tema Dark Gummy</string>
 
     <!-- Stylus Gestures -->
     <string name="gestures_settings_title">Stylus gestures</string>
@@ -1139,7 +1139,7 @@ f anonymous statistics. -->
     <string name="gestures_double_spen_summary_head">Launch custom action on double tap</string>
 
     <!-- Gestures Options -->
-    <string name="gestures_action_empty">No action</string>
+    <string name="gestures_action_empty">Sem acção</string>
     <string name="gestures_action_home">Emulate home key</string>
     <string name="gestures_action_back">Emulate back key</string>
     <string name="gestures_action_menu">Emulate menu key</string>
@@ -1147,7 +1147,7 @@ f anonymous statistics. -->
     <string name="gestures_action_recent">Recent apps</string>
 
     <!-- stylus gestures support -->
-    <string name="stylus_app_not_installed">%s is not installed</string>
+    <string name="stylus_app_not_installed">%s não está instalado</string>
 
     <!-- Increasing ring -->
     <string name="increasing_ring_title">Ascending ringtone</string>
@@ -1159,11 +1159,11 @@ f anonymous statistics. -->
     <string name="increasing_ring_interval_title">Increase interval</string>
     <string name="increasing_ring_interval_eachring">On each ring</string>
     <string name="increasing_ring_interval_half_second">0.5 seconds</string>
-    <string name="increasing_ring_interval_1second">1 second</string>
-    <string name="increasing_ring_interval_2seconds">2 seconds</string>
-    <string name="increasing_ring_interval_3seconds">3 seconds</string>
-    <string name="increasing_ring_interval_5seconds">5 seconds</string>
-    <string name="increasing_ring_interval_10seconds">10 seconds</string>
+    <string name="increasing_ring_interval_1second">1 segundo</string>
+    <string name="increasing_ring_interval_2seconds">2 segundos</string>
+    <string name="increasing_ring_interval_3seconds">3 segundos</string>
+    <string name="increasing_ring_interval_5seconds">5 segundos</string>
+    <string name="increasing_ring_interval_10seconds">10 segundos</string>
 
     <!-- Delete apn confirmation dialog message -->
     <string name="confirm_delete_apn">The APN will be deleted.</string>
@@ -1201,11 +1201,11 @@ f anonymous statistics. -->
     <string name="lockpattern_settings_enable_dots_title">Show pattern dots</string>
 
     <!-- Lock screen vibrate settings -->
-    <string name="lockscreen_vibrate_enabled_title">Vibrate</string>
-    <string name="lockscreen_vibrate_enabled_head">Vibrate when unlocking</string>
+    <string name="lockscreen_vibrate_enabled_title">Vibrar</string>
+    <string name="lockscreen_vibrate_enabled_head">Vibrar ao desbloquear</string>
 
     <!-- Screen security -->
-    <string name="screen_security_category">Screen security</string>
+    <string name="screen_security_category">Segurança no bloqueio</string>
     <string name="screen_security_title">Lock screen</string>
     <string name="screen_security_summary">View or change lock screen security, delay and timeout settings</string>
     <string name="unlock_quick_unlock_control_title">Quick unlock</string>
@@ -1253,7 +1253,7 @@ f anonymous statistics. -->
     <string name="notifications_height">Notification count</string>
     <string name="notifications_height_summary">Number of notifications displayed at once</string>
     <string name="offset_top">Offset to the top of the screen:</string>
-    <string name="privacy_mode">Privacy Mode</string>
+    <string name="privacy_mode">Modo privado</string>
     <string name="privacy_mode_summary">Disables notifications from beeing shown and dismissed. This way, you just see the icons of your notifications.</string>
     <string name="dynamic_width">Largura dinâmica</string>
     <string name="dynamic_width_summary">Sets the width of notifications dynamic, so that they only use the space they really need</string>
@@ -1414,7 +1414,7 @@ f anonymous statistics. -->
     <string name="ad_timeout_10s">10 segundos</string>
     <string name="ad_timeout_15s">15 segundos</string>
     <string name="ad_timeout_25s">25 segundos</string>
-    <string name="ad_pocket_mode_off">Desligadp</string>
+    <string name="ad_pocket_mode_off">Desligado</string>
     <string name="ad_pocket_mode_notifications">Apenas notificações</string>
     <string name="ad_pocket_mode_always">Sempre</string>
 
@@ -1424,8 +1424,8 @@ f anonymous statistics. -->
     <string name="root_access_warning_message">Allowing applications to request root access is very dangerous and could compromise the security of your system!</string>
     <string name="root_access_none">Disabled</string>
     <string name="root_access_apps">Apps only</string>
-    <string name="root_access_adb">ADB only</string>
-    <string name="root_access_all">Apps and ADB</string>
+    <string name="root_access_adb">Apenas ADB</string>
+    <string name="root_access_all">Aplicações e ADB</string>
 
     <!-- Wi-Fi region code settings-->
     <string name="wifi_setting_countrycode_title">Wi-Fi region code</string>
