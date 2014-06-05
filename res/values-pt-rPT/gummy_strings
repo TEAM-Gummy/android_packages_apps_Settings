@@ -30,7 +30,7 @@
     <string name="navigation_settings_options_title">Opções de navegação</string>
     <string name="navigation_settings_title">Navegação</string>
     <string name="battery_bar_title">Barra da bateria</string>
-    <string name="power_menu_title">Power menu</string>
+    <string name="power_menu_title">Menu de energia</string>
     <string name="lockscreen_extras_title">Slider targets and shortcuts</string>
     <string name="lock_screen_summary">View and change the slider targets and shortcuts</string>
     <string name="lockscreen_extras_title_targets_only">Slider targets</string>
@@ -51,11 +51,11 @@
     <string name="status_notification_summary">View and change the availble statusbar and notification drawer options</string>
     <string name="advanced_options_title">Opções avançadas Gummy</string>
     <string name="advanced_options_summary">Advanced functionality options can be changed here, the list of available options will vary between devices</string>
-    <string name="advanced_system_options_title">Advanced system options</string>
+    <string name="advanced_system_options_title">Opções avançadas do sistema</string>
     <string name="advanced_system_options_summary">View and change the more advanced system modifying features, use at your own risk</string>
     <string name="general_options_title">Opções gerais Gummy </string>
-    <string name="general_options_summary">View and change the more basic settings</string>
-    <string name="app_options_title">Opções aplicações</string>
+    <string name="general_options_summary">Ver e mudar as opções básicas</string>
+    <string name="app_options_title">Opções de aplicações</string>
     <string name="app_options_summary">Source built app settings</string>
     <string name="lockscreen_theme_title">Tema ecrã de bloqueio</string>
     <string name="signal_style_title">Estilo barras de sinal</string>
@@ -95,7 +95,7 @@
     <string name="reset">Reset</string>
     <string name="enabled">Activo</string>
     <string name="attention">Atenção</string>
-    <string name="default_string">Default</string>
+    <string name="default_string">De origem</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Escolher cor</string>
@@ -105,25 +105,25 @@
     <string name="hex">Hex:</string>
     <string name="hex_hint">#ff000000</string>
     <string name="set">Definir</string>
-    <string name="color_default">Default</string>
+    <string name="color_default">De origem</string>
 
     <!-- Display settings screen, notification light settings -->
     <string name="display_category_light_options_title">Opções de luz</string>
     <string name="notification_light_general_title">Geral</string>
     <string name="notification_light_applist_title">Aplicações</string>
     <string name="notification_light_phonelist_title">Telefone</string>
-    <string name="notification_light_use_custom">Use custom values</string>
+    <string name="notification_light_use_custom">Usar valores personalizadas</string>
     <string name="notification_light_enabled">Ligado</string>
     <string name="notification_light_disabled">Desligado</string>
-    <string name="notification_light_default_value">Default</string>
+    <string name="notification_light_default_value">De origem</string>
     <string name="notification_light_missed_call_title">Chamada perdida</string>
     <string name="notification_light_voicemail_title">Correio de voz</string>
     <string name="notification_light_choose_app">Escolher aplicação</string>
     <string name="notification_light_add">Adicionar</string>
 
     <!-- Notification light dialogs -->
-    <string name="edit_light_settings">Edit light settings</string>
-    <string name="pulse_speed_title">Pulse length and speed</string>
+    <string name="edit_light_settings">Editar opções de luz de notificação</string>
+    <string name="pulse_speed_title">Velocidade e complimento da luz pulsada</string>
     <string name="picker_arrow">→</string>
     <string name="default_time">Normal</string>
     <string name="custom_time">Personalizada</string>
@@ -153,8 +153,8 @@
     <string name="battery_light_full_color_title">Carregamento completo</string>
 
     <!-- Status bar -->
-    <string name="status_bar_title">Status bar</string>
-    <string name="status_bar_style_title">Estilo</string>
+    <string name="status_bar_title">Barra de status</string>
+    <string name="status_bar_style_title">Modelo</string>
 
     <!-- Status bar | Clock -->
     <string name="status_bar_clock">Hora e data</string>
@@ -163,7 +163,7 @@
     <string name="clock_enabled">Ligado</string>
     <string name="clock_disabled">Desligado</string>
     <string name="clock_color_title">Cor</string>
-    <string name="status_bar_clock_style_reset">Reset color</string>
+    <string name="status_bar_clock_style_reset">Reset cor</string>
     <string name="status_bar_show_clock_title">Mostrar hora e data</string>
     <string name="status_bar_am_pm_title">AM/PM</string>
     <string name="status_bar_am_pm_info">Modo 24 horas activo</string>
@@ -176,8 +176,8 @@
     <string name="clock_date_display_summary">Mostrar data personalizada antes das horas</string>
     <string name="clock_date_style">Estilo da data</string>
     <string name="clock_date_format">Formato da data</string>
-    <string name="clock_date_string_edittext_title">Must be in DateFormat ex. mm/dd/aa</string>
-    <string name="clock_date_string_edittext_summary">Inserir string</string>
+    <string name="clock_date_string_edittext_title">Formato da data obrigatório ex. mm/dd/aa</string>
+    <string name="clock_date_string_edittext_summary">Inserir valor</string>
     <string name="am_pm_clock_normal">Tamanho de letra normal</string>
     <string name="am_pm_clock_small">Tamanho de letra pequena</string>
     <string name="am_pm_clock_none">Não mostrar</string>
@@ -188,26 +188,26 @@
     <string name="clock_date_style_lowercase">Minúscula</string>
     <string name="clock_date_style_uppercase">Maiúscula</string>
     <string name="clock_date_format_custom">Formato Java personalizado</string>
-    <string name="status_bar_clock_style_reset_message">Reset clock color?</string>
+    <string name="status_bar_clock_style_reset_message">Reset á cor do relógio?</string>
     <string name="status_bar_toggle_brightness"Controle de brilho</string>
-    <string name="status_bar_toggle_brightness_summary">Ajustar brilho deslizando na status bar</string>
-    <string name="status_bar_toggle_info">Automatic brightness is enabled</string>
+    <string name="status_bar_toggle_brightness_summary">Ajustar brilho deslizando na barra de status</string>
+    <string name="status_bar_toggle_info">Brilho automático está ligado</string>
 
     <!-- Hardware keys -->
     <string name="additional_options_title">Opções adicionais</string>
     <string name="hardware_keys_title">Teclas físicas</string>
-    <string name="hardware_keys_bindings_title">Key actions</string>
-    <string name="hardware_keys_enable_custom_title">Enable custom actions</string>
-    <string name="hardware_keys_home_press_title">Home key</string>
-    <string name="hardware_keys_home_long_press_title">Home key (long press)</string>
-    <string name="hardware_keys_back_press_title">Back key</string>
-    <string name="hardware_keys_back_long_press_title">Back key (long press)</string>
+    <string name="hardware_keys_bindings_title">Acções das teclas</string>
+    <string name="hardware_keys_enable_custom_title">Ligar acções personalizadas</string>
+    <string name="hardware_keys_home_press_title">Tecla home</string>
+    <string name="hardware_keys_home_long_press_title">Tecla home (pressão longa)</string>
+    <string name="hardware_keys_back_press_title">Tecla atrás</string>
+    <string name="hardware_keys_back_long_press_title">Back key (Tecla home)</string>
     <string name="hardware_keys_menu_press_title">Menu key</string>
-    <string name="hardware_keys_menu_long_press_title">Menu key (long press)</string>
+    <string name="hardware_keys_menu_long_press_title">Tecla menu (Tecla home)</string>
     <string name="hardware_keys_assist_press_title">Search key</string>
-    <string name="hardware_keys_assist_long_press_title">Search key (long press)</string>
+    <string name="hardware_keys_assist_long_press_title">Search key (Tecla home)</string>
     <string name="hardware_keys_app_switch_press_title">App switch key</string>
-    <string name="hardware_keys_app_switch_long_press_title">App switch key (long press)</string>
+    <string name="hardware_keys_app_switch_long_press_title">App switch key (Tecla home)</string>
     <string name="hardware_keys_show_overflow_title">Show action overflow</string>
     <string name="hardware_keys_show_overflow_summary">Display the 3-dot overflow menu button within apps</string>
     <string name="hardware_keys_show_overflow_toast_enable">The action overflow button may not be visible until apps are restarted</string>
@@ -220,33 +220,32 @@
     <string name="hardware_keys_action_search">Search assistant</string>
     <string name="hardware_keys_action_voice_search">Voice search</string>
     <string name="hardware_keys_action_in_app_search">In-app search</string>
-    <string name="hardware_keys_action_power">Power off</string>
-    <string name="hardware_keys_action_kill_app">Kill app</string>
-    <string name="hardware_keys_action_last_app">Switch to last app</string>
-    <string name="hardware_keys_action_custom_app">Custom app</string>
-    <string name="hardware_keys_action_torch">Torch</string>
-
+    <string name="hardware_keys_action_power">Desligar</string>
+    <string name="hardware_keys_action_kill_app">Parar aplicação</string>
+    <string name="hardware_keys_action_last_app">Mudar para a ultima aplicação</string>
+    <string name="hardware_keys_action_custom_app">Aplicação personalizada</string>
+    <string name="hardware_keys_action_torch">Lanterna
     <!-- Shortcut picker -->
     <string name="select_custom_app_title">Select custom application</string>
     <string name="use_custom_app_title">Use custom application</string>
     <string name="use_custom_app_summary">Use custom application instead of the recent applications dialog</string>
-    <string name="group_applications">Applications</string>
+    <string name="group_applications">Aplicações</string>
 
     <!-- Power connect / disconnect notifications -->
-    <string name="power_notifications_enable_title">Enable power notifications</string>
+    <string name="power_notifications_enable_title">Ligar notificações de energia</string>
     <string name="power_notifications_vibrate_title">Power notification vibration</string>
     <string name="power_notifications_ringtone_title">Som de notificação</string>
-    <string name="power_notifications_ringtone_silent">Silencio</string>
+    <string name="power_notifications_ringtone_silent">Silêncio</string>
 
     <!-- CRT Animation -->
     <string name="display_category_animation_options_title">Opções da animação</string>
-    <string name="system_power_crt_screen_off_title">CRT Screen Off</string>
+    <string name="system_power_crt_screen_off_title">Desligar ecrâ em modo CRT</string>
     <string name="system_power_crt_screen_off_summary">Screen will animate an Electron Beam when turned off</string>
     <string name="system_power_crt_mode_title">Animação CRT</string>
     <string name="system_power_crt_mode_dialog_title">Show CRT animation</string>
-    <string name="system_power_crt_mode_horizontal">Portrait horizontal</string>
-    <string name="system_power_crt_mode_vertical">Portrait vertical</string>
-    <string name="system_power_crt_mode_both">Orientação dependente</string>
+    <string name="system_power_crt_mode_horizontal">Orientação horizontal</string>
+    <string name="system_power_crt_mode_vertical">Orientação vertical</string>
+    <string name="system_power_crt_mode_both">Orientação dupla</string>
 
     <!-- Performance settings  -->
     <string name="performance_settings_title">Performance</string>
@@ -307,16 +306,16 @@
     <string name="dithering_blur_effect">Fix color banding and blur effect</string>
 
     <!-- Performance Settings : 16bpp Alpha -->
-    <string name="pref_use_16bpp_alpha_title">16bit transparency</string>
+    <string name="pref_use_16bpp_alpha_title">Transparência 16bit</string>
     <string name="pref_use_16bpp_alpha_summary">Better graphics performance, but lower quality and may cause visual artifacts (requires reboot)</string>
 
     <!-- Display : Rotation  -->
     <string name="display_rotation_title">Rotação</string>
-    <string name="display_rotation_enabled">Enabled.</string>
-    <string name="display_rotation_disabled">Disabled.</string>
+    <string name="display_rotation_enabled">Ligado.</string>
+    <string name="display_rotation_disabled">Desligado.</string>
     <string name="display_rotation_unit">graus</string>
-    <string name="display_lockscreen_rotation_title">Rotate lock screen</string>
-    <string name="display_rotation_category_title">Rotation modes</string>
+    <string name="display_lockscreen_rotation_title">Rodar lock screen</string>
+    <string name="display_rotation_category_title">Modos de rotação</string>
     <string name="display_rotation_0_title">0 graus</string>
     <string name="display_rotation_90_title">90 graus</string>
     <string name="display_rotation_180_title">180 graus</string>
@@ -328,13 +327,13 @@
     <string name="custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock label.</string>
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
     <string name="hide_carrier_title">Hide carrier label</string>
-    <string name="notification_show_wifi_ssid_title">Show Wifi network name</string>
+    <string name="notification_show_wifi_ssid_title">Mostrar nome da wifi</string>
     <string name="notification_show_wifi_ssid_summary">Display the name of the currently connected Wifi network</string>
 
     <!-- Wakeup options -->
     <string name="display_category_wakeup_options_title">Wakeup options</string>
     <string name="pref_volume_wake_title">Acordar com teclas de volume</string>
-    <string name="pref_volume_wake_summary">Precionar as teclas de volume irá acordar o dispositivo</string>
+    <string name="pref_volume_wake_summary">Pressionar as teclas de volume irá acordar o dispositivo</string>
 
     <!-- Sound settings -->
     <string name="sound_title">Som</string>
@@ -1440,25 +1439,25 @@ f anonymous statistics. -->
     <string name="enable_translucent_decor_title">Activar transparências</string>
 
     <!-- Show the signal and wifi data direction indicators -->
-    <string name="show_activity_indicators_title">Show activity indicators</string>
-    <string name="show_activity_indicators_summary">Enable / disable the signal and wifi data direction indicators</string>
-    <string name="show_wifi_activity_indicators_summary">Enable / disable the wifi data direction indicators</string>
+    <string name="show_activity_indicators_title">Mostrar indicadores de actividade</string>
+    <string name="show_activity_indicators_summary">Activar / desactivar indicadores de direcção de dados móveis</string>
+    <string name="show_wifi_activity_indicators_summary">Activar / desactivar indicadores de direcção de dados móveis</string>
 
     <!-- Show 4G for LTE -->
     <string name="show_4G_for_LTE_title">Mostrar 4G para LTE</string>
-    <string name="show_4G_for_LTE_summary">Whether to show the 4G icon in statusbar when in LTE</string>
+    <string name="show_4G_for_LTE_summary">Escolher entre mostrar o ícone na barra de status 4G quando em LTE</string>
 
     <!-- Hide signal activity -->
     <string name="hide_signal_bars_title">Hide signal bars/text</string>
-    <string name="hide_signal_bars_summary">Hides the signal bars or signal text in the statusbar</string>
+    <string name="hide_signal_bars_summary">Hides the signal bars or signal text in the status bar</string>
 
     <!-- Hide battery icon -->
     <string name="hide_battery_icon_title">Esconder ícone da bateria</string>
-    <string name="hide_battery_icon_summary">Hides the battery icon in the status bar</string>
+    <string name="hide_battery_icon_summary">Esconde o ícone da bateria na status bar</string>
 
     <!-- Gummy Updater -->
     <string name="gummyupdate_settings_title">Actualizações Gummy</string>
-    <string name="gummyupdate_settings_summary">Check for, view or install available updates</string>
+    <string name="gummyupdate_settings_summary">Verificar, ver ou instalar actualizações disponíveis</string>
 
     <!-- Lockscreen Lid Settings -->
     <string name="smart_cover_category_title">Smart cover</string>
@@ -1468,7 +1467,7 @@ f anonymous statistics. -->
     <!-- Wakelock blocker -->
     <string name="wakelock_blocker">Wakelock Blocker</string>
     <string name="wakelock_blocker_title">Activar</string>
-    <string name="wakelock_blocker_summary">Activate blocking for checked wakelocks</string>
+    <string name="wakelock_blocker_summary">Activar blocking for checked wakelocks</string>
     <string name="wakelock_blocker_save">Salvar</string>
     <string name="wakelock_list_header">Available Wakelocks</string>
     <string name="wakelock_blocker_reload">Reload</string>
@@ -1512,24 +1511,24 @@ f anonymous statistics. -->
     <string name="custom_screencolor">Custom screen color</string>
     <string name="screencolor_save">Salvar</string>
     <string name="screencolor_cancel">Cancelar</string>
-    <string name="previous_str">Previous</string>
+    <string name="previous_str">Anterior</string>
     <string name="new_str">Novo</string>
     <string name="restore_preview">View default picture</string>
     <string name="selectnewfile_menu">View new picture from Gallery</string>
     <string name="selectfile_menu">View picture from Gallery</string>
     <string name="restore_default_str">Reset</string>
     <string name="hue_str">Hue: <xliff:g id="hue_value">%1$s</xliff:g></string>
-    <string name="saturation_str">Saturation: <xliff:g id="saturation_value">%1$s</xliff:g></string>
-    <string name="contrast_str">Contrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
-    <string name="intensity_str">Intensity: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+    <string name="saturation_str">Saturação: <xliff:g id="saturation_value">%1$s</xliff:g></string>
+    <string name="contrast_str">Contraste: <xliff:g id="contrast_value">%1$s</xliff:g></string>
+    <string name="intensity_str">Intensidade: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
 
     <!-- Minimum Vibration Duration -->
     <string name="minimum_vibration_duration">Duração mínima de vibração</string>
 
     <!-- Pie Control -->
     <string name="pie_control_title">PIE</string>
-    <string name="pie_control_summary">Enable pie controls</string>
-    <string name="pie_control_size">Navigation size</string>
+    <string name="pie_control_summary">Ligar controlos pie</string>
+    <string name="pie_control_size">Tamanho navegação</string>
     <string name="pie_control_trigger_positions">Trigger options</string>
     <string name="pie_control_trigger_left">Trigger left screen border</string>
     <string name="pie_control_trigger_bottom">Trigger bottom screen border</string>
@@ -1557,7 +1556,7 @@ f anonymous statistics. -->
     <string name="pie_mirror_right_title">Mirror right pie</string>
     <string name="pie_mirror_right_summary">Mirror right pie on the horizontal axis</string>
     <string name="pie_style">Estilo e dimensões</string>
-    <string name="pie_style_title">Style</string>
+    <string name="pie_style_title">Estilo</string>
     <string name="pie_dimens_title">Dimensões</string>
     <string name="pie_show_snap_title">Show snap points</string>
     <string name="pie_show_snap_summary">Shows snap points to change the trigger edge dynamically</string>
@@ -1577,15 +1576,15 @@ f anonymous statistics. -->
     <string name="pie_disable_ime_triggers_summary">Reduces left and right trigger size if keyboard is active</string>
 
     <!-- Double tap to sleep -->
-    <string name="double_tap_options_title">Double-tap options</string>
-    <string name="status_bar_double_tap_to_sleep_title">Double-tap to sleep</string>
+    <string name="double_tap_options_title">Opções duplo-toque</string>
+    <string name="status_bar_double_tap_to_sleep_title">Duplo toque para adormecer</string>
     <string name="status_bar_double_tap_to_sleep_summary">Double tap the status bar / lockscreen glowpad to sleep"</string>
 
     <!-- Double tap to wake -->
-    <string name="double_tap_to_wake_title">Double-tap to wake</string>
+    <string name="double_tap_to_wake_title">Duplo toque para acordar</string>
 
     <!-- Quickboot -->
-    <string name="enable_quickboot_title">Enable QuickBoot mode</string>
+    <string name="enable_quickboot_title">Ligar modo arranque rápido</string>
     <string name="enable_quickboot_summary">Put device into QuickBoot mode instead of normal power off.</string>
 
     <!-- 0-click settings -->
@@ -1604,14 +1603,14 @@ f anonymous statistics. -->
     <string name="setting_lockscreen_background">Applying background</string>
 
     <!-- Set Subscription screen: label no sim -->
-    <string name="sub_no_sim">No SIM</string>
+    <string name="sub_no_sim">Sem cartão Sim</string>
     <string name="multi_sim_entry_format" translatable="false"><xliff:g id="operator">%1$s</xliff:g>-<xliff:g id="index">%2$d</xliff:g></string>
 
     <!-- Main settings screen, Multi Sim settings title for item to go into the Multi settings -->
     <string name="multi_sim_settings_title">Multi SIM</string>
 
     <!-- Multi Sim settings group title -->
-    <string name="multi_sim_settings_group_summary">Default SIM selection</string>
+    <string name="multi_sim_settings_group_summary">Selecção Sim de origem</string>
 
     <!-- Multi Sim Settings screen, Voice box label -->
     <string name="voice_title">Voice calls</string>
@@ -1626,6 +1625,6 @@ f anonymous statistics. -->
     <string name="priority_sub_title">Priority subscription</string>
 
     <!-- Bluetooth accept all Filestypes -->
-    <string name="bluetooth_accept_all_files">Accept all file types</string>
+    <string name="bluetooth_accept_all_files">Aceitar todos os tipos de ficheiros</string>
 
 </resources>
