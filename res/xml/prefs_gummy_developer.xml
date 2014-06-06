@@ -16,6 +16,11 @@
             android:icon="@drawable/twitter_bird" />
 
         <Preference
+            android:key="dhacker29"
+            android:title="@string/dhacker29"
+            android:icon="@drawable/twitter_bird" />
+
+        <Preference
             android:key="Kejar31"
             android:title="@string/Kejar31"
             android:icon="@drawable/twitter_bird" />
@@ -44,11 +49,6 @@
         <Preference
             android:key="BytecodeMe"
             android:title="@string/BytecodeMe"
-            android:icon="@drawable/twitter_bird" />
-
-        <Preference
-            android:key="dhacker29"
-            android:title="@string/dhacker29"
             android:icon="@drawable/twitter_bird" />
 
         <Preference

@@ -32,11 +32,11 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
 
     private static final String GUMMY_TWITTER = "https://twitter.com/TeamGummyRom";
     private static final String CPHELPS76 = "https://twitter.com/csphelps76";
+    private static final String DHACKER29 = "https://twitter.com/dhacker29";
     private static final String KEJAR31 = "https://twitter.com/kejar31";
     private static final String BKJOLLY = "https://twitter.com/bkjolly";
     private static final String BUCKMARBLE = "https://twitter.com/buckmarble";
     private static final String BYTECODEME = "https://twitter.com/BytecodeMe";
-    private static final String DHACKER29 = "https://twitter.com/dhacker29";
     private static final String EMERICANX = "https://twitter.com/emericanx";
     private static final String HASHCODE = "https://twitter.com/Hashcode0f";
     private static final String HEDWIG34 = "https://twitter.com/hedwig34";
@@ -47,12 +47,12 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
     private static final String RINKLE = "https://twitter.com/Rinkle_McBally";
 
     Preference mCphelps76;
+    Preference mDhacker29;
     Preference mKejar31;
     Preference mapascual89;
     Preference mBkjolly;
     Preference mBuckmarble;
     Preference mBytecodeme;
-    Preference mDhacker29;
     Preference mEmericanx;
     Preference mHashcode;
     Preference mHedwig34;
@@ -71,12 +71,12 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
         addPreferencesFromResource(R.xml.prefs_gummy_developer);
 
         mCphelps76 = findPreference("cphelps76");
+        mDhacker29 = findPreference("dhacker29");
         mKejar31 = findPreference("Kejar31");
         mapascual89 = findPreference("apascual89");
         mBkjolly = findPreference("Bkjolly");
         mBuckmarble = findPreference("Buckmarble");
         mBytecodeme = findPreference("BytecodeMe");
-        mDhacker29 = findPreference("dhacker29");
         mEmericanx = findPreference("Emericanx");
         mHashcode = findPreference("hashcode");
         mHedwig34 = findPreference("Hedwig34");
@@ -95,6 +95,9 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
         if (preference == mCphelps76) {
             launchUrl(CPHELPS76);
             return true;
+        } else if (preference == mDhacker29) {
+            launchUrl(DHACKER29);
+            return true;
         } else if (preference == mKejar31) {
             launchUrl(KEJAR31);
             return true;
@@ -109,9 +112,6 @@ public class DeveloperPreference extends SettingsPreferenceFragment {
             return true;
         } else if (preference == mBytecodeme) {
             launchUrl(BYTECODEME);
-            return true;
-        } else if (preference == mDhacker29) {
-            launchUrl(DHACKER29);
             return true;
         } else if (preference == mEmericanx) {
             launchUrl(EMERICANX);
