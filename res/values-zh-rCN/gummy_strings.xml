@@ -1606,7 +1606,6 @@ f anonymous statistics. -->
 
     <!-- Set Subscription screen: label no sim -->
     <string name="sub_no_sim">无 SIM 卡</string>
-    <string name="multi_sim_entry_format" translatable="false"><xliff:g id="operator">%1$s</xliff:g>-<xliff:g id="index">%2$d</xliff:g></string>
 
     <!-- Main settings screen, Multi Sim settings title for item to go into the Multi settings -->
     <string name="multi_sim_settings_title">多 SIM 卡</string>
