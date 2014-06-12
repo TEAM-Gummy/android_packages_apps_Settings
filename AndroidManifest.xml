@@ -1735,7 +1735,6 @@
 
         <!-- Gummy activities Start -->
         <activity android:name=".gummy.StatusBar" />
-        <activity android:name=".gummy.GummyInterface" />
         <activity android:name=".gummy.PerformanceSettings" />
         <activity android:name=".gummy.CarrierLabel" />
         <activity android:name=".gummy.ClockClicks" />
@@ -1782,6 +1781,18 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                        android:value="com.android.settings.ThemeSettings" />
+        </activity>
+
+        <activity android:name="Settings$GummyInterfaceActivity"
+                  android:label="@string/gummy_interface_title"
+                  android:taskAffinity=""
+                  android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.android.settings.GummyInterface" />
         </activity>
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->

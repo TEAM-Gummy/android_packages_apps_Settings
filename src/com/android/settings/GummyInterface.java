@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.gummy;
+package com.android.settings;
 
 import android.content.Intent;
 import android.os.Bundle;

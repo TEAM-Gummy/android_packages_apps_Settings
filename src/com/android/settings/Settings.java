@@ -362,7 +362,8 @@ public class Settings extends PreferenceActivity
         QuietHours.class.getName(),
         BlacklistSettings.class.getName(),
         ApnSettings.class.getName(),
-        ThemeSettings.class.getName()
+        ThemeSettings.class.getName(),
+        GummyInterface.class.getName()
     };
 
     @Override
@@ -1155,4 +1156,5 @@ public class Settings extends PreferenceActivity
     public static class ApnEditorActivity extends Settings { /* empty */ }
     public static class BlacklistSettingsActivity extends Settings { /* empty */ }
     public static class ThemeSettingsActivity extends Settings { /* empty */ }
+    public static class GummyInterfaceActivity extends Settings { /* empty */ }
 }

@@ -86,7 +86,7 @@
     <header
         android:id="@+id/gummy_interface"
         android:icon="@drawable/ic_settings_gummy"
-        android:fragment="com.android.settings.gummy.GummyInterface"
+        android:fragment="com.android.settings.GummyInterface"
         android:title="@string/gummy_interface_title" />
 
     <!-- TRDS -->
