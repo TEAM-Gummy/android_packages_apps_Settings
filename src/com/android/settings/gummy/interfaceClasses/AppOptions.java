@@ -47,6 +47,7 @@ public class AppOptions extends SettingsPreferenceFragment
     private static final String KEY_CALENDAR = "calendar";
     private static final String KEY_CONTACTS = "contacts";
     private static final String KEY_DESKCLOCK = "deskclock";
+    private static final String KEY_DSPMANAGER = "dspmanager";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_FILE_MANAGER = "file_manager";
     private static final String KEY_MMS = "mms";
@@ -85,6 +86,9 @@ public class AppOptions extends SettingsPreferenceFragment
                 }
                 if (!isPackageInstalled("com.android.deskclock")) {
                     mAppCatagory.removePreference(findPreference(KEY_DESKCLOCK));
+                }
+                if (!isPackageInstalled("com.bel.android.dspmanager")) {
+                    mAppCatagory.removePreference(findPreference(KEY_DSPMANAGER));
                 }
                 if (!isPackageInstalled("com.android.email")) {
                     mAppCatagory.removePreference(findPreference(KEY_EMAIL));

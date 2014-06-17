@@ -69,6 +69,15 @@
         </PreferenceScreen>
 
         <PreferenceScreen
+            android:key="dspmanager"
+            android:title="@string/dspmanager_title"
+            android:icon="@drawable/ic_dsp">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.bel.android.dspmanager"
+                    android:targetClass="com.bel.android.dspmanager.activity.DSPManager" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
             android:key="email"
             android:title="@string/email_title"
             android:icon="@drawable/ic_email">
