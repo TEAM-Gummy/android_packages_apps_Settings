@@ -25,6 +25,7 @@
     <string name="system_catagory_title">System</string>
     <string name="notification_drawer_title">Notification Drawer</string>
     <string name="notification_drawer_options">Notification Drawer Options</string>
+    <string name="notification_category">Notifications</string>
     <string name="lockscreen_title">Lockscreen</string>
     <string name="lockscreen_options">Lockscreen Options</string>
     <string name="navigation_settings_options_title">Navigation options</string>
@@ -1638,4 +1639,9 @@ f anonymous statistics. -->
     <string name="app_ops_labels_data_change">Data change</string>
     <string name="app_ops_summaries_alarm_wakeup">wake up</string>
     <string name="app_ops_labels_alarm_wakeup">Wake up</string>
+
+    <!--Notification peek-->
+    <string name="notification_peek_title">Notification peek</string>
+    <string name="notification_peek_summary">Show latest notification after picking up your device</string>
+
 </resources>

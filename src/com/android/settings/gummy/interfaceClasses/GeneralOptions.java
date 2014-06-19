@@ -61,6 +61,7 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
     private static final String KEY_POWER_CRT_SCREEN_OFF = "system_power_crt_screen_off";
     private static final String KEY_TAP_TO_WAKE = "double_tap_wake_gesture";
     private static final String DOUBLE_TAP_OPTIONS = "double_tap_options";
+    private static final String KEY_PEEK = "notification_peek";
 
     // Request code for power notification ringtone picker
     private static final int REQUEST_CODE_POWER_NOTIFICATIONS_RINGTONE = 1;
@@ -75,6 +76,7 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
     private CheckBoxPreference mCrtOff;
     private CheckBoxPreference mTapToWake;
     private PreferenceCategory mDoubleTapOptions;
+    private CheckBoxPreference mNotificationPeek;
 
     private boolean mIsCrtOffChecked = false;
 
@@ -140,6 +142,8 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
         mCrtMode.setSummary(mCrtMode.getEntries()[crtMode]);
         mCrtMode.setOnPreferenceChangeListener(this);
 
+        mNotificationPeek = (CheckBoxPreference) findPreference(KEY_PEEK);
+
     }
 
     @Override
@@ -175,6 +179,11 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SYSTEM_POWER_ENABLE_CRT_OFF,
                     mCrtOff.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mNotificationPeek) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.PEEK_STATE,
+                    mNotificationPeek.isChecked() ? 1 : 0);
             return true;
         } else {
             // If we didn't handle it, let preferences handle it.

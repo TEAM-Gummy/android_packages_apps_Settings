@@ -36,6 +36,17 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="notification_category"
+        android:title="@string/notification_category">
+
+        <CheckBoxPreference
+            android:key="notification_peek"
+            android:title="@string/notification_peek_title"
+            android:summary="@string/notification_peek_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="general_options"
         android:title="@string/general_options_title">
 
