@@ -144,6 +144,7 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
 
         mNotificationPeek = (CheckBoxPreference) findPreference(KEY_PEEK);
 
+        disablePref();
     }
 
     @Override
@@ -274,6 +275,18 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
             } else {
                 Log.d(TAG, "Tap-to-wake settings restored.");
             }
+        }
+    }
+
+    private void disablePref() {
+        ContentResolver resolver = getActivity().getContentResolver();
+        boolean enabled = Settings.System.getInt(resolver,
+                Settings.System.ENABLE_ACTIVE_DISPLAY, 0) == 1;
+        if (enabled) {
+            Settings.System.putInt(resolver,
+                Settings.System.PEEK_STATE, 0);
+            mNotificationPeek.setEnabled(false);
+            mNotificationPeek.setSummary(R.string.notification_peek_disabled_summary);
         }
     }
 }

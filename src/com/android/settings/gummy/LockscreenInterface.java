@@ -54,11 +54,13 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private static final String KEY_LOCKSCREEN_ROTATION = "lockscreen_rotation";
     private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
     private static final String PREF_LOCKSCREEN_EXTRAS = "lockscreen_extras";
+    private static final String KEY_ACTIVE_DISPLAY = "active_display";
 
     private PreferenceScreen mLockscreenButtons;
     private PreferenceCategory mAdvancedCatagory;
     private PreferenceCategory mGeneralCatagory;
     private PreferenceScreen mLockscreenExtras;
+    private PreferenceScreen mActiveDisplay;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private DevicePolicyManager mDPM;
@@ -124,8 +126,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
             mGeneralCatagory.removePreference(mGlowpadTorch);
         }
 
-        removeButtonsPreference();
+        mActiveDisplay = (PreferenceScreen) findPreference(KEY_ACTIVE_DISPLAY);
 
+        removeButtonsPreference();
+        disablePref();
     }
 
     @Override
@@ -200,6 +204,18 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
             }
         } catch (Exception e) {
             // Do nothing
+        }
+    }
+
+    private void disablePref() {
+        ContentResolver resolver = getActivity().getContentResolver();
+        boolean enabled = Settings.System.getInt(resolver,
+                Settings.System.PEEK_STATE, 0) == 1;
+        if (enabled) {
+            Settings.System.putInt(resolver,
+                Settings.System.ENABLE_ACTIVE_DISPLAY, 0);
+            mActiveDisplay.setEnabled(false);
+            mActiveDisplay.setSummary(R.string.ad_disabled_summary);
         }
     }
 }
