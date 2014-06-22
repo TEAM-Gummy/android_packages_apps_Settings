@@ -23,7 +23,10 @@ import android.content.ContentResolver;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -55,12 +58,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
     private static final String PREF_LOCKSCREEN_EXTRAS = "lockscreen_extras";
     private static final String KEY_ACTIVE_DISPLAY = "active_display";
+    private static final String KEY_PEEK = "notification_peek";
 
     private PreferenceScreen mLockscreenButtons;
     private PreferenceCategory mAdvancedCatagory;
     private PreferenceCategory mGeneralCatagory;
     private PreferenceScreen mLockscreenExtras;
     private PreferenceScreen mActiveDisplay;
+    private CheckBoxPreference mNotificationPeek;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private DevicePolicyManager mDPM;
@@ -69,6 +74,36 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private CheckBoxPreference mLockRingBattery;
     private CheckBoxPreference mLockscreenRotation;
     private CheckBoxPreference mGlowpadTorch;
+
+    private SettingsObserver mSettingsObserver = new SettingsObserver(new Handler());
+    private final class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = getActivity().getContentResolver();
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.PEEK_STATE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.ENABLE_ACTIVE_DISPLAY),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.HARDWARE_KEYS_DISABLE),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            super.onChange(selfChange);
+            try {
+                updateSettings();
+            } catch (Exception e) {
+                Log.e(TAG, "AJ is a whore.");
+            }
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -128,20 +163,59 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
 
         mActiveDisplay = (PreferenceScreen) findPreference(KEY_ACTIVE_DISPLAY);
 
-        removeButtonsPreference();
-        disablePref();
+        mNotificationPeek = (CheckBoxPreference) findPreference(KEY_PEEK);
+
+        SettingsObserver settingsObserver = new SettingsObserver(new Handler());
+        settingsObserver.observe();
+
+        updateSettings();
+    }
+
+    private void updateSettings() {
+        ContentResolver resolver = getActivity().getContentResolver();
+        boolean peekEnabled = Settings.System.getInt(resolver,
+                Settings.System.PEEK_STATE, 0) == 1;
+        boolean adEnabled = Settings.System.getInt(resolver,
+                Settings.System.ENABLE_ACTIVE_DISPLAY, 0) == 1;
+        boolean mHardwareKeysDisable = Settings.System.getInt(resolver,
+                Settings.System.HARDWARE_KEYS_DISABLE, 0) == 1;
+        boolean mHasButtons = !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+        if (peekEnabled) {
+            mActiveDisplay.setEnabled(false);
+            mActiveDisplay.setSummary(R.string.ad_disabled_summary);
+        } else {
+            mActiveDisplay.setEnabled(true);
+            mActiveDisplay.setSummary(R.string.ad_settings_summary);
+        }
+
+        if (adEnabled) {
+            mNotificationPeek.setEnabled(false);
+            mNotificationPeek.setSummary(R.string.notification_peek_disabled_summary);
+        } else {
+            mNotificationPeek.setEnabled(true);
+            mNotificationPeek.setSummary(R.string.notification_peek_summary);
+        }
+
+        try {
+            if ((mHardwareKeysDisable) || (!mHasButtons)) {
+                mAdvancedCatagory.removePreference(mLockscreenButtons);
+            }
+        } catch (Exception e) {
+            // Do nothing
+        }
     }
 
     @Override
     public void onResume() {
-        removeButtonsPreference();
         super.onResume();
+        updateSettings();
+        mSettingsObserver.observe();
     }
 
     @Override
     public void onPause() {
-        removeButtonsPreference();
         super.onPause();
+        getActivity().getContentResolver().unregisterContentObserver(mSettingsObserver);
     }
 
     private boolean isToggled(Preference pref) {
@@ -183,39 +257,15 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_GLOWPAD_TORCH, isToggled(preference) ? 1 : 0);
             return true;
+        } else if (preference == mNotificationPeek) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.PEEK_STATE,
+                    mNotificationPeek.isChecked() ? 1 : 0);
+            return true;
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
         return true;
-    }
-
-    private boolean hasButtons() {
-        return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
-    }
-
-    private void removeButtonsPreference() {
-        ContentResolver resolver = getActivity().getContentResolver();
-        boolean mHardwareKeysDisable = Settings.System.getInt(resolver,
-                Settings.System.HARDWARE_KEYS_DISABLE, 0) == 1;
-        try {
-            if ((mHardwareKeysDisable) || (!hasButtons())) {
-                mAdvancedCatagory.removePreference(mLockscreenButtons);
-            }
-        } catch (Exception e) {
-            // Do nothing
-        }
-    }
-
-    private void disablePref() {
-        ContentResolver resolver = getActivity().getContentResolver();
-        boolean enabled = Settings.System.getInt(resolver,
-                Settings.System.PEEK_STATE, 0) == 1;
-        if (enabled) {
-            Settings.System.putInt(resolver,
-                Settings.System.ENABLE_ACTIVE_DISPLAY, 0);
-            mActiveDisplay.setEnabled(false);
-            mActiveDisplay.setSummary(R.string.ad_disabled_summary);
-        }
     }
 }

@@ -76,7 +76,6 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
     private CheckBoxPreference mCrtOff;
     private CheckBoxPreference mTapToWake;
     private PreferenceCategory mDoubleTapOptions;
-    private CheckBoxPreference mNotificationPeek;
 
     private boolean mIsCrtOffChecked = false;
 
@@ -141,10 +140,6 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
         mCrtMode.setValueIndex(crtMode);
         mCrtMode.setSummary(mCrtMode.getEntries()[crtMode]);
         mCrtMode.setOnPreferenceChangeListener(this);
-
-        mNotificationPeek = (CheckBoxPreference) findPreference(KEY_PEEK);
-
-        disablePref();
     }
 
     @Override
@@ -180,11 +175,6 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SYSTEM_POWER_ENABLE_CRT_OFF,
                     mCrtOff.isChecked() ? 1 : 0);
-            return true;
-        } else if (preference == mNotificationPeek) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.PEEK_STATE,
-                    mNotificationPeek.isChecked() ? 1 : 0);
             return true;
         } else {
             // If we didn't handle it, let preferences handle it.
@@ -275,18 +265,6 @@ public class GeneralOptions extends SettingsPreferenceFragment implements
             } else {
                 Log.d(TAG, "Tap-to-wake settings restored.");
             }
-        }
-    }
-
-    private void disablePref() {
-        ContentResolver resolver = getActivity().getContentResolver();
-        boolean enabled = Settings.System.getInt(resolver,
-                Settings.System.ENABLE_ACTIVE_DISPLAY, 0) == 1;
-        if (enabled) {
-            Settings.System.putInt(resolver,
-                Settings.System.PEEK_STATE, 0);
-            mNotificationPeek.setEnabled(false);
-            mNotificationPeek.setSummary(R.string.notification_peek_disabled_summary);
         }
     }
 }
