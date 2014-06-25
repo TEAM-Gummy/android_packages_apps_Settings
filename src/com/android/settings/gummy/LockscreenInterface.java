@@ -168,7 +168,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         mActiveDisplay = (PreferenceScreen) findPreference(KEY_ACTIVE_DISPLAY);
 
         mNotificationPeek = (CheckBoxPreference) findPreference(KEY_PEEK);
-        mNotificationPeek.setPersistent(false);
 
         mPeekPickupTimeout = (ListPreference) findPreference(KEY_PEEK_PICKUP_TIMEOUT);
         int peekTimeout = Settings.System.getIntForUser(getContentResolver(),
@@ -272,9 +271,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                     Settings.System.LOCKSCREEN_GLOWPAD_TORCH, isToggled(preference) ? 1 : 0);
             return true;
         } else if (preference == mNotificationPeek) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.PEEK_STATE,
-                    mNotificationPeek.isChecked() ? 1 : 0);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PEEK_STATE, isToggled(preference) ? 1 : 0);
             return true;
         } else {
             // If we didn't handle it, let preferences handle it.
