@@ -33,6 +33,12 @@
             android:title="@string/double_tap_to_wake_title"
             android:defaultValue="false" />
 
+        <com.android.settings.gummy.SystemSettingCheckBoxPreference
+            android:key="proximity_on_wake"
+            android:title="@string/proximity_wake_title"
+            android:summary="@string/proximity_wake_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

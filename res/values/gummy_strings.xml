@@ -1469,7 +1469,7 @@ f anonymous statistics. -->
     <string name="pie_disable_ime_triggers_summary">Reduces left and right trigger size if keyboard is active</string>
 
     <!-- Double tap to sleep -->
-    <string name="double_tap_options_title">Double-tap options</string>
+    <string name="double_tap_options_title">Wake/Sleep options</string>
     <string name="status_bar_double_tap_to_sleep_title">Double-tap to sleep</string>
     <string name="status_bar_double_tap_to_sleep_summary">Double tap the status bar / lockscreen glowpad to sleep"</string>
 
@@ -1687,5 +1687,9 @@ f anonymous statistics. -->
     <string name="quick_pulldown_off">Off</string>
     <string name="quick_pulldown_left">Left</string>
     <string name="quick_pulldown_right">Right</string>
+
+    <!-- Proximity wake -->
+    <string name="proximity_wake_title">Proximity wake-up</string>
+    <string name="proximity_wake_summary">Use proximity sensor to help decide whether to wake device up</string>
 
 </resources>
