@@ -62,6 +62,7 @@
     <string name="signal_style_title">Signal Style</string>
     <string name="animation_options_title">System Animations</string>
     <string name="power_notifications_category_title">Power Notifications</string>
+    <string name="hover_options_title">Hover Options</string>
 
     <!-- App Setting menus -->
     <string name="app_settings_entry_dialog">Source built app settings can be accessed here directly as well as from within the apps themselves</string>
@@ -1684,5 +1685,27 @@ f anonymous statistics. -->
     <string name="listview_overshoot_interpolator">Overshoot</string>
     <string name="listview_anticipate_overshoot_interpolator">Anticipate and overshoot</string>
     <string name="listview_bounce_interpolator">Bounce</string>
+
+    <!-- Hover options -->
+    <string name="hover_status_title">HOVER</string>
+    <string name="hover_status_title_summary">Enable HOVER Notification System</string>
+    <string name="hover_hide_button_title">Hide HOVER-Button</string>
+    <string name="hover_hide_button_summary">Hide the HOVER-Button in the StatusBar</string>
+    <string name="hover_active_title">Activate HOVER</string>
+    <string name="hover_active_summary">This activates HOVER, as replacement of the button in StatusBar</string>
+    <string name="hover_require_fullscreen_mode_title">Require Fullscreen-Mode</string>
+    <string name="hover_require_fullscreen_mode_summary">Only show up when StatusBar is hidden</string>
+    <string name="hover_exclude_low_priority_title">Exclude low priority</string>
+    <string name="hover_exclude_low_priority_summary">Exclude notifications marked as low priority</string>
+    <string name="hover_exclude_non_clearable_title">Exclude non-clearable</string>
+    <string name="hover_exclude_non_clearable_summary">Exclude not dismissable notifications</string>
+    <string name="hover_exclude_topmost_title">Exclude topmost app</string>
+    <string name="hover_exclude_topmost_summary">Exclude notifications from the app running in foreground</string>
+    <string name="hover_long_fadeout_title">Hover notification time</string>
+    <string name="hover_long_fadeout_3seconds">3 seconds</string>
+    <string name="hover_long_fadeout_5seconds">5 seconds (default)</string>
+    <string name="hover_long_fadeout_7seconds">7 seconds</string>
+    <string name="hover_long_fadeout_10seconds">10 seconds</string>
+    <string name="hover_long_fadeout_15seconds">15 seconds</string>
 
 </resources>

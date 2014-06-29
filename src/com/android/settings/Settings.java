@@ -363,7 +363,8 @@ public class Settings extends PreferenceActivity
         BlacklistSettings.class.getName(),
         ApnSettings.class.getName(),
         ThemeSettings.class.getName(),
-        GummyInterface.class.getName()
+        GummyInterface.class.getName(),
+        HoverOptions.class.getName()
     };
 
     @Override
@@ -1157,4 +1158,5 @@ public class Settings extends PreferenceActivity
     public static class BlacklistSettingsActivity extends Settings { /* empty */ }
     public static class ThemeSettingsActivity extends Settings { /* empty */ }
     public static class GummyInterfaceActivity extends Settings { /* empty */ }
+    public static class HoverOptionsActivity extends Settings { /* empty */ }
 }
