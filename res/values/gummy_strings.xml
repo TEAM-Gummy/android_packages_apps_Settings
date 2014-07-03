@@ -62,7 +62,6 @@
     <string name="signal_style_title">Signal Style</string>
     <string name="animation_options_title">System Animations</string>
     <string name="power_notifications_category_title">Power Notifications</string>
-    <string name="hover_options_title">Hover Options</string>
 
     <!-- App Setting menus -->
     <string name="app_settings_entry_dialog">Source built app settings can be accessed here directly as well as from within the apps themselves</string>
@@ -1659,7 +1658,6 @@ f anonymous statistics. -->
     <string name="blacklist_button_title">Blacklist</string>
     <string name="peek_blacklist_label">Blacklist from Peek</string>
     <string name="floating_blacklist_label">Blacklist from Floating Mode</string>
-    <string name="hover_blacklist_label">Blacklist from Hover</string>
 
     <!-- ListView animation -->
     <string name="interface_settings_animation_title">Animation options</string>
@@ -1686,26 +1684,18 @@ f anonymous statistics. -->
     <string name="listview_anticipate_overshoot_interpolator">Anticipate and overshoot</string>
     <string name="listview_bounce_interpolator">Bounce</string>
 
-    <!-- Hover options -->
-    <string name="hover_status_title">HOVER</string>
-    <string name="hover_status_title_summary">Enable HOVER Notification System</string>
-    <string name="hover_hide_button_title">Hide HOVER-Button</string>
-    <string name="hover_hide_button_summary">Hide the HOVER-Button in the StatusBar</string>
-    <string name="hover_active_title">Activate HOVER</string>
-    <string name="hover_active_summary">This activates HOVER, as replacement of the button in StatusBar</string>
-    <string name="hover_require_fullscreen_mode_title">Require Fullscreen-Mode</string>
-    <string name="hover_require_fullscreen_mode_summary">Only show up when StatusBar is hidden</string>
-    <string name="hover_exclude_low_priority_title">Exclude low priority</string>
-    <string name="hover_exclude_low_priority_summary">Exclude notifications marked as low priority</string>
-    <string name="hover_exclude_non_clearable_title">Exclude non-clearable</string>
-    <string name="hover_exclude_non_clearable_summary">Exclude not dismissable notifications</string>
-    <string name="hover_exclude_topmost_title">Exclude topmost app</string>
-    <string name="hover_exclude_topmost_summary">Exclude notifications from the app running in foreground</string>
-    <string name="hover_long_fadeout_title">Hover notification time</string>
-    <string name="hover_long_fadeout_3seconds">3 seconds</string>
-    <string name="hover_long_fadeout_5seconds">5 seconds (default)</string>
-    <string name="hover_long_fadeout_7seconds">7 seconds</string>
-    <string name="hover_long_fadeout_10seconds">10 seconds</string>
-    <string name="hover_long_fadeout_15seconds">15 seconds</string>
+    <!-- Heads Up -->
+    <string name="category_heads_up">HeadsUp</string>
+    <string name="heads_up_summary">Pop-up notifications in fullscreen apps</string>
+    <string name="title_heads_up_enabled">Enable HeadsUp</string>
+    <string name="add_heads_up_package">Add app</string>
+    <string name="heads_up_dnd_title">Do not disturb</string>
+    <string name="heads_up_blacklist_title">Blacklist</string>
+    <string name="add_heads_up_dnd_summary">Choose which applications you don\'t want to be interrupted in</string>
+    <string name="add_heads_up_blacklist_summary">Choose which applications you don\'t want heads up notifications from</string>
+    <string name="heads_up_timeout">Heads up timeout</string>
+    <string name="heads_up_fullscreen_timeout">Heads up timeout on fullscreen</string>
+    <string name="heads_up_floating_window">Launch in floating window</string>
+    <string name="profile_choose_app">Choose app</string>
 
 </resources>
