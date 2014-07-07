@@ -57,6 +57,11 @@
             android:icon="@drawable/twitter_bird" />
 
         <Preference
+            android:key="faux123"
+            android:title="@string/faux123"
+            android:icon="@drawable/twitter_bird" />
+
+        <Preference
             android:key="hashcode"
             android:title="@string/hashcode"
             android:icon="@drawable/twitter_bird" />
