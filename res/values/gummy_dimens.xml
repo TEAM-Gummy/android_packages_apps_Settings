@@ -23,10 +23,7 @@
     <dimen name="auto_brightness_preview_grid_margin">3dip</dimen>
     <dimen name="auto_brightness_dialog_more_button_size">48dp</dimen>
 
-    <!-- QuickSettings -->
-    <dimen name="list_toggle_height">48dp</dimen>
-    <dimen name="list_toggle_width">320dp</dimen>
-    <dimen name="toggle_rearrange_dialog_title_height">68dp</dimen>
+    <!-- DSLV -->
     <dimen name="drag_grip_ridge_size">6dp</dimen>
     <dimen name="drag_grip_ridge_gap">4dp</dimen>
 
@@ -36,5 +33,14 @@
 
     <!-- Minimal notification row height used to calculate max notification count -->
     <dimen name="notification_row_min_height">70dp</dimen>
+    <!-- Navbar -->
+    <dimen name="navigation_bar_48">48dp</dimen>
+    <dimen name="navigation_bar_44">44dp</dimen>
+    <dimen name="navigation_bar_42">42dp</dimen>
+    <dimen name="navigation_bar_40">40dp</dimen>
+    <dimen name="navigation_bar_36">36dp</dimen>
+    <dimen name="navigation_bar_30">30dp</dimen>
+    <dimen name="navigation_bar_24">24dp</dimen>
+    <dimen name="navigation_bar_0">0dp</dimen>
 
 </resources>

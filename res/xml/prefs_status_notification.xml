@@ -31,12 +31,6 @@
             android:key="notification_drawer"
             android:fragment="com.android.settings.gummy.NotificationDrawer"
             android:title="@string/notification_drawer_title" />
-
-        <PreferenceScreen
-            android:key="statusbar_toggles"
-            android:fragment="com.android.settings.gummy.StatusBarToggles"
-            android:title="@string/title_statusbar_toggles" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>

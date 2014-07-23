@@ -32,7 +32,6 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -296,13 +295,6 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
 
     public void setTitle(int resId) {
         getActivity().setTitle(resId);
-    }
-
-    public static boolean isSW600DPScreen(Context context) {
-        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        int widthPixels = displayMetrics.widthPixels;
-        float density = displayMetrics.density;
-        return ((widthPixels / density) >= 600);
     }
 
     protected boolean hasNextButton() {
