@@ -80,6 +80,8 @@ import com.android.settings.deviceinfo.Memory;
 import com.android.settings.deviceinfo.UsbSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.gummy.QuietHours;
+import com.android.settings.gummy.BatteryIconStyle;
+import com.android.settings.gummy.DisplayRotation;
 import com.android.settings.inputmethod.InputMethodAndLanguageSettings;
 import com.android.settings.inputmethod.KeyboardLayoutPickerFragment;
 import com.android.settings.inputmethod.SpellCheckersSettings;
@@ -363,7 +365,9 @@ public class Settings extends PreferenceActivity
         BlacklistSettings.class.getName(),
         ApnSettings.class.getName(),
         ThemeSettings.class.getName(),
-        GummyInterface.class.getName()
+        GummyInterface.class.getName(),
+	BatteryIconStyle.class.getName(),
+	DisplayRotation.class.getName()
     };
 
     @Override
@@ -1178,4 +1182,6 @@ public class Settings extends PreferenceActivity
     public static class BlacklistSettingsActivity extends Settings { /* empty */ }
     public static class ThemeSettingsActivity extends Settings { /* empty */ }
     public static class GummyInterfaceActivity extends Settings { /* empty */ }
+    public static class BatteryIconStyleSettingsActivity extends Settings { /* empty */ }
+    public static class DisplayRotationSettingsActivity extends Settings { /* empty */ }
 }

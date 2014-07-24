@@ -31,6 +31,12 @@
         android:title="@string/io_scheds_title"
         android:summary="@string/io_scheds_summary" />
 
+    <ListPreference
+        android:key="pref_perf_profile"
+        android:dialogTitle="@string/perf_profile_title"
+        android:title="@string/perf_profile_title"
+        android:persistent="false" />
+
     <PreferenceScreen
         android:key="memory_management"
         android:fragment="com.android.settings.gummy.MemoryManagement"

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 Gummy
+ * Copyright (C) 2012 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,6 +67,12 @@ public class IconPicker {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         mIconListener.iconPicked(requestCode, resultCode, data);
+    }
+
+    public void pickGallery(final int fragmentId, final File image) {
+        Intent iconPackIntent = new Intent(ICON_ACTION);
+        ComponentName component = iconPackIntent.resolveActivity(mParent.getPackageManager());
+        showChosen(REQUEST_PICK_GALLERY, image, fragmentId);
     }
 
     public void pickIcon(final int fragmentId, final File image) {
