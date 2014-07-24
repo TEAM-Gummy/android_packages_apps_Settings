@@ -9,6 +9,7 @@
         <item>480</item>
         <item>504</item>
         <item>528</item>
+        <item>640</item>
     </string-array>
 
     <string-array name="lcd_density_values" translatable="false">
@@ -20,5 +21,6 @@
         <item>480</item>
         <item>504</item>
         <item>528</item>
+        <item>640</item>
     </string-array>
 </resources>
