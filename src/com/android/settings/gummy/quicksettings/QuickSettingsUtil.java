@@ -59,7 +59,7 @@ import static com.android.internal.util.gummy.QSConstants.TILE_WIFIAP;
 import static com.android.internal.util.gummy.QSConstants.TILE_REBOOT;
 import static com.android.internal.util.gummy.QSConstants.TILE_DARKGUMMY;
 import static com.android.internal.util.gummy.QSConstants.TILE_REMOTEDISPLAY;
-import static com.android.internal.util.gummy.QSConstants.TILE_EQUALIZER;
+//import static com.android.internal.util.gummy.QSConstants.TILE_EQUALIZER;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -175,9 +175,9 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_COMPASS, R.string.title_tile_compass,
                 "com.android.systemui:drawable/ic_qs_compass_on"));
-        registerTile(new QuickSettingsUtil.TileInfo(
-                TILE_EQUALIZER, R.string.title_tile_equalizer,
-                "com.android.systemui:drawable/ic_qs_media_pause"));
+//        registerTile(new QuickSettingsUtil.TileInfo(
+//                TILE_EQUALIZER, R.string.title_tile_equalizer,
+//                "com.android.systemui:drawable/ic_qs_media_pause"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_PERFORMANCEPROFILE, R.string.title_tile_performance_profile,
                 "com.android.systemui:drawable/ic_qs_perf_profile_perf"));
