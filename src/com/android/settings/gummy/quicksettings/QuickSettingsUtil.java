@@ -26,6 +26,7 @@ import static com.android.internal.util.gummy.QSConstants.TILE_BATTERY;
 import static com.android.internal.util.gummy.QSConstants.TILE_BLUETOOTH;
 import static com.android.internal.util.gummy.QSConstants.TILE_BRIGHTNESS;
 import static com.android.internal.util.gummy.QSConstants.TILE_BUGREPORT;
+import static com.android.internal.util.gummy.QSConstants.TILE_CAMERA;
 import static com.android.internal.util.gummy.QSConstants.TILE_CONTACT;
 import static com.android.internal.util.gummy.QSConstants.TILE_COMPASS;
 import static com.android.internal.util.gummy.QSConstants.TILE_CUSTOM;
@@ -100,6 +101,9 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_BRIGHTNESS, R.string.title_tile_brightness,
                 "com.android.systemui:drawable/ic_qs_brightness_auto_off"));
+        registerTile(new QuickSettingsUtil.TileInfo(
+                 TILE_CAMERA, R.string.title_tile_camera,
+                "com.android.systemui:drawable/ic_qs_camera"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_EXPANDEDDESKTOP, R.string.title_tile_expanded_desktop,
                 "com.android.systemui:drawable/ic_qs_expanded_desktop_on"));
@@ -222,6 +226,11 @@ public class QuickSettingsUtil {
         // Don't show the bluetooth options if not supported
         if (!DeviceUtils.deviceSupportsBluetooth()) {
             removeTile(TILE_BLUETOOTH);
+        }
+
+        // Don't show the Camera tile if the device has no cameras
+        if (!DeviceUtils.deviceSupportsCamera()) {
+            removeTile(TILE_CAMERA);
         }
 
         // Don't show the NFC tile if not supported
