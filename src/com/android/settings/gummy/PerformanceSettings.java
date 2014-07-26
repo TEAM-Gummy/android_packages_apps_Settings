@@ -145,7 +145,7 @@ public class PerformanceSettings extends SettingsPreferenceFragment
             setCurrentValue();
             ContentResolver resolver = getActivity().getContentResolver();
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.PERFORMANCE_PROFILE), false, mPerformanceProfileObserver);
+                    Settings.Secure.PERFORMANCE_PROFILE), false, mPerformanceProfileObserver);
         }
     }
 
@@ -181,7 +181,7 @@ public class PerformanceSettings extends SettingsPreferenceFragment
                 return true;
 	    } else if (preference == mPerfProfilePref) {
                 Settings.System.putString(getActivity().getContentResolver(),
-                        Settings.System.PERFORMANCE_PROFILE, String.valueOf(newValue));
+                        Settings.Secure.PERFORMANCE_PROFILE, String.valueOf(newValue));
                 setCurrentPerfProfileSummary();
                 return true;
             }
@@ -213,7 +213,7 @@ public class PerformanceSettings extends SettingsPreferenceFragment
 
     private String getCurrentPerformanceProfile() {
         String value = Settings.System.getString(getActivity().getContentResolver(),
-                Settings.System.PERFORMANCE_PROFILE);
+                Settings.Secure.PERFORMANCE_PROFILE);
         if (TextUtils.isEmpty(value)) {
             value = mPerfProfileDefaultEntry;
         }
