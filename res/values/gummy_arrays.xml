@@ -133,6 +133,11 @@
         <item>@string/hardware_keys_action_last_app</item>
         <item>@string/hardware_keys_action_custom_app</item>
         <item>@string/hardware_keys_action_torch</item>
+        <item>@string/hardware_keys_action_tg_ui</item>
+        <item>@string/hardware_keys_action_expanded_desktop</item>
+        <item>@string/hardware_keys_action_pie</item>
+        <item>@string/hardware_keys_action_qs</item>
+        <item>@string/hardware_keys_action_notifications</item>
     </string-array>
 
     <string-array name="hardware_keys_action_values" translatable="false">
@@ -149,6 +154,11 @@
         <item>10</item>
         <item>11</item>
         <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
     </string-array>
 
     <!-- CRT Animation -->

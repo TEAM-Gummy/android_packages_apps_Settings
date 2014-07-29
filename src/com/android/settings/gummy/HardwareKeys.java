@@ -70,6 +70,11 @@ public class HardwareKeys extends SettingsPreferenceFragment implements
     private static final int ACTION_LAST_APP = 10;
     private static final int ACTION_CUSTOM_APP = 11;
     private static final int ACTION_TORCH = 12;
+    private static final int ACTION_TG_UI = 13;
+    private static final int ACTION_EXPANDED_DESKTOP = 14;
+    private static final int ACTION_PIE = 15;
+    private static final int ACTION_QS = 16;
+    private static final int ACTION_NOTIFICATIONS = 17;
 
     // Masks for checking presence of hardware keys.
     // Must match values in frameworks/base/core/res/res/values/config.xml
