@@ -82,6 +82,7 @@ import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.gummy.QuietHours;
 import com.android.settings.gummy.BatteryIconStyle;
 import com.android.settings.gummy.DisplayRotation;
+import com.android.settings.gummy.HeadsUpSettings;
 import com.android.settings.inputmethod.InputMethodAndLanguageSettings;
 import com.android.settings.inputmethod.KeyboardLayoutPickerFragment;
 import com.android.settings.inputmethod.SpellCheckersSettings;
