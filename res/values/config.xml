@@ -46,4 +46,6 @@
          Setting to false will disable Tune Away/Priority Subscription support -->
     <bool name="config_HasTuneAway">false</bool>
 
+    <!-- Whether to show notification led color prefs -->
+    <bool name="config_multiColorNotificationLed">true</bool>
 </resources>

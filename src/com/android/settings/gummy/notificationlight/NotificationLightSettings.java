@@ -116,10 +116,22 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     private String mPackageList;
     private Map<String, Package> mPackages;
 
+    PreferenceScreen prefSet;
+    PreferenceGroup mGeneralPrefs;
+    PreferenceGroup mPhonePrefs;
+
+    private boolean multicolorNotificationLed;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.notification_light_settings);
+
+        prefSet = getPreferenceScreen();
+        Resources res = getResources();
+
+        mGeneralPrefs = (PreferenceGroup) prefSet.findPreference("general_section");
+        mPhonePrefs = (PreferenceGroup) prefSet.findPreference("phone_list");
 
         Resources resources = getResources();
         mDefaultColor = resources.getColor(
@@ -140,13 +152,18 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
             (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
         mVoiceCapable = tm.getPhoneType() != TelephonyManager.PHONE_TYPE_NONE;
 
+        multicolorNotificationLed = res.getBoolean(R.bool.config_multiColorNotificationLed);
+
         setHasOptionsMenu(true);
+        removeMulticolorNotificationLedrPrefs(multicolorNotificationLed);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        refreshDefault();
+        if (multicolorNotificationLed) {
+            refreshDefault();
+        }
         refreshCustomApplicationPrefs();
         setCustomEnabled();
         getListView().setOnItemLongClickListener(this);
@@ -208,9 +225,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         int vmailTimeOff = Settings.System.getInt(
             resolver, NOTIFICATION_LIGHT_PULSE_VMAIL_LED_OFF, mDefaultLedOff);
 
-        PreferenceScreen prefSet = getPreferenceScreen();
-        PreferenceGroup generalPrefs = (PreferenceGroup) prefSet.findPreference("general_section");
-        if (generalPrefs != null) {
+        if (mGeneralPrefs != null) {
 
             // Pulse preference
             CheckBoxPreference cPref = (CheckBoxPreference) prefSet.findPreference(PULSE_PREF);
@@ -230,13 +245,12 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
             mCustomEnabledPref.setOnPreferenceChangeListener(this);
         }
 
-        PreferenceGroup phonePrefs = (PreferenceGroup) prefSet.findPreference("phone_list");
-        if (phonePrefs != null) {
+        if (mPhonePrefs != null) {
 
             // Missed call and Voicemail preferences
             // Should only show on devices with a voice capabilities
             if (!mVoiceCapable) {
-                prefSet.removePreference(phonePrefs);
+                prefSet.removePreference(mPhonePrefs);
             } else {
                 mCallPref =
                     (ApplicationLightPreference) prefSet.findPreference(MISSED_CALL_PREF);
@@ -453,10 +467,12 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        mMenu = menu;
-        mMenu.add(0, MENU_ADD, 0, R.string.notification_light_add)
-                .setIcon(R.drawable.ic_menu_add_dark)
-                .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        if (multicolorNotificationLed) {
+            mMenu = menu;
+            mMenu.add(0, MENU_ADD, 0, R.string.notification_light_add)
+                    .setIcon(R.drawable.ic_menu_add_dark)
+                    .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        }
     }
 
     @Override
@@ -698,5 +714,23 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         TextView title;
         TextView summary;
         ImageView icon;
+    }
+
+    private void removeMulticolorNotificationLedrPrefs(boolean hasMultiColorLed) {
+        Resources res = getResources();
+        prefSet = getPreferenceScreen();
+        mGeneralPrefs = (PreferenceGroup) prefSet.findPreference("general_section");
+        mDefaultPref = (ApplicationLightPreference) prefSet.findPreference(DEFAULT_PREF);
+        mCustomEnabledPref = (CheckBoxPreference) prefSet.findPreference(CUSTOM_PREF);
+        mPhonePrefs = (PreferenceGroup) prefSet.findPreference("phone_list");
+        if (!hasMultiColorLed) {
+            try {
+                mGeneralPrefs.removePreference(mDefaultPref);
+                mGeneralPrefs.removePreference(mCustomEnabledPref);
+                prefSet.removePreference(mPhonePrefs);
+            } catch (Exception e) {
+                Log.e(TAG, "AJ is a whore.");
+            }
+        }
     }
 }
