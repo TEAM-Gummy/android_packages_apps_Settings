@@ -96,6 +96,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             resolver.registerContentObserver(
                     Settings.System.getUriFor(Settings.System.HARDWARE_KEYS_DISABLE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.DOUBLE_TAP_SLEEP_GESTURE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -161,10 +164,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         mGlowpadTorch.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_GLOWPAD_TORCH, 0) == 1);
 
-        if (!DeviceUtils.deviceSupportsTorch(getActivity())) {
-            mGeneralCatagory.removePreference(mGlowpadTorch);
-        }
-
         mActiveDisplay = (PreferenceScreen) findPreference(KEY_ACTIVE_DISPLAY);
 
         mNotificationPeek = (CheckBoxPreference) findPreference(KEY_PEEK);
@@ -191,6 +190,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         boolean mHardwareKeysDisable = Settings.System.getInt(resolver,
                 Settings.System.HARDWARE_KEYS_DISABLE, 0) == 1;
         boolean mHasButtons = !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+        boolean isDblTapSleepOn = Settings.System.getInt(resolver,
+                Settings.System.DOUBLE_TAP_SLEEP_GESTURE, 0) == 1;
+
         if (peekEnabled) {
             mActiveDisplay.setEnabled(false);
             mActiveDisplay.setSummary(R.string.ad_disabled_summary);
@@ -207,6 +209,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             mNotificationPeek.setEnabled(true);
             mPeekPickupTimeout.setEnabled(true);
             mNotificationPeek.setSummary(R.string.notification_peek_summary);
+        }
+
+        if (!DeviceUtils.deviceSupportsTorch(getActivity()) || isDblTapSleepOn) {
+            mGeneralCatagory.removePreference(mGlowpadTorch);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.LOCKSCREEN_GLOWPAD_TORCH, 0);
         }
 
         try {
