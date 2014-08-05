@@ -17,6 +17,7 @@
 package com.android.settings.gummy;
 
 import android.app.ActivityManagerNative;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -27,10 +28,12 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
+import android.provider.Settings;
 import android.util.Log;
 
 import com.android.settings.R;
@@ -44,6 +47,7 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
     private static final String TAG = "AdvancedDevicePrefs";
 
     private static final String KEY_ADAPTIVE_BACKLIGHT = "adaptive_backlight";
+    private static final String KEY_ADAPTIVE_BACKLIGHT_MODE = "adaptive_backlight_mode";
     private static final String KEY_ADVANCED_DISPLAY_SETTINGS = "advanced_display_settings";
     private static final String KEY_ADVANCED_DEVICE_SETTINGS = "advanced_device_settings";
     private static final String KEY_0CLICK_SETTINGS = "advanced_0click_settings";
@@ -52,8 +56,11 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
     private static final String KEY_MORE_DEVICE_SETTINGS = "more_device_settings";
 
     private CheckBoxPreference mAdaptiveBacklight;
+    private ListPreference mAdaptiveBacklightMode;
     private PreferenceScreen mScreenColorSettings;
     private PreferenceScreen mMoreDeviceSettings;
+
+    private boolean whichABPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,11 +68,19 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.advanced_device_prefs);
 
+        Resources res = getResources();
+        ContentResolver resolver = getContentResolver();
+
+        whichABPref = res.getBoolean(R.bool.config_configurable_adaptive_backlight);
+
         mAdaptiveBacklight = (CheckBoxPreference) findPreference(KEY_ADAPTIVE_BACKLIGHT);
-        if (!AdaptiveBacklight.isSupported()) {
-            getPreferenceScreen().removePreference(mAdaptiveBacklight);
-            mAdaptiveBacklight = null;
-        }
+
+        mAdaptiveBacklightMode = (ListPreference) findPreference(KEY_ADAPTIVE_BACKLIGHT_MODE);
+        int abMode = Settings.System.getInt(resolver,
+                Settings.System.ADAPTIVE_BACKLIGHT_MODE, 1);
+        mAdaptiveBacklightMode.setValueIndex(abMode);
+        mAdaptiveBacklightMode.setSummary(mAdaptiveBacklightMode.getEntries()[abMode]);
+        mAdaptiveBacklightMode.setOnPreferenceChangeListener(this);
 
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_0CLICK_SETTINGS);
@@ -87,6 +102,7 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
         mMoreDeviceSettings = (PreferenceScreen) findPreference(KEY_MORE_DEVICE_SETTINGS);
 
         hideMoreSettingsPref();
+        useAdaptiveBacklightModePref(whichABPref);
     }
 
     @Override
@@ -112,7 +128,14 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        final String key = preference.getKey();
+        if (preference == mAdaptiveBacklightMode) {
+            int abMode = Integer.valueOf((String) objValue);
+            int index = mAdaptiveBacklightMode.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.ADAPTIVE_BACKLIGHT_MODE, abMode);
+            mAdaptiveBacklightMode.setSummary(mAdaptiveBacklightMode.getEntries()[index]);
+            return AdaptiveBacklight.setModeEnabled(abMode);
+        }
         return true;
     }
 
@@ -150,6 +173,16 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
     private void hideMoreSettingsPref() {
         if (!isMorePrefEmpty()) {
             getPreferenceScreen().removePreference(mMoreDeviceSettings);
+        }
+    }
+
+    private void useAdaptiveBacklightModePref(boolean enabled) {
+        if (!AdaptiveBacklight.isSupported() || enabled) {
+            getPreferenceScreen().removePreference(mAdaptiveBacklight);
+            mAdaptiveBacklight = null;
+        } else if (!AdaptiveBacklight.isSupported() || !enabled) {
+            getPreferenceScreen().removePreference(mAdaptiveBacklightMode);
+            mAdaptiveBacklightMode = null;
         }
     }
 }

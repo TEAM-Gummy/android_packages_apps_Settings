@@ -48,4 +48,7 @@
 
     <!-- Whether to show notification led color prefs -->
     <bool name="config_multiColorNotificationLed">true</bool>
+
+    <!-- Set true if adaptive backlight is configurable -->
+    <bool name="config_configurable_adaptive_backlight">false</bool>
 </resources>

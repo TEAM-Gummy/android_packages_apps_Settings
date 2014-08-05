@@ -1697,4 +1697,10 @@ f anonymous statistics. -->
     <string name="proximity_wake_title">Proximity wake-up</string>
     <string name="proximity_wake_summary">Use proximity sensor to help decide whether to wake device up</string>
 
+    <!-- Configurable Adaptive Backlight -->
+    <string name="adaptive_backlight_mode_dialog_title">Adaptive Backlight Mode</string>
+    <string name="adaptive_backlight_disabled">Disabled</string>
+    <string name="adaptive_backlight_low">Low</string>
+    <string name="adaptive_backlight_medium">Medium</string>
+    <string name="adaptive_backlight_high">High</string>
 </resources>

@@ -1541,4 +1541,18 @@
         <item>2</item>
     </string-array>
 
+    <!-- Configurable Adaptive Backlight -->
+    <string-array name="adaptive_backlight_entries" translatable="false">
+        <item>@string/adaptive_backlight_disabled</item>
+        <item>@string/adaptive_backlight_low</item>
+        <item>@string/adaptive_backlight_medium</item>
+        <item>@string/adaptive_backlight_high</item>
+    </string-array>
+
+    <string-array name="adaptive_backlight_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>
