@@ -77,7 +77,7 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
 
         mAdaptiveBacklightMode = (ListPreference) findPreference(KEY_ADAPTIVE_BACKLIGHT_MODE);
         int abMode = Settings.System.getInt(resolver,
-                Settings.System.ADAPTIVE_BACKLIGHT_MODE, 1);
+                Settings.System.ADAPTIVE_BACKLIGHT_MODE, 3);
         mAdaptiveBacklightMode.setValueIndex(abMode);
         mAdaptiveBacklightMode.setSummary(mAdaptiveBacklightMode.getEntries()[abMode]);
         mAdaptiveBacklightMode.setOnPreferenceChangeListener(this);
@@ -177,10 +177,15 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
     }
 
     private void useAdaptiveBacklightModePref(boolean enabled) {
-        if (!AdaptiveBacklight.isSupported() || enabled) {
+        if (!AdaptiveBacklight.isSupported()) {
+            getPreferenceScreen().removePreference(mAdaptiveBacklight);
+            getPreferenceScreen().removePreference(mAdaptiveBacklightMode);
+            mAdaptiveBacklight = null;
+            mAdaptiveBacklightMode = null;
+        } else if (enabled) {
             getPreferenceScreen().removePreference(mAdaptiveBacklight);
             mAdaptiveBacklight = null;
-        } else if (!AdaptiveBacklight.isSupported() || !enabled) {
+        } else if (!enabled) {
             getPreferenceScreen().removePreference(mAdaptiveBacklightMode);
             mAdaptiveBacklightMode = null;
         }
