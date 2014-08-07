@@ -76,11 +76,14 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
         mAdaptiveBacklight = (CheckBoxPreference) findPreference(KEY_ADAPTIVE_BACKLIGHT);
 
         mAdaptiveBacklightMode = (ListPreference) findPreference(KEY_ADAPTIVE_BACKLIGHT_MODE);
-        int abMode = Settings.System.getInt(resolver,
-                Settings.System.ADAPTIVE_BACKLIGHT_MODE, 3);
-        mAdaptiveBacklightMode.setValueIndex(abMode);
-        mAdaptiveBacklightMode.setSummary(mAdaptiveBacklightMode.getEntries()[abMode]);
-        mAdaptiveBacklightMode.setOnPreferenceChangeListener(this);
+        if (mAdaptiveBacklightMode != null) {
+            int currentMode = AdaptiveBacklight.getcurrentMode();
+            int abMode = Settings.System.getInt(resolver,
+                    Settings.System.ADAPTIVE_BACKLIGHT_MODE, currentMode);
+            mAdaptiveBacklightMode.setValueIndex(abMode);
+            mAdaptiveBacklightMode.setSummary(mAdaptiveBacklightMode.getEntries()[abMode]);
+            mAdaptiveBacklightMode.setOnPreferenceChangeListener(this);
+        }
 
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_0CLICK_SETTINGS);
@@ -147,10 +150,10 @@ public class AdvancedDevicePrefs extends SettingsPreferenceFragment implements
         if (AdaptiveBacklight.isSupported()) {
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
             final boolean enabled = prefs.getBoolean(KEY_ADAPTIVE_BACKLIGHT, true);
-            if (!AdaptiveBacklight.setEnabled(enabled)) {
-                Log.e(TAG, "Failed to restore adaptive backlight settings.");
+            if (!AdaptiveBacklight.setEnabled(enabled) || (AdaptiveBacklight.getcurrentMode() < 1)) {
+                Log.e(TAG, "Failed to restore adaptive backlight settings because AJ is a whore.");
             } else {
-                Log.d(TAG, "Adaptive backlight settings restored.");
+                Log.d(TAG, "Adaptive backlight settings restored, and AJ is still a whore.");
             }
         }
     }
