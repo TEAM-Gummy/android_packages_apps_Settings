@@ -35,7 +35,6 @@ import static com.android.internal.util.gummy.QSConstants.TILE_CUSTOM_DELIMITER;
 import static com.android.internal.util.gummy.QSConstants.TILE_DELIMITER;
 import static com.android.internal.util.gummy.QSConstants.TILE_EXPANDEDDESKTOP;
 import static com.android.internal.util.gummy.QSConstants.TILE_IMESWITCHER;
-import static com.android.internal.util.gummy.QSConstants.TILE_HEADS_UP;
 import static com.android.internal.util.gummy.QSConstants.TILE_LOCATION;
 import static com.android.internal.util.gummy.QSConstants.TILE_LOCKSCREEN;
 import static com.android.internal.util.gummy.QSConstants.TILE_LTE;
@@ -185,9 +184,6 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_PERFORMANCEPROFILE, R.string.title_tile_performance_profile,
                 "com.android.systemui:drawable/ic_qs_perf_profile_perf"));
-        registerTile(new QuickSettingsUtil.TileInfo(
-                TILE_HEADS_UP, R.string.title_tile_headsup,
-                "com.android.systemui:drawable/ic_qs_headsup_on"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_CONTACT, R.string.title_tile_contact,
                 "com.android.systemui:drawable/ic_qs_default_user"));

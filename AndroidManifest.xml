@@ -1820,8 +1820,6 @@
                        android:value="com.android.settings.GummyInterface" />
         </activity>
 
-        <activity android:name=".headsup.HeadsUpSettings" />
-
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
                 android:label="@string/crypt_keeper_encrypt_title">

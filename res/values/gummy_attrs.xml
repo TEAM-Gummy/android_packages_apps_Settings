@@ -38,10 +38,4 @@
         <attr name="unitsRight" format="string" />
     </declare-styleable>
 
-    <declare-styleable name="GummySeekBarPreference">
-        <attr name="min" format="integer" />
-        <attr name="unitsL" format="string" />
-        <attr name="unitsR" format="string" />
-    </declare-styleable>
-
 </resources>
