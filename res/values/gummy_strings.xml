@@ -1722,4 +1722,9 @@ f anonymous statistics. -->
     <!-- Heads-up disable on lockscreen -->
     <string name="heads_up_exclude_from_lock_screen">Disable on lockscreen</string>
 
+    <!-- Volume Panel BG -->
+    <string name="volume_panel_bg_color_title">Volume panel BG color</string>
+    <string name="default_color">Default</string>
+    <string name="reset_default_message">Reset default</string>
+
 </resources>
